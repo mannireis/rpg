@@ -52,6 +52,7 @@ func snap_to_nearest_point() -> void:
 			current_point = target_point
 		else:
 			current_point = null
+			
 
 
 func animate_hovering() -> void:
