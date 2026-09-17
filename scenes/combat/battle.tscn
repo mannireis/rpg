@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://dblgm5ykbgqum"]
+
+[ext_resource type="Script" uid="uid://ov2xhwty8yje" path="res://scripts/combat/card_holder.gd" id="1_3vhqq"]
+[ext_resource type="PackedScene" uid="uid://b8r8mkw0q8nwx" path="res://scenes/combat/visual_card.tscn" id="1_agnou"]
+[ext_resource type="Resource" uid="uid://cp37bjsg6xkxf" path="res://resources/cards/testing.tres" id="2_3vhqq"]
+[ext_resource type="Texture2D" uid="uid://de2vyrdwpvrji" path="res://assets/mat.png" id="3_cr0qs"]
+[ext_resource type="Resource" uid="uid://bxmj1dggqjkc4" path="res://resources/cards/test2.tres" id="4_a4igv"]
+
+[node name="BattleRoom" type="Node2D" unique_id=96185152]
+metadata/_edit_horizontal_guides_ = [-12.0]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1172803837]
+
+[node name="SnapPoints" type="Node" parent="CanvasLayer" unique_id=1029013003 node_paths=PackedStringArray("snap_points")]
+script = ExtResource("1_3vhqq")
+snap_points = [NodePath("SnapPoint"), NodePath("SnapPoint2"), NodePath("SnapPoint3"), NodePath("SnapPoint4"), NodePath("SnapPoint5"), NodePath("SnapPoint6"), NodePath("SnapPoint7"), NodePath("SnapPoint8")]
+
+[node name="VisualCard" parent="CanvasLayer/SnapPoints" unique_id=176121807 instance=ExtResource("1_agnou")]
+offset_left = 52.0
+offset_top = 172.0
+offset_right = 89.0
+offset_bottom = 224.0
+card = ExtResource("2_3vhqq")
+
+[node name="VisualCard2" parent="CanvasLayer/SnapPoints" unique_id=123137353 instance=ExtResource("1_agnou")]
+offset_left = 166.0
+offset_top = 154.0
+offset_right = 203.0
+offset_bottom = 206.0
+card = ExtResource("4_a4igv")
+
+[node name="SnapPoint8" type="Control" parent="CanvasLayer/SnapPoints" unique_id=361185160]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 100.0
+offset_top = 116.0
+offset_right = 137.0
+offset_bottom = 168.0
+mouse_filter = 2
+
+[node name="SnapPoint7" type="Control" parent="CanvasLayer/SnapPoints" unique_id=2122941605]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 141.0
+offset_top = 116.0
+offset_right = 178.0
+offset_bottom = 168.0
+mouse_filter = 2
+
+[node name="SnapPoint6" type="Control" parent="CanvasLayer/SnapPoints" unique_id=333189486]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 182.0
+offset_top = 116.0
+offset_right = 219.0
+offset_bottom = 168.0
+mouse_filter = 2
+
+[node name="SnapPoint5" type="Control" parent="CanvasLayer/SnapPoints" unique_id=2146593391]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 223.0
+offset_top = 172.0
+offset_right = 260.0
+offset_bottom = 224.0
+mouse_filter = 2
+
+[node name="SnapPoint4" type="Control" parent="CanvasLayer/SnapPoints" unique_id=2088390886]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 182.0
+offset_top = 172.0
+offset_right = 219.0
+offset_bottom = 224.0
+mouse_filter = 2
+
+[node name="SnapPoint3" type="Control" parent="CanvasLayer/SnapPoints" unique_id=566027806]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 141.0
+offset_top = 172.0
+offset_right = 178.0
+offset_bottom = 224.0
+mouse_filter = 2
+
+[node name="SnapPoint2" type="Control" parent="CanvasLayer/SnapPoints" unique_id=602367213]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 100.0
+offset_top = 172.0
+offset_right = 137.0
+offset_bottom = 224.0
+mouse_filter = 2
+
+[node name="SnapPoint" type="Control" parent="CanvasLayer/SnapPoints" unique_id=17325602]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 59.0
+offset_top = 172.0
+offset_right = 96.0
+offset_bottom = 224.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1860065832]
+z_index = -255
+offset_right = 320.0
+offset_bottom = 240.0
+mouse_filter = 2
+texture = ExtResource("3_cr0qs")
