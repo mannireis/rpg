@@ -216,7 +216,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ib3ld"]
-size = Vector2(12, 12)
+size = Vector2(16, 14)
 
 [node name="Player" type="CharacterBody2D" unique_id=1648858471]
 script = ExtResource("1_8afob")
@@ -227,7 +227,7 @@ animation = &"walk_up"
 frame_progress = 0.41342232
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=78072334]
-position = Vector2(0, 9)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_ib3ld")
 
 [node name="TransitionCanvasLayer" parent="." unique_id=1274938685 instance=ExtResource("3_gmlin")]

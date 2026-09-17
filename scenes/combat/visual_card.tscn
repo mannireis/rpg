@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b8r8mkw0q8nwx"]
+
+[ext_resource type="Script" uid="uid://pkp7pg7vj7gi" path="res://scripts/combat/visual_card.gd" id="1_0d0pt"]
+[ext_resource type="Resource" uid="uid://cp37bjsg6xkxf" path="res://resources/cards/testing.tres" id="2_lhhd1"]
+
+[node name="VisualCard" type="Control" unique_id=176121807]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 37.0
+offset_bottom = 52.0
+size_flags_horizontal = 0
+script = ExtResource("1_0d0pt")
+card = ExtResource("2_lhhd1")
+
+[node name="CardTexture" type="TextureRect" parent="." unique_id=416440306]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
