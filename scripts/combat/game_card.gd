@@ -1,38 +1,38 @@
-class_name GameCard extends Node
-enum Suit { SPADES, CLUBS, HEARTS, DIAMONDS, OTHER }
-var atk: Vector2i = Vector2i(0,0)
-var equipped: bool = false
-var used_turn: bool = false
-static func create(suit: Suit, id: int, can_atk: bool, atk_dmg: Vector2i = Vector2i(0,0), cardname:String = "", text:String = "") -> GameCard:
-	var card = GameCard.new()
+class_name Card extends Resource
+enum S { SPADES, CLUBS, HEARTS, DIAMONDS, OTHER }
+@export var atk: Vector2i = Vector2i(0,0)
+static func create(suit: S, id: int, can_atk: bool, atk_dmg: Vector2i = Vector2i(0,0), cardname:String = "", text:String = "") -> Card:
+	var card = Card.new()
 	card.suit = suit
 	card.id = id
 	card.can_atk = can_atk
 	card.atk = atk_dmg
 	card.name = cardname
 	card.text = text
-	card.prio.dmg_in = 0 #controls which equipment gets priority for modifiers
-	card.prio.dmg_out = 0
+	card.prio.dmg_in = 5 #controls which equipment gets priority for modifiers
+	card.prio.dmg_out = 5
+	card.prio.other = 5
 	return card
 	
+# _null arguments make for easier call() with known number of args
 func mod_dmg_in(dmg:Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:
 	return dmg
-	
 func mod_dmg_out(dmg:Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:	
 	return dmg
-
-func weapon_atk(_ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:
+func weapon_atk(_null, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:
 	return atk
-	
-func mod_trash_choice(_ctl:PlayerCtl) -> int:
+func mod_trash_choice(_null, _ctl:PlayerCtl, _null2) -> int:
 	return -1
-	
-func mod_discard_event(_choice: int, _ctl: PlayerCtl) -> void:
+func mod_discard_event(_choice: int, _ctl: PlayerCtl, _null2) -> void:
 	pass
-	
-func next_turn_effect(_ctl: PlayerCtl) -> void:
+func next_turn_effect(_null,_ctl: PlayerCtl,_null2) -> void:
 	pass
-
+func mod_block(block: Vector2i, _ctl: PlayerCtl,_enemy_ctl: PlayerCtl) -> Vector2i:
+	return block
+func turn_begin(_null,_ctl:PlayerCtl,_enemy_ctl: PlayerCtl) -> void:
+	pass
+func turn_end(_null,_ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> void:
+	pass
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
