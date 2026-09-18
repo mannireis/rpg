@@ -2,9 +2,10 @@
 extends Control
 
 @onready var card_texture: TextureRect = $CardTexture
-
+@onready var battle_manager: Node = get_tree().get_root().get_node("BattleManager")
 @export var card: CardBase
-
+var index_in_deck: int = -1
+var mouse_pressed = false
 var dragging = false
 var hovering = false
 var drag_offset = Vector2()
@@ -16,22 +17,28 @@ func _ready() -> void:
 	pivot_offset = size / 2
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	animate_hovering()
 
 
 func _gui_input(event) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			dragging = true
-			drag_offset = get_global_mouse_position() - global_position
-			if current_point:
-				var point_manager = get_parent()
-				if point_manager.occupied.get(current_point) == self:
-					point_manager.occupied.erase(current_point)
-				current_point = null
+			mouse_pressed = true
+			await get_tree().create_timer(0.3).timeout #handle click vs drag
+			if mouse_pressed == false:
+				_on_mouse_short_click()
+			else:
+				dragging = true
+				drag_offset = get_global_mouse_position() - global_position
+				if current_point:
+					var point_manager = get_parent()
+					if point_manager.occupied.get(current_point) == self:
+						point_manager.occupied.erase(current_point)
+					current_point = null
 		else:
 			dragging = false
+			mouse_pressed = false
 			snap_to_nearest_point()
 	elif event is InputEventMouseMotion and dragging:
 		global_position = get_global_mouse_position() - drag_offset
@@ -65,6 +72,9 @@ func animate_hovering() -> void:
 	else:
 		tween.tween_property(self, "scale", Vector2(1.0,1.0), 0.1)
 		tween.parallel().tween_property(self, "rotation_degrees", 0.0, 0.15)
+
+func _on_mouse_short_click() -> void:
+	pass
 
 
 func _on_mouse_entered() -> void:
