@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GameCard" format=3 uid="uid://dfonwtupccclu"]
+
+[ext_resource type="Script" uid="uid://deuydhl5f3t68" path="res://scripts/combat/game_card.gd" id="1_ckl42"]
+
+[resource]
+script = ExtResource("1_ckl42")
+metadata/_custom_type_script = "uid://deuydhl5f3t68"

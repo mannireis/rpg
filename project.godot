@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 RoomChangeGlobal="*uid://cah66quctdohc"
 Transition="*uid://d2ne35ucdgjui"
-CardDatabase="*uid://dleuvaavpujwe"
+CardDatabase="uid://dleuvaavpujwe"
 
 [display]
 
