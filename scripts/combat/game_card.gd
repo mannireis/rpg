@@ -14,11 +14,16 @@ static func create(suit: S, id: int, can_atk: bool, atk_dmg: Vector2i = Vector2i
 	card.text = text
 	card.prio.dmg_in = 5 #controls which equipment gets priority for modifiers
 	card.prio.dmg_out = 5
+	card.prio.block = 5
 	card.prio.other = 5
 	return card
 	
-func play(_null, _ctl:PlayerCtl, _enemy_ctl: PlayerCtl) -> Array:
+func play(_ctl:PlayerCtl, _enemy_ctl: PlayerCtl) -> Array:
 	return [Move.TRASH,Vector2i(0,0),Vector2i(0,0)]
+
+func when_equipped(_ctl:PlayerCtl, _enemy_ctl: PlayerCtl) -> void: #doesn't need priority so no _null
+	pass
+
 # _null arguments make for easier call() with known number of args
 func mod_dmg_in(dmg:Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:
 	return dmg
@@ -34,6 +39,8 @@ func next_turn_effect(_null,_ctl: PlayerCtl,_null2) -> void:
 	pass
 func mod_block(block: Vector2i, _ctl: PlayerCtl,_enemy_ctl: PlayerCtl) -> Vector2i:
 	return block
+func mod_any_equipped(eq_card_index: Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> void:
+	pass
 func turn_begin(_null,_ctl:PlayerCtl,_enemy_ctl: PlayerCtl) -> void:
 	pass
 func turn_end(_null,_ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> void:
