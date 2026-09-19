@@ -6,6 +6,7 @@ var deck_order = range(52)
 const v0 = Vector2i(0,0) #NOT vercel
 const max_hp = 26
 var hp = max_hp
+var is_enemy: bool = false
 var block_current: int = 0
 var block_history: int = 1
 var next_turn: Array[Callable] = []
@@ -19,16 +20,18 @@ func draw(count: int = 1) -> void:
 	for i in range(count):
 		hand.append(deck_order.pop_back())
 
-static func create(deck: Array[GameCard] = []) -> PlayerCtl:
+static func create(deck: Array[GameCard] = [], init_is_enemy: bool = false) -> PlayerCtl:
 	var ctl = PlayerCtl.new()
 	ctl.deck_order.shuffle()
 	ctl.permanent_deck = deck
+	ctl.is_enemy = init_is_enemy
 	return ctl
 	
-func run_equipped(method: String,enemy, vec: Vector2i = Vector2i(0,0),prio_type: String = "other",feedback: bool = false):
+func run_equipped(method: String, vec: Vector2i = Vector2i(0,0),prio_type: String = "other",feedback: bool = false):
 	var targets = range(len(equipped))
 	var prio = 0
 	var _counter: int = len(equipped)
+	var enemy = battle_manager.get_oppo(is_enemy)
 	while targets != [] and prio < 10: #execute modifier methods in priority order
 		var i = 0
 		while i < len(targets):
@@ -50,19 +53,19 @@ func run_equipped(method: String,enemy, vec: Vector2i = Vector2i(0,0),prio_type:
 	return vec
 
 func receive_dmg(dmg:Vector2i) -> void:
-	dmg = run_equipped("mod_dmg_in",battle_manager.enemy,dmg,"dmg_in",true)
+	dmg = run_equipped("mod_dmg_in",dmg,"dmg_in",true)
 	print("receiving final dmg "+str(dmg))
 	hp -= dmg[0]
 	pass
 
 
 func exec_atk(dmg:Vector2i) -> void:
-	dmg = run_equipped("mod_dmg_out",battle_manager.enemy,dmg,"dmg_out",true)
+	dmg = run_equipped("mod_dmg_out",dmg,"dmg_out",true)
 	print("final dmg "+str(dmg))
-	battle_manager.call_as_player("receive_dmg",[dmg],true)
+	battle_manager.call_as_player("receive_dmg",[dmg],!is_enemy)
 	
 func exec_block(dmg:Vector2i) -> void:
-	dmg = run_equipped("mod_block",battle_manager.enemy,dmg,"block",true)
+	dmg = run_equipped("mod_block",dmg,"block",true)
 	print("final block "+str(dmg))
 	block_accumulator[-1] += dmg[0] #TODO: block typing & dmg typing
 func play_card(card_index: int) -> void:
@@ -84,21 +87,31 @@ func play_card(card_index: int) -> void:
 		printerr("card #"+str(card_index)+" name "+permanent_deck[card_index].name+" not present in hand "+str(hand)+" or elsewhere")
 		return
 	var card: GameCard = permanent_deck[card_index]
-	var res = card.play(self,battle_manager.enemy)
+	var res = card.play(self,battle_manager.get_oppo(is_enemy))
 	const M = GameCard.Move
 	if res[1] != v0:
 		exec_atk(res[1])
 	if res[2] != v0:
 		exec_block(res[2])
+	var side_int = 0
+	if is_enemy: side_int = 1
 	match res[0]:
 		M.STAY:
 			return
 		M.EQUIP:
 			equipped.append(card_index)
-			card.when_equipped(self,battle_manager.enemy)
-			run_equipped("mod_any_equipped",battle_manager.enemy,Vector2i(card_index,card.suit))
+			card.when_equipped(self,battle_manager.get_oppo(is_enemy))
+			run_equipped("mod_any_equipped",Vector2i(card_index,side_int))
 		M.RFG:
-			pass
+			removed_from_game.append(card_index)
+		M.TRASH:
+			burn.append(card_index)
+			run_equipped("mod_any_trashed",Vector2i(card_index,side_int))
+	match loc:
+		0: hand.pop_at(ind)
+		1: burn.pop_at(ind)
+		2: deck_order.pop_at(ind)
+		3: removed_from_game.pop_at(ind)
 			
 			
 		
