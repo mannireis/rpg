@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ov2xhwty8yje" path="res://scripts/combat/card_holder.gd" id="1_3vhqq"]
 [ext_resource type="PackedScene" uid="uid://b8r8mkw0q8nwx" path="res://scenes/combat/visual_card.tscn" id="1_agnou"]
-[ext_resource type="Resource" uid="uid://cp37bjsg6xkxf" path="res://resources/cards/testing.tres" id="2_3vhqq"]
 [ext_resource type="Texture2D" uid="uid://de2vyrdwpvrji" path="res://assets/mat.png" id="3_cr0qs"]
-[ext_resource type="Resource" uid="uid://bxmj1dggqjkc4" path="res://resources/cards/test2.tres" id="4_a4igv"]
 [ext_resource type="Script" uid="uid://5s8gps1iisx" path="res://scenes/combat/battle_manager.gd" id="6_t81kl"]
 
 [node name="BattleRoom" type="Node2D" unique_id=96185152]
@@ -23,7 +21,6 @@ offset_top = 172.0
 offset_right = 89.0
 offset_bottom = 224.0
 pivot_offset = Vector2(18.5, 26)
-card = ExtResource("2_3vhqq")
 
 [node name="VisualCard2" parent="CanvasLayer/SnapPoints" unique_id=123137353 instance=ExtResource("1_agnou")]
 offset_left = 166.0
@@ -31,7 +28,6 @@ offset_top = 154.0
 offset_right = 203.0
 offset_bottom = 206.0
 pivot_offset = Vector2(18.5, 26)
-card = ExtResource("4_a4igv")
 
 [node name="Play" type="Button" parent="CanvasLayer/SnapPoints" unique_id=1419213483]
 custom_minimum_size = Vector2(37, 52)

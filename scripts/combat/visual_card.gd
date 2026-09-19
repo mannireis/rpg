@@ -3,8 +3,10 @@ extends Control
 
 @onready var card_texture: TextureRect = $CardTexture
 @onready var battle_manager: Node = get_tree().get_root().get_node("BattleRoom").get_node("BattleManager")
-@export var card: CardBase
 var index_in_deck: int = -1
+var color: GameCard.S
+var id: int
+var data: GameCard = CardDatabase.db[int(color)][id]
 var dragging = false
 var hovering = false
 var drag_offset = Vector2()
@@ -12,7 +14,7 @@ var current_point: Control = null
 
 
 func _ready() -> void:
-	card_texture.texture = card.card_data.img
+	card_texture.texture = data.img
 	pivot_offset = size / 2
 
 func _process(_delta: float) -> void:
