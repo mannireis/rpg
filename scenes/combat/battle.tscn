@@ -12,9 +12,10 @@ metadata/_edit_horizontal_guides_ = [-12.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1172803837]
 
-[node name="SnapPoints" type="Node" parent="CanvasLayer" unique_id=1029013003 node_paths=PackedStringArray("snap_points")]
+[node name="SnapPoints" type="Node" parent="CanvasLayer" unique_id=1029013003 node_paths=PackedStringArray("snap_points", "points_to_play")]
 script = ExtResource("1_3vhqq")
 snap_points = [NodePath("SnapPoint"), NodePath("SnapPoint2"), NodePath("SnapPoint3"), NodePath("SnapPoint4"), NodePath("SnapPoint5"), NodePath("SnapPoint6"), NodePath("SnapPoint7"), NodePath("SnapPoint8")]
+points_to_play = [NodePath("SnapPoint6"), NodePath("SnapPoint7"), NodePath("SnapPoint8")]
 
 [node name="VisualCard" parent="CanvasLayer/SnapPoints" unique_id=176121807 instance=ExtResource("1_agnou")]
 offset_left = 52.0
@@ -31,6 +32,16 @@ offset_right = 203.0
 offset_bottom = 206.0
 pivot_offset = Vector2(18.5, 26)
 card = ExtResource("4_a4igv")
+
+[node name="Play" type="Button" parent="CanvasLayer/SnapPoints" unique_id=1419213483]
+visible = false
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+offset_left = 223.0
+offset_top = 116.0
+offset_right = 260.0
+offset_bottom = 168.0
+mouse_filter = 2
 
 [node name="SnapPoint8" type="Control" parent="CanvasLayer/SnapPoints" unique_id=361185160]
 custom_minimum_size = Vector2(37, 52)
@@ -129,3 +140,5 @@ texture = ExtResource("3_cr0qs")
 
 [node name="BattleManager" type="Node" parent="." unique_id=331644232]
 script = ExtResource("6_t81kl")
+
+[connection signal="button_up" from="CanvasLayer/SnapPoints/Play" to="CanvasLayer/SnapPoints" method="play_cards"]

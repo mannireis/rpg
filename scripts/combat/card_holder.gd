@@ -1,6 +1,7 @@
 extends Node
 
 @export var snap_points: Array[Control] = []
+@export var points_to_play: Array[Control] = []
 var occupied: Dictionary = {} 
 
 func get_nearest_point(global_pos: Vector2) -> Control:
@@ -13,3 +14,6 @@ func get_nearest_point(global_pos: Vector2) -> Control:
 			nearset_dist = dist
 			nearest = point
 	return nearest
+
+func play_cards() -> void:
+	pass

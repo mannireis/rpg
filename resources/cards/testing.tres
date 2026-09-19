@@ -6,7 +6,8 @@
 [resource]
 script = ExtResource("1_qnk0g")
 card_name = "meow"
-card_id = &"meow"
+card_color = 1
+card_id = null
 card_texture = ExtResource("1_u2hft")
 rarity = 3
 description = "meow"

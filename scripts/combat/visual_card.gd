@@ -15,7 +15,6 @@ func _ready() -> void:
 	card_texture.texture = card.card_texture
 	pivot_offset = size / 2
 
-
 func _process(_delta: float) -> void:
 	animate_hovering()
 

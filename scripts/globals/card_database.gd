@@ -5,7 +5,8 @@ var db: Array[Array] = [
 [GameCard.create(GameCard.S.CLUBS,0,false,v0,"Good Posture")],
 [],
 [],
-[GameCard.create(GameCard.S.OTHER,0,true,Vector2i(3,0),"Punch"),GameCard.create(GameCard.S.OTHER,0,true,Vector2i(-3,0),"Block")]]
+[],
+[GameCard.create(GameCard.S.OTHER,0,true,Vector2i(3,0),"Punch",0),GameCard.create(GameCard.S.OTHER,0,true,Vector2i(-3,0),"Block",0)]]
 ## Called when the node enters the scene tree for the first time.
 #func _ready() -> void:
 	#pass # Replace with function body.
