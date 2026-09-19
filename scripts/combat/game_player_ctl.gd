@@ -1,7 +1,7 @@
 class_name PlayerCtl extends Node
 
 enum TurnState {ACTIVE, INACTIVE}
-@onready var battle_manager = get_tree().get_root().get_node("BattleManager")
+@onready var battle_manager = get_tree().get_root().get_node("BattleRoom").get_node("BattleManager")
 var deck_order = range(52)
 const v0 = Vector2i(0,0) #NOT vercel
 const max_hp = 26
@@ -20,9 +20,31 @@ func draw(count: int = 1) -> void:
 	for i in range(count):
 		hand.append(deck_order.pop_back())
 
-static func create(deck: Array[GameCard] = [], init_is_enemy: bool = false) -> PlayerCtl:
+static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy: bool = false) -> PlayerCtl:
 	var ctl = PlayerCtl.new()
+	ctl.battle_manager = battle_room.get_node("BattleManager")
+	if deck == []:
+		for i in range(5):
+			deck.append(CardDatabase.db[0][0])
+			deck.append(CardDatabase.db[0][0]) #preparation for starter deck
+		for i in range(3):
+			deck.append(CardDatabase.db[0][0]) #will be different cards once i conjure more images for them
+		for i in range(5):
+			deck.append(CardDatabase.db[1][0])
+			deck.append(CardDatabase.db[1][0])
+		for i in range(3):
+			deck.append(CardDatabase.db[1][0])
+	ctl.deck_order = range(len(deck))
 	ctl.deck_order.shuffle()
+	if init_is_enemy:
+		if true and battle_room: #workaround until cards are instantiated by PlayerCtl
+			ctl.hand.append(0)
+			ctl.hand.append(13)
+			var snap_points = battle_room.get_node("CanvasLayer/SnapPoints")
+			snap_points.get_node("VisualCard").index_in_deck = 0
+			snap_points.get_node("VisualCard2").index_in_deck = 13
+			ctl.deck_order.pop_at(13)
+			ctl.deck_order.pop_front()
 	ctl.permanent_deck = deck
 	ctl.is_enemy = init_is_enemy
 	return ctl
@@ -68,9 +90,10 @@ func exec_block(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_block",dmg,"block",true)
 	print("final block "+str(dmg))
 	block_accumulator[-1] += dmg[0] #TODO: block typing & dmg typing
-func play_card(card_index: int) -> void:
+func play_card(card_index: int) -> Vector2i:
 	var loc = -1
 	var ind = -1
+	const M = GameCard.Move
 	if hand.has(card_index):
 		loc = 0
 		ind = hand.find(card_index)
@@ -85,10 +108,9 @@ func play_card(card_index: int) -> void:
 		ind = removed_from_game.has(card_index)
 	else:
 		printerr("card #"+str(card_index)+" name "+permanent_deck[card_index].name+" not present in hand "+str(hand)+" or elsewhere")
-		return
+		return Vector2i(int(M.STAY),loc)
 	var card: GameCard = permanent_deck[card_index]
 	var res = card.play(self,battle_manager.get_oppo(is_enemy))
-	const M = GameCard.Move
 	if res[1] != v0:
 		exec_atk(res[1])
 	if res[2] != v0:
@@ -97,7 +119,7 @@ func play_card(card_index: int) -> void:
 	if is_enemy: side_int = 1
 	match res[0]:
 		M.STAY:
-			return
+			return Vector2i(int(M.STAY),loc)
 		M.EQUIP:
 			equipped.append(card_index)
 			card.when_equipped(self,battle_manager.get_oppo(is_enemy))
@@ -112,6 +134,7 @@ func play_card(card_index: int) -> void:
 		1: burn.pop_at(ind)
 		2: deck_order.pop_at(ind)
 		3: removed_from_game.pop_at(ind)
+	return Vector2i(int(res[0]),loc)
 			
 			
 		

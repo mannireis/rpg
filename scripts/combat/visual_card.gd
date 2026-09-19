@@ -2,7 +2,7 @@
 extends Control
 
 @onready var card_texture: TextureRect = $CardTexture
-@onready var battle_manager: Node = get_tree().get_root().get_node("BattleManager")
+@onready var battle_manager: Node = get_tree().get_root().get_node("BattleRoom").get_node("BattleManager")
 @export var card: CardBase
 var index_in_deck: int = -1
 var dragging = false

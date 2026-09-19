@@ -34,14 +34,12 @@ pivot_offset = Vector2(18.5, 26)
 card = ExtResource("4_a4igv")
 
 [node name="Play" type="Button" parent="CanvasLayer/SnapPoints" unique_id=1419213483]
-visible = false
 custom_minimum_size = Vector2(37, 52)
 custom_maximum_size = Vector2(37, 52)
 offset_left = 223.0
 offset_top = 116.0
 offset_right = 260.0
 offset_bottom = 168.0
-mouse_filter = 2
 
 [node name="SnapPoint8" type="Control" parent="CanvasLayer/SnapPoints" unique_id=361185160]
 custom_minimum_size = Vector2(37, 52)
@@ -141,4 +139,4 @@ texture = ExtResource("3_cr0qs")
 [node name="BattleManager" type="Node" parent="." unique_id=331644232]
 script = ExtResource("6_t81kl")
 
-[connection signal="button_up" from="CanvasLayer/SnapPoints/Play" to="CanvasLayer/SnapPoints" method="play_cards"]
+[connection signal="pressed" from="CanvasLayer/SnapPoints/Play" to="CanvasLayer/SnapPoints" method="play_cards"]
