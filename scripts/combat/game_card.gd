@@ -8,10 +8,10 @@ var id: int
 var cost: int
 var can_atk: bool
 var name: String
-var img_override: String = ""
+var img: Texture2D
 var text: String = ""
 var prio = {"dmg_in":5,"dmg_out":5,"block":5,"other":5}
-static func create(suit: S, id: int, can_atk: bool, atk_dmg: Vector2i = Vector2i(0,0), cardname:String = "", cardcost:int = 1, img_override:String = "", text:String = "") -> GameCard:
+static func create(suit: S, id: int, can_atk: bool, atk_dmg: Vector2i = Vector2i(0,0), cardname:String = "", cardcost:int = 1, img_texture:Texture2D = null, text:String = "") -> GameCard:
 	var card = GameCard.new()
 	card.suit = suit
 	card.id = id
@@ -19,7 +19,7 @@ static func create(suit: S, id: int, can_atk: bool, atk_dmg: Vector2i = Vector2i
 	card.atk = atk_dmg
 	card.name = cardname
 	card.cost = cardcost
-	card.img_override = img_override
+	card.img = img_texture
 	card.text = text
 	return card
 	

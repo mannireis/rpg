@@ -12,7 +12,7 @@ var current_point: Control = null
 
 
 func _ready() -> void:
-	card_texture.texture = card.card_texture
+	card_texture.texture = card.card_data.img
 	pivot_offset = size / 2
 
 func _process(_delta: float) -> void:
