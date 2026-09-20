@@ -1,9 +1,23 @@
 [gd_scene format=3 uid="uid://c4wkyyi1muhiy"]
 
 [ext_resource type="Script" uid="uid://lufukau2u6kq" path="res://scripts/player/dialogue/dialogue_ui.gd" id="1_1iitr"]
+[ext_resource type="FontFile" uid="uid://cgr41e0d47bht" path="res://assets/fonts/Silver.ttf" id="2_krlqt"]
+[ext_resource type="Theme" uid="uid://be6nkpog7kvd8" path="res://scenes/ui/themes/theme.tres" id="3_7ts5s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ei700"]
 bg_color = Color(0.2159017, 0.21590173, 0.21590161, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_krlqt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ts5s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ts5s"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jo2hd"]
+content_margin_top = 3.0
 
 [node name="DialogueUi" type="CanvasLayer" unique_id=1417898694]
 script = ExtResource("1_1iitr")
@@ -32,24 +46,60 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Speaker" type="Label" parent="Panel/MarginContainer" unique_id=494088755]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer" unique_id=1247152038]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer" unique_id=1397406735]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 0
+
+[node name="Speaker" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=494088755]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 10
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_krlqt")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxEmpty_krlqt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ts5s")
 text = "banana bread"
 
-[node name="Content" type="Label" parent="Panel/MarginContainer" unique_id=1491318741]
-custom_minimum_size = Vector2(0, 64)
-custom_maximum_size = Vector2(254, 64)
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=917398033]
 layout_mode = 2
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 8
-text = "asrarstratrast"
+theme_override_constants/separation = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_7ts5s")
 
-[node name="Choices" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1111945978]
-custom_minimum_size = Vector2(48, 64)
-custom_maximum_size = Vector2(64, 64)
+[node name="Content" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1491318741]
+custom_maximum_size = Vector2(204, -1)
 layout_mode = 2
-size_flags_horizontal = 8
 size_flags_vertical = 8
+theme = ExtResource("3_7ts5s")
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_krlqt")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jo2hd")
+text = "asrarstratrast"
+autowrap_mode = 3
+
+[node name="Choices" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer" unique_id=1111945978]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/HBoxContainer/Choices" unique_id=2050061675]
+layout_mode = 2
+theme = ExtResource("3_7ts5s")
+text = "Option 1"
+
+[node name="Button2" type="Button" parent="Panel/MarginContainer/HBoxContainer/Choices" unique_id=288080163]
+layout_mode = 2
+theme = ExtResource("3_7ts5s")
+text = "Option 1"
+
+[node name="Button3" type="Button" parent="Panel/MarginContainer/HBoxContainer/Choices" unique_id=1145696759]
+layout_mode = 2
+theme = ExtResource("3_7ts5s")
+text = "Option 1"

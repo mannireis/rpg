@@ -1,9 +1,9 @@
 extends CanvasLayer
 
 @onready var panel: Panel = $Panel
-@onready var speaker: Label = $Panel/MarginContainer/Speaker
-@onready var content: Label = $Panel/MarginContainer/Content
-@onready var choices: VBoxContainer = $Panel/MarginContainer/Choices
+@onready var speaker: Label = $Panel/MarginContainer/HBoxContainer/VBoxContainer/Speaker
+@onready var content: Label = $Panel/MarginContainer/HBoxContainer/VBoxContainer/Content
+@onready var choices: VBoxContainer = $Panel/MarginContainer/HBoxContainer/Choices
 
 const LETTER_TIME:float = 0.04
 const PUNCTUATION_TIME:float = 0.3
@@ -30,13 +30,16 @@ func _on_line(line: Dictionary) -> void:
 		var b := Button.new()
 		b.mouse_filter = Control.MOUSE_FILTER_STOP
 		
+		
+		b.theme = load("res://scenes/ui/themes/theme.tres")
+		
 		b.text = c["text"]
 		b.pressed.connect(DialogueManager.choose.bind(c["next"]))
 		choices.add_child(b)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not event.is_action_pressed("Interact"):
+	if not (event.is_action_pressed("Interact") or event.is_action_pressed("next")):
 		return
 
 	if tween and tween.is_running():

@@ -1,0 +1,21 @@
+[gd_resource type="Theme" format=3 uid="uid://be6nkpog7kvd8"]
+
+[ext_resource type="FontFile" uid="uid://cgr41e0d47bht" path="res://assets/fonts/Silver.ttf" id="1_dbjay"]
+[ext_resource type="StyleBox" uid="uid://dgc8k5120qt3e" path="res://scenes/ui/themes/button_hover.tres" id="2_7bacb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ts5s"]
+border_width_left = 2
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+
+[resource]
+Button/constants/h_separation = 0
+Button/constants/line_spacing = 0
+Button/font_sizes/font_size = 19
+Button/fonts/font = ExtResource("1_dbjay")
+Button/styles/hover = ExtResource("2_7bacb")
+Button/styles/normal = SubResource("StyleBoxFlat_7ts5s")
+Button/styles/pressed = ExtResource("2_7bacb")

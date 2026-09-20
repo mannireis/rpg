@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dwikxcvj1cl3o"]
+
+[ext_resource type="Script" uid="uid://kmu12h0vnox3" path="res://scripts/npcs/john.gd" id="1_5civ2"]
+[ext_resource type="Texture2D" uid="uid://dbvmqaav63qbf" path="res://assets/charechthers/john.png" id="1_vpdsa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5civ2"]
+atlas = ExtResource("1_vpdsa")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvove"]
+atlas = ExtResource("1_vpdsa")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmubj"]
+atlas = ExtResource("1_vpdsa")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pw12"]
+atlas = ExtResource("1_vpdsa")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ib3ld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5civ2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvove")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmubj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pw12")
+}],
+"loop": 1,
+"name": &"Thinking",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1yr0"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ib3ld"]
+size = Vector2(48, 48)
+
+[node name="John" type="CharacterBody2D" unique_id=1079785543]
+script = ExtResource("1_5civ2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=727085948]
+z_index = -10
+sprite_frames = SubResource("SpriteFrames_ib3ld")
+animation = &"Idle"
+frame_progress = 0.7942795
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=972199641]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_l1yr0")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=311927769]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1005760967]
+shape = SubResource("RectangleShape2D_ib3ld")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
