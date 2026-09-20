@@ -1,21 +1,22 @@
 class_name GameCard extends Resource
 enum S { SPADES, CLUBS, HEARTS, DIAMONDS, JOKER, OTHER }
 enum Move { STAY, EQUIP, TRASH, RFG }
+enum Able { NONE, ATK, BLOCK}
 #meant to be constant, do not store game state info inside
-@export var atk: Vector2i = Vector2i(0,0)
+var atk: Vector2i
 var suit: S
 var id: int
 var cost: int
-var can_atk: bool
+var able: Able
 var name: String
 var img: Texture2D
 var text: String = ""
 var prio = {"dmg_in":5,"dmg_out":5,"block":5,"other":5}
-static func create(suit: S, id: int, can_atk: bool, atk_dmg: Vector2i = Vector2i(0,0), cardname:String = "", cardcost:int = 1, img_texture:Texture2D = null, text:String = "") -> GameCard:
+static func create(suit: S, id: int, can_atk: Able, atk_dmg: Vector2i = Vector2i(0,0), cardname:String = "", cardcost:int = 1, img_texture:Texture2D = null, text:String = "") -> GameCard:
 	var card = GameCard.new()
 	card.suit = suit
 	card.id = id
-	card.can_atk = can_atk
+	card.able = can_atk
 	card.atk = atk_dmg
 	card.name = cardname
 	card.cost = cardcost
@@ -23,7 +24,7 @@ static func create(suit: S, id: int, can_atk: bool, atk_dmg: Vector2i = Vector2i
 	card.text = text
 	return card
 	
-func play(_ctl:PlayerCtl, _enemy_ctl: PlayerCtl) -> Array:
+var play: Callable = func play(_ctl:PlayerCtl, _enemy_ctl: PlayerCtl) -> Array:
 	return [Move.TRASH,Vector2i(0,0),Vector2i(0,0)]
 
 func when_equipped(_ctl:PlayerCtl, _enemy_ctl: PlayerCtl) -> void: #doesn't need priority so no _null

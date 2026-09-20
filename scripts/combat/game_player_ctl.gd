@@ -5,7 +5,8 @@ enum TurnState {ACTIVE, INACTIVE}
 var deck_order = range(52)
 const v0 = Vector2i(0,0) #NOT vercel
 const max_hp = 26
-var hp = max_hp
+var hp: int = max_hp
+var hp_display: Label
 var is_enemy: bool = false
 var block_current: int = 0
 var block_history: int = 1
@@ -36,6 +37,10 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 			deck.append(CardDatabase.db[1][0])
 	ctl.deck_order = range(len(deck))
 	ctl.deck_order.shuffle()
+	deck.append(CardDatabase.db[5][0])
+	deck.append(CardDatabase.db[5][1])
+	ctl.equipped.append(len(deck)-1)
+	ctl.equipped.append(len(deck)-2)
 	if init_is_enemy:
 		if true and battle_room: #workaround until cards are instantiated by PlayerCtl
 			ctl.hand.append(0)
@@ -58,7 +63,8 @@ func run_equipped(method: String, vec: Vector2i = Vector2i(0,0),prio_type: Strin
 		var i = 0
 		while i < len(targets):
 			var eq_index = targets[i]
-			var eq = equipped[eq_index]
+			var eq_card_index = equipped[eq_index]
+			var eq = permanent_deck[eq_card_index]
 			if eq.prio.get(prio_type) == prio:
 				if eq.has_method(method):
 					if feedback: #do not forget to set feedback=true during dmg/block calculations which return!
@@ -90,6 +96,30 @@ func exec_block(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_block",dmg,"block",true)
 	print("final block "+str(dmg))
 	block_accumulator[-1] += dmg[0] #TODO: block typing & dmg typing
+	
+func player_attack(block:bool=false,choice: bool = false) -> void:
+	if not choice:
+		var res_card: GameCard = null
+		var card: GameCard
+		var req
+		if block: req = GameCard.Able.BLOCK
+		else: req = GameCard.Able.ATK
+		for index in equipped:
+			card = permanent_deck[index]
+			if card.able == req and card.weapon_atk:
+				res_card = card
+		if res_card:
+			print("auto chose "+str(res_card.name))
+			if block:
+				exec_block(res_card.weapon_atk(v0,self,battle_manager.get_oppo(is_enemy)))
+			else:
+				exec_atk(res_card.weapon_atk(v0,self,battle_manager.get_oppo(is_enemy)))
+		else:
+			print("no suitable card found in "+str(equipped))
+	else:
+		print("executing choice")
+		
+
 func play_card(card_index: int) -> Vector2i:
 	var loc = -1
 	var ind = -1
@@ -110,7 +140,7 @@ func play_card(card_index: int) -> Vector2i:
 		printerr("card #"+str(card_index)+" name "+permanent_deck[card_index].name+" not present in hand "+str(hand)+" or elsewhere")
 		return Vector2i(int(M.STAY),loc)
 	var card: GameCard = permanent_deck[card_index]
-	var res = card.play(self,battle_manager.get_oppo(is_enemy))
+	var res: Array = card.play.call(self,battle_manager.get_oppo(is_enemy))
 	if res[1] != v0:
 		exec_atk(res[1])
 	if res[2] != v0:
