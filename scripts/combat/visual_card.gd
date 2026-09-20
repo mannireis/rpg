@@ -17,6 +17,13 @@ func _ready() -> void:
 	card_texture.texture = data.img
 	pivot_offset = size / 2
 
+func update_img(_color: GameCard.S, _id: int) -> void:
+	color = _color
+	id = _id
+	data = CardDatabase.db[int(color)][id]
+	print(data.img)
+	card_texture.texture = data.img
+
 func _process(_delta: float) -> void:
 	animate_hovering()
 

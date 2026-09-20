@@ -47,7 +47,9 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 			ctl.hand.append(13)
 			var snap_points = battle_room.get_node("CanvasLayer/SnapPoints")
 			snap_points.get_node("VisualCard").index_in_deck = 0
+			snap_points.get_node("VisualCard").update_img(0,0)
 			snap_points.get_node("VisualCard2").index_in_deck = 13
+			snap_points.get_node("VisualCard2").update_img(1,0)
 			ctl.deck_order.pop_at(13)
 			ctl.deck_order.pop_front()
 	ctl.permanent_deck = deck
