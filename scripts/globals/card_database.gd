@@ -14,16 +14,14 @@ func _ready() -> void:
 	print(db[0][0].play)
 	print(TYPE_CALLABLE)
 	print(typeof(db[0][0].play))
-	var c00 = func(ctl:PlayerCtl,_enemy_ctl: PlayerCtl) -> Array:
-		ctl.player_attack()
+	db[0][0].play = func(ctl:PlayerCtl,_enemy_ctl: PlayerCtl) -> Array:
+		ctl.player_attack() #glorious impl of a dual punch
 		ctl.player_attack()
 		return [GameCard.Move.TRASH,v0,v0]
-	db[0][0].play = c00
-	var c10 = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
+	db[1][0].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		ctl.player_attack(true)
 		ctl.player_attack(true)
 		return [GameCard.Move.TRASH,v0,v0]
-	db[1][0].play = c10
 #
 #
 ## Called every frame. 'delta' is the elapsed time since the previous frame.

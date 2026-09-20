@@ -84,13 +84,14 @@ func receive_dmg(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_dmg_in",dmg,"dmg_in",true)
 	print("receiving final dmg "+str(dmg))
 	hp -= dmg[0]
+	hp_display.text = str(hp)
 	pass
 
 
 func exec_atk(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_dmg_out",dmg,"dmg_out",true)
 	print("final dmg "+str(dmg))
-	battle_manager.call_as_player("receive_dmg",[dmg],!is_enemy)
+	battle_manager.call_as_player("receive_dmg",[dmg],is_enemy)
 	
 func exec_block(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_block",dmg,"block",true)

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ov2xhwty8yje" path="res://scripts/combat/card_holder.gd" id="1_3vhqq"]
 [ext_resource type="PackedScene" uid="uid://b8r8mkw0q8nwx" path="res://scenes/combat/visual_card.tscn" id="1_agnou"]
 [ext_resource type="Texture2D" uid="uid://de2vyrdwpvrji" path="res://assets/mat.png" id="3_cr0qs"]
+[ext_resource type="LabelSettings" uid="uid://cvat017lktncw" path="res://resources/UIlabel.tres" id="3_d2ft2"]
 [ext_resource type="Script" uid="uid://5s8gps1iisx" path="res://scenes/combat/battle_manager.gd" id="6_t81kl"]
 
 [node name="BattleRoom" type="Node2D" unique_id=96185152]
@@ -126,12 +127,20 @@ offset_bottom = 224.0
 mouse_filter = 2
 
 [node name="PlayerHP" type="Label" parent="CanvasLayer/SnapPoints" unique_id=338346158]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 15.0
+offset_top = 129.0
+offset_right = 55.0
+offset_bottom = 152.0
+text = "26"
+label_settings = ExtResource("3_d2ft2")
 
 [node name="EnemyHP" type="Label" parent="CanvasLayer/SnapPoints" unique_id=1549479166]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 14.0
+offset_top = 73.0
+offset_right = 54.0
+offset_bottom = 96.0
+text = "26"
+label_settings = ExtResource("3_d2ft2")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1860065832]
 z_index = -255
