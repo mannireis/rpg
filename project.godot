@@ -21,6 +21,7 @@ RoomChangeGlobal="*uid://cah66quctdohc"
 Transition="*uid://d2ne35ucdgjui"
 CardDatabase="*uid://dleuvaavpujwe"
 DialogueManager="*uid://cr8cjnj4ydumv"
+Dialogue="*uid://c4wkyyi1muhiy"
 
 [display]
 

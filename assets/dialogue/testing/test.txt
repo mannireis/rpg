@@ -1,3 +1,17 @@
-meow 123
+start (
+	maddy: hello!
+	berry: awesome!!!
+	option 1 > meow
+	option 3 > wruff
+	option 2 > end
+)
 
-67
+meow (
+	maddy: hello?
+	berry: im here!!!
+)
+
+wruff (
+	maddy: wrufff
+	berry: doggy!!
+)

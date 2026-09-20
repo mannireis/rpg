@@ -14,7 +14,6 @@ func _ready() -> void:
 		RoomChangeGlobal.activate = false
 
 func _physics_process(delta: float) -> void:
-	DialogueManager.start("res://assets/dialogue/testing/test.txt")
 	var direction : Vector2
 	
 	direction = Input.get_vector("Left", "Right", "Up", "Down")

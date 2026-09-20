@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://clxgwj8j3d7gr" path="res://scripts/player/player.gd" id="1_8afob"]
 [ext_resource type="Texture2D" uid="uid://ck54gortpvyjf" path="res://assets/charechthers/player.png" id="2_dovo2"]
-[ext_resource type="PackedScene" uid="uid://bv4cr163r3d41" path="res://scenes/ui/transition/transition.tscn" id="3_gmlin"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmlin"]
 atlas = ExtResource("2_dovo2")
@@ -229,5 +228,3 @@ frame_progress = 0.41342232
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=78072334]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_ib3ld")
-
-[node name="TransitionCanvasLayer" parent="." unique_id=1274938685 instance=ExtResource("3_gmlin")]

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://c4wkyyi1muhiy"]
+
+[ext_resource type="Script" uid="uid://lufukau2u6kq" path="res://scripts/player/dialogue/dialogue_ui.gd" id="1_1iitr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ei700"]
+bg_color = Color(0.2159017, 0.21590173, 0.21590161, 1)
+
+[node name="DialogueUi" type="CanvasLayer" unique_id=1417898694]
+script = ExtResource("1_1iitr")
+
+[node name="Panel" type="Panel" parent="." unique_id=1411683786]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -87.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ei700")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1902491160]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Speaker" type="Label" parent="Panel/MarginContainer" unique_id=494088755]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "banana bread"
+
+[node name="Content" type="Label" parent="Panel/MarginContainer" unique_id=1491318741]
+custom_minimum_size = Vector2(0, 64)
+custom_maximum_size = Vector2(254, 64)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 8
+text = "asrarstratrast"
+
+[node name="Choices" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1111945978]
+custom_minimum_size = Vector2(48, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8

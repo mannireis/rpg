@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dn85my2emfvu8" path="res://scenes/player/player.tscn" id="1_seo4b"]
 [ext_resource type="Texture2D" uid="uid://ciqw8s38jysal" path="res://assets/tilesets/tileset_zone_1.png" id="2_31qqp"]
 [ext_resource type="PackedScene" uid="uid://ce3k768yxt8nv" path="res://scenes/world/rooms/resources/door.tscn" id="3_k7em3"]
+[ext_resource type="Script" uid="uid://cel4lt58sof50" path="res://scenes/world/rooms/area_1/dialogue_text.gd" id="4_31qqp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lwt3p"]
 texture = ExtResource("2_31qqp")
@@ -53,6 +54,9 @@ sources/0 = SubResource("TileSetAtlasSource_lwt3p")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wwp3k"]
 size = Vector2(8, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ib3ld"]
+size = Vector2(16, 16)
+
 [node name="RoomOne" type="Node2D" unique_id=819063443]
 
 [node name="TileMap" type="Node2D" parent="." unique_id=1800717068]
@@ -77,3 +81,12 @@ position = Vector2(0, 32)
 
 [node name="Player" parent="." unique_id=1648858471 instance=ExtResource("1_seo4b")]
 position = Vector2(2, 49)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=494186696]
+position = Vector2(-54, 11)
+script = ExtResource("4_31qqp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=916472685]
+shape = SubResource("RectangleShape2D_ib3ld")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

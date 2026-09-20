@@ -1,7 +1,7 @@
 extends Node
 
 signal new_line(line: Dictionary)
-signal _dialogue_ended
+signal dialogue_ended
 
 var active: bool = false
 var _parsed_dialogue: Dictionary = {}
@@ -25,8 +25,7 @@ func _parse(source: String) -> Dictionary:
 		line = line.strip_edges()
 		if line.is_empty() or line.begins_with("#"):
 			continue
-		print(line)
-	
+
 		if current_id == "" and line.ends_with("("):
 			current_id = line.trim_suffix("(").strip_edges().to_lower()
 			current = []
@@ -46,7 +45,7 @@ func _parse(source: String) -> Dictionary:
 				var parts = line.split(">", true, 1)
 				current[-1]["choices"].append({
 					"text": parts[0].strip_edges(),
-					"next": parts[1].strip_edges(),
+					"next": parts[1].strip_edges().to_lower(),
 				})
 		
 	return parsed_dialogue
@@ -61,10 +60,25 @@ func _goto(id: String) -> void:
 	_show_line()
 
 
-func _show_line():
-	pass
+func _show_line() -> void:
+	new_line.emit(_parsed_dialogue[_current_id][_current_line])
+
+
+func advance() -> void:
+	_current_line += 1
+	if _current_line >= _parsed_dialogue[_current_id].size():
+		_end()
+	else:
+		_show_line()
+
+
+func choose(target: String) -> void:
+	if target == "":
+		advance()
+	else:
+		_goto(target)
 
 
 func _end() -> void:
 	active = false
-	_dialogue_ended
+	dialogue_ended.emit()
