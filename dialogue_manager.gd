@@ -10,7 +10,18 @@ var _current_line := 0
 
 
 func start(file: String, start_id := "start") -> void:
-	_parsed_dialogue = _parse(FileAccess.get_file_as_string(file))
+	if not FileAccess.file_exists(file):
+		push_error("Dialogue file missing in export (check export_presets include_filter): %s" % file)
+		active = false
+		_end()
+		return
+	var txt := FileAccess.get_file_as_string(file)
+	if txt.is_empty():
+		push_error("Dialogue file empty or failed to load: %s" % file)
+		active = false
+		_end()
+		return
+	_parsed_dialogue = _parse(txt)
 	active = true
 	_goto(start_id)
 
