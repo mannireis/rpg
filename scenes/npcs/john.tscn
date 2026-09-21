@@ -57,6 +57,7 @@ script = ExtResource("1_5civ2")
 z_index = -10
 sprite_frames = SubResource("SpriteFrames_ib3ld")
 animation = &"Idle"
+autoplay = "Idle"
 frame_progress = 0.7942795
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=972199641]
@@ -69,3 +70,4 @@ shape = SubResource("RectangleShape2D_l1yr0")
 shape = SubResource("RectangleShape2D_ib3ld")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

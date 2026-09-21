@@ -1,6 +1,30 @@
-start (
-	Emily: uhh hi where am I? I woke up in a haze.
-	John: Welcome to the rooms! I don't really know what this place is.
-	Emily: Oh my name is Emily by the way, but you can call me Em.
-	???: ??? UNDER CONSTRUCTION ???
+meet_john (
+	Emily: uhh hi?
+		Where am I? > where
+		Who are you? > who
+		Bye > bye
+)
+
+john (
+	John: Hey, em!
+	Emily: haiiiiiii.
+	>> bye
+)
+
+where (
+	John: You are in ?????.
+	Emily: "?????"?
+	John: :) seems like you are not a level high enough!
+	>> meet_john
+)
+
+who (
+	John: Hey, I'm John! What about you?
+	Emily: I'm Emily. 
+	>> meet_john
+)
+
+bye (
+	Emily: Goodbye !!
+	John: Farewell.
 )

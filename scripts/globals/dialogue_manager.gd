@@ -44,14 +44,15 @@ func _parse(source: String) -> Dictionary:
 			parsed_dialogue[current_id] = current
 			current_id = ""
 		elif current_id != "":
-			if line.contains(":"):
+			if line.begins_with(">>"):
+				current.append({"goto": line.trim_prefix(">>").strip_edges().to_lower()})
+			elif line.contains(":"):
 				var parts = line.split(":", true, 1)
 				current.append({
 					"speaker": parts[0].strip_edges(),
 					"text": parts[1].strip_edges(),
 					"choices": [],
 				})
-				
 			elif line.contains(">"):
 				var parts = line.split(">", true, 1)
 				current[-1]["choices"].append({
@@ -72,7 +73,11 @@ func _goto(id: String) -> void:
 
 
 func _show_line() -> void:
-	new_line.emit(_parsed_dialogue[_current_id][_current_line])
+	var line: Dictionary = _parsed_dialogue[_current_id][_current_line]
+	if line.has("goto"):
+		_goto(line["goto"])
+		return
+	new_line.emit(line)
 
 
 func advance() -> void:
