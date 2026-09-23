@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dn85my2emfvu8"]
 
 [ext_resource type="Script" uid="uid://clxgwj8j3d7gr" path="res://scripts/player/player.gd" id="1_8afob"]
-[ext_resource type="Texture2D" uid="uid://ck54gortpvyjf" path="res://assets/charechthers/player.png" id="2_dovo2"]
+[ext_resource type="Texture2D" uid="uid://ck54gortpvyjf" path="res://assets/characters/player.png" id="2_dovo2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmlin"]
 atlas = ExtResource("2_dovo2")

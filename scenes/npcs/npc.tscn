@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dawu0fejcu53i"]
+
+[ext_resource type="Script" uid="uid://cvq1dc601nuk2" path="res://scripts/npcs/npc.gd" id="1_ivh6b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivh6b"]
+size = Vector2(48, 48)
+
+[node name="NPC" type="CharacterBody2D" unique_id=1932718674]
+script = ExtResource("1_ivh6b")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=896990980]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1537684596]
+shape = SubResource("RectangleShape2D_ivh6b")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
