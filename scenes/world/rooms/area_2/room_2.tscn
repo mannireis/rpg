@@ -17,7 +17,8 @@ tile_map_data = PackedByteArray("AAD5//7/AQABAAAAAAD5////AQABAAEAAAD5/wAAAQABAAI
 tile_set = ExtResource("1_rnrjh")
 
 [node name="TestTent" type="Sprite2D" parent="Tilemap" unique_id=327937291]
-position = Vector2(122, 8)
+position = Vector2(114, 4)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_ycc4o")
 
 [node name="Doors" type="Node2D" parent="Tilemap" unique_id=1506589320]
