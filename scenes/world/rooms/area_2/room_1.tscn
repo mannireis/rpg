@@ -48,4 +48,4 @@ shape = SubResource("RectangleShape2D_otapo")
 position = Vector2(0, 32)
 
 [node name="Player" parent="." unique_id=1648858471 instance=ExtResource("1_vvcgs")]
-position = Vector2(129, 17)
+position = Vector2(0, 82)

@@ -71,7 +71,7 @@ tile_set = SubResource("TileSet_bxkrb")
 [node name="DoorArea2D2" parent="TileMap/Doors" unique_id=1575194595 instance=ExtResource("2_0r5h4")]
 position = Vector2(0, -4)
 connected_room = "res://scenes/world/rooms/area_2/room_1.tscn"
-player_pos = Vector2(0, 50)
+player_pos = Vector2(0, 82)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Doors/DoorArea2D2" unique_id=1317783704]
 shape = SubResource("RectangleShape2D_bxkrb")

@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 var last_dir := Vector2.DOWN
 
+
 func _ready() -> void:
 	add_to_group("player")
 	if RoomChangeGlobal.activate:
