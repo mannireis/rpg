@@ -1,6 +1,0 @@
-start (
-	Emily: uhh hi where am I? I woke up in a haze.
-	John: Welcome to the rooms! I don't really know what this place is.
-	Emily: Oh my name is Emily by the way, but you can call me Em.
-	???: ??? UNDER CONSTRUCTION ???
-)

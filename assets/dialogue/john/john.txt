@@ -1,0 +1,30 @@
+meet_john (
+	Emily: uhh hi?
+		Where am I? > where
+		Who are you? > who
+		Bye > bye
+)
+
+john (
+	John: Hey, em!
+	Emily: haiiiiiii.
+	>> bye
+)
+
+where (
+	John: You are in ?????.
+	Emily: "?????"?
+	John: :) seems like you are not a level high enough!
+	>> meet_john
+)
+
+who (
+	John: Hey, I'm John! What about you?
+	Emily: I'm Emily. 
+	>> meet_john
+)
+
+bye (
+	Emily: Goodbye !!
+	John: Farewell.
+)

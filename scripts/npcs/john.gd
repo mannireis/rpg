@@ -1,6 +1,10 @@
-extends CharacterBody2D
+extends NPC
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		DialogueManager.start("res://assets/dialogue/john/john_start.txt")
+func _physics_process(delta: float) -> void:
+	if in_range:
+		animated_sprite_2d.play("Thinking")
+	else:
+		animated_sprite_2d.play("Idle")

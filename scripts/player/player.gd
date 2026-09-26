@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 var last_dir := Vector2.DOWN
 
+
 func _ready() -> void:
 	add_to_group("player")
 	if RoomChangeGlobal.activate:
@@ -14,6 +15,9 @@ func _ready() -> void:
 		RoomChangeGlobal.activate = false
 
 func _physics_process(delta: float) -> void:
+	if DialogueManager.active:
+		return
+
 	var direction : Vector2
 	
 	direction = Input.get_vector("Left", "Right", "Up", "Down")

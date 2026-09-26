@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://808f20dfyppx"]
+
+[ext_resource type="Texture2D" uid="uid://bi27dfk7n53gu" path="res://assets/vilagge/house_lg.png" id="1_sfbe5"]
+[ext_resource type="PackedScene" uid="uid://ce3k768yxt8nv" path="res://scenes/world/rooms/resources/door.tscn" id="2_t5tig"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfbe5"]
+size = Vector2(55, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ib3ld"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cxip"]
+size = Vector2(16, 32)
+
+[node name="HouseOne" type="Node2D" unique_id=882173165]
+
+[node name="HouseLg" type="Sprite2D" parent="." unique_id=1320569992]
+z_index = 10
+texture = ExtResource("1_sfbe5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1373675125]
+z_index = 11
+position = Vector2(0, 30)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=401158811]
+position = Vector2(16.5, -6)
+shape = SubResource("RectangleShape2D_sfbe5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=803878672]
+position = Vector2(-35, -6)
+shape = SubResource("RectangleShape2D_ib3ld")
+
+[node name="DoorArea2D" parent="." unique_id=1575194595 instance=ExtResource("2_t5tig")]
+z_index = 11
+position = Vector2(-19, 24)
+connected_room = "res://scenes/world/rooms/area_2/vilage_houses/gregandlucy.tscn"
+player_pos = Vector2(-32, 116)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea2D" unique_id=1690209418]
+shape = SubResource("RectangleShape2D_8cxip")
