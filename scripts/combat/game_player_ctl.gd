@@ -91,10 +91,11 @@ func run_equipped(method: String, vec: Vector2i = Vector2i(0,0),prio_type: Strin
 
 func receive_dmg(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_dmg_in",dmg,"dmg_in",true)
-	block_current[dmg[1]] -= dmg[0]
+	block_current[dmg[1]] += dmg[0]
 	dmg[0] = 0
-	if block_current[dmg[1]] < 0:
-		dmg[0] -= block_current[dmg[1]]
+	if block_current[dmg[1]] > 0:
+		dmg[0] += block_current[dmg[1]]
+		block_current[dmg[1]] = 0
 		print("receiving final dmg "+str(dmg))
 		hp -= dmg[0]
 	else:
@@ -105,7 +106,7 @@ func receive_dmg(dmg:Vector2i) -> void:
 
 func exec_atk(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_dmg_out",dmg,"dmg_out",true)
-	print("final dmg "+str(dmg))
+	print("E"+str(is_enemy)+" dealing final dmg "+str(dmg))
 	battle_manager.call_as_player("receive_dmg",[dmg],is_enemy)
 	
 func exec_block(dmg:Vector2i) -> void:

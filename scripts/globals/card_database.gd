@@ -27,7 +27,7 @@ func _ready() -> void:
 	db[0][1].play = func(ctl:PlayerCtl,_enemy_ctl: PlayerCtl) -> Array:
 		ctl.exec_atk(db[0][1].atk)
 		if _enemy_ctl.hp > 0:
-			_enemy_ctl.player_attack()
+			_enemy_ctl.exec_atk(Vector2i(4,0))
 		return [GameCard.Move.TRASH,v0,v0]
 	db[1][0].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		ctl.player_attack(true)

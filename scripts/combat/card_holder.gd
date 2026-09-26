@@ -31,3 +31,4 @@ func play_cards() -> void:
 			selected_cards.append(card_in_slot.index_in_deck)
 	for index_in_deck in selected_cards:
 		res = battle_manager.player.play_card(index_in_deck)
+	battle_manager.player.turn_end()

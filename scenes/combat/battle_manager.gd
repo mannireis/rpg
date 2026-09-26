@@ -1,6 +1,6 @@
 extends Node
 
-@onready var player = PlayerCtl.create(get_parent(),[],true)
+@onready var player = PlayerCtl.create(get_parent(),[])
 @onready var enemy = PlayerCtl.create(get_parent(),[],true)
 @onready var snap_points = get_parent().get_node("CanvasLayer/SnapPoints")
 
@@ -17,7 +17,7 @@ func get_oppo(caller_is_enemy: bool) -> PlayerCtl:
 
 
 func call_as_player(method:String,args: Array, is_enemy: bool = false) -> void:
-	if is_enemy:
+	if !is_enemy:
 		enemy.callv(method,args)
 	else:
 		player.callv(method,args)
