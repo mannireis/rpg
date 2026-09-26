@@ -41,17 +41,22 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 	deck.append(CardDatabase.db[5][1])
 	ctl.equipped.append(len(deck)-1)
 	ctl.equipped.append(len(deck)-2)
+	var snap_points = battle_room.get_node("CanvasLayer/SnapPoints")
 	if init_is_enemy:
 		if true and battle_room: #workaround until cards are instantiated by PlayerCtl
 			ctl.hand.append(0)
 			ctl.hand.append(13)
-			var snap_points = battle_room.get_node("CanvasLayer/SnapPoints")
 			snap_points.get_node("VisualCard").index_in_deck = 0
 			snap_points.get_node("VisualCard").update_img(0,0)
 			snap_points.get_node("VisualCard2").index_in_deck = 13
 			snap_points.get_node("VisualCard2").update_img(1,0)
 			ctl.deck_order.pop_at(13)
 			ctl.deck_order.pop_front()
+		var cards_on_screen: Array[Control]
+		var visual_card: Control
+		for i in range(5):
+			visual_card = snap_points.get_node("VisualCard").duplicate()
+			snap_points.add_child(visual_card)
 	ctl.permanent_deck = deck
 	ctl.is_enemy = init_is_enemy
 	return ctl

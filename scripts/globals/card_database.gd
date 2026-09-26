@@ -11,10 +11,6 @@ var db: Array[Array] = [
 GameCard.create(GameCard.S.OTHER,0,GameCard.Able.BLOCK,Vector2i(-3,0),"Block",0)]]
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(db[0][0].img)
-	print(db[1][0].img)
-	print(db[0][0].play)
-	print(TYPE_CALLABLE)
 	print(typeof(db[0][0].play))
 	db[0][0].play = func(ctl:PlayerCtl,_enemy_ctl: PlayerCtl) -> Array:
 		ctl.player_attack() #glorious impl of a dual punch
