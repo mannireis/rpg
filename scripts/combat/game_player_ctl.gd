@@ -102,7 +102,7 @@ func receive_dmg(dmg:Vector2i) -> void:
 		hp -= dmg[0]
 	else:
 		print("blocked dmg, remaining block "+str(block_current))
-	hp_display.text = str(hp)
+	hp_display.text = str(hp)+" HP"
 	pass
 
 
