@@ -25,7 +25,7 @@ static func create(suit: S, id: int, can_atk: Able, atk_dmg: Vector2i = Vector2i
 	return card
 	
 var play: Callable = func play(_ctl:PlayerCtl, _enemy_ctl: PlayerCtl) -> Array:
-	return [Move.TRASH,Vector2i(0,0),Vector2i(0,0)]
+	return [Move.TRASH]
 
 func when_equipped(_ctl:PlayerCtl, _enemy_ctl: PlayerCtl) -> void: #doesn't need priority so no _null
 	pass
