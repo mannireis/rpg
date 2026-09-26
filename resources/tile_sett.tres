@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ciqw8s38jysal" path="res://assets/tilesets/tileset_zone_1.png" id="1_ovg5i"]
 [ext_resource type="Texture2D" uid="uid://dv6crhweoxoux" path="res://assets/tilesets/tileset_zone_2.png" id="2_ebxqf"]
 [ext_resource type="Texture2D" uid="uid://dxayar305gha7" path="res://assets/tilesets/house_interior.png" id="3_fw34w"]
+[ext_resource type="PackedScene" uid="uid://cqx6p753r2s1r" path="res://scenes/world/fireplace.tscn" id="4_g1a73"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lwt3p"]
 texture = ExtResource("1_ovg5i")
@@ -139,8 +140,12 @@ texture = ExtResource("3_fw34w")
 4:4/0 = 0
 4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -8, -5, -6, -6, -6, -6, -5, -7, -5, -7, -4, -8, -4, -8, 8, 8, 8, 8, -8)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a85ji"]
+scenes/1/scene = ExtResource("4_g1a73")
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lwt3p")
 sources/1 = SubResource("TileSetAtlasSource_fw34w")
 sources/2 = SubResource("TileSetAtlasSource_g1a73")
+sources/3 = SubResource("TileSetScenesCollectionSource_a85ji")
