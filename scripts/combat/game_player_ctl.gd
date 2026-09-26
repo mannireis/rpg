@@ -29,7 +29,7 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 			deck.append(CardDatabase.db[0][0])
 			deck.append(CardDatabase.db[0][1]) #preparation for starter deck
 		for i in range(3):
-			deck.append(CardDatabase.db[0][0]) #will be different cards once i conjure more images for them
+			deck.append(CardDatabase.db[0][2]) #will be different cards once i conjure more images for them
 		for i in range(5):
 			deck.append(CardDatabase.db[1][0])
 			deck.append(CardDatabase.db[1][0])
@@ -52,6 +52,8 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 			snap_points.get_node("VisualCard2").update_img(1,0)
 			snap_points.get_node("VisualCard3").index_in_deck = 1
 			snap_points.get_node("VisualCard3").update_img(0,1)
+			snap_points.get_node("VisualCard4").index_in_deck = 10
+			snap_points.get_node("VisualCard4").update_img(0,2)
 			ctl.deck_order.pop_at(13)
 			ctl.deck_order.pop_front()
 		var cards_on_screen: Array[Control]
@@ -194,7 +196,7 @@ func play_card(card_index: int) -> Vector2i:
 		1: burn.pop_at(ind)
 		2: deck_order.pop_at(ind)
 		3: removed_from_game.pop_at(ind)
-	return Vector2i(int(res[0]),loc)
+	return Vector2i(res[0],loc)
 			
 			
 		

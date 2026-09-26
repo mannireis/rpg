@@ -11,6 +11,8 @@ var dragging = false
 var hovering = false
 var drag_offset = Vector2()
 var current_point: Control = null
+var last_point: Control = null
+var dup_point: Control = null
 
 
 func _ready() -> void:
@@ -64,8 +66,12 @@ func snap_to_nearest_point() -> void:
 			var tween = create_tween()
 			tween.tween_property(self, "global_position", target_point.global_position + (target_point.size - size) / 2.0, 0.15)
 			point_manager.occupied[target_point] = self
+			last_point = dup_point
+			print("set last point to "+str(last_point))
 			current_point = target_point
+			dup_point = target_point
 		else:
+			last_point = current_point
 			current_point = null
 			
 
