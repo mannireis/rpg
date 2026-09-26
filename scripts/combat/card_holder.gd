@@ -50,4 +50,6 @@ func play_cards() -> void:
 				if a[1].last_point:
 					a[1].dup_point = a[1].last_point
 					a[1].global_position = a[1].last_point.global_position
-	battle_manager.player.turn_end()
+	if len(selected_cards) > 0:
+		battle_manager.player.turn_end()
+		battle_manager.enemy.ai_turn()

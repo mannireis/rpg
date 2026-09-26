@@ -26,4 +26,3 @@ Cards are usually represented by their index in the `permanent_deck`; this is wh
 Since equipped (permanent) cards can change how much damage is taken or what the default attack is, PlayerCtl has helper functions such as `run_equipped(method: String,...)` for applying all equipped cards' modifiers in the priority order (with the `feedback` parameter controlling whether the methods just react to something, or modify the `vec: Vector2i` passed to them), or `player_attack(block:bool,choice:bool)` for executing a default or UI-chosen block/attack ability.
 
 Either side's PlayerCtl can be accessed through the BattleManager node. To deal damage to a PlayerCtl, the opposing side should use BattleManager's `call_as_player("receive_dmg",[dmg],is_enemy)` with its own `is_enemy` attr; do not directly decrease HP outside of special effects.
-

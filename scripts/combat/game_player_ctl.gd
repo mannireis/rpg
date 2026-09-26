@@ -3,6 +3,7 @@ class_name PlayerCtl extends Node
 enum TurnState {ACTIVE, INACTIVE}
 @onready var battle_manager = get_tree().get_root().get_node("BattleRoom").get_node("BattleManager")
 var deck_order = range(52)
+var ai_diff = 0
 const v0 = Vector2i(0,0) #NOT vercel
 const max_hp = 26
 var hp: int = max_hp
@@ -22,20 +23,25 @@ func draw(count: int = 1) -> void:
 	for i in range(count):
 		hand.append(deck_order.pop_back())
 
+static func starter_deck() -> Array[GameCard]:
+	var deck: Array[GameCard] = []
+	for i in range(5):
+			deck.append(CardDatabase.db[0][0])
+			deck.append(CardDatabase.db[0][1]) #preparation for starter deck
+	for i in range(3):
+			deck.append(CardDatabase.db[0][2])
+	for i in range(5):
+			deck.append(CardDatabase.db[1][0])
+			deck.append(CardDatabase.db[1][0])
+	for i in range(3):
+			deck.append(CardDatabase.db[1][0])
+	return deck
+
 static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy: bool = false) -> PlayerCtl:
 	var ctl = PlayerCtl.new()
 	ctl.battle_manager = battle_room.get_node("BattleManager")
 	if deck == []:
-		for i in range(5):
-			deck.append(CardDatabase.db[0][0])
-			deck.append(CardDatabase.db[0][1]) #preparation for starter deck
-		for i in range(3):
-			deck.append(CardDatabase.db[0][2]) #will be different cards once i conjure more images for them
-		for i in range(5):
-			deck.append(CardDatabase.db[1][0])
-			deck.append(CardDatabase.db[1][0])
-		for i in range(3):
-			deck.append(CardDatabase.db[1][0])
+		deck = starter_deck()
 	ctl.deck_order = range(len(deck))
 	ctl.deck_order.shuffle()
 	deck.append(CardDatabase.db[5][0])
@@ -202,7 +208,14 @@ func play_card(card_index: int) -> Vector2i:
 		3: removed_from_game.pop_at(ind)
 	return Vector2i(res[0],loc)
 			
-			
+func ai_turn() -> void:
+	print("AI turn at "+str(ai_diff)+" difficulty")
+	match ai_diff:
+		_:
+			draw()
+			var single_tar = hand[-1]
+			print(permanent_deck[single_tar].name)
+			play_card(single_tar)
 		
 	
 	

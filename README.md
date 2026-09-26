@@ -1,6 +1,9 @@
 # rpg
-A silly RPG
 
-very under construction
+A silly RPG. WIP, so you can only walk around the rooms and talk to NPCs for now. Say hi to John!
 
-but has a npc named john you can talk to a bit and walking and 2 rooms!
+## Controls
+
+- W,A,S,D to walk
+- Q to interact
+- left click to proceed when talking with NPCs
