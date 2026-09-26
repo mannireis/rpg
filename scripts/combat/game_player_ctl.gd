@@ -8,10 +8,10 @@ const max_hp = 26
 var hp: int = max_hp
 var hp_display: Label
 var is_enemy: bool = false
-var block_current: int = 0
+var block_current: Array[int] = [0]
 var block_history: int = 1
 var next_turn: Array[Callable] = []
-var block_accumulator: Array[int] = [0]
+var block_accumulator: Array[Array] = [[0]]
 var equipped: Array[int] = []
 var hand: Array[int] = []
 var burn: Array[int] = []
@@ -89,8 +89,14 @@ func run_equipped(method: String, vec: Vector2i = Vector2i(0,0),prio_type: Strin
 
 func receive_dmg(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_dmg_in",dmg,"dmg_in",true)
-	print("receiving final dmg "+str(dmg))
-	hp -= dmg[0]
+	block_current[dmg[1]] -= dmg[0]
+	dmg[0] = 0
+	if block_current[dmg[1]] < 0:
+		dmg[0] -= block_current[dmg[1]]
+		print("receiving final dmg "+str(dmg))
+		hp -= dmg[0]
+	else:
+		print("blocked dmg, remaining block "+str(block_current))
 	hp_display.text = str(hp)
 	pass
 
@@ -98,12 +104,25 @@ func receive_dmg(dmg:Vector2i) -> void:
 func exec_atk(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_dmg_out",dmg,"dmg_out",true)
 	print("final dmg "+str(dmg))
-	battle_manager.call_as_player("receive_dmg",[dmg],is_enemy)
+	battle_manager.call_as_player("receive_dmg",[dmg],!is_enemy)
 	
 func exec_block(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_block",dmg,"block",true)
 	print("final block "+str(dmg))
-	block_accumulator[-1] += dmg[0] #TODO: block typing & dmg typing
+	block_accumulator[dmg[1]][-1] += dmg[0]
+	
+func turn_end() -> void:
+	var type_i: int = 0
+	while type_i < len(block_accumulator):
+		var sum = 0
+		for i in block_accumulator[type_i]:
+			sum += i
+		block_current[type_i] = sum
+		if len(block_accumulator[type_i]) >= block_history:
+			block_accumulator[type_i].pop_front()
+			block_accumulator[type_i].append(0)
+		type_i += 1
+		
 	
 func player_attack(block:bool=false,choice: bool = false) -> void:
 	if not choice:

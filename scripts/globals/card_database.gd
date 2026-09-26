@@ -2,7 +2,7 @@ class_name CardList
 extends Node
 
 const v0 = Vector2i(0,0)
-const p = "res://assets/aseprite/cards/" #res://assets/aseprite/cards/0/0.png res://assets/aseprite/cards/1/0.png
+const p = "res://assets/aseprite/cards/"
 
 var db: Array[Array] = [
 [GameCard.create(GameCard.S.SPADES,0,GameCard.Able.NONE,v0,"Double Trouble",1,preload(p+"0/0.png"))],

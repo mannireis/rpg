@@ -33,6 +33,7 @@ func _gui_input(event) -> void:
 		if event.pressed:
 				dragging = true
 				drag_offset = get_global_mouse_position() - global_position
+				print("started dragging "+str(self)+" index "+str(index_in_deck)+" from point "+str(current_point))
 				if current_point:
 					var point_manager = get_parent()
 					if point_manager.occupied.get(current_point) == self:
