@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b8r8mkw0q8nwx" path="res://scenes/combat/visual_card.tscn" id="1_agnou"]
 [ext_resource type="Texture2D" uid="uid://de2vyrdwpvrji" path="res://assets/mat.png" id="3_cr0qs"]
 [ext_resource type="LabelSettings" uid="uid://cvat017lktncw" path="res://resources/UIlabel.tres" id="3_d2ft2"]
+[ext_resource type="Texture2D" uid="uid://donpbplhg0ts1" path="res://assets/block.png" id="4_t81kl"]
 [ext_resource type="Script" uid="uid://5s8gps1iisx" path="res://scenes/combat/battle_manager.gd" id="6_t81kl"]
 
 [node name="BattleRoom" type="Node2D" unique_id=96185152]
@@ -142,9 +143,16 @@ mouse_filter = 2
 
 [node name="Container" type="VBoxContainer" parent="CanvasLayer/SnapPoints" unique_id=35882176]
 offset_left = 15.0
-offset_top = 75.0
+offset_top = 42.0
 offset_right = 55.0
-offset_bottom = 147.0
+offset_bottom = 170.0
+
+[node name="EnemyBlock" type="Label" parent="CanvasLayer/SnapPoints/Container" unique_id=747365750]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 9)
+text = "0"
+label_settings = ExtResource("3_d2ft2")
 
 [node name="EnemyHP" type="Label" parent="CanvasLayer/SnapPoints/Container" unique_id=1549479166]
 layout_mode = 2
@@ -157,6 +165,27 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(0, 18)
 text = "26 HP"
 label_settings = ExtResource("3_d2ft2")
+
+[node name="PlayerBlock" type="Label" parent="CanvasLayer/SnapPoints/Container" unique_id=229747871]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 9)
+text = "0"
+label_settings = ExtResource("3_d2ft2")
+
+[node name="BlockIcon" type="TextureRect" parent="CanvasLayer/SnapPoints" unique_id=1916023655]
+offset_left = 32.0
+offset_top = 142.0
+offset_right = 52.0
+offset_bottom = 166.0
+texture = ExtResource("4_t81kl")
+
+[node name="BlockIcon2" type="TextureRect" parent="CanvasLayer/SnapPoints" unique_id=1343647386]
+offset_left = 32.0
+offset_top = 46.0
+offset_right = 52.0
+offset_bottom = 70.0
+texture = ExtResource("4_t81kl")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1860065832]
 z_index = -255

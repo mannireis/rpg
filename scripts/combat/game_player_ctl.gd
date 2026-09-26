@@ -7,11 +7,12 @@ const v0 = Vector2i(0,0) #NOT vercel
 const max_hp = 26
 var hp: int = max_hp
 var hp_display: Label
-var is_enemy: bool = false
+var block_display: Label
 var block_current: Array[int] = [0]
 var block_history: int = 1
 var next_turn: Array[Callable] = []
 var block_accumulator: Array[Array] = [[0]]
+var is_enemy: bool = false
 var equipped: Array[int] = []
 var hand: Array[int] = []
 var burn: Array[int] = []
@@ -98,10 +99,12 @@ func receive_dmg(dmg:Vector2i) -> void:
 	if block_current[dmg[1]] > 0:
 		dmg[0] += block_current[dmg[1]]
 		block_current[dmg[1]] = 0
+		block_display.text = "0"
 		print("receiving final dmg "+str(dmg))
 		hp -= dmg[0]
 	else:
 		print("blocked dmg, remaining block "+str(block_current))
+		block_display.text = str(-block_current[0])
 	hp_display.text = str(hp)+" HP"
 	pass
 
@@ -127,6 +130,7 @@ func turn_end() -> void:
 			block_accumulator[type_i].pop_front()
 			block_accumulator[type_i].append(0)
 		type_i += 1
+	block_display.text = str(-block_current[0])
 		
 	
 func player_attack(block:bool=false,choice: bool = false) -> void:
