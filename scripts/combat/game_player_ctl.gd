@@ -27,7 +27,7 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 	if deck == []:
 		for i in range(5):
 			deck.append(CardDatabase.db[0][0])
-			deck.append(CardDatabase.db[0][0]) #preparation for starter deck
+			deck.append(CardDatabase.db[0][1]) #preparation for starter deck
 		for i in range(3):
 			deck.append(CardDatabase.db[0][0]) #will be different cards once i conjure more images for them
 		for i in range(5):
@@ -50,6 +50,8 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 			snap_points.get_node("VisualCard").update_img(0,0)
 			snap_points.get_node("VisualCard2").index_in_deck = 13
 			snap_points.get_node("VisualCard2").update_img(1,0)
+			snap_points.get_node("VisualCard3").index_in_deck = 1
+			snap_points.get_node("VisualCard3").update_img(0,1)
 			ctl.deck_order.pop_at(13)
 			ctl.deck_order.pop_front()
 		var cards_on_screen: Array[Control]
@@ -104,7 +106,7 @@ func receive_dmg(dmg:Vector2i) -> void:
 func exec_atk(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_dmg_out",dmg,"dmg_out",true)
 	print("final dmg "+str(dmg))
-	battle_manager.call_as_player("receive_dmg",[dmg],!is_enemy)
+	battle_manager.call_as_player("receive_dmg",[dmg],is_enemy)
 	
 func exec_block(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_block",dmg,"block",true)

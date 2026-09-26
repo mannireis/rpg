@@ -14,12 +14,18 @@ var current_point: Control = null
 
 
 func _ready() -> void:
-	card_texture.texture = data.img
+	if index_in_deck > -1:
+		card_texture.texture = data.img
+	else:
+		print("initialising "+str(self)+", hidden because of index -1")
+		print(card_texture.texture)
+		card_texture.texture = CardDatabase.common_textures[-1]
 	pivot_offset = size / 2
 
 func update_img(_color: GameCard.S, _id: int) -> void:
 	color = _color
 	id = _id
+	print("updated "+str(self)+" to ("+str(color)+","+str(id)+"), with index "+str(index_in_deck))
 	data = CardDatabase.db[int(color)][id]
 	print(data.img)
 	card_texture.texture = data.img

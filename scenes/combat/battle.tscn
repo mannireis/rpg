@@ -30,6 +30,13 @@ offset_right = 203.0
 offset_bottom = 206.0
 pivot_offset = Vector2(18.5, 26)
 
+[node name="VisualCard3" parent="CanvasLayer/SnapPoints" unique_id=560083286 instance=ExtResource("1_agnou")]
+offset_left = 222.0
+offset_top = 178.0
+offset_right = 259.0
+offset_bottom = 230.0
+pivot_offset = Vector2(18.5, 26)
+
 [node name="Play" type="Button" parent="CanvasLayer/SnapPoints" unique_id=1419213483]
 custom_minimum_size = Vector2(37, 52)
 custom_maximum_size = Vector2(37, 52)
