@@ -6,7 +6,7 @@ extends Control
 var index_in_deck: int = -1
 var color: GameCard.S
 var id: int
-var data: GameCard = CardDatabase.db[int(color)][id]
+var data = CardDatabase.db[int(color)][id]
 var dragging = false
 var hovering = false
 var drag_offset = Vector2()
