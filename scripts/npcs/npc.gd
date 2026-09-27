@@ -2,7 +2,7 @@ class_name NPC
 extends CharacterBody2D
 
 @export_category("Dialogue")
-@export var dialogue_file: String
+@export_file("*.txt") var dialogue_file: String
 @export var id: StringName = &"start"
 @export var met_id: StringName = &"start"
 @export var area2d: Area2D
