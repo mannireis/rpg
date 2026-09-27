@@ -3,15 +3,18 @@ extends Node
 @onready var player = PlayerCtl.create(get_parent(),[])
 @onready var enemy = PlayerCtl.create(get_parent(),[],true)
 @onready var snap_points = get_parent().get_node("CanvasLayer/SnapPoints")
+@onready var UI = get_parent().get_node("CanvasLayer/UI")
 
 
 func _ready() -> void:
-	var c = snap_points.get_node("Container")
-	player.hp_display = snap_points.get_node("Container").get_node("PlayerHP")
+	var c = UI.get_node("Container")
+	player.hp_display = c.get_node("PlayerHP")
 	player.block_display = c.get_node("PlayerBlock")
-	player.equipped_display = snap_points.get_node("PlayerEquipped")
-	enemy.hp_display = snap_points.get_node("Container").get_node("EnemyHP")
+	player.equipped_display = UI.get_node("PlayerEquipped")
+	player.draw(2,true)
+	enemy.hp_display = c.get_node("EnemyHP")
 	enemy.block_display = c.get_node("EnemyBlock")
+	enemy.equipped_display = UI.get_node("EnemyEquipped")
 	player.turn_begin()
 
 

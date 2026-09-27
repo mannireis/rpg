@@ -52,33 +52,6 @@ offset_right = 146.0
 offset_bottom = 189.0
 pivot_offset = Vector2(18.5, 26)
 
-[node name="EnemyCard" type="TextureRect" parent="CanvasLayer/SnapPoints" unique_id=1019045733]
-custom_minimum_size = Vector2(37, 52)
-custom_maximum_size = Vector2(37, 52)
-offset_left = 223.0
-offset_top = 12.0
-offset_right = 260.0
-offset_bottom = 64.0
-
-[node name="Play" type="Button" parent="CanvasLayer/SnapPoints" unique_id=1419213483]
-custom_minimum_size = Vector2(37, 52)
-custom_maximum_size = Vector2(37, 52)
-offset_left = 223.0
-offset_top = 75.0
-offset_right = 260.0
-offset_bottom = 127.0
-
-[node name="DeckPos" type="Control" parent="CanvasLayer/SnapPoints" unique_id=2016960752]
-custom_minimum_size = Vector2(37, 52)
-custom_maximum_size = Vector2(37, 52)
-layout_mode = 3
-anchors_preset = 0
-offset_left = 263.0
-offset_top = 131.0
-offset_right = 300.0
-offset_bottom = 183.0
-mouse_filter = 2
-
 [node name="SnapPoint8" type="Control" parent="CanvasLayer/SnapPoints" unique_id=361185160]
 custom_minimum_size = Vector2(37, 52)
 custom_maximum_size = Vector2(37, 52)
@@ -167,104 +140,6 @@ offset_right = 96.0
 offset_bottom = 183.0
 mouse_filter = 2
 
-[node name="Container" type="VBoxContainer" parent="CanvasLayer/SnapPoints" unique_id=35882176]
-offset_left = 15.0
-offset_top = 1.0
-offset_right = 55.0
-offset_bottom = 129.0
-
-[node name="EnemyBlock" type="Label" parent="CanvasLayer/SnapPoints/Container" unique_id=747365750]
-layout_mode = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(0, 9)
-text = "0"
-label_settings = ExtResource("3_d2ft2")
-
-[node name="EnemyHP" type="Label" parent="CanvasLayer/SnapPoints/Container" unique_id=1549479166]
-layout_mode = 2
-text = "26 HP"
-label_settings = ExtResource("3_d2ft2")
-
-[node name="PlayerHP" type="Label" parent="CanvasLayer/SnapPoints/Container" unique_id=338346158]
-layout_mode = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(0, 18)
-text = "26 HP"
-label_settings = ExtResource("3_d2ft2")
-
-[node name="PlayerBlock" type="Label" parent="CanvasLayer/SnapPoints/Container" unique_id=229747871]
-layout_mode = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(0, 9)
-text = "0"
-label_settings = ExtResource("3_d2ft2")
-
-[node name="BlockIcon" type="TextureRect" parent="CanvasLayer/SnapPoints" unique_id=1916023655]
-offset_left = 32.0
-offset_top = 101.0
-offset_right = 52.0
-offset_bottom = 125.0
-texture = ExtResource("4_t81kl")
-
-[node name="BlockIcon2" type="TextureRect" parent="CanvasLayer/SnapPoints" unique_id=1343647386]
-offset_left = 32.0
-offset_top = 5.0
-offset_right = 52.0
-offset_bottom = 29.0
-texture = ExtResource("4_t81kl")
-
-[node name="PlayerEquipped" type="HBoxContainer" parent="CanvasLayer/SnapPoints" unique_id=53983858]
-offset_left = 268.0
-offset_top = 107.000015
-offset_right = 387.0
-offset_bottom = 159.00002
-scale = Vector2(0.4, 0.4)
-
-[node name="MiniCard" type="TextureRect" parent="CanvasLayer/SnapPoints/PlayerEquipped" unique_id=1723565702]
-custom_minimum_size = Vector2(37, 52)
-custom_maximum_size = Vector2(37, 52)
-layout_mode = 2
-
-[node name="MiniCard2" type="TextureRect" parent="CanvasLayer/SnapPoints/PlayerEquipped" unique_id=1633753365]
-custom_minimum_size = Vector2(37, 52)
-custom_maximum_size = Vector2(37, 52)
-layout_mode = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(2, 0)
-
-[node name="MiniCard3" type="TextureRect" parent="CanvasLayer/SnapPoints/PlayerEquipped" unique_id=1816580752]
-custom_minimum_size = Vector2(37, 52)
-custom_maximum_size = Vector2(37, 52)
-layout_mode = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(2, 0)
-
-[node name="EnemyEquipped" type="HBoxContainer" parent="CanvasLayer/SnapPoints" unique_id=1811146196]
-offset_left = 268.20004
-offset_top = 13.0000305
-offset_right = 387.20004
-offset_bottom = 65.000046
-scale = Vector2(0.4, 0.4)
-
-[node name="MiniCard" type="TextureRect" parent="CanvasLayer/SnapPoints/EnemyEquipped" unique_id=1614706637]
-custom_minimum_size = Vector2(37, 52)
-custom_maximum_size = Vector2(37, 52)
-layout_mode = 2
-
-[node name="MiniCard2" type="TextureRect" parent="CanvasLayer/SnapPoints/EnemyEquipped" unique_id=402717155]
-custom_minimum_size = Vector2(37, 52)
-custom_maximum_size = Vector2(37, 52)
-layout_mode = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(2, 0)
-
-[node name="MiniCard3" type="TextureRect" parent="CanvasLayer/SnapPoints/EnemyEquipped" unique_id=1806381230]
-custom_minimum_size = Vector2(37, 52)
-custom_maximum_size = Vector2(37, 52)
-layout_mode = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(2, 0)
-
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1860065832]
 z_index = -255
 offset_top = -41.0
@@ -273,7 +148,134 @@ offset_bottom = 199.0
 mouse_filter = 2
 texture = ExtResource("3_cr0qs")
 
+[node name="UI" type="Node" parent="CanvasLayer" unique_id=776752309]
+
+[node name="EnemyCard" type="TextureRect" parent="CanvasLayer/UI" unique_id=1019045733]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+offset_left = 223.0
+offset_top = 12.0
+offset_right = 260.0
+offset_bottom = 64.0
+
+[node name="Play" type="Button" parent="CanvasLayer/UI" unique_id=1419213483]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+offset_left = 223.0
+offset_top = 75.0
+offset_right = 260.0
+offset_bottom = 127.0
+
+[node name="DeckPos" type="Control" parent="CanvasLayer/UI" unique_id=2016960752]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 263.0
+offset_top = 131.0
+offset_right = 300.0
+offset_bottom = 183.0
+mouse_filter = 2
+
+[node name="Container" type="VBoxContainer" parent="CanvasLayer/UI" unique_id=35882176]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 55.0
+offset_bottom = 129.0
+
+[node name="EnemyBlock" type="Label" parent="CanvasLayer/UI/Container" unique_id=747365750]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 9)
+text = "0"
+label_settings = ExtResource("3_d2ft2")
+
+[node name="EnemyHP" type="Label" parent="CanvasLayer/UI/Container" unique_id=1549479166]
+layout_mode = 2
+text = "26 HP"
+label_settings = ExtResource("3_d2ft2")
+
+[node name="PlayerHP" type="Label" parent="CanvasLayer/UI/Container" unique_id=338346158]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 18)
+text = "26 HP"
+label_settings = ExtResource("3_d2ft2")
+
+[node name="PlayerBlock" type="Label" parent="CanvasLayer/UI/Container" unique_id=229747871]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 9)
+text = "0"
+label_settings = ExtResource("3_d2ft2")
+
+[node name="BlockIcon" type="TextureRect" parent="CanvasLayer/UI" unique_id=1916023655]
+offset_left = 32.0
+offset_top = 101.0
+offset_right = 52.0
+offset_bottom = 125.0
+texture = ExtResource("4_t81kl")
+
+[node name="BlockIcon2" type="TextureRect" parent="CanvasLayer/UI" unique_id=1343647386]
+offset_left = 32.0
+offset_top = 5.0
+offset_right = 52.0
+offset_bottom = 29.0
+texture = ExtResource("4_t81kl")
+
+[node name="PlayerEquipped" type="HBoxContainer" parent="CanvasLayer/UI" unique_id=53983858]
+offset_left = 268.0
+offset_top = 107.000015
+offset_right = 387.0
+offset_bottom = 159.00002
+scale = Vector2(0.4, 0.4)
+
+[node name="MiniCard" type="TextureRect" parent="CanvasLayer/UI/PlayerEquipped" unique_id=1723565702]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+
+[node name="MiniCard2" type="TextureRect" parent="CanvasLayer/UI/PlayerEquipped" unique_id=1633753365]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="MiniCard3" type="TextureRect" parent="CanvasLayer/UI/PlayerEquipped" unique_id=1816580752]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="EnemyEquipped" type="HBoxContainer" parent="CanvasLayer/UI" unique_id=1811146196]
+offset_left = 268.20004
+offset_top = 13.0000305
+offset_right = 387.20004
+offset_bottom = 65.000046
+scale = Vector2(0.4, 0.4)
+
+[node name="MiniCard" type="TextureRect" parent="CanvasLayer/UI/EnemyEquipped" unique_id=1614706637]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+
+[node name="MiniCard2" type="TextureRect" parent="CanvasLayer/UI/EnemyEquipped" unique_id=402717155]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="MiniCard3" type="TextureRect" parent="CanvasLayer/UI/EnemyEquipped" unique_id=1806381230]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
 [node name="BattleManager" type="Node" parent="." unique_id=331644232]
 script = ExtResource("6_t81kl")
 
-[connection signal="pressed" from="CanvasLayer/SnapPoints/Play" to="CanvasLayer/SnapPoints" method="play_cards"]
+[connection signal="pressed" from="CanvasLayer/UI/Play" to="CanvasLayer/SnapPoints" method="play_cards"]
