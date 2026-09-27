@@ -25,6 +25,7 @@ func get_point_slot() -> Array:
 	for i in snap_points:
 		if i not in points_to_play and !occupied.get(i):
 			p = i
+			break
 		ii += 1
 	if !p: ii = -1
 	print("found free point "+str(p)+" at ii "+str(ii))
@@ -62,5 +63,7 @@ func play_cards() -> void:
 					a[1].global_position = a[1].last_point.global_position
 	if len(selected_cards) > 0:
 		battle_manager.player.turn_end()
+		await get_tree().create_timer(1).timeout
 		battle_manager.enemy.ai_turn()
+		await get_tree().create_timer(2).timeout
 		battle_manager.player.turn_begin()

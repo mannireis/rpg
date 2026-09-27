@@ -11,6 +11,7 @@ func _ready() -> void:
 	player.block_display = c.get_node("PlayerBlock")
 	enemy.hp_display = snap_points.get_node("Container").get_node("EnemyHP")
 	enemy.block_display = c.get_node("EnemyBlock")
+	player.turn_begin()
 
 
 func get_oppo(caller_is_enemy: bool) -> PlayerCtl:

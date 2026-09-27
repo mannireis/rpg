@@ -45,6 +45,21 @@ offset_right = 146.0
 offset_bottom = 230.0
 pivot_offset = Vector2(18.5, 26)
 
+[node name="VisualCard5" parent="CanvasLayer/SnapPoints" unique_id=2083601731 instance=ExtResource("1_agnou")]
+offset_left = 109.0
+offset_top = 178.0
+offset_right = 146.0
+offset_bottom = 230.0
+pivot_offset = Vector2(18.5, 26)
+
+[node name="EnemyCard" type="TextureRect" parent="CanvasLayer/SnapPoints" unique_id=1019045733]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+offset_left = 223.0
+offset_top = 53.0
+offset_right = 260.0
+offset_bottom = 105.0
+
 [node name="Play" type="Button" parent="CanvasLayer/SnapPoints" unique_id=1419213483]
 custom_minimum_size = Vector2(37, 52)
 custom_maximum_size = Vector2(37, 52)

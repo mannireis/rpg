@@ -42,6 +42,7 @@ func draw(count: int = 1, gui: bool = false) -> void:
 				sp.occupied[slot_res[1]] = vis_card
 				if true:
 					vis_card.global_position = slot_res[1].global_position
+			else: printerr("slots returned "+str(slot_res)+", hidden cards "+str(sp.hidden_cards))
 		else: hand.append(deck_order.pop_back())
 			
 			
@@ -96,7 +97,8 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 			ctl.deck_order.pop_front()
 		else:
 			var to_hide: Array[Control] = [snap_points.get_node("VisualCard"),snap_points.get_node("VisualCard2"),
-			snap_points.get_node("VisualCard3"),snap_points.get_node("VisualCard4")]
+			snap_points.get_node("VisualCard3"),snap_points.get_node("VisualCard4"),
+			snap_points.get_node("VisualCard5")]
 			for i in to_hide:
 				i.visible = false
 				snap_points.hidden_cards.append(i)
@@ -104,7 +106,7 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 	ctl.permanent_deck = deck
 	ctl.is_enemy = init_is_enemy
 	if !fallback_hand_start and !ctl.is_enemy:
-		ctl.draw(3,true)
+		ctl.draw(2,true)
 	return ctl
 	
 func run_equipped(method: String, vec: Vector2i = Vector2i(0,0),prio_type: String = "other",feedback: bool = false):
@@ -174,7 +176,9 @@ func turn_end() -> void:
 	block_display.text = str(-block_current[0])
 		
 func turn_begin() -> void:
+	block_display.text = str(-block_current[0])
 	draw(1,true)	
+	enemy_display_cards(false)
 
 func player_attack(block:bool=false,choice: bool = false) -> void:
 	if not choice:
@@ -220,9 +224,9 @@ func play_card(card_index: int) -> Vector2i:
 		return Vector2i(int(M.STAY),loc)
 	var card: GameCard = permanent_deck[card_index]
 	var res: Array = card.play.call(self,battle_manager.get_oppo(is_enemy))
-	if res[1] != v0:
+	if len(res) > 1 and res[1] != v0:
 		exec_atk(res[1])
-	if res[2] != v0:
+	if len(res) > 2 and res[2] != v0:
 		exec_block(res[2])
 	var side_int = 0
 	if is_enemy: side_int = 1
@@ -245,14 +249,32 @@ func play_card(card_index: int) -> Vector2i:
 		3: removed_from_game.pop_at(ind)
 	return Vector2i(res[0],loc)
 			
+func enemy_display_cards(show: bool = true, cards: Array[int] = []) -> void:
+	var i: int = 0
+	var node: TextureRect = null
+	var card: GameCard
+	for node_name in ["EnemyCard"]:
+		node = sp.get_node(node_name)
+		if show:
+			if i < len(cards):
+				card = permanent_deck[cards[i]]
+				node.texture = card.img
+				node.visible = true
+				print("displayed "+card.name)
+				i += 1
+		else:
+			node.visible = false
 func ai_turn() -> void:
 	print("AI turn at "+str(ai_diff)+" difficulty")
+	turn_begin()
 	match ai_diff:
 		_:
 			draw()
 			var single_tar = hand[-1]
 			print(permanent_deck[single_tar].name)
+			enemy_display_cards(true, hand)
 			play_card(single_tar)
+	turn_end()
 		
 	
 	
