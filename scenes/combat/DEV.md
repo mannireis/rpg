@@ -8,7 +8,8 @@ They are addressed by suits (numerically sorted by the `GameCard.S` enum: spades
 
 To create a new card, add it to the [CardDatabase](res://scripts/globals/card_database.gd) using the `GameCard.create(suit: S, id: int, can_atk: Able, atk: Vector2i,...)` constructor into the `db[suit][id]` 2D array. 
 Each card should also have an `img` attr set with the `img_texture` parameter.
-Then, in _ready(), set all its relevant methods to callables. For a `can_atk != Able.NONE`, a `weapon_atk() -> Vector2i` should be set, returning a `Vector2i(damage,damage_type)`. Negative damage grants block for that particular damage type.
+Then, in _ready(), set all its relevant methods to callables. For a `can_atk != Able.NONE`, a `weapon_atk() -> Vector2i` should be set, returning a `Vector2i(damage,damage_type)`, by default this just returns the `atk`. Negative damage grants block for that particular damage type.
+The `weapon_atk()` method is only used if the card is equipped. This should usually be diamond cards. To make a card equippable, return `[GameCard.Move.EQUIP]` from its `play()`
 
 Each `play()` method returns an Array for future extensions.
 For now only the first element matters. It's always GameCard.Move and says where the card should go after being played; this should usually be GameCard.Move.TRASH ("graveyard" in MtG terms)
@@ -18,6 +19,7 @@ For now only the first element matters. It's always GameCard.Move and says where
 Visual cards are visual_card scenes controlled by [visual_card.gd](res://scripts/combat/visual_card.gd). Each needs an `index_in_deck`, `color` (suit) and `id`, and updates its appearance based on the associated GameCard's `img` when an `update_img(_color,_id)` is called on it.
 Visual cards are aligned to positions defined by SnapPointX, children of SnapPoints. When a card is attached to a point `p`, it can be accessed through `$SnapPoints.occupied.get(p)`.
 Cards in the upper 3 points will be played through [card_holder.gd](res://scripts/combat/card_holder.gd)'s `play_cards()` when the Play button is clicked. This method is also responsible for animating their movement as returned by `play()`.
+When a card is trashed after playing, it is added to the `$SnapPoints.hidden_cards` array. From there, it is reused by a [PlayerCtl](res://scripts/combat/game_player_ctl.gd)'s `draw(count,gui)` function if `gui` is set to true.
 
 ## PlayerCtl
 
