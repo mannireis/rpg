@@ -19,54 +19,54 @@ points_to_play = [NodePath("SnapPoint6"), NodePath("SnapPoint7"), NodePath("Snap
 
 [node name="VisualCard" parent="CanvasLayer/SnapPoints" unique_id=176121807 instance=ExtResource("1_agnou")]
 offset_left = 52.0
-offset_top = 172.0
+offset_top = 131.0
 offset_right = 89.0
-offset_bottom = 224.0
+offset_bottom = 183.0
 pivot_offset = Vector2(18.5, 26)
 
 [node name="VisualCard2" parent="CanvasLayer/SnapPoints" unique_id=123137353 instance=ExtResource("1_agnou")]
 offset_left = 166.0
-offset_top = 154.0
+offset_top = 113.0
 offset_right = 203.0
-offset_bottom = 206.0
+offset_bottom = 165.0
 pivot_offset = Vector2(18.5, 26)
 
 [node name="VisualCard3" parent="CanvasLayer/SnapPoints" unique_id=560083286 instance=ExtResource("1_agnou")]
 offset_left = 222.0
-offset_top = 178.0
+offset_top = 137.0
 offset_right = 259.0
-offset_bottom = 230.0
+offset_bottom = 189.0
 pivot_offset = Vector2(18.5, 26)
 
 [node name="VisualCard4" parent="CanvasLayer/SnapPoints" unique_id=1397567476 instance=ExtResource("1_agnou")]
 offset_left = 109.0
-offset_top = 178.0
+offset_top = 137.0
 offset_right = 146.0
-offset_bottom = 230.0
+offset_bottom = 189.0
 pivot_offset = Vector2(18.5, 26)
 
 [node name="VisualCard5" parent="CanvasLayer/SnapPoints" unique_id=2083601731 instance=ExtResource("1_agnou")]
 offset_left = 109.0
-offset_top = 178.0
+offset_top = 137.0
 offset_right = 146.0
-offset_bottom = 230.0
+offset_bottom = 189.0
 pivot_offset = Vector2(18.5, 26)
 
 [node name="EnemyCard" type="TextureRect" parent="CanvasLayer/SnapPoints" unique_id=1019045733]
 custom_minimum_size = Vector2(37, 52)
 custom_maximum_size = Vector2(37, 52)
 offset_left = 223.0
-offset_top = 53.0
+offset_top = 12.0
 offset_right = 260.0
-offset_bottom = 105.0
+offset_bottom = 64.0
 
 [node name="Play" type="Button" parent="CanvasLayer/SnapPoints" unique_id=1419213483]
 custom_minimum_size = Vector2(37, 52)
 custom_maximum_size = Vector2(37, 52)
 offset_left = 223.0
-offset_top = 116.0
+offset_top = 75.0
 offset_right = 260.0
-offset_bottom = 168.0
+offset_bottom = 127.0
 
 [node name="DeckPos" type="Control" parent="CanvasLayer/SnapPoints" unique_id=2016960752]
 custom_minimum_size = Vector2(37, 52)
@@ -74,9 +74,9 @@ custom_maximum_size = Vector2(37, 52)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 263.0
-offset_top = 172.0
+offset_top = 131.0
 offset_right = 300.0
-offset_bottom = 224.0
+offset_bottom = 183.0
 mouse_filter = 2
 
 [node name="SnapPoint8" type="Control" parent="CanvasLayer/SnapPoints" unique_id=361185160]
@@ -85,9 +85,9 @@ custom_maximum_size = Vector2(37, 52)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 100.0
-offset_top = 116.0
+offset_top = 75.0
 offset_right = 137.0
-offset_bottom = 168.0
+offset_bottom = 127.0
 mouse_filter = 2
 
 [node name="SnapPoint7" type="Control" parent="CanvasLayer/SnapPoints" unique_id=2122941605]
@@ -96,9 +96,9 @@ custom_maximum_size = Vector2(37, 52)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 141.0
-offset_top = 116.0
+offset_top = 75.0
 offset_right = 178.0
-offset_bottom = 168.0
+offset_bottom = 127.0
 mouse_filter = 2
 
 [node name="SnapPoint6" type="Control" parent="CanvasLayer/SnapPoints" unique_id=333189486]
@@ -107,9 +107,9 @@ custom_maximum_size = Vector2(37, 52)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 182.0
-offset_top = 116.0
+offset_top = 75.0
 offset_right = 219.0
-offset_bottom = 168.0
+offset_bottom = 127.0
 mouse_filter = 2
 
 [node name="SnapPoint5" type="Control" parent="CanvasLayer/SnapPoints" unique_id=2146593391]
@@ -118,9 +118,9 @@ custom_maximum_size = Vector2(37, 52)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 223.0
-offset_top = 172.0
+offset_top = 131.0
 offset_right = 260.0
-offset_bottom = 224.0
+offset_bottom = 183.0
 mouse_filter = 2
 
 [node name="SnapPoint4" type="Control" parent="CanvasLayer/SnapPoints" unique_id=2088390886]
@@ -129,9 +129,9 @@ custom_maximum_size = Vector2(37, 52)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 182.0
-offset_top = 172.0
+offset_top = 131.0
 offset_right = 219.0
-offset_bottom = 224.0
+offset_bottom = 183.0
 mouse_filter = 2
 
 [node name="SnapPoint3" type="Control" parent="CanvasLayer/SnapPoints" unique_id=566027806]
@@ -140,9 +140,9 @@ custom_maximum_size = Vector2(37, 52)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 141.0
-offset_top = 172.0
+offset_top = 131.0
 offset_right = 178.0
-offset_bottom = 224.0
+offset_bottom = 183.0
 mouse_filter = 2
 
 [node name="SnapPoint2" type="Control" parent="CanvasLayer/SnapPoints" unique_id=602367213]
@@ -151,9 +151,9 @@ custom_maximum_size = Vector2(37, 52)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 100.0
-offset_top = 172.0
+offset_top = 131.0
 offset_right = 137.0
-offset_bottom = 224.0
+offset_bottom = 183.0
 mouse_filter = 2
 
 [node name="SnapPoint" type="Control" parent="CanvasLayer/SnapPoints" unique_id=17325602]
@@ -162,16 +162,16 @@ custom_maximum_size = Vector2(37, 52)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 59.0
-offset_top = 172.0
+offset_top = 131.0
 offset_right = 96.0
-offset_bottom = 224.0
+offset_bottom = 183.0
 mouse_filter = 2
 
 [node name="Container" type="VBoxContainer" parent="CanvasLayer/SnapPoints" unique_id=35882176]
 offset_left = 15.0
-offset_top = 42.0
+offset_top = 1.0
 offset_right = 55.0
-offset_bottom = 170.0
+offset_bottom = 129.0
 
 [node name="EnemyBlock" type="Label" parent="CanvasLayer/SnapPoints/Container" unique_id=747365750]
 layout_mode = 2
@@ -201,23 +201,23 @@ label_settings = ExtResource("3_d2ft2")
 
 [node name="BlockIcon" type="TextureRect" parent="CanvasLayer/SnapPoints" unique_id=1916023655]
 offset_left = 32.0
-offset_top = 142.0
+offset_top = 101.0
 offset_right = 52.0
-offset_bottom = 166.0
+offset_bottom = 125.0
 texture = ExtResource("4_t81kl")
 
 [node name="BlockIcon2" type="TextureRect" parent="CanvasLayer/SnapPoints" unique_id=1343647386]
 offset_left = 32.0
-offset_top = 46.0
+offset_top = 5.0
 offset_right = 52.0
-offset_bottom = 70.0
+offset_bottom = 29.0
 texture = ExtResource("4_t81kl")
 
 [node name="PlayerEquipped" type="HBoxContainer" parent="CanvasLayer/SnapPoints" unique_id=53983858]
 offset_left = 268.0
-offset_top = 148.00002
+offset_top = 107.000015
 offset_right = 387.0
-offset_bottom = 200.00002
+offset_bottom = 159.00002
 scale = Vector2(0.4, 0.4)
 
 [node name="MiniCard" type="TextureRect" parent="CanvasLayer/SnapPoints/PlayerEquipped" unique_id=1723565702]
@@ -241,9 +241,9 @@ offset_transform_position = Vector2(2, 0)
 
 [node name="EnemyEquipped" type="HBoxContainer" parent="CanvasLayer/SnapPoints" unique_id=1811146196]
 offset_left = 268.20004
-offset_top = 54.000027
+offset_top = 13.0000305
 offset_right = 387.20004
-offset_bottom = 106.000046
+offset_bottom = 65.000046
 scale = Vector2(0.4, 0.4)
 
 [node name="MiniCard" type="TextureRect" parent="CanvasLayer/SnapPoints/EnemyEquipped" unique_id=1614706637]
@@ -267,8 +267,9 @@ offset_transform_position = Vector2(2, 0)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1860065832]
 z_index = -255
+offset_top = -41.0
 offset_right = 320.0
-offset_bottom = 240.0
+offset_bottom = 199.0
 mouse_filter = 2
 texture = ExtResource("3_cr0qs")
 
