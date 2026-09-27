@@ -213,6 +213,58 @@ offset_right = 52.0
 offset_bottom = 70.0
 texture = ExtResource("4_t81kl")
 
+[node name="PlayerEquipped" type="HBoxContainer" parent="CanvasLayer/SnapPoints" unique_id=53983858]
+offset_left = 268.0
+offset_top = 148.00002
+offset_right = 387.0
+offset_bottom = 200.00002
+scale = Vector2(0.4, 0.4)
+
+[node name="MiniCard" type="TextureRect" parent="CanvasLayer/SnapPoints/PlayerEquipped" unique_id=1723565702]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+
+[node name="MiniCard2" type="TextureRect" parent="CanvasLayer/SnapPoints/PlayerEquipped" unique_id=1633753365]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="MiniCard3" type="TextureRect" parent="CanvasLayer/SnapPoints/PlayerEquipped" unique_id=1816580752]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="EnemyEquipped" type="HBoxContainer" parent="CanvasLayer/SnapPoints" unique_id=1811146196]
+offset_left = 268.20004
+offset_top = 54.000027
+offset_right = 387.20004
+offset_bottom = 106.000046
+scale = Vector2(0.4, 0.4)
+
+[node name="MiniCard" type="TextureRect" parent="CanvasLayer/SnapPoints/EnemyEquipped" unique_id=1614706637]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+
+[node name="MiniCard2" type="TextureRect" parent="CanvasLayer/SnapPoints/EnemyEquipped" unique_id=402717155]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="MiniCard3" type="TextureRect" parent="CanvasLayer/SnapPoints/EnemyEquipped" unique_id=1806381230]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1860065832]
 z_index = -255
 offset_right = 320.0
