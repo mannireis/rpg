@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi27dfk7n53gu"
-path="res://.godot/imported/house_lg.png-66aa0bf3d70c8e58eb3e38c3202623f9.ctex"
+uid="uid://de2vyrdwpvrji"
+path="res://.godot/imported/temp_test_mat.png-e18482964997944e493c1f9143c31c31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/vilagge/house_lg.png"
-dest_files=["res://.godot/imported/house_lg.png-66aa0bf3d70c8e58eb3e38c3202623f9.ctex"]
+source_file="res://assets/temp_test_mat.png"
+dest_files=["res://.godot/imported/temp_test_mat.png-e18482964997944e493c1f9143c31c31.ctex"]
 
 [params]
 

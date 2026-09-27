@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://54aeg1xrqrf0"
-path="res://.godot/imported/furniture.png-6cbbb35702c80b87a6abf56abf919cbe.ctex"
+uid="uid://bi27dfk7n53gu"
+path="res://.godot/imported/lucyandgreghouse.png-7f53aa275261998555702f8db0031f65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/furniture.png"
-dest_files=["res://.godot/imported/furniture.png-6cbbb35702c80b87a6abf56abf919cbe.ctex"]
+source_file="res://assets/houses/lucyandgreghouse.png"
+dest_files=["res://.godot/imported/lucyandgreghouse.png-7f53aa275261998555702f8db0031f65.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://808f20dfyppx"]
 
-[ext_resource type="Texture2D" uid="uid://bi27dfk7n53gu" path="res://assets/vilagge/house_lg.png" id="1_sfbe5"]
+[ext_resource type="Texture2D" uid="uid://bi27dfk7n53gu" path="res://assets/houses/lucyandgreghouse.png" id="1_sfbe5"]
 [ext_resource type="PackedScene" uid="uid://ce3k768yxt8nv" path="res://scenes/world/rooms/resources/door.tscn" id="2_t5tig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfbe5"]

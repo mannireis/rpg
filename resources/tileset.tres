@@ -1,13 +1,13 @@
 [gd_resource type="TileSet" format=3 uid="uid://ctpxu0oeyokmb"]
 
-[ext_resource type="Texture2D" uid="uid://ciqw8s38jysal" path="res://assets/tilesets/tileset_zone_1.png" id="1_ovg5i"]
-[ext_resource type="Texture2D" uid="uid://dv6crhweoxoux" path="res://assets/tilesets/tileset_zone_2.png" id="2_ebxqf"]
-[ext_resource type="Texture2D" uid="uid://dxayar305gha7" path="res://assets/tilesets/house_interior.png" id="3_fw34w"]
-[ext_resource type="PackedScene" uid="uid://cqx6p753r2s1r" path="res://scenes/world/fireplace.tscn" id="4_g1a73"]
-[ext_resource type="Texture2D" uid="uid://54aeg1xrqrf0" path="res://assets/furniture.png" id="5_a85ji"]
+[ext_resource type="Texture2D" uid="uid://ciqw8s38jysal" path="res://assets/tilesets/tileset_zone_1.png" id="1_luhvj"]
+[ext_resource type="Texture2D" uid="uid://dv6crhweoxoux" path="res://assets/tilesets/tileset_zone_2.png" id="2_6dy5u"]
+[ext_resource type="Texture2D" uid="uid://dxayar305gha7" path="res://assets/tilesets/house_interior.png" id="3_did67"]
+[ext_resource type="PackedScene" uid="uid://cqx6p753r2s1r" path="res://scenes/world/fireplace.tscn" id="4_qvmtg"]
+[ext_resource type="Texture2D" uid="uid://54aeg1xrqrf0" path="res://assets/tilesets/furniture.png" id="5_lmoxx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lwt3p"]
-texture = ExtResource("1_ovg5i")
+texture = ExtResource("1_luhvj")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -53,7 +53,7 @@ texture = ExtResource("1_ovg5i")
 6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 2, -4, 2, -3, 2, -3, 3, -3, 3, -2, 4, -2, 4, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fw34w"]
-texture = ExtResource("2_ebxqf")
+texture = ExtResource("2_6dy5u")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
 1:0/0 = 0
@@ -96,7 +96,7 @@ texture = ExtResource("2_ebxqf")
 5:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g1a73"]
-texture = ExtResource("3_fw34w")
+texture = ExtResource("3_did67")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -142,10 +142,10 @@ texture = ExtResource("3_fw34w")
 4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -8, -5, -6, -6, -6, -6, -5, -7, -5, -7, -4, -8, -4, -8, 8, 8, 8, 8, -8)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a85ji"]
-scenes/1/scene = ExtResource("4_g1a73")
+scenes/1/scene = ExtResource("4_qvmtg")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_od34u"]
-texture = ExtResource("5_a85ji")
+texture = ExtResource("5_lmoxx")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -6, 6, -6, 6, 6, -6, 6)
 1:0/0 = 0

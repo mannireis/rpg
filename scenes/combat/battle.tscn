@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ov2xhwty8yje" path="res://scripts/combat/card_holder.gd" id="1_3vhqq"]
 [ext_resource type="PackedScene" uid="uid://b8r8mkw0q8nwx" path="res://scenes/combat/visual_card.tscn" id="1_agnou"]
-[ext_resource type="Texture2D" uid="uid://de2vyrdwpvrji" path="res://assets/mat.png" id="3_cr0qs"]
-[ext_resource type="LabelSettings" uid="uid://cvat017lktncw" path="res://resources/UIlabel.tres" id="3_d2ft2"]
+[ext_resource type="Texture2D" uid="uid://de2vyrdwpvrji" path="res://assets/temp_test_mat.png" id="3_cr0qs"]
+[ext_resource type="LabelSettings" uid="uid://cvat017lktncw" path="res://resources/theme.tres" id="3_d2ft2"]
 [ext_resource type="Texture2D" uid="uid://donpbplhg0ts1" path="res://assets/block.png" id="4_t81kl"]
 [ext_resource type="Script" uid="uid://5s8gps1iisx" path="res://scenes/combat/battle_manager.gd" id="6_t81kl"]
 

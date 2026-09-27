@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cuvmg6f778ewv"]
 
-[ext_resource type="TileSet" uid="uid://ctpxu0oeyokmb" path="res://resources/tile_sett.tres" id="1_31qqp"]
+[ext_resource type="TileSet" uid="uid://ctpxu0oeyokmb" path="res://resources/tileset.tres" id="1_31qqp"]
 [ext_resource type="PackedScene" uid="uid://dn85my2emfvu8" path="res://scenes/player/player.tscn" id="1_seo4b"]
 [ext_resource type="PackedScene" uid="uid://ce3k768yxt8nv" path="res://scenes/world/rooms/resources/door.tscn" id="3_k7em3"]
 
