@@ -27,29 +27,29 @@ static func create(suit: S, id: int, can_atk: Able, atk_dmg: Vector2i = Vector2i
 var play: Callable = func play(_ctl:PlayerCtl, _enemy_ctl: PlayerCtl) -> Array:
 	return [Move.TRASH]
 
-func when_equipped(_ctl:PlayerCtl, _enemy_ctl: PlayerCtl) -> void: #doesn't need priority so no _null
+var when_equipped: Callable = func when_equipped(_ctl:PlayerCtl, _enemy_ctl: PlayerCtl) -> void: #doesn't need priority so no _null
 	pass
 
  #_null arguments make for easier call() with known number of args
-func mod_dmg_in(dmg:Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:
+var mod_dmg_in: Callable = func mod_dmg_in(dmg:Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:
 	return dmg
-func mod_dmg_out(dmg:Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:	
+var mod_dmg_out: Callable = func mod_dmg_out(dmg:Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:	
 	return dmg
 func weapon_atk(_null, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:
 	return atk
-func mod_trash_choice(_null, _ctl:PlayerCtl, _null2) -> int:
+var mod_trash_choice: Callable = func mod_trash_choice(_null, _ctl:PlayerCtl, _null2) -> int:
 	return -1
-func mod_discard_event(_choice: Vector2i, _ctl: PlayerCtl, _null2) -> void:
+var mod_discard_event: Callable = func mod_discard_event(_choice: Vector2i, _ctl: PlayerCtl, _null2) -> void:
 	pass
-func next_turn_effect(_null,_ctl: PlayerCtl,_null2) -> void:
+var next_turn_effect: Callable = func next_turn_effect(_null,_ctl: PlayerCtl,_null2) -> void:
 	pass
-func mod_block(block: Vector2i, _ctl: PlayerCtl,_enemy_ctl: PlayerCtl) -> Vector2i:
+var mod_block: Callable = func mod_block(block: Vector2i, _ctl: PlayerCtl,_enemy_ctl: PlayerCtl) -> Vector2i:
 	return block
-func mod_any_equipped(side_card_index: Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> void:
+var mod_any_equipped: Callable = func mod_any_equipped(side_card_index: Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> void:
 	pass
-func mod_any_trashed(side_card_index: Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> void:
+var mod_any_trashed: Callable = func mod_any_trashed(side_card_index: Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> void:
 	pass
-func turn_begin(_null,_ctl:PlayerCtl,_enemy_ctl: PlayerCtl) -> void:
+var turn_begin: Callable = func turn_begin(_null,_ctl:PlayerCtl,_enemy_ctl: PlayerCtl) -> void:
 	pass
-func turn_end(_null,_ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> void:
+var turn_end: Callable = func turn_end(_null,_ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> void:
 	pass

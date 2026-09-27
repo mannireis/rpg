@@ -65,6 +65,8 @@ static func starter_deck() -> Array[GameCard]:
 	for i in range(5):
 			deck.append(CardDatabase.db[3][0])
 			deck.append(CardDatabase.db[3][1])
+	for i in range(3):
+		deck.append(CardDatabase.db[3][2])
 	return deck
 
 static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy: bool = false) -> PlayerCtl:
@@ -125,16 +127,18 @@ func run_equipped(method: String, vec: Vector2i = Vector2i(0,0),prio_type: Strin
 			var eq_card_index = equipped[eq_index]
 			var eq = permanent_deck[eq_card_index]
 			if eq.prio.get(prio_type) == prio:
-				if eq.has_method(method):
+				if eq.get(method):
+					var m = eq.get(method)
 					if feedback: #do not forget to set feedback=true during dmg/block calculations which return!
-						vec = eq.call(method,vec,self,enemy)
+						vec = m.call(vec,self,enemy)
 					else:
-						eq.call(method,vec,self,enemy)
+						m.call(vec,self,enemy)
 					targets.pop_at(i)
 					_counter -= 1
 					i -= 1 #fix iter position after deleting
 				else:
-					printerr("equipment "+eq.name+" p"+prio+" lacks "+method)
+					print("equipment "+eq.name+" p"+str(prio)+" lacks "+method)
+					pass
 			i += 1
 		prio += 1
 	return vec
@@ -167,6 +171,7 @@ func exec_block(dmg:Vector2i) -> void:
 	block_accumulator[dmg[1]][-1] += dmg[0]
 	
 func turn_end() -> void:
+	run_equipped("turn_end")
 	var type_i: int = 0
 	while type_i < len(block_accumulator):
 		var sum = 0
@@ -245,7 +250,7 @@ func play_card(card_index: int) -> Vector2i:
 		M.EQUIP:
 			equipped.append(card_index)
 			equipped_cards.append(card)
-			card.when_equipped(self,battle_manager.get_oppo(is_enemy))
+			card.when_equipped.call(self,battle_manager.get_oppo(is_enemy))
 			run_equipped("mod_any_equipped",Vector2i(card_index,side_int))
 			for child in equipped_display.get_children():
 				if child.texture:

@@ -55,7 +55,7 @@ func _gui_input(event) -> void:
 
 func tween_scale(to_scale: float = 0.5, time: float = 0.25) -> void:
 	var tween = create_tween()
-	tween.tween_property(self,"scale",to_scale,time)
+	tween.tween_property(self,"scale",Vector2(to_scale,to_scale),time)
 
 
 func tween_to_point(target_point: Node, time: float = 0.15) -> void:
