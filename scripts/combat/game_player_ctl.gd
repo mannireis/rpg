@@ -17,6 +17,7 @@ var next_turn: Array[Callable] = []
 var block_accumulator: Array[Array] = [[0]]
 var is_enemy: bool = false
 var equipped: Array[int] = []
+var equipped_cards: Array[GameCard] = []
 var hand: Array[int] = []
 var burn: Array[int] = []
 var removed_from_game: Array[int] = []
@@ -61,6 +62,9 @@ static func starter_deck() -> Array[GameCard]:
 			deck.append(CardDatabase.db[1][0])
 	for i in range(3):
 			deck.append(CardDatabase.db[1][0])
+	pass
+	for i in range(5):
+			deck.append(CardDatabase.db[3][0])
 	return deck
 
 static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy: bool = false) -> PlayerCtl:
@@ -236,6 +240,7 @@ func play_card(card_index: int) -> Vector2i:
 			return Vector2i(int(M.STAY),loc)
 		M.EQUIP:
 			equipped.append(card_index)
+			equipped_cards.append(card)
 			card.when_equipped(self,battle_manager.get_oppo(is_enemy))
 			run_equipped("mod_any_equipped",Vector2i(card_index,side_int))
 			for child in equipped_display.get_children():
