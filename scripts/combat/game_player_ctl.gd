@@ -37,15 +37,13 @@ func draw(count: int = 1, gui: bool = false) -> void:
 				vis_card.index_in_deck = hand[-1]
 				data = permanent_deck[hand[-1]]
 				vis_card.update_img(data.suit,data.id)
-				print(UI_node)
 				vis_card.global_position = UI_node.get_node("DeckPos").global_position
 				vis_card.visible = true
 				vis_card.last_point = slot_res[1]
 				vis_card.dup_point = slot_res[1]
 				vis_card.current_point = slot_res[1]
 				sp.occupied[slot_res[1]] = vis_card
-				if true:
-					vis_card.global_position = slot_res[1].global_position
+				vis_card.tween_to_point(slot_res[1],0.25)
 			else: printerr("slots returned "+str(slot_res)+", hidden cards "+str(sp.hidden_cards))
 		else: hand.append(deck_order.pop_back())
 			

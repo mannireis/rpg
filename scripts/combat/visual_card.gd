@@ -53,6 +53,14 @@ func _gui_input(event) -> void:
 	elif event is InputEventMouseMotion and dragging:
 		global_position = get_global_mouse_position() - drag_offset
 
+func tween_scale(to_scale: float = 0.5, time: float = 0.25) -> void:
+	var tween = create_tween()
+	tween.tween_property(self,"scale",to_scale,time)
+
+
+func tween_to_point(target_point: Node, time: float = 0.15) -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", target_point.global_position + (target_point.size - size) / 2.0, time)
 
 func snap_to_nearest_point() -> void:
 	var point_manager = get_parent()
@@ -63,8 +71,7 @@ func snap_to_nearest_point() -> void:
 			hovering = false
 			scale = Vector2.ONE
 			rotation_degrees = 0.0
-			var tween = create_tween()
-			tween.tween_property(self, "global_position", target_point.global_position + (target_point.size - size) / 2.0, 0.15)
+			tween_to_point(target_point)
 			point_manager.occupied[target_point] = self
 			last_point = dup_point
 			print("set last point to "+str(last_point))

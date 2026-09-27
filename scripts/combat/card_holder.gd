@@ -46,6 +46,7 @@ func play_cards() -> void:
 		res = battle_manager.player.play_card(index_in_deck)
 		print(res)
 		if res[0] != int(GameCard.Move.STAY):
+			await a[1].tween_scale()
 			a[1].visible = false
 			hidden_cards.append(a[1])
 			occupied.set(a[2],null)
@@ -55,13 +56,9 @@ func play_cards() -> void:
 				occupied.set(a[2],null)
 				a[1].current_point = a[1].last_point
 				occupied.set(a[1].current_point,a[1])
-				if false:
-					var tween = a[1].create_tween()
-					tween.tween_property(self, "global_position", a[1].last_point.global_position + (a[1].last_point.size - a[1].size) / 2.0, 0.15)
-				else:
-					if a[1].last_point:
-						a[1].dup_point = a[1].last_point
-						a[1].global_position = a[1].last_point.global_position
+				if a[1].last_point:
+					a[1].dup_point = a[1].last_point
+					a[1].tween_to_point(a[1].last_point,0.25)
 			else:
 				printerr("previous point "+str(a[1].last_point)+" occupied by "+str(occupied.get(a[1].last_point)))
 				a[1].visible = false
