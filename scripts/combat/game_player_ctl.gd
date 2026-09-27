@@ -21,6 +21,7 @@ var hand: Array[int] = []
 var burn: Array[int] = []
 var removed_from_game: Array[int] = []
 var permanent_deck: Array[GameCard] = []
+var equipped_display: HBoxContainer
 func draw(count: int = 1, gui: bool = false) -> void:
 	var slot_res: Array
 	var vis_card: Control = null
@@ -177,7 +178,7 @@ func turn_end() -> void:
 		
 func turn_begin() -> void:
 	block_display.text = str(-block_current[0])
-	draw(1,true)	
+	draw(1,!is_enemy)	
 	enemy_display_cards(false)
 
 func player_attack(block:bool=false,choice: bool = false) -> void:
@@ -237,6 +238,13 @@ func play_card(card_index: int) -> Vector2i:
 			equipped.append(card_index)
 			card.when_equipped(self,battle_manager.get_oppo(is_enemy))
 			run_equipped("mod_any_equipped",Vector2i(card_index,side_int))
+			for child in equipped_display.get_children():
+				if child.texture:
+					continue
+				else:
+					child.texture = card.img
+					print("found free equipped spot: "+str(child))
+					break
 		M.RFG:
 			removed_from_game.append(card_index)
 		M.TRASH:
@@ -269,11 +277,12 @@ func ai_turn() -> void:
 	turn_begin()
 	match ai_diff:
 		_:
-			draw()
-			var single_tar = hand[-1]
-			print(permanent_deck[single_tar].name)
+			hand.shuffle()
+			var single_tar = hand[0]
+			print("AI playing "+permanent_deck[single_tar].name+" from hand "+str(hand))
 			enemy_display_cards(true, hand)
 			play_card(single_tar)
+			print("hand after playing "+str(hand))
 	turn_end()
 		
 	
