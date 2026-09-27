@@ -6,7 +6,7 @@ extends Node
 @export var points_to_play: Array[Control] = []
 
 var occupied: Dictionary = {} 
-var hidden: Array[Control] = []
+var hidden_cards: Array[Control] = []
 
 func get_nearest_point(global_pos: Vector2) -> Control:
 	var nearest: Control = null
@@ -19,6 +19,16 @@ func get_nearest_point(global_pos: Vector2) -> Control:
 			nearest = point
 	return nearest
 
+func get_point_slot() -> Array:
+	var ii: int = 0
+	var p: Control = null
+	for i in snap_points:
+		if i not in points_to_play and !occupied.get(i):
+			p = i
+		ii += 1
+	if !p: ii = -1
+	print("found free point "+str(p)+" at ii "+str(ii))
+	return([ii,p])
 
 func play_cards() -> void:
 	print("play button clicked")
@@ -36,7 +46,7 @@ func play_cards() -> void:
 		print(res)
 		if res[0] != int(GameCard.Move.STAY):
 			a[1].visible = false
-			hidden.append(a[1])
+			hidden_cards.append(a[1])
 			occupied.set(a[2],null)
 		else:
 			print("trying to move #"+str(a[1].index_in_deck)+", last "+str(a[1].last_point)+" current "+str(a[1].current_point))
@@ -53,3 +63,4 @@ func play_cards() -> void:
 	if len(selected_cards) > 0:
 		battle_manager.player.turn_end()
 		battle_manager.enemy.ai_turn()
+		battle_manager.player.turn_begin()

@@ -53,6 +53,17 @@ offset_top = 116.0
 offset_right = 260.0
 offset_bottom = 168.0
 
+[node name="DeckPos" type="Control" parent="CanvasLayer/SnapPoints" unique_id=2016960752]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 263.0
+offset_top = 172.0
+offset_right = 300.0
+offset_bottom = 224.0
+mouse_filter = 2
+
 [node name="SnapPoint8" type="Control" parent="CanvasLayer/SnapPoints" unique_id=361185160]
 custom_minimum_size = Vector2(37, 52)
 custom_maximum_size = Vector2(37, 52)

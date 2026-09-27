@@ -1,9 +1,11 @@
 class_name PlayerCtl extends Node
 
 enum TurnState {ACTIVE, INACTIVE}
+var turn: TurnState = TurnState.ACTIVE
 @onready var battle_manager = get_tree().get_root().get_node("BattleRoom").get_node("BattleManager")
 var deck_order = range(52)
 var ai_diff = 0
+var sp: Node = null
 const v0 = Vector2i(0,0) #NOT vercel
 const max_hp = 26
 var hp: int = max_hp
@@ -19,9 +21,31 @@ var hand: Array[int] = []
 var burn: Array[int] = []
 var removed_from_game: Array[int] = []
 var permanent_deck: Array[GameCard] = []
-func draw(count: int = 1) -> void:
+func draw(count: int = 1, gui: bool = false) -> void:
+	var slot_res: Array
+	var vis_card: Control = null
+	var data: GameCard
 	for i in range(count):
-		hand.append(deck_order.pop_back())
+		if gui:
+			slot_res = sp.get_point_slot()
+			if slot_res[0] != -1 and len(sp.hidden_cards) > 0:
+				hand.append(deck_order.pop_back())
+				vis_card = sp.hidden_cards.pop_back()
+				vis_card.index_in_deck = hand[-1]
+				data = permanent_deck[hand[-1]]
+				vis_card.update_img(data.suit,data.id)
+				vis_card.global_position = sp.get_node("DeckPos").global_position
+				vis_card.visible = true
+				vis_card.last_point = slot_res[1]
+				vis_card.dup_point = slot_res[1]
+				vis_card.current_point = slot_res[1]
+				sp.occupied[slot_res[1]] = vis_card
+				if true:
+					vis_card.global_position = slot_res[1].global_position
+		else: hand.append(deck_order.pop_back())
+			
+			
+			
 
 static func starter_deck() -> Array[GameCard]:
 	var deck: Array[GameCard] = []
@@ -49,9 +73,14 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 	ctl.equipped.append(len(deck)-1)
 	ctl.equipped.append(len(deck)-2)
 	var snap_points = battle_room.get_node("CanvasLayer/SnapPoints")
-	if init_is_enemy:
-		if true and battle_room: #workaround until cards are instantiated by PlayerCtl
+	ctl.sp = snap_points
+	print(snap_points.occupied)
+	const fallback_hand_start: bool = false
+	if !init_is_enemy:
+		if fallback_hand_start and battle_room: #workaround until cards are instantiated by PlayerCtl
 			ctl.hand.append(0)
+			ctl.hand.append(1)
+			ctl.hand.append(10)
 			ctl.hand.append(13)
 			snap_points.get_node("VisualCard").index_in_deck = 0
 			snap_points.get_node("VisualCard").update_img(0,0)
@@ -62,14 +91,20 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 			snap_points.get_node("VisualCard4").index_in_deck = 10
 			snap_points.get_node("VisualCard4").update_img(0,2)
 			ctl.deck_order.pop_at(13)
+			ctl.deck_order.pop_at(10)
+			ctl.deck_order.pop_at(1)
 			ctl.deck_order.pop_front()
-		var cards_on_screen: Array[Control]
-		var visual_card: Control
-		for i in range(5):
-			visual_card = snap_points.get_node("VisualCard").duplicate()
-			snap_points.add_child(visual_card)
+		else:
+			var to_hide: Array[Control] = [snap_points.get_node("VisualCard"),snap_points.get_node("VisualCard2"),
+			snap_points.get_node("VisualCard3"),snap_points.get_node("VisualCard4")]
+			for i in to_hide:
+				i.visible = false
+				snap_points.hidden_cards.append(i)
+			print(snap_points.hidden_cards)
 	ctl.permanent_deck = deck
 	ctl.is_enemy = init_is_enemy
+	if !fallback_hand_start and !ctl.is_enemy:
+		ctl.draw(3,true)
 	return ctl
 	
 func run_equipped(method: String, vec: Vector2i = Vector2i(0,0),prio_type: String = "other",feedback: bool = false):
@@ -138,7 +173,9 @@ func turn_end() -> void:
 		type_i += 1
 	block_display.text = str(-block_current[0])
 		
-	
+func turn_begin() -> void:
+	draw(1,true)	
+
 func player_attack(block:bool=false,choice: bool = false) -> void:
 	if not choice:
 		var res_card: GameCard = null
