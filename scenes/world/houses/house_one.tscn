@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://808f20dfyppx"]
 
-[ext_resource type="Texture2D" uid="uid://bi27dfk7n53gu" path="res://assets/vilagge/house_lg.png" id="1_sfbe5"]
+[ext_resource type="Texture2D" uid="uid://bi27dfk7n53gu" path="res://assets/houses/lucyandgreghouse.png" id="1_sfbe5"]
 [ext_resource type="PackedScene" uid="uid://ce3k768yxt8nv" path="res://scenes/world/rooms/resources/door.tscn" id="2_t5tig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfbe5"]
@@ -34,7 +34,7 @@ shape = SubResource("RectangleShape2D_ib3ld")
 z_index = 11
 position = Vector2(-19, 24)
 connected_room = "uid://btager5sdowip"
-player_pos = Vector2(-32, 116)
+player_pos = Vector2(-32, 85)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea2D" unique_id=1690209418]

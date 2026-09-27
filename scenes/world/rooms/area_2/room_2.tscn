@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://bniolco77nojo"]
+[gd_scene format=4 uid="uid://ctaivm5k3slwo"]
 
 [ext_resource type="TileSet" uid="uid://ctpxu0oeyokmb" path="res://resources/tileset.tres" id="1_rnrjh"]
 [ext_resource type="PackedScene" uid="uid://ce3k768yxt8nv" path="res://scenes/world/rooms/resources/door.tscn" id="2_xhq1b"]
@@ -26,9 +26,8 @@ texture = ExtResource("3_ycc4o")
 
 [node name="DoorArea2D2" parent="Tilemap/Doors" unique_id=1452607005 instance=ExtResource("2_xhq1b")]
 position = Vector2(-384, 40)
-connected_room = "uid://2tvlx51b5qgv"
+connected_room = "res://scenes/world/rooms/area_2/room_1.tscn"
 player_pos = Vector2(144, 40)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tilemap/Doors/DoorArea2D2" unique_id=1640597931]
 position = Vector2(223, 17)

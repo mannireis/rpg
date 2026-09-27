@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://2tvlx51b5qgv"]
+[gd_scene format=4 uid="uid://dsbvt56oaos2u"]
 
 [ext_resource type="TileSet" uid="uid://ctpxu0oeyokmb" path="res://resources/tileset.tres" id="1_kxuuf"]
 [ext_resource type="PackedScene" uid="uid://dn85my2emfvu8" path="res://scenes/player/player.tscn" id="1_vvcgs"]
@@ -22,27 +22,24 @@ tile_set = ExtResource("1_kxuuf")
 
 [node name="DoorArea2D" parent="Tilemap/Doors" unique_id=1575194595 instance=ExtResource("2_hs8yj")]
 position = Vector2(129, 13)
-connected_room = "uid://b4ibpmwucbqi1"
-player_pos = Vector2(128, 100)
-metadata/_edit_group_ = true
+connected_room = "res://scenes/world/rooms/area_2/village_start.tscn"
+player_pos = Vector2(128, 95)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tilemap/Doors/DoorArea2D" unique_id=257871663]
 shape = SubResource("RectangleShape2D_ydl00")
 
 [node name="DoorArea2D3" parent="Tilemap/Doors" unique_id=1563580472 instance=ExtResource("2_hs8yj")]
 position = Vector2(0, 102)
-connected_room = "uid://cxo5kid7luyig"
+connected_room = "res://scenes/world/rooms/area_1/room_2.tscn"
 player_pos = Vector2(1, 7)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tilemap/Doors/DoorArea2D3" unique_id=798500685]
 shape = SubResource("RectangleShape2D_ydl00")
 
 [node name="DoorArea2D2" parent="Tilemap/Doors" unique_id=1543004339 instance=ExtResource("2_hs8yj")]
 position = Vector2(162, 57)
-connected_room = "uid://bniolco77nojo"
+connected_room = "res://scenes/world/rooms/area_2/room_2.tscn"
 player_pos = Vector2(-145, 40)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tilemap/Doors/DoorArea2D2" unique_id=365573296]
 shape = SubResource("RectangleShape2D_otapo")
