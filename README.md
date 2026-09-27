@@ -1,6 +1,6 @@
 # rpg
 
-A silly RPG. WIP, so you can only walk around the rooms and talk to NPCs for now. Say hi to John!
+A silly RPG. WIP, so you can only walk around the rooms and talk to NPCs for now. Say hi to John, Lucy and Greg!
 
 ## Controls
 
