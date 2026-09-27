@@ -51,16 +51,25 @@ func play_cards() -> void:
 			occupied.set(a[2],null)
 		else:
 			print("trying to move #"+str(a[1].index_in_deck)+", last "+str(a[1].last_point)+" current "+str(a[1].current_point))
-			occupied.set(a[2],null)
-			a[1].current_point = a[1].last_point
-			occupied.set(a[1].current_point,a[1])
-			if false:
-				var tween = a[1].create_tween()
-				tween.tween_property(self, "global_position", a[1].last_point.global_position + (a[1].last_point.size - a[1].size) / 2.0, 0.15)
+			if !occupied.get(a[1].last_point):
+				occupied.set(a[2],null)
+				a[1].current_point = a[1].last_point
+				occupied.set(a[1].current_point,a[1])
+				if false:
+					var tween = a[1].create_tween()
+					tween.tween_property(self, "global_position", a[1].last_point.global_position + (a[1].last_point.size - a[1].size) / 2.0, 0.15)
+				else:
+					if a[1].last_point:
+						a[1].dup_point = a[1].last_point
+						a[1].global_position = a[1].last_point.global_position
 			else:
-				if a[1].last_point:
-					a[1].dup_point = a[1].last_point
-					a[1].global_position = a[1].last_point.global_position
+				printerr("previous point "+str(a[1].last_point)+" occupied by "+str(occupied.get(a[1].last_point)))
+				a[1].visible = false
+				hidden_cards.append(a[1])
+				var ind = battle_manager.player.hand.find(a[1].index_in_deck)
+				battle_manager.player.hand.pop_at(ind)
+				battle_manager.player.burn.append(a[1].index_in_deck)
+				occupied.set(a[2],null)
 	if len(selected_cards) > 0:
 		battle_manager.player.turn_end()
 		await get_tree().create_timer(1).timeout
