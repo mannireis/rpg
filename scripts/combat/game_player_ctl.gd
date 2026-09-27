@@ -64,6 +64,7 @@ static func starter_deck() -> Array[GameCard]:
 	pass
 	for i in range(5):
 			deck.append(CardDatabase.db[3][0])
+			deck.append(CardDatabase.db[3][1])
 	return deck
 
 static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy: bool = false) -> PlayerCtl:

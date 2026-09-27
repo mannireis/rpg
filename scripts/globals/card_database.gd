@@ -13,7 +13,8 @@ GameCard.create(s.SPADES,1,n,Vector2i(10,0),"Barbaric Strike",2,preload(p+"0/1.p
 GameCard.create(s.SPADES,2,n,Vector2i(1,0),"Poke",0,preload(p+"0/2.png"))],
 [GameCard.create(s.CLUBS,0,n,v0,"Good Posture",1,preload(p+"1/0.png"))],
 [],
-[GameCard.create(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload(p+"3/0.png"))],
+[GameCard.create(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload(p+"3/0.png")),
+GameCard.create(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload(p+"3/1.png"))],
 [],
 [GameCard.create(s.OTHER,0,GameCard.Able.ATK,Vector2i(3,0),"Punch",0),
 GameCard.create(s.OTHER,0,GameCard.Able.BLOCK,Vector2i(-3,0),"Block",0)]]
@@ -38,10 +39,17 @@ func _ready() -> void:
 		ctl.player_attack(true)
 		return [GameCard.Move.TRASH]
 	db[3][0].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
-		if self not in ctl.equipped_cards:
+		if db[3][0] not in ctl.equipped_cards and len(ctl.equipped_cards) < 3:
 			print("equipping "+self.name)
 			return [GameCard.Move.EQUIP]
 		else:
 			ctl.exec_atk(Vector2i(6,0))
+			return [GameCard.Move.TRASH]
+	db[3][1].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
+		if db[3][1] not in ctl.equipped_cards and len(ctl.equipped_cards) < 3:
+			print("equipping "+self.name)
+			return [GameCard.Move.EQUIP]
+		else:
+			ctl.exec_block(Vector2i(-6,0))
 			return [GameCard.Move.TRASH]
 			
