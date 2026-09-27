@@ -34,7 +34,7 @@ shape = SubResource("RectangleShape2D_ib3ld")
 z_index = 11
 position = Vector2(-19, 24)
 connected_room = "uid://btager5sdowip"
-player_pos = Vector2(-32, 116)
+player_pos = Vector2(-32, 85)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea2D" unique_id=1690209418]
