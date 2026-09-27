@@ -1,7 +1,6 @@
 class_name PlayerCtl extends Node
 
-enum TurnState {ACTIVE, INACTIVE}
-var turn: TurnState = TurnState.ACTIVE
+var turn: bool = true
 @onready var battle_manager = get_tree().get_root().get_node("BattleRoom").get_node("BattleManager")
 @onready var UI_node = get_tree().get_root().get_node("BattleRoom").get_node("CanvasLayer").get_node("UI")
 var deck_order = range(52)
@@ -178,11 +177,16 @@ func turn_end() -> void:
 			block_accumulator[type_i].append(0)
 		type_i += 1
 	block_display.text = str(-block_current[0])
+	UI_node.get_node("Play").visible = false
+	turn = false
 		
 func turn_begin() -> void:
 	block_display.text = str(-block_current[0])
 	draw(1,!is_enemy)	
 	enemy_display_cards(false)
+	turn = true
+	if !is_enemy:
+		UI_node.get_node("Play").visible = true
 
 func player_attack(block:bool=false,choice: bool = false) -> void:
 	if not choice:
