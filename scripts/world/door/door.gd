@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var connected_room: String
+@export_file("*.tscn") var connected_room: String
 @export var player_pos: Vector2
 
 

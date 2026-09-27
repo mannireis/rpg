@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="rpg"
-run/main_scene="uid://bpwbv1dm816xb"
+run/main_scene="uid://cvo7w7v04f75t"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -27,14 +27,16 @@ GameState="*uid://cgvvxg1upvrf4"
 [display]
 
 window/size/viewport_width=320
-window/size/viewport_height=240
+window/size/viewport_height=180
+window/size/mode=3
 window/size/window_width_override=1280
 window/size/window_height_override=960
 window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/cheatsheet_viewer/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 [input]
 
