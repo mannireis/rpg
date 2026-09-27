@@ -3,6 +3,7 @@ class_name PlayerCtl extends Node
 enum TurnState {ACTIVE, INACTIVE}
 var turn: TurnState = TurnState.ACTIVE
 @onready var battle_manager = get_tree().get_root().get_node("BattleRoom").get_node("BattleManager")
+@onready var UI_node = get_tree().get_root().get_node("BattleRoom").get_node("CanvasLayer").get_node("UI")
 var deck_order = range(52)
 var ai_diff = 0
 var sp: Node = null
@@ -36,7 +37,8 @@ func draw(count: int = 1, gui: bool = false) -> void:
 				vis_card.index_in_deck = hand[-1]
 				data = permanent_deck[hand[-1]]
 				vis_card.update_img(data.suit,data.id)
-				vis_card.global_position = sp.get_node("DeckPos").global_position
+				print(UI_node)
+				vis_card.global_position = UI_node.get_node("DeckPos").global_position
 				vis_card.visible = true
 				vis_card.last_point = slot_res[1]
 				vis_card.dup_point = slot_res[1]
@@ -70,6 +72,7 @@ static func starter_deck() -> Array[GameCard]:
 static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy: bool = false) -> PlayerCtl:
 	var ctl = PlayerCtl.new()
 	ctl.battle_manager = battle_room.get_node("BattleManager")
+	ctl.UI_node = battle_room.get_node("CanvasLayer/UI")
 	if deck == []:
 		deck = starter_deck()
 	ctl.deck_order = range(len(deck))
@@ -110,8 +113,6 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 			print(snap_points.hidden_cards)
 	ctl.permanent_deck = deck
 	ctl.is_enemy = init_is_enemy
-	if !fallback_hand_start and !ctl.is_enemy:
-		ctl.draw(2,true)
 	return ctl
 	
 func run_equipped(method: String, vec: Vector2i = Vector2i(0,0),prio_type: String = "other",feedback: bool = false):
@@ -267,7 +268,7 @@ func enemy_display_cards(show: bool = true, cards: Array[int] = []) -> void:
 	var node: TextureRect = null
 	var card: GameCard
 	for node_name in ["EnemyCard"]:
-		node = sp.get_node(node_name)
+		node = UI_node.get_node(node_name)
 		if show:
 			if i < len(cards):
 				card = permanent_deck[cards[i]]
