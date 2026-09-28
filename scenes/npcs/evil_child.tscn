@@ -234,7 +234,6 @@ shape = SubResource("RectangleShape2D_khasj")
 shape = SubResource("RectangleShape2D_7e6gy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=399072197]
-z_index = -10
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_ib3ld")
 animation = &"idle_left"

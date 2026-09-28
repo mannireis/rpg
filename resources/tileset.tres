@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dv6crhweoxoux" path="res://assets/tilesets/tileset_zone_2.png" id="2_6dy5u"]
 [ext_resource type="Texture2D" uid="uid://dxayar305gha7" path="res://assets/tilesets/house_interior.png" id="3_did67"]
 [ext_resource type="PackedScene" uid="uid://cqx6p753r2s1r" path="res://scenes/world/fireplace.tscn" id="4_qvmtg"]
+[ext_resource type="Texture2D" uid="uid://bi27dfk7n53gu" path="res://assets/houses/lucyandgreghouse.png" id="5_6dy5u"]
 [ext_resource type="Texture2D" uid="uid://54aeg1xrqrf0" path="res://assets/tilesets/furniture.png" id="5_lmoxx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lwt3p"]
@@ -152,6 +153,13 @@ texture = ExtResource("3_did67")
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a85ji"]
 scenes/1/scene = ExtResource("4_qvmtg")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_did67"]
+texture = ExtResource("5_6dy5u")
+0:1/size_in_atlas = Vector2i(6, 4)
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(-40, 24)
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -24, 85, -24, 85, 8, 29, 8, 29, -23, 13, -23, 13, 8, -4, 8)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_od34u"]
 texture = ExtResource("5_lmoxx")
 0:0/0 = 0
@@ -186,3 +194,4 @@ sources/1 = SubResource("TileSetAtlasSource_fw34w")
 sources/2 = SubResource("TileSetAtlasSource_g1a73")
 sources/3 = SubResource("TileSetScenesCollectionSource_a85ji")
 sources/5 = SubResource("TileSetAtlasSource_od34u")
+sources/4 = SubResource("TileSetAtlasSource_did67")

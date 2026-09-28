@@ -59,7 +59,6 @@ area2d = NodePath("Area2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=727085948]
-z_index = -10
 sprite_frames = SubResource("SpriteFrames_ib3ld")
 animation = &"Idle"
 autoplay = "Idle"

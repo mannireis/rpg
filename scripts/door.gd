@@ -25,7 +25,7 @@ extends Area2D
 		other.other = self
 
 @onready var collision_shape: SegmentShape2D = $CollisionShape2D.shape
-@onready var player: Player = $"../Player"
+@onready var player: Player = $"../../Player"
 
 
 func _on_body_entered(body: Node2D) -> void:

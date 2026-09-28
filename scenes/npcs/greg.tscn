@@ -240,7 +240,6 @@ shape = SubResource("RectangleShape2D_yd8gk")
 shape = SubResource("RectangleShape2D_2ksv7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1433249403]
-z_index = -10
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_nouti")
 animation = &"walk_up"
