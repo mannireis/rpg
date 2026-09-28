@@ -31,7 +31,6 @@ texture = ExtResource("2_c13y1")
 [node name="Door" parent="Doors" unique_id=13791502 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
 position = Vector2(232, 112)
 rotation = 3.1415925
-width = 1
 other = NodePath("../Door2")
 
 [node name="Door2" parent="Doors" unique_id=1043371963 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
