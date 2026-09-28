@@ -187,6 +187,7 @@ func turn_end() -> void:
 	turn = false
 		
 func turn_begin() -> void:
+	battle_manager.eval_hp()
 	block_display.text = str(-block_current[0])
 	draw(1,!is_enemy)	
 	enemy_display_cards(false)
@@ -269,6 +270,7 @@ func play_card(card_index: int) -> Vector2i:
 		1: burn.pop_at(ind)
 		2: deck_order.pop_at(ind)
 		3: removed_from_game.pop_at(ind)
+	battle_manager.eval_hp()
 	return Vector2i(res[0],loc)
 			
 func enemy_display_cards(show: bool = true, cards: Array[int] = []) -> void:
