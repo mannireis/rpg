@@ -71,6 +71,7 @@ func play_animations(direction: Vector2):
 			animation.play("idle_down" if last_dir.y > 0 else "idle_up")
 
 
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		in_range = true
