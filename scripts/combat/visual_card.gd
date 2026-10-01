@@ -3,6 +3,7 @@ extends Control
 
 @onready var card_texture: TextureRect = $CardTexture
 @onready var battle_manager: Node = get_tree().get_root().get_node("BattleRoom").get_node("BattleManager")
+
 var index_in_deck: int = -1
 var color: GameCard.S
 var id: int
@@ -90,6 +91,8 @@ func animate_hovering() -> void:
 	if hovering:
 		tween.tween_property(self, "scale", Vector2(1.2,1.2), 0.15)
 		tween.parallel().tween_property(self, "rotation_degrees", 15.0, 0.15)
+		$"../../UI/Label".text = data.text
+		$"../../UI/Label2".text = data.name
 	else:
 		tween.tween_property(self, "scale", Vector2(1.0,1.0), 0.1)
 		tween.parallel().tween_property(self, "rotation_degrees", 0.0, 0.15)

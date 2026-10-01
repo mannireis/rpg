@@ -278,6 +278,32 @@ layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(2, 0)
 
+[node name="Label" type="Label" parent="CanvasLayer/UI" unique_id=239615582]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -22.0
+offset_right = 49.0
+offset_bottom = 33.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_85hy3")
+theme_override_font_sizes/font_size = 9
+text = "weh
+"
+
+[node name="Label2" type="Label" parent="CanvasLayer/UI" unique_id=501860355]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -34.0
+offset_right = 49.0
+offset_bottom = 21.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_85hy3")
+theme_override_font_sizes/font_size = 9
+text = "weh
+"
+
 [node name="BattleManager" type="Node" parent="." unique_id=331644232]
 script = ExtResource("6_t81kl")
 
