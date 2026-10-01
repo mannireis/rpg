@@ -64,11 +64,11 @@ func _parse(source: String) -> Dictionary:
 
 
 func _goto(id: String) -> void:
+	if id == "battle":
+		_start_battle()
+		return
 	if id == "end" or not _parsed_dialogue.has(id):
 		_end()
-		return
-	elif id == "battle":
-		_start_battle()
 		return
 	
 	_current_id = id
@@ -101,6 +101,7 @@ func choose(target: String) -> void:
 
 func _start_battle() -> void:
 	var p = get_tree().current_scene.scene_file_path
+	print(p)
 	if p not in RoomChangeGlobal.scenes_battle_completed:
 		RoomChangeGlobal.activate = true
 		RoomChangeGlobal.player_pos = GameState.player_pos
