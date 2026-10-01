@@ -3,10 +3,6 @@ start (
 	Emily: Why?
 	Rabeka: It's too dangerous for weaklings like you.
 	Rabeka: Win me in a battle to prove you are strong enough.
-		Fight > fight
+		Battle > battle
 		Run > end
-)
-
-fight (
-	weh: Gotta set the up
 )

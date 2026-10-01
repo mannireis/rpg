@@ -28,6 +28,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
+	GameState.player_pos = global_position
+	
 	play_animations(direction)
 	move_and_slide()
 

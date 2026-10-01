@@ -67,6 +67,10 @@ func _goto(id: String) -> void:
 	if id == "end" or not _parsed_dialogue.has(id):
 		_end()
 		return
+	elif id == "battle":
+		_start_battle()
+		return
+	
 	_current_id = id
 	_current_line = 0
 	_show_line()
@@ -93,6 +97,18 @@ func choose(target: String) -> void:
 		advance()
 	else:
 		_goto(target)
+
+
+func _start_battle() -> void:
+	var p = get_tree().current_scene.scene_file_path
+	if p not in RoomChangeGlobal.scenes_battle_completed:
+		RoomChangeGlobal.activate = true
+		RoomChangeGlobal.player_pos = GameState.player_pos
+		RoomChangeGlobal.scene_return = p
+		RoomChangeGlobal.scenes_battle_completed.append(p)
+		GameState.battle_running = true
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/combat/battle.tscn")
+		_end()
 
 
 func _end() -> void:
