@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://kwxfelbodplj" path="res://scripts/camera_2d.gd" id="3_b55wc"]
 [ext_resource type="PackedScene" uid="uid://dwkhcdggcjul5" path="res://scenes/door.tscn" id="4_tcubl"]
 [ext_resource type="PackedScene" uid="uid://dwikxcvj1cl3o" path="res://scenes/npcs/john.tscn" id="5_vvh82"]
-[ext_resource type="PackedScene" uid="uid://cr2jluiwxgaac" path="res://scenes/npcs/evil_child.tscn" id="7_cj6e4"]
 [ext_resource type="PackedScene" uid="uid://dqmxk47s7c2qd" path="res://scenes/npcs/lucy.tscn" id="8_vg2no"]
 [ext_resource type="PackedScene" uid="uid://egs6ra7cs44t" path="res://scenes/npcs/greg.tscn" id="9_gbcm8"]
 [ext_resource type="PackedScene" uid="uid://cnaw35hbade40" path="res://scenes/npcs/rabeka.tscn" id="10_nxqch"]
@@ -93,9 +92,6 @@ position = Vector2(480, -496)
 
 [node name="John" parent="." unique_id=392461232 instance=ExtResource("5_vvh82")]
 position = Vector2(456, 64)
-
-[node name="EvilChild" parent="." unique_id=926653456 instance=ExtResource("7_cj6e4")]
-position = Vector2(752, -104)
 
 [node name="Lucy" parent="." unique_id=567995208 instance=ExtResource("8_vg2no")]
 position = Vector2(520, -768)

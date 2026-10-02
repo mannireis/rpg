@@ -1,13 +1,16 @@
 extends Node
-var game_result: Array[bool] = [false,false]
+
 @onready var player = PlayerCtl.create(get_parent(),[])
 @onready var enemy = PlayerCtl.create(get_parent(),[],true)
 @onready var snap_points = get_parent().get_node("CanvasLayer/SnapPoints")
 @onready var UI = get_parent().get_node("CanvasLayer/UI")
 
+var game_result: Array[bool] = [false,false]
+
 
 func _ready() -> void:
 	var c = UI.get_node("Container")
+	
 	player.hp_display = c.get_node("PlayerHP")
 	player.block_display = c.get_node("PlayerBlock")
 	player.equipped_display = UI.get_node("PlayerEquipped")
@@ -24,7 +27,7 @@ func get_oppo(caller_is_enemy: bool) -> PlayerCtl:
 	else: return enemy #such code, very advance
 
 
-func call_as_player(method:String,args: Array, is_enemy: bool = false) -> void:
+func call_as_player(method:String, args: Array, is_enemy: bool = false) -> void:
 	if !is_enemy:
 		enemy.callv(method,args)
 	else:
@@ -32,8 +35,13 @@ func call_as_player(method:String,args: Array, is_enemy: bool = false) -> void:
 		
 func eval_hp() -> void:
 	#game ended? winner is_enemy?
-	if enemy.hp <= 0: game_result = [true,true]
-	elif player.hp <= 0: game_result = [true,false]
+	if enemy.hp <= 0: 
+		game_result = [true,true]
+		Signals.battle_won.emit()
+	elif player.hp <= 0: 
+		Signals.battle_lost.emit()
+		game_result = [true,false]
+	
 	if game_result[0]:
 		RoomChangeGlobal.player_hp = player.hp
 		RoomChangeGlobal.last_battle_result = game_result[1]

@@ -6,3 +6,20 @@ start (
 		Battle > battle
 		Run > end
 )
+
+ran (
+	Rabeka: ghrh you again really? What do you want now.
+	Battle > battle_talk
+	Run > run_again
+)
+
+battle_talk (
+	Emily: I wanna battle this time!
+	Battle > battle
+)
+
+run_again (
+	Emily: sorry for bothering you!
+	Rabeka: Coward!!
+	>> end
+)

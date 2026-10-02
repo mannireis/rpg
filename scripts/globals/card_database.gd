@@ -1,12 +1,15 @@
 class_name CardList
 extends Node
+
 const n = GameCard.Able.NONE
 const s = GameCard.S
 const v0 = Vector2i(0,0)
 const p = "res://assets/aseprite/cards/"
+
 var common_textures: Array[Texture2D] = [
 	preload(p+"bad_card.png")
 ]
+
 var db: Array[Array] = [
 [GameCard.create(s.SPADES, 0, n, v0, "Double Trouble", 1, preload(p+"0/0.png",), "test"),
 GameCard.create(s.SPADES,1,n,Vector2i(10,0),"Barbaric Strike",2,preload(p+"0/1.png"), "test"),
@@ -64,5 +67,3 @@ func _ready() -> void:
 		else: return dmg
 	db[3][2].turn_end = func(_null,_ctl:PlayerCtl,_enemy_ctl:PlayerCtl):
 		_ctl.block_accumulator[-1][0] -= 2
-	
-			

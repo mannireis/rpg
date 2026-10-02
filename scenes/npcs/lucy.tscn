@@ -222,6 +222,7 @@ animations = [{
 
 [node name="Lucy" type="CharacterBody2D" unique_id=926653456 node_paths=PackedStringArray("area2d", "animation")]
 script = ExtResource("1_khasj")
+npc_name = &"lucy"
 dialogue_file = "res://assets/dialogue/lucy.txt"
 area2d = NodePath("Area2D")
 wander = true

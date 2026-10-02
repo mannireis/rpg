@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnaw35hbade40"]
 
-[ext_resource type="Script" uid="uid://cvq1dc601nuk2" path="res://scripts/npcs/npc.gd" id="1_yffm8"]
+[ext_resource type="Script" uid="uid://cto5v538h772q" path="res://scripts/npcs/rabeka.gd" id="1_5mxnl"]
 [ext_resource type="Texture2D" uid="uid://cvnuv07nvndmc" path="res://assets/characters/rebeka.png" id="2_5mxnl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_atieb"]
@@ -32,8 +32,10 @@ size = Vector2(10, 8)
 size = Vector2(48, 48)
 
 [node name="Rabeka" type="CharacterBody2D" unique_id=180817783 node_paths=PackedStringArray("area2d", "animation")]
-script = ExtResource("1_yffm8")
+script = ExtResource("1_5mxnl")
+npc_name = &"rabeka"
 dialogue_file = "res://assets/dialogue/rabeka.txt"
+met_id = &"ran"
 area2d = NodePath("Area2D")
 animation = NodePath("AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"

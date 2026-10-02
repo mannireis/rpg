@@ -222,12 +222,13 @@ animations = [{
 
 [node name="Greg" type="CharacterBody2D" unique_id=277362907 node_paths=PackedStringArray("area2d", "animation")]
 script = ExtResource("1_m33i2")
+npc_name = &"greg"
 dialogue_file = "res://assets/dialogue/greg.txt"
 area2d = NodePath("Area2D")
 wander = true
+max_wait = 10.0
 speed = 30.0
 min_wait = 3.0
-max_wait = 10.0
 animation = NodePath("AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 

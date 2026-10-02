@@ -2,6 +2,7 @@ class_name NPC
 extends CharacterBody2D
 
 @export_category("Dialogue")
+@export var npc_name: StringName
 @export_file("*.txt") var dialogue_file: String
 @export var id: StringName = &"start"
 @export var met_id: StringName = &"start"
@@ -10,9 +11,9 @@ extends CharacterBody2D
 @export_category("Wander")
 @export var wander: bool = false
 @export var max_dist: float = 64.0
+@export var max_wait: float = 5.0
 @export var speed: float = 25.0
 @export var min_wait: float = 1.0
-@export var max_wait: float = 5.0
 
 @export_category("Misc")
 @export var animation: AnimatedSprite2D
@@ -75,19 +76,26 @@ func play_animations(direction: Vector2):
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		in_range = true
+		PlayerUi.unhide_label()
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		GameState.speaking_with = &""
+		
 		in_range = false
 		pressed = false
+		PlayerUi.hide_label()
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Interact") and in_range and not pressed:
 		pressed = true
-		if GameState.has_met(id):
+		
+		GameState.speaking_with = npc_name
+		
+		if GameState.has_met(npc_name):
 			DialogueManager.start(dialogue_file, met_id)
 		else:
 			DialogueManager.start(dialogue_file, id)
-			GameState.meet(id)
+			GameState.meet(npc_name)

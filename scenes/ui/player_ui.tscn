@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b431ig3lsl8cg"]
+
+[ext_resource type="Script" uid="uid://c5uib53enfso3" path="res://scripts/player/player_ui.gd" id="1_2sf84"]
+[ext_resource type="FontFile" uid="uid://dwbkxf4ig1c77" path="res://assets/fonts/PixFont (Pixel Font).ttf" id="2_jg20v"]
+
+[node name="PlayerUi" type="CanvasLayer" unique_id=1079908957]
+script = ExtResource("1_2sf84")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=230820887]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="InteractLabel" type="Label" parent="MarginContainer" unique_id=949141504]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_jg20v")
+theme_override_font_sizes/font_size = 9
+text = "press \"Q\" to interact"
+horizontal_alignment = 1

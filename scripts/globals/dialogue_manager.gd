@@ -2,6 +2,7 @@ extends Node
 
 signal new_line(line: Dictionary)
 signal dialogue_ended
+signal current_id(id: String)
 
 var active: bool = false
 var _parsed_dialogue: Dictionary = {}
@@ -64,6 +65,7 @@ func _parse(source: String) -> Dictionary:
 
 
 func _goto(id: String) -> void:
+	current_id.emit(id)
 	if id == "battle":
 		_start_battle()
 		return
