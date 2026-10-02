@@ -1,13 +1,15 @@
 class_name PlayerCtl extends Node
 
-var turn: bool = true
 @onready var battle_manager = get_tree().get_root().get_node("BattleRoom").get_node("BattleManager")
 @onready var UI_node = get_tree().get_root().get_node("BattleRoom").get_node("CanvasLayer").get_node("UI")
+
+const v0 = Vector2i(0,0) #NOT vercel
+const max_hp = 26
+
+var turn: bool = true
 var deck_order = range(52)
 var ai_diff = 0
 var sp: Node = null
-const v0 = Vector2i(0,0) #NOT vercel
-const max_hp = 26
 var hp: int = max_hp
 var hp_display: Label
 var block_display: Label
@@ -23,6 +25,7 @@ var burn: Array[int] = []
 var removed_from_game: Array[int] = []
 var permanent_deck: Array[GameCard] = []
 var equipped_display: HBoxContainer
+
 func draw(count: int = 1, gui: bool = false) -> void:
 	var slot_res: Array
 	var vis_card: Control = null
@@ -45,9 +48,7 @@ func draw(count: int = 1, gui: bool = false) -> void:
 				vis_card.tween_to_point(slot_res[1],0.25)
 			else: printerr("slots returned "+str(slot_res)+", hidden cards "+str(sp.hidden_cards))
 		else: hand.append(deck_order.pop_back())
-			
-			
-			
+
 
 static func starter_deck() -> Array[GameCard]:
 	var deck: Array[GameCard] = []
@@ -68,6 +69,7 @@ static func starter_deck() -> Array[GameCard]:
 	for i in range(3):
 		deck.append(CardDatabase.db[3][2])
 	return deck
+
 
 static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy: bool = false) -> PlayerCtl:
 	var ctl = PlayerCtl.new()
@@ -143,6 +145,7 @@ func run_equipped(method: String, vec: Vector2i = Vector2i(0,0),prio_type: Strin
 		prio += 1
 	return vec
 
+
 func receive_dmg(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_dmg_in",dmg,"dmg_in",true)
 	block_current[dmg[1]] += dmg[0]
@@ -164,12 +167,14 @@ func exec_atk(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_dmg_out",dmg,"dmg_out",true)
 	print("E"+str(is_enemy)+" dealing final dmg "+str(dmg))
 	battle_manager.call_as_player("receive_dmg",[dmg],is_enemy)
-	
+
+
 func exec_block(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_block",dmg,"block",true)
 	print("final block "+str(dmg))
 	block_accumulator[dmg[1]][-1] += dmg[0]
-	
+
+
 func turn_end() -> void:
 	run_equipped("turn_end")
 	var type_i: int = 0
@@ -185,7 +190,8 @@ func turn_end() -> void:
 	block_display.text = str(-block_current[0])
 	UI_node.get_node("Play").visible = false
 	turn = false
-		
+
+
 func turn_begin() -> void:
 	battle_manager.eval_hp()
 	block_display.text = str(-block_current[0])
@@ -194,6 +200,7 @@ func turn_begin() -> void:
 	turn = true
 	if !is_enemy:
 		UI_node.get_node("Play").visible = true
+
 
 func player_attack(block:bool=false,choice: bool = false) -> void:
 	if not choice:
@@ -216,7 +223,7 @@ func player_attack(block:bool=false,choice: bool = false) -> void:
 			print("no suitable card found in "+str(equipped))
 	else:
 		print("executing choice")
-		
+
 
 func play_card(card_index: int) -> Vector2i:
 	var loc = -1
@@ -272,7 +279,8 @@ func play_card(card_index: int) -> Vector2i:
 		3: removed_from_game.pop_at(ind)
 	battle_manager.eval_hp()
 	return Vector2i(res[0],loc)
-			
+
+
 func enemy_display_cards(show: bool = true, cards: Array[int] = []) -> void:
 	var i: int = 0
 	var node: TextureRect = null
@@ -288,6 +296,8 @@ func enemy_display_cards(show: bool = true, cards: Array[int] = []) -> void:
 				i += 1
 		else:
 			node.visible = false
+
+
 func ai_turn() -> void:
 	print("AI turn at "+str(ai_diff)+" difficulty")
 	turn_begin()
@@ -300,14 +310,3 @@ func ai_turn() -> void:
 			play_card(single_tar)
 			print("hand after playing "+str(hand))
 	turn_end()
-		
-	
-	
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass

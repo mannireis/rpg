@@ -279,6 +279,7 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(2, 0)
 
 [node name="Label" type="Label" parent="CanvasLayer/UI" unique_id=239615582]
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -292,6 +293,7 @@ text = "weh
 "
 
 [node name="Label2" type="Label" parent="CanvasLayer/UI" unique_id=501860355]
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0

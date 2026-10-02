@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if GameState.has_met(npc_name) and not DialogueManager.active and not ran and battle_won:
+	if GameState.won(npc_name):
 		queue_free()
 
 func _current_id(id: String) -> void:
@@ -24,7 +24,14 @@ func _current_id(id: String) -> void:
 
 func _battle_lost() -> void:
 	battle_won = false
+	print("lost battle")
+	
+	GameState.fought(npc_name, true)
+	Signals.battle_won.emit()
 
 
 func _battle_won() -> void:
 	battle_won = true
+	print("won battle")
+
+	met_id = &"battle_won"

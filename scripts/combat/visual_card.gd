@@ -91,11 +91,15 @@ func animate_hovering() -> void:
 	if hovering:
 		tween.tween_property(self, "scale", Vector2(1.2,1.2), 0.15)
 		tween.parallel().tween_property(self, "rotation_degrees", 15.0, 0.15)
+		$"../../UI/Label".visible = true
+		$"../../UI/Label2".visible = true
 		$"../../UI/Label".text = data.text
 		$"../../UI/Label2".text = data.name
 	else:
 		tween.tween_property(self, "scale", Vector2(1.0,1.0), 0.1)
 		tween.parallel().tween_property(self, "rotation_degrees", 0.0, 0.15)
+		$"../../UI/Label".visible = false
+		$"../../UI/Label2".visible = false
 
 func _on_mouse_short_click() -> void:
 	pass

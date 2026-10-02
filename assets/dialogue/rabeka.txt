@@ -23,3 +23,20 @@ run_again (
 	Rabeka: Coward!!
 	>> end
 )
+
+battle_won (
+	Rabeka: rhg you have won my respect do you want to come with me?
+		Yes > follow
+		No > dont_follow
+)
+
+follow (
+	Emily: yesyesyes!
+	Rabeka: grhh don't be too enthusiastic.
+	>> end
+)
+
+dont_follow (
+	Emily: no thank you!
+	>> end
+)
