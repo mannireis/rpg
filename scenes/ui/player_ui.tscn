@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b431ig3lsl8cg"]
 
 [ext_resource type="Script" uid="uid://c5uib53enfso3" path="res://scripts/player/player_ui.gd" id="1_2sf84"]
-[ext_resource type="FontFile" uid="uid://dwbkxf4ig1c77" path="res://assets/fonts/PixFont (Pixel Font).ttf" id="2_jg20v"]
+[ext_resource type="FontFile" uid="uid://4c2t8wmtn2wg" path="res://assets/fonts/m3x6.ttf" id="2_2sf84"]
 
 [node name="PlayerUi" type="CanvasLayer" unique_id=1079908957]
 script = ExtResource("1_2sf84")
@@ -20,7 +20,7 @@ theme_override_constants/margin_bottom = 10
 [node name="InteractLabel" type="Label" parent="MarginContainer" unique_id=949141504]
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("2_jg20v")
-theme_override_font_sizes/font_size = 9
+theme_override_fonts/font = ExtResource("2_2sf84")
+theme_override_font_sizes/font_size = 16
 text = "press \"Q\" to interact"
 horizontal_alignment = 1
