@@ -5,6 +5,7 @@ class_name PlayerCtl extends Node
 
 const v0 = Vector2i(0,0) #NOT vercel
 const max_hp = 26
+const battle_debug: bool = false
 
 var turn: bool = true
 var deck_order = range(52)
@@ -154,10 +155,10 @@ func receive_dmg(dmg:Vector2i) -> void:
 		dmg[0] += block_current[dmg[1]]
 		block_current[dmg[1]] = 0
 		block_display.text = "0"
-		print("receiving final dmg "+str(dmg))
+		if battle_debug: print("receiving final dmg "+str(dmg))
 		hp -= dmg[0]
 	else:
-		print("blocked dmg, remaining block "+str(block_current))
+		if battle_debug: print("blocked dmg, remaining block "+str(block_current))
 		block_display.text = str(-block_current[0])
 	hp_display.text = str(hp)+" HP"
 	pass
@@ -165,13 +166,13 @@ func receive_dmg(dmg:Vector2i) -> void:
 
 func exec_atk(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_dmg_out",dmg,"dmg_out",true)
-	print("E"+str(is_enemy)+" dealing final dmg "+str(dmg))
+	if battle_debug: print("E"+str(is_enemy)+" dealing final dmg "+str(dmg))
 	battle_manager.call_as_player("receive_dmg",[dmg],is_enemy)
 
 
 func exec_block(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_block",dmg,"block",true)
-	print("final block "+str(dmg))
+	if battle_debug: print("final block "+str(dmg))
 	block_accumulator[dmg[1]][-1] += dmg[0]
 
 
@@ -292,7 +293,7 @@ func enemy_display_cards(show: bool = true, cards: Array[int] = []) -> void:
 				card = permanent_deck[cards[i]]
 				node.texture = card.img
 				node.visible = true
-				print("displayed "+card.name)
+				if battle_debug: print("displayed "+card.name)
 				i += 1
 		else:
 			node.visible = false
@@ -305,7 +306,7 @@ func ai_turn() -> void:
 		_:
 			hand.shuffle()
 			var single_tar = hand[0]
-			print("AI playing "+permanent_deck[single_tar].name+" from hand "+str(hand))
+			if battle_debug: print("AI playing "+permanent_deck[single_tar].name+" from hand "+str(hand))
 			enemy_display_cards(true, hand)
 			play_card(single_tar)
 			print("hand after playing "+str(hand))

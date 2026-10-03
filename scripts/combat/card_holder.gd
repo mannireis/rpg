@@ -28,11 +28,10 @@ func get_point_slot() -> Array:
 			break
 		ii += 1
 	if !p: ii = -1
-	print("found free point "+str(p)+" at ii "+str(ii))
+	#print("found free point "+str(p)+" at ii "+str(ii))
 	return([ii,p])
 
 func play_cards() -> void:
-	print("play button clicked")
 	var selected_cards: Array[Array] = []
 	var card_in_slot
 	var index_in_deck: int
@@ -44,14 +43,12 @@ func play_cards() -> void:
 	for a in selected_cards:
 		index_in_deck = a[0]
 		res = battle_manager.player.play_card(index_in_deck)
-		print(res)
 		if res[0] != int(GameCard.Move.STAY):
 			await a[1].tween_scale()
 			a[1].visible = false
 			hidden_cards.append(a[1])
 			occupied.set(a[2],null)
 		else:
-			print("trying to move #"+str(a[1].index_in_deck)+", last "+str(a[1].last_point)+" current "+str(a[1].current_point))
 			if !occupied.get(a[1].last_point):
 				occupied.set(a[2],null)
 				a[1].current_point = a[1].last_point
