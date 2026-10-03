@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if GameState.won(npc_name):
-		global_position = Vector2(529.0, -576.0)
+		global_position = Vector2(532.0, -600.0)
 
 func _current_id(id: String) -> void:
 	if GameState.speaking_with == npc_name:
@@ -27,7 +27,6 @@ func _battle_lost() -> void:
 	print("lost battle")
 	
 	GameState.fought(npc_name, false)
-
 
 func _battle_won() -> void:
 	battle_won = true
