@@ -196,7 +196,7 @@ func turn_end() -> void:
 func turn_begin() -> void:
 	battle_manager.eval_hp()
 	block_display.text = str(-block_current[0])
-	draw(1,!is_enemy)	
+	draw(max(5-len(hand),0),!is_enemy)	
 	enemy_display_cards(false)
 	turn = true
 	if !is_enemy:
