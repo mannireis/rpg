@@ -98,8 +98,6 @@ func animate_hovering() -> void:
 	else:
 		tween.tween_property(self, "scale", Vector2(1.0,1.0), 0.1)
 		tween.parallel().tween_property(self, "rotation_degrees", 0.0, 0.15)
-		$"../../UI/Label".visible = false
-		$"../../UI/Label2".visible = false
 
 func _on_mouse_short_click() -> void:
 	pass

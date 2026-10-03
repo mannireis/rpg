@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://cnaw35hbade40"]
 
-[ext_resource type="Script" uid="uid://cto5v538h772q" path="res://scripts/npcs/rabeka.gd" id="1_5mxnl"]
-[ext_resource type="Texture2D" uid="uid://cvnuv07nvndmc" path="res://assets/characters/rebeka.png" id="2_5mxnl"]
+[ext_resource type="Script" uid="uid://cto5v538h772q" path="res://scripts/npcs/rebeka.gd" id="1_ilpv8"]
+[ext_resource type="Texture2D" uid="uid://cvnuv07nvndmc" path="res://assets/characters/rebeka.png" id="2_mxhai"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_atieb"]
-atlas = ExtResource("2_5mxnl")
+atlas = ExtResource("2_mxhai")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gw1ia"]
-atlas = ExtResource("2_5mxnl")
+atlas = ExtResource("2_mxhai")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yffm8"]
@@ -31,9 +31,9 @@ size = Vector2(10, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atieb"]
 size = Vector2(48, 48)
 
-[node name="Rabeka" type="CharacterBody2D" unique_id=180817783 node_paths=PackedStringArray("area2d", "animation")]
-script = ExtResource("1_5mxnl")
-npc_name = &"rabeka"
+[node name="Rebeka" type="CharacterBody2D" unique_id=180817783 node_paths=PackedStringArray("area2d", "animation")]
+script = ExtResource("1_ilpv8")
+npc_name = &"rebeka"
 dialogue_file = "res://assets/dialogue/rabeka.txt"
 met_id = &"ran"
 area2d = NodePath("Area2D")
