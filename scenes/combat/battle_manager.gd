@@ -46,6 +46,7 @@ func eval_hp() -> void:
 	if game_result[0]:
 		RoomChangeGlobal.player_hp = player.hp
 		RoomChangeGlobal.last_battle_result = game_result[1]
+		RoomChangeGlobal.emit_battle = true
 		print("game ending, enemy won? "+str(game_result[1]))
 		await get_tree().create_timer(2).timeout
 		get_tree().call_deferred("change_scene_to_file",RoomChangeGlobal.scene_return)

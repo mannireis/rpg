@@ -89,7 +89,6 @@ other = NodePath("../Door11")
 
 [node name="Rebeka" parent="." unique_id=180817783 instance=ExtResource("10_nxqch")]
 position = Vector2(480, -496)
-npc_name = &"rebeka"
 dialogue_file = "res://assets/dialogue/rebeka.txt"
 
 [node name="John" parent="." unique_id=392461232 instance=ExtResource("5_vvh82")]

@@ -14,6 +14,10 @@ func _ready() -> void:
 	if RoomChangeGlobal.activate:
 		global_position = RoomChangeGlobal.player_pos
 		RoomChangeGlobal.activate = false
+	if RoomChangeGlobal.emit_battle:
+		RoomChangeGlobal.emit_battle = false
+		if RoomChangeGlobal.last_battle_result: Signals.battle_won.emit()
+		else: Signals.battle_lost.emit()
 
 func _physics_process(delta: float) -> void:
 	if DialogueManager.active:
