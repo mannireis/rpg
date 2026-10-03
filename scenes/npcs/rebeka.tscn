@@ -1,7 +1,46 @@
-[gd_scene format=3 uid="uid://cnaw35hbade40"]
+[gd_scene format=3 uid="uid://c2dedt36mj54p"]
 
-[ext_resource type="Script" uid="uid://cto5v538h772q" path="res://scripts/npcs/rebeka.gd" id="1_ilpv8"]
 [ext_resource type="Texture2D" uid="uid://cvnuv07nvndmc" path="res://assets/characters/rebeka.png" id="2_mxhai"]
+
+[sub_resource type="GDScript" id="GDScript_tog00"]
+script/source = "extends NPC
+
+var ran := false
+var battle_won := false
+
+
+
+func _physics_process(delta: float) -> void:
+	if GameState.won(npc_name):
+		queue_free()
+
+func _current_id(id: String) -> void:
+	if GameState.speaking_with == npc_name:
+		if id == \"end\":
+			ran = true
+		else:
+			ran = false
+
+
+func _battle_lost() -> void:
+	battle_won = false
+	GameState.fought(npc_name, false)
+	print(\"lost battle\")
+
+
+func _battle_won() -> void:
+	battle_won = true
+	GameState.fought(npc_name, true)
+	print(\"won battle\")
+	met_id = &\"battle_won\"
+
+func _ready() -> void:
+	super()
+	DialogueManager.current_id.connect(_current_id)
+	Signals.battle_lost.connect(_battle_lost)
+	Signals.battle_won.connect(_battle_won)
+	print(Signals.battle_won.get_connections())
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_atieb"]
 atlas = ExtResource("2_mxhai")
@@ -32,7 +71,7 @@ size = Vector2(10, 8)
 size = Vector2(48, 48)
 
 [node name="Rebeka" type="CharacterBody2D" unique_id=180817783 node_paths=PackedStringArray("area2d", "animation")]
-script = ExtResource("1_ilpv8")
+script = SubResource("GDScript_tog00")
 npc_name = &"rebeka"
 dialogue_file = "res://assets/dialogue/rabeka.txt"
 met_id = &"ran"
