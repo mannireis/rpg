@@ -4,7 +4,8 @@ start (
 	Rebeka: It's too dangerous for weaklings like you.
 	Rebeka: Win me in a battle to prove you are strong enough.
 		Battle > battle
-		Run > end
+		Flirt > flirt
+		Run > run
 )
 
 ran (
@@ -21,7 +22,7 @@ battle_talk (
 run_again (
 	Emily: sorry for bothering you!
 	Rebeka: Coward!!
-	>> end
+	>> run
 )
 
 battle_won (
@@ -39,4 +40,45 @@ follow (
 dont_follow (
 	Emily: no thank you!
 	>> end
+)
+
+frens (
+	Rebeka: so cool we are frens now :)
+	Emily: yah
+	>> goodbye
+)
+
+run (
+	>> end
+)
+
+flirt (
+	Emily: That bandana you have is pretty :3
+	Rebeka: Thanks.
+	Compliment hair > hair
+	Compliment axe > axe
+	Goodbyes > goodbye
+)
+
+hair (
+	Emily: Y'know your hair is realliy pretty as well
+	Rebeka: You are way too pretty for me you can find way better.
+	>> end
+)
+
+axe (
+	Emily: wowowowow that axe you have there is really cool!!
+	Rebeka: grr its not an axe its a halberd.
+	Emily: oh sorry I din't know, you can always learn tho!
+	Rebeka: I guess.
+	Emily: Can I go thru now ?
+	Rebeka: Fiiinee.
+	Rebeka: Do you want to come with me?
+	Follow > follow
+	Don't follow > dont_follow
+)
+
+goodbye (
+	Emily: baiii :3
+	Rebeka: Goodbye.
 )
