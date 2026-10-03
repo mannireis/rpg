@@ -2,10 +2,14 @@
 class_name Door
 extends Area2D
 
+enum Transition {
+	NORMAL,
+	FADE_CANVAS,
+}
 
 @export var width := 2:
 	set(value):
-		if (not Engine.is_editor_hint()):
+		if not Engine.is_editor_hint():
 			return
 		
 		width = value
@@ -18,18 +22,33 @@ extends Area2D
 
 @export var other: Door:
 	set(value):
-		if (other == value):
+		if other == value:
 			return
 
 		other = value
+
+		if not Engine.is_editor_hint():
+			return
+
 		other.other = self
 
+@export var transition := Transition.NORMAL:
+	set(value):
+		if transition == value:
+			return
+
+		transition = value
+
+		if not Engine.is_editor_hint():
+			return
+
+		other.transition = transition
+
 @onready var collision_shape: SegmentShape2D = $CollisionShape2D.shape
-@onready var player: Player = $"../../Player"
 
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is not Player:
 		return
 
-	player.global_position = other.get_node(^"Marker2D").global_position
+	Signals.transition.emit(self)

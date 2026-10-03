@@ -1,7 +1,10 @@
 extends Node
 
+@warning_ignore_start("unused_signal")
+signal transition(door: Door)
 signal battle_won
 signal battle_lost
+@warning_ignore_restore("unused_signal")
 signal start_battle
 func _start_battle() -> void:
 	var p = get_tree().current_scene.scene_file_path
@@ -12,7 +15,7 @@ func _start_battle() -> void:
 		GameState.battle_running = true
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/combat/battle.tscn")
 	else: print(GameState.battled_npcs)
-	
+
 func _ready() -> void: start_battle.connect(_start_battle)
 
 class BattleInv:
