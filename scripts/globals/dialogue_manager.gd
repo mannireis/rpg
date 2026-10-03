@@ -67,7 +67,8 @@ func _parse(source: String) -> Dictionary:
 func _goto(id: String) -> void:
 	current_id.emit(id)
 	if id == "battle":
-		_start_battle()
+		Signals.start_battle.emit()
+		_end()
 		return
 	if id == "end" or not _parsed_dialogue.has(id):
 		_end()
@@ -100,18 +101,6 @@ func choose(target: String) -> void:
 	else:
 		_goto(target)
 
-
-func _start_battle() -> void:
-	var p = get_tree().current_scene.scene_file_path
-	print(false != null)
-	if GameState.battled_npcs.get(GameState.speaking_with) == null:
-		RoomChangeGlobal.activate = true
-		RoomChangeGlobal.player_pos = GameState.player_pos
-		RoomChangeGlobal.scene_return = p
-		GameState.battle_running = true
-		get_tree().call_deferred("change_scene_to_file", "res://scenes/combat/battle.tscn")
-		_end()
-	else: print(GameState.battled_npcs)
 
 
 func _end() -> void:
