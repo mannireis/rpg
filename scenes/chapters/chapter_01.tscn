@@ -12,9 +12,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_gbcm8"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, -91, 0, 0, 0, 0, -97, -144, 0, 0, 0, 0, -200, -141, 0, 0, 0, 0, -210, -102)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -92, 0, 0, 0, 0, -104, -158, 0, 0, 0, 0, -200, -158)
 }
-point_count = 5
+point_count = 4
 
 [node name="Chapter01" type="Node2D" unique_id=1529227125]
 
