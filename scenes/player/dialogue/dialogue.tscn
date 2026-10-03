@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://4c2t8wmtn2wg" path="res://assets/fonts/m3x6.ttf" id="4_jo2hd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ei700"]
-bg_color = Color(0.2159017, 0.21590173, 0.21590161, 1)
+bg_color = Color(0.44313726, 0.25490198, 0.23137255, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_krlqt"]
 content_margin_bottom = 2.0
@@ -14,7 +14,7 @@ content_margin_bottom = 2.0
 content_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ts5s"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.35686275, 0.19215687, 0.21960784, 1)
 expand_margin_top = 1.0
 expand_margin_bottom = 1.0
 
@@ -23,21 +23,30 @@ expand_margin_bottom = 1.0
 [node name="DialogueUi" type="CanvasLayer" unique_id=1417898694]
 script = ExtResource("1_1iitr")
 
-[node name="Panel" type="Panel" parent="." unique_id=1411683786]
-custom_minimum_size = Vector2(320, 64)
-custom_maximum_size = Vector2(320, 64)
-anchors_preset = 12
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=822201090]
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -160.0
 offset_top = -64.0
+offset_right = 160.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=1411683786]
+custom_minimum_size = Vector2(0, 64)
+custom_maximum_size = Vector2(320, 64)
+layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ei700")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1902491160]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel" unique_id=1902491160]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,21 +54,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 5
+theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
+theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer" unique_id=1247152038]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer" unique_id=1247152038]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer" unique_id=1397406735]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/HBoxContainer" unique_id=1397406735]
+custom_minimum_size = Vector2(204, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_override_constants/separation = 0
 
-[node name="Speaker" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=494088755]
+[node name="Speaker" type="Label" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=494088755]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -69,12 +80,12 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_krlqt")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7ts5s")
 text = "banana bread"
 
-[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=917398033]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=917398033]
 layout_mode = 2
 theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxFlat_7ts5s")
 
-[node name="Content" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1491318741]
+[node name="Content" type="Label" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1491318741]
 custom_maximum_size = Vector2(204, -1)
 layout_mode = 2
 size_flags_vertical = 8
@@ -85,28 +96,27 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_jo2hd")
 text = "asrarstratrast"
 autowrap_mode = 3
 
-[node name="Choices" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer" unique_id=1111945978]
+[node name="Choices" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/HBoxContainer" unique_id=1111945978]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
-alignment = 1
 
-[node name="Button" type="Button" parent="Panel/MarginContainer/HBoxContainer/Choices" unique_id=2050061675]
+[node name="Button" type="Button" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/Choices" unique_id=2050061675]
 layout_mode = 2
 theme = ExtResource("3_7ts5s")
 text = "Option 1"
 
-[node name="Button2" type="Button" parent="Panel/MarginContainer/HBoxContainer/Choices" unique_id=288080163]
+[node name="Button2" type="Button" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/Choices" unique_id=288080163]
 layout_mode = 2
 theme = ExtResource("3_7ts5s")
 text = "Option 1"
 
-[node name="Button3" type="Button" parent="Panel/MarginContainer/HBoxContainer/Choices" unique_id=1145696759]
+[node name="Button3" type="Button" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/Choices" unique_id=1145696759]
 layout_mode = 2
 theme = ExtResource("3_7ts5s")
 text = "Option 1"
 
-[node name="Button4" type="Button" parent="Panel/MarginContainer/HBoxContainer/Choices" unique_id=1771973898]
+[node name="Button4" type="Button" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/Choices" unique_id=1771973898]
 layout_mode = 2
 theme = ExtResource("3_7ts5s")
 text = "Option 1"

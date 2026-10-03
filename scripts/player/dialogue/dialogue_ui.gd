@@ -1,9 +1,9 @@
 extends CanvasLayer
 
-@onready var panel: Panel = $Panel
-@onready var speaker: Label = $Panel/MarginContainer/HBoxContainer/VBoxContainer/Speaker
-@onready var content: Label = $Panel/MarginContainer/HBoxContainer/VBoxContainer/Content
-@onready var choices: VBoxContainer = $Panel/MarginContainer/HBoxContainer/Choices
+@onready var panel: Panel = $MarginContainer/Panel
+@onready var speaker: Label = $MarginContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer/Speaker
+@onready var content: Label = $MarginContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer/Content
+@onready var choices: VBoxContainer = $MarginContainer/Panel/MarginContainer/HBoxContainer/Choices
 
 const LETTER_TIME:float = 0.04
 const PUNCTUATION_TIME:float = 0.3

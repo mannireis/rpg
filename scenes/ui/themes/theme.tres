@@ -4,11 +4,12 @@
 [ext_resource type="StyleBox" uid="uid://dgc8k5120qt3e" path="res://scenes/ui/themes/button_hover.tres" id="2_7bacb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ts5s"]
+bg_color = Color(0.44313726, 0.25490198, 0.23137255, 1)
 border_width_left = 2
 border_width_top = 1
 border_width_right = 2
 border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
+border_color = Color(0.35686275, 0.19215687, 0.21960784, 1)
 corner_detail = 1
 
 [resource]

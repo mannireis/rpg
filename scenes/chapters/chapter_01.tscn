@@ -106,3 +106,6 @@ position = Vector2(160, 120)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1678907185]
 anchor_mode = 0
 script = ExtResource("3_b55wc")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1422573464]
+position = Vector2(529, -576)
