@@ -5,7 +5,7 @@ signal battle_lost
 signal start_battle
 func _start_battle() -> void:
 	var p = get_tree().current_scene.scene_file_path
-	if GameState.battled_npcs.get(GameState.speaking_with) == null:
+	if !GameState.battled_npcs.get(GameState.speaking_with):
 		RoomChangeGlobal.activate = true
 		RoomChangeGlobal.player_pos = GameState.player_pos
 		RoomChangeGlobal.scene_return = p
