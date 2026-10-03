@@ -6,4 +6,3 @@ var player_pos: Vector2
 var player_hp: int
 var last_battle_result: bool
 var emit_battle: bool = false
-var scenes_battle_completed: Array[String] = []
