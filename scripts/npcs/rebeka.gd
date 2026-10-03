@@ -6,7 +6,6 @@ var ran := false
 var follow := false
 var path: PathFollow2D
 var goodbye := false
-
 func _ready() -> void:
 	super()
 	path = get_parent()

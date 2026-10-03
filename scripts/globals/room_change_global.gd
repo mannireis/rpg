@@ -6,3 +6,4 @@ var player_pos: Vector2
 var player_hp: int
 var last_battle_result: bool
 var emit_battle: bool = false
+var enemy_battle_inventory: Signals.BattleInv = null

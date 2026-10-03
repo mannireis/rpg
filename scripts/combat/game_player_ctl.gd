@@ -4,13 +4,13 @@ class_name PlayerCtl extends Node
 @onready var UI_node = get_tree().get_root().get_node("BattleRoom").get_node("CanvasLayer").get_node("UI")
 
 const v0 = Vector2i(0,0) #NOT vercel
-const max_hp = 26
 const battle_debug: bool = false
 
 var turn: bool = true
 var deck_order = range(52)
 var ai_diff = 0
 var sp: Node = null
+var max_hp = 26
 var hp: int = max_hp
 var hp_display: Label
 var block_display: Label

@@ -1,20 +1,41 @@
 extends Node
-
-@onready var player = PlayerCtl.create(get_parent(),[])
-@onready var enemy = PlayerCtl.create(get_parent(),[],true)
 @onready var snap_points = get_parent().get_node("CanvasLayer/SnapPoints")
 @onready var UI = get_parent().get_node("CanvasLayer/UI")
-
+var player: PlayerCtl
+var enemy: PlayerCtl
 var game_result: Array[bool] = [false,false]
 
 
 func _ready() -> void:
 	var c = UI.get_node("Container")
-	
+	if !GameState.player_battle_inventory: player = PlayerCtl.create(get_parent(),[])
+	else:
+		var p_inv = GameState.player_battle_inventory
+		player = PlayerCtl.create(get_parent(),p_inv.deck)
+		player.max_hp = p_inv.max_hp
+		player.hp = p_inv.hp
+		for eq in p_inv.starting_equipped:
+			player.permanent_deck.append(eq)
+			player.equipped.append(len(player.permanent_deck)-1)
+		for card in p_inv.starting_hand:
+			player.permanent_deck.append(card)
+			player.hand.append(len(player.permanent_deck)-1)
 	player.hp_display = c.get_node("PlayerHP")
 	player.block_display = c.get_node("PlayerBlock")
 	player.equipped_display = UI.get_node("PlayerEquipped")
 	player.draw(2,true)
+	if !RoomChangeGlobal.enemy_battle_inventory: enemy = PlayerCtl.create(get_parent(),[],true)
+	else:
+		var e_inv = RoomChangeGlobal.enemy_battle_inventory
+		enemy = PlayerCtl.create(get_parent(),e_inv.deck,true)
+		enemy.max_hp = e_inv.max_hp
+		enemy.hp = e_inv.hp
+		for eq in e_inv.starting_equipped:
+			enemy.permanent_deck.append(eq)
+			enemy.equipped.append(len(enemy.permanent_deck)-1)
+		for card in e_inv.starting_hand:
+			enemy.permanent_deck.append(card)
+			enemy.hand.append(len(enemy.permanent_deck)-1)
 	enemy.hp_display = c.get_node("EnemyHP")
 	enemy.block_display = c.get_node("EnemyBlock")
 	enemy.equipped_display = UI.get_node("EnemyEquipped")
