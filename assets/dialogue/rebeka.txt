@@ -1,14 +1,14 @@
 start (
-	Rabeka: rhgrhhr It's prohibited to pass here.
+	Rebeka: rhgrhhr It's prohibited to pass here.
 	Emily: Why?
-	Rabeka: It's too dangerous for weaklings like you.
-	Rabeka: Win me in a battle to prove you are strong enough.
+	Rebeka: It's too dangerous for weaklings like you.
+	Rebeka: Win me in a battle to prove you are strong enough.
 		Battle > battle
 		Run > end
 )
 
 ran (
-	Rabeka: ghrh you again really? What do you want now.
+	Rebeka: ghrh you again really? What do you want now.
 	Battle > battle_talk
 	Run > run_again
 )
@@ -20,19 +20,19 @@ battle_talk (
 
 run_again (
 	Emily: sorry for bothering you!
-	Rabeka: Coward!!
+	Rebeka: Coward!!
 	>> end
 )
 
 battle_won (
-	Rabeka: rhg you have won my respect do you want to come with me?
+	Rebeka: rhg you have won my respect do you want to come with me?
 		Yes > follow
 		No > dont_follow
 )
 
 follow (
 	Emily: yesyesyes!
-	Rabeka: grhh don't be too enthusiastic.
+	Rebeka: grhh don't be too enthusiastic.
 	>> end
 )
 

@@ -35,6 +35,7 @@ func call_as_player(method:String, args: Array, is_enemy: bool = false) -> void:
 		
 func eval_hp() -> void:
 	#game ended? winner is_enemy?
+	if game_result[0]: return
 	if enemy.hp <= 0: 
 		game_result = [true,true]
 		Signals.battle_won.emit()

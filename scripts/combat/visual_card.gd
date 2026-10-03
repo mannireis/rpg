@@ -21,16 +21,14 @@ func _ready() -> void:
 		card_texture.texture = data.img
 	else:
 		print("initialising "+str(self)+", hidden because of index -1")
-		print(card_texture.texture)
 		card_texture.texture = CardDatabase.common_textures[-1]
 	pivot_offset = size / 2
 
 func update_img(_color: GameCard.S, _id: int) -> void:
 	color = _color
 	id = _id
-	print("updated "+str(self)+" to ("+str(color)+","+str(id)+"), with index "+str(index_in_deck))
+	#print("updated "+str(self)+" to ("+str(color)+","+str(id)+"), with index "+str(index_in_deck))
 	data = CardDatabase.db[int(color)][id]
-	print(data.img)
 	card_texture.texture = data.img
 
 func _process(_delta: float) -> void:
@@ -42,7 +40,7 @@ func _gui_input(event) -> void:
 		if event.pressed:
 				dragging = true
 				drag_offset = get_global_mouse_position() - global_position
-				print("started dragging "+str(self)+" index "+str(index_in_deck)+" from point "+str(current_point))
+				#print("started dragging "+str(self)+" index "+str(index_in_deck)+" from point "+str(current_point))
 				if current_point:
 					var point_manager = get_parent()
 					if point_manager.occupied.get(current_point) == self:
@@ -75,7 +73,6 @@ func snap_to_nearest_point() -> void:
 			tween_to_point(target_point)
 			point_manager.occupied[target_point] = self
 			last_point = dup_point
-			print("set last point to "+str(last_point))
 			current_point = target_point
 			dup_point = target_point
 		else:
@@ -98,8 +95,6 @@ func animate_hovering() -> void:
 	else:
 		tween.tween_property(self, "scale", Vector2(1.0,1.0), 0.1)
 		tween.parallel().tween_property(self, "rotation_degrees", 0.0, 0.15)
-		$"../../UI/Label".visible = false
-		$"../../UI/Label2".visible = false
 
 func _on_mouse_short_click() -> void:
 	pass
