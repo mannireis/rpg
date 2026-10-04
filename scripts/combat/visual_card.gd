@@ -14,7 +14,7 @@ var drag_offset = Vector2()
 var current_point: Control = null
 var last_point: Control = null
 var dup_point: Control = null
-
+var remove_labels: bool = false
 
 func _ready() -> void:
 	if index_in_deck > -1:
@@ -90,13 +90,19 @@ func animate_hovering() -> void:
 	if hovering:
 		tween.tween_property(self, "scale", Vector2(1.2,1.2), 0.15)
 		tween.parallel().tween_property(self, "rotation_degrees", 15.0, 0.15)
-		$"../../UI/Label".visible = true
-		$"../../UI/Label2".visible = true
-		$"../../UI/Label".text = data.text
-		$"../../UI/Label2".text = data.name
+		if !remove_labels:
+			$"../../UI/Label".visible = true
+			$"../../UI/Label2".visible = true
+			$"../../UI/Label".text = data.text
+			$"../../UI/Label2".text = data.name
+			remove_labels = true
 	else:
 		tween.tween_property(self, "scale", Vector2(1.0,1.0), 0.1)
 		tween.parallel().tween_property(self, "rotation_degrees", 0.0, 0.15)
+		if remove_labels:
+			$"../../UI/Label".visible = false
+			$"../../UI/Label2".visible = false
+			remove_labels = false
 
 func _on_mouse_short_click() -> void:
 	print(str(self.data.name)+" clicked")
