@@ -7,9 +7,13 @@ extends Node
 
 var occupied: Dictionary = {} 
 var hidden_cards: Array[Control] = []
-var sel_cards: Array[Control] = []
+var sel_autosubmit: bool = true ## Once enough cards have been selected, emit cards_selected
+var sel_cards: Array[Control] = [] ## Returns VisualCards, get .index_in_deck from them
 var sel_count: int = 0 ## Non-zero value retains selection mode until that many cards have been selected
-signal cards_selected
+signal cards_selected ## Set sel_autosubmit and sel_count in SnapPoints, when signal fires, collect resulting VisualCards in sel_cards 
+
+func _ready() -> void:
+	cards_selected.connect(_cards_selected_cleanup)
 
 func get_nearest_point(global_pos: Vector2) -> Control:
 	var nearest: Control = null
@@ -40,6 +44,12 @@ func exec_turn():
 	battle_manager.enemy.ai_turn()
 	await get_tree().create_timer(2).timeout
 	battle_manager.player.turn_begin()
+
+func _cards_selected_cleanup() -> void:
+	sel_count = 0
+	Input.set_custom_mouse_cursor(null)
+	await get_tree().create_timer(0.2).timeout
+	if sel_count == 0: sel_cards = [] # mutex-ish
 
 func _default_action(block: bool = false) -> void:
 	var c

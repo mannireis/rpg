@@ -103,9 +103,12 @@ func _on_mouse_short_click() -> void:
 	var sp: Node = get_parent()
 	if sp.sel_count > len(sp.sel_cards):
 		var ind = sp.sel_cards.find(self)
-		if ind >= 0: sp.sel_cards.pop(ind)
+		if ind >= 0:
+			sp.sel_cards.pop(ind)
+			$WhiteFrame.visible = false
 		else:
 			sp.sel_cards.append(self)
+			$WhiteFrame.visible = true
 			if sp.sel_count <= len(sp.sel_cards): sp.cards_selected.emit()
 		
 		
