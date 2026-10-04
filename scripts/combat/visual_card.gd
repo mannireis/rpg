@@ -101,10 +101,10 @@ func animate_hovering() -> void:
 func _on_mouse_short_click() -> void:
 	print(str(self.data.name)+" clicked")
 	var sp: Node = get_parent()
-	if sp.sel_count > len(sp.sel_cards):
+	if sp.sel_count > len(sp.sel_cards) and current_point not in sp.points_to_play:
 		var ind = sp.sel_cards.find(self)
 		if ind >= 0:
-			sp.sel_cards.pop(ind)
+			if len(sp.sel_cards): sp.sel_cards.pop(ind)
 			$WhiteFrame.visible = false
 		else:
 			sp.sel_cards.append(self)

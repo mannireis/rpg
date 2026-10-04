@@ -12,7 +12,8 @@ var ai_diff = 0
 var ai_default_atk_chance: float = 0.1
 var ai_default_block_chance: float = 0.1
 var sp: Node = null
-var max_hp = 26
+var energy: int = 4
+var max_hp: int = 26
 var hp: int = max_hp
 var hp_display: Label
 var block_display: Label
@@ -251,7 +252,7 @@ func equip_card(card_index: int) -> void:
 			break
 
 
-func play_card(card_index: int) -> Vector2i:
+func play_card(card_index: int) -> Vector2i: ## TODO: (2,0) messes with hand contents after ind has been set. Fix this func to avoid deleting the wrong card from hand when this happens.
 	var loc = -1
 	var ind = -1
 	const M = GameCard.Move
