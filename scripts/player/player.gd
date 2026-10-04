@@ -34,16 +34,15 @@ func _physics_process(delta: float) -> void:
 	
 	GameState.player_pos = global_position
 	
-	play_animations(direction)
-	move_and_slide()
-	
 	
 	for i in get_slide_collision_count():
 		var c := get_slide_collision(i)
 		var collider := c.get_collider()
 		if collider is RigidBody2D:
-			collider.apply_central_impulse(-c.get_normal() * 50.0)
+			collider.apply_central_impulse(-c.get_normal() * 10.0)
 
+	play_animations(direction)
+	move_and_slide()
 
 func play_animations(direction: Vector2):
 	if direction != Vector2.ZERO:

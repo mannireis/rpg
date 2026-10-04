@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cqx6p753r2s1r" path="res://scenes/world/fireplace.tscn" id="4_qvmtg"]
 [ext_resource type="Texture2D" uid="uid://bi27dfk7n53gu" path="res://assets/houses/lucyandgreghouse.png" id="5_6dy5u"]
 [ext_resource type="Texture2D" uid="uid://54aeg1xrqrf0" path="res://assets/tilesets/furniture.png" id="5_lmoxx"]
+[ext_resource type="PackedScene" uid="uid://qhgxrqrnr2wx" path="res://scenes/world/pushable_block_2d.tscn" id="5_qvmtg"]
 [ext_resource type="Texture2D" uid="uid://5ppysggqt844" path="res://assets/tilesets/cave_tileset.png" id="7_did67"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lwt3p"]
@@ -160,6 +161,7 @@ texture = ExtResource("3_did67")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a85ji"]
 scenes/1/scene = ExtResource("4_qvmtg")
+scenes/2/scene = ExtResource("5_qvmtg")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_did67"]
 texture = ExtResource("5_6dy5u")
