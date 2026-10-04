@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://qhgxrqrnr2wx"]
+
+[ext_resource type="Script" uid="uid://b4quh64wej2pi" path="res://scripts/world/pushable_block_2d.gd" id="1_bqjgo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqjgo"]
+size = Vector2(14, 14)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fu6fo"]
+size = Vector2(16, 16)
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1023348165]
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_bqjgo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1459407669]
+shape = SubResource("RectangleShape2D_bqjgo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=427750258]
+texture = SubResource("PlaceholderTexture2D_fu6fo")
+
+[node name="TopRayCast2D" type="RayCast2D" parent="." unique_id=2023579714]
+target_position = Vector2(0, -12)
+
+[node name="BottomRayCast2D" type="RayCast2D" parent="." unique_id=649455934]
+target_position = Vector2(0, 12)
+
+[node name="LeftRayCast2D" type="RayCast2D" parent="." unique_id=200164777]
+target_position = Vector2(-12, 0)
+
+[node name="RightRayCast2D" type="RayCast2D" parent="." unique_id=320067210]
+target_position = Vector2(12, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

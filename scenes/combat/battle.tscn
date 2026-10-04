@@ -168,6 +168,7 @@ offset_left = 223.0
 offset_top = 75.0
 offset_right = 260.0
 offset_bottom = 127.0
+text = "Play"
 
 [node name="DeckPos" type="Control" parent="CanvasLayer/UI" unique_id=2016960752]
 custom_minimum_size = Vector2(37, 52)
