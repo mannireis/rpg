@@ -167,6 +167,8 @@ func receive_dmg(dmg:Vector2i) -> void:
 		hp_display.text = str(hp)+" HP"
 	else:
 		print("dmg of type "+str(dmg[1])+" lacks block, dealing "+str(dmg[0]))
+		hp -= dmg[0]
+		hp_display.text = str(hp)+" HP"
 	pass
 
 

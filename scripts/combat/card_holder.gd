@@ -7,6 +7,9 @@ extends Node
 
 var occupied: Dictionary = {} 
 var hidden_cards: Array[Control] = []
+var sel_cards: Array[Control] = []
+var sel_count: int = 0 ## Non-zero value retains selection mode until that many cards have been selected
+signal cards_selected
 
 func get_nearest_point(global_pos: Vector2) -> Control:
 	var nearest: Control = null

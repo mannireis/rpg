@@ -72,6 +72,8 @@ func snap_to_nearest_point() -> void:
 			rotation_degrees = 0.0
 			tween_to_point(target_point)
 			point_manager.occupied[target_point] = self
+			if last_point == target_point:
+				_on_mouse_short_click()
 			last_point = dup_point
 			current_point = target_point
 			dup_point = target_point
@@ -97,7 +99,16 @@ func animate_hovering() -> void:
 		tween.parallel().tween_property(self, "rotation_degrees", 0.0, 0.15)
 
 func _on_mouse_short_click() -> void:
-	pass
+	print(str(self.data.name)+" clicked")
+	var sp: Node = get_parent()
+	if sp.sel_count > len(sp.sel_cards):
+		var ind = sp.sel_cards.find(self)
+		if ind >= 0: sp.sel_cards.pop(ind)
+		else:
+			sp.sel_cards.append(self)
+			if sp.sel_count <= len(sp.sel_cards): sp.cards_selected.emit()
+		
+		
 
 
 func _on_mouse_entered() -> void:
