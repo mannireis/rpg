@@ -71,7 +71,13 @@ func play_cards() -> void:
 	for p in points_to_play:
 		card_in_slot = occupied.get(p)
 		if card_in_slot != null:
-			selected_cards.append([card_in_slot.index_in_deck,card_in_slot,p])
+			selected_cards.append([card_in_slot.index_in_deck,card_in_slot,p,card_in_slot.data.cost])
+	var sum_cost: int = 0
+	for a in selected_cards:
+		sum_cost += a[3]
+	if sum_cost > battle_manager.player.energy:
+		print("sum cost "+str(sum_cost)+" exceeds "+str(battle_manager.player.energy))
+		return
 	for a in selected_cards:
 		index_in_deck = a[0]
 		res = await battle_manager.player.play_card(index_in_deck)
