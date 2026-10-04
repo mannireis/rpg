@@ -9,6 +9,8 @@ const battle_debug: bool = false
 var turn: bool = true
 var deck_order = range(52)
 var ai_diff = 0
+var ai_default_atk_chance: float = 0.1
+var ai_default_block_chance: float = 0.1
 var sp: Node = null
 var max_hp = 26
 var hp: int = max_hp
@@ -26,6 +28,7 @@ var burn: Array[int] = []
 var removed_from_game: Array[int] = []
 var permanent_deck: Array[GameCard] = []
 var equipped_display: HBoxContainer
+var rand = RandomNumberGenerator.new()
 
 func draw(count: int = 1, gui: bool = false) -> void:
 	var slot_res: Array
@@ -302,12 +305,16 @@ func enemy_display_cards(show: bool = true, cards: Array[int] = []) -> void:
 func ai_turn() -> void:
 	print("AI turn at "+str(ai_diff)+" difficulty")
 	turn_begin()
-	match ai_diff:
-		_:
-			hand.shuffle()
-			var single_tar = hand[0]
-			if battle_debug: print("AI playing "+permanent_deck[single_tar].name+" from hand "+str(hand))
-			enemy_display_cards(true, hand)
-			play_card(single_tar)
-			print("hand after playing "+str(hand))
+	var r: float = rand.randf()
+	if r < ai_default_atk_chance: player_attack()
+	elif r < ai_default_atk_chance+ai_default_block_chance: player_attack(true)
+	else:
+		match ai_diff:
+			_:
+				hand.shuffle()
+				var single_tar = hand[0]
+				if battle_debug: print("AI playing "+permanent_deck[single_tar].name+" from hand "+str(hand))
+				enemy_display_cards(true, hand)
+				play_card(single_tar)
+				print("hand after playing "+str(hand))
 	turn_end()

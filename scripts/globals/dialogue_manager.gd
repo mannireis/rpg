@@ -80,11 +80,13 @@ func _goto(id: String) -> void:
 
 
 func _show_line() -> void:
-	var line: Dictionary = _parsed_dialogue[_current_id][_current_line]
-	if line.has("goto"):
-		_goto(line["goto"])
-		return
-	new_line.emit(line)
+	var line = _parsed_dialogue.get(_current_id).get(_current_line)
+	if line:
+		if line.has("goto"):
+			_goto(line["goto"])
+			return
+		new_line.emit(line)
+	else: printerr(str(_parsed_dialogue.get(_current_id))+" missing line "+str(_current_line))
 
 
 func advance() -> void:

@@ -18,7 +18,8 @@ GameCard.create(s.SPADES,2,n,Vector2i(1,0),"Poke",0,preload(p+"0/2.png"), "test"
 [],
 [GameCard.create(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload(p+"3/0.png"), "test"),
 GameCard.create(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload(p+"3/1.png"), "test"),
-GameCard.create(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload(p+"3/2.png"), "test")],
+GameCard.create(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload(p+"3/2.png"), "test"),
+GameCard.create(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload(p+"3/3.png"), "Pretty, isn't it?")],
 [],
 [GameCard.create(s.OTHER,0,GameCard.Able.ATK,Vector2i(3,0),"Punch",0),
 GameCard.create(s.OTHER,0,GameCard.Able.BLOCK,Vector2i(-3,0),"Block",0)]]
@@ -67,3 +68,6 @@ func _ready() -> void:
 		else: return dmg
 	db[3][2].turn_end = func(_null,_ctl:PlayerCtl,_enemy_ctl:PlayerCtl):
 		_ctl.block_accumulator[-1][0] -= 2
+	db[3][3].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
+		if db[3][3] not in ctl.equipped_cards: return [GameCard.Move.EQUIP]
+		else: return [GameCard.Move.TRASH]
