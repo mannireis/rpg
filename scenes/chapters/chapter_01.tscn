@@ -9,7 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dqmxk47s7c2qd" path="res://scenes/npcs/lucy.tscn" id="8_vg2no"]
 [ext_resource type="PackedScene" uid="uid://egs6ra7cs44t" path="res://scenes/npcs/greg.tscn" id="9_gbcm8"]
 [ext_resource type="PackedScene" uid="uid://c2dedt36mj54p" path="res://scenes/npcs/rebeka.tscn" id="10_nxqch"]
-[ext_resource type="PackedScene" uid="uid://qhgxrqrnr2wx" path="res://scenes/world/pushable_block_2d.tscn" id="10_t4sx4"]
+[ext_resource type="PackedScene" uid="uid://g48tq4wfuoeo" path="res://scenes/world/button_2d.tscn" id="11_t4sx4"]
+[ext_resource type="PackedScene" uid="uid://bshgjd1m5t75o" path="res://scenes/world/door_blocker.tscn" id="11_vpuhq"]
 
 [sub_resource type="Curve2D" id="Curve2D_gbcm8"]
 bake_interval = 0.01
@@ -66,7 +67,7 @@ tile_set = ExtResource("1_tce6o")
 metadata/_edit_lock_ = true
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=701614585]
-tile_map_data = PackedByteArray("AAAVAO7/BAAAAAEAAAAaAMH/BQAAAAMAAAAbAMD/BQABAAMAAAAbAMH/BQABAAAAAAAcAMH/BQACAAMAAAAfAMD/BQACAAAAAAAgAMD/BQACAAAAAAAhAMP/BQAAAAEAAAAhAMT/BQAAAAIAAAAyAMD/AwAAAAAAAQA0AMP/BQAAAAEAAAA0AMT/BQAAAAIAAAA1AMD/BQACAAAAAAA1AMP/BQABAAEAAAA1AMT/BQABAAIAAAA2AML/BQAAAAAAAAA2AMP/BQACAAEAAAA2AMT/BQACAAIAAAA2AMX/BQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAVAO7/BAAAAAEAAAAaAMH/BQAAAAMAAAAbAMD/BQABAAMAAAAbAMH/BQABAAAAAAAcAMH/BQACAAMAAAAfAMD/BQACAAAAAAAgAMD/BQACAAAAAAAhAMP/BQAAAAEAAAAhAMT/BQAAAAIAAAAyAMD/AwAAAAAAAQA0AMP/BQAAAAEAAAA0AMT/BQAAAAIAAAA1AMD/BQACAAAAAAA1AMP/BQABAAEAAAA1AMT/BQABAAIAAAA2AML/BQAAAAAAAAA2AMP/BQACAAEAAAA2AMT/BQACAAIAAAA2AMX/BQAAAAAAAAAGAOL/AwAAAAAAAgAHAOP/AwAAAAAAAgAIAOT/AwAAAAAAAgAJAOX/AwAAAAAAAgAKAOb/AwAAAAAAAgALAOf/AwAAAAAAAgA=")
 tile_set = ExtResource("1_tce6o")
 
 [node name="TestTent" type="Sprite2D" parent="." unique_id=238795368]
@@ -74,25 +75,14 @@ position = Vector2(864.00006, -128)
 scale = Vector2(3, 3)
 texture = ExtResource("2_c13y1")
 
-[node name="Blocks" type="Node" parent="." unique_id=1701948898]
+[node name="DoorBlocker" parent="." unique_id=30276462 node_paths=PackedStringArray("buttons") instance=ExtResource("11_vpuhq")]
+position = Vector2(8, -464)
+buttons = [NodePath("../Buttons/Button2D")]
 
-[node name="PushableBlock2D" parent="Blocks" unique_id=1023348165 instance=ExtResource("10_t4sx4")]
-position = Vector2(120, -472)
+[node name="Buttons" type="Node" parent="." unique_id=650053970]
 
-[node name="PushableBlock2D2" parent="Blocks" unique_id=553144255 instance=ExtResource("10_t4sx4")]
-position = Vector2(152, -440)
-
-[node name="PushableBlock2D3" parent="Blocks" unique_id=2144694783 instance=ExtResource("10_t4sx4")]
-position = Vector2(168, -424)
-
-[node name="PushableBlock2D4" parent="Blocks" unique_id=2072986539 instance=ExtResource("10_t4sx4")]
-position = Vector2(136, -456)
-
-[node name="PushableBlock2D5" parent="Blocks" unique_id=520999247 instance=ExtResource("10_t4sx4")]
-position = Vector2(184, -408)
-
-[node name="PushableBlock2D6" parent="Blocks" unique_id=106830231 instance=ExtResource("10_t4sx4")]
-position = Vector2(200, -392)
+[node name="Button2D" parent="Buttons" unique_id=2094274420 instance=ExtResource("11_t4sx4")]
+position = Vector2(56, -464)
 
 [node name="Doors" type="Node" parent="." unique_id=584459566]
 
@@ -232,3 +222,10 @@ libraries/ = SubResource("AnimationLibrary_t4sx4")
 anchor_mode = 0
 position_smoothing_enabled = true
 script = SubResource("GDScript_gbcm8")
+
+[connection signal="body_entered" from="TileMapLayer2/PushableBlock2D" to="TileMapLayer2/PushableBlock2D" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer2/@RigidBody2D@134506" to="TileMapLayer2/@RigidBody2D@134506" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer2/@RigidBody2D@134507" to="TileMapLayer2/@RigidBody2D@134507" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer2/@RigidBody2D@134508" to="TileMapLayer2/@RigidBody2D@134508" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer2/@RigidBody2D@134509" to="TileMapLayer2/@RigidBody2D@134509" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer2/@RigidBody2D@134510" to="TileMapLayer2/@RigidBody2D@134510" method="_on_body_entered"]

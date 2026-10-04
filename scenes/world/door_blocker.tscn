@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bshgjd1m5t75o"]
+
+[ext_resource type="Script" uid="uid://ccoepte65xxkh" path="res://scripts/world/door_blocker.gd" id="1_6058e"]
+[ext_resource type="Texture2D" uid="uid://dlpf876kmx64j" path="res://assets/box.png" id="2_b72r7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6058e"]
+size = Vector2(16, 32)
+
+[node name="DoorBlocker" type="StaticBody2D" unique_id=30276462]
+script = ExtResource("1_6058e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=633177078]
+shape = SubResource("RectangleShape2D_6058e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1505606868]
+scale = Vector2(1, 2)
+texture = ExtResource("2_b72r7")
