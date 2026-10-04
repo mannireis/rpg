@@ -63,7 +63,7 @@ static func starter_deck() -> Array[GameCard]:
 			deck.append(CardDatabase.db[0][2])
 	for i in range(5):
 			deck.append(CardDatabase.db[1][0])
-			deck.append(CardDatabase.db[1][0])
+			deck.append(CardDatabase.db[2][0]) #just for testing
 	for i in range(3):
 			deck.append(CardDatabase.db[1][0])
 	pass
@@ -271,7 +271,7 @@ func play_card(card_index: int) -> Vector2i:
 		printerr("card #"+str(card_index)+" name "+permanent_deck[card_index].name+" not present in hand "+str(hand)+" or elsewhere")
 		return Vector2i(int(M.STAY),loc)
 	var card: GameCard = permanent_deck[card_index]
-	var res: Array = card.play.call(self,battle_manager.get_oppo(is_enemy))
+	var res: Array = await card.play.call(self,battle_manager.get_oppo(is_enemy))
 	if len(res) > 1 and res[1] != v0:
 		exec_atk(res[1])
 	if len(res) > 2 and res[2] != v0:

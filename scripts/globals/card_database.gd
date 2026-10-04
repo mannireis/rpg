@@ -15,7 +15,7 @@ var db: Array[Array] = [
 GameCard.create(s.SPADES,1,n,Vector2i(10,0),"Barbaric Strike",2,preload(p+"0/1.png"), "test"),
 GameCard.create(s.SPADES,2,n,Vector2i(1,0),"Poke",0,preload(p+"0/2.png"), "test")],
 [GameCard.create(s.CLUBS,0,n,v0,"Good Posture",1,preload(p+"1/0.png"), "test")],
-[],
+[GameCard.create(s.HEARTS,0,n,Vector2i(2,0),"Disarm Equipment",2,preload(p+"2/0.png"),"eat the opponent's cards at a cost")],
 [GameCard.create(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload(p+"3/0.png"), "test"),
 GameCard.create(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload(p+"3/1.png"), "test"),
 GameCard.create(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload(p+"3/2.png"), "test"),
@@ -39,10 +39,43 @@ func _ready() -> void:
 	db[0][2].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		ctl.exec_atk(db[0][2].atk)
 		return [GameCard.Move.STAY]
+		
+		
 	db[1][0].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		ctl.player_attack(true)
 		ctl.player_attack(true)
 		return [GameCard.Move.TRASH]
+		
+		
+	db[2][0].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
+		if !ctl.is_enemy:
+			ctl.sp.sel_count = 2
+			ctl.sp.sel_autosubmit = true
+			print(ctl.sp.sel_cards)
+			ctl.sp.sel_cards = []
+			Input.set_custom_mouse_cursor(preload(p+"../../select_cursor.png"))
+			await ctl.sp.cards_selected
+			var vcsel = ctl.sp.sel_cards
+			print("cards selected "+str(vcsel))
+			for vc in vcsel:
+				ctl.hand.erase(vc.index_in_deck)
+				ctl.burn.append(vc.index_in_deck)
+				ctl.sp.occupied.set(vc.current_point,null)
+				ctl.sp.hidden_cards.append(vc)
+				vc.tween_scale(0.5)
+				vc.visible = false
+			var num_eq := len(_enemy_ctl.equipped)
+			for index in _enemy_ctl.equipped:
+				if _enemy_ctl.permanent_deck[index].suit != GameCard.S.OTHER:
+					_enemy_ctl.equipped.erase(index)
+				else: print("sparing "+str(index))
+			_enemy_ctl.equipped_cards = []
+			for child in _enemy_ctl.equipped_display.get_children():
+				child.texture = null
+			for i in range(num_eq): ctl.exec_atk(db[2][0].atk)
+		return [GameCard.Move.TRASH]
+	
+	
 	db[3][0].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		if db[3][0] not in ctl.equipped_cards and len(ctl.equipped_cards) < 3:
 			print("equipping "+self.name)

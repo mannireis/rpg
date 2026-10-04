@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b8r8mkw0q8nwx"]
 
 [ext_resource type="Script" uid="uid://pkp7pg7vj7gi" path="res://scripts/combat/visual_card.gd" id="1_0d0pt"]
+[ext_resource type="Texture2D" uid="uid://ca6xykrojikwr" path="res://assets/aseprite/cards/frame_white.png" id="2_lhhd1"]
 
 [node name="VisualCard" type="Control" unique_id=176121807]
 custom_minimum_size = Vector2(37, 52)
@@ -21,6 +22,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 2
+
+[node name="WhiteFrame" type="TextureRect" parent="." unique_id=806955949]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 39.0
+offset_bottom = 54.0
+texture = ExtResource("2_lhhd1")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
