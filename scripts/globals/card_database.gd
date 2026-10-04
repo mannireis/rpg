@@ -56,7 +56,13 @@ func _ready() -> void:
 			Input.set_custom_mouse_cursor(preload(p+"../../select_cursor.png"))
 			await ctl.sp.cards_selected
 			var vcsel = ctl.sp.sel_cards
-			print("cards selected "+str(vcsel))
+			var datasel = []
+			var debugsel = []
+			for vc in vcsel:
+				datasel.append(vc.data)
+				debugsel.append(vc.current_point)
+			print("cards selected "+str(vcsel)+" "+str(datasel))
+			print(debugsel)
 			for vc in vcsel:
 				ctl.hand.erase(vc.index_in_deck)
 				ctl.burn.append(vc.index_in_deck)
@@ -64,6 +70,7 @@ func _ready() -> void:
 				ctl.sp.hidden_cards.append(vc)
 				vc.tween_scale(0.5)
 				vc.visible = false
+			print(ctl.sp.occupied)
 			var num_eq := len(_enemy_ctl.equipped)
 			for index in _enemy_ctl.equipped:
 				if _enemy_ctl.permanent_deck[index].suit != GameCard.S.OTHER:

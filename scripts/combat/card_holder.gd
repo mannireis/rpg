@@ -47,7 +47,9 @@ func exec_turn():
 
 func _cards_selected_cleanup() -> void:
 	sel_count = 0
-	for vc in sel_cards: vc.get_node("WhiteFrame").visible = false
+	for vc in sel_cards:
+		vc.get_node("WhiteFrame").visible = false
+		occupied.set(vc.current_point,null)
 	Input.set_custom_mouse_cursor(null)
 	await get_tree().create_timer(0.2).timeout
 	if sel_count == 0: sel_cards = [] # mutex-ish

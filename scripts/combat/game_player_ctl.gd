@@ -91,33 +91,14 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 	var snap_points = battle_room.get_node("CanvasLayer/SnapPoints")
 	ctl.sp = snap_points
 	print(snap_points.occupied)
-	const fallback_hand_start: bool = false
 	if !init_is_enemy:
-		if fallback_hand_start and battle_room: #workaround until cards are instantiated by PlayerCtl
-			ctl.hand.append(0)
-			ctl.hand.append(1)
-			ctl.hand.append(10)
-			ctl.hand.append(13)
-			snap_points.get_node("VisualCard").index_in_deck = 0
-			snap_points.get_node("VisualCard").update_img(0,0)
-			snap_points.get_node("VisualCard2").index_in_deck = 13
-			snap_points.get_node("VisualCard2").update_img(1,0)
-			snap_points.get_node("VisualCard3").index_in_deck = 1
-			snap_points.get_node("VisualCard3").update_img(0,1)
-			snap_points.get_node("VisualCard4").index_in_deck = 10
-			snap_points.get_node("VisualCard4").update_img(0,2)
-			ctl.deck_order.pop_at(13)
-			ctl.deck_order.pop_at(10)
-			ctl.deck_order.pop_at(1)
-			ctl.deck_order.pop_front()
-		else:
-			var to_hide: Array[Control] = [snap_points.get_node("VisualCard"),snap_points.get_node("VisualCard2"),
-			snap_points.get_node("VisualCard3"),snap_points.get_node("VisualCard4"),
-			snap_points.get_node("VisualCard5")]
-			for i in to_hide:
-				i.visible = false
-				snap_points.hidden_cards.append(i)
-			print(snap_points.hidden_cards)
+		var to_hide: Array[Control] = [snap_points.get_node("VisualCard"),snap_points.get_node("VisualCard2"),
+		snap_points.get_node("VisualCard3"),snap_points.get_node("VisualCard4"),
+		snap_points.get_node("VisualCard5")]
+		for i in to_hide:
+			i.visible = false
+			snap_points.hidden_cards.append(i)
+		print(snap_points.hidden_cards)
 	ctl.permanent_deck = deck
 	ctl.is_enemy = init_is_enemy
 	return ctl
@@ -277,6 +258,7 @@ func play_card(card_index: int) -> Vector2i: ## TODO: (2,0) messes with hand con
 		exec_atk(res[1])
 	if len(res) > 2 and res[2] != v0:
 		exec_block(res[2])
+	if loc == 0: ind = hand.find(card_index)
 	var side_int = 0
 	if is_enemy: side_int = 1
 	match res[0]:

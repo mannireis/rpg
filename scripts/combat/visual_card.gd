@@ -72,10 +72,10 @@ func snap_to_nearest_point() -> void:
 			rotation_degrees = 0.0
 			tween_to_point(target_point)
 			point_manager.occupied[target_point] = self
+			current_point = target_point
 			if last_point == target_point:
 				_on_mouse_short_click()
 			last_point = dup_point
-			current_point = target_point
 			dup_point = target_point
 		else:
 			last_point = current_point
