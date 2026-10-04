@@ -51,11 +51,11 @@ func _ready() -> void:
 		if !ctl.is_enemy:
 			ctl.sp.sel_count = 2
 			ctl.sp.sel_autosubmit = true
+			print(ctl.sp.sel_cards)
 			ctl.sp.sel_cards = []
 			Input.set_custom_mouse_cursor(preload(p+"../../select_cursor.png"))
-			print("awaiting cost")
 			await ctl.sp.cards_selected
-			var vcsel: Array[Control] = ctl.sp.sel_cards
+			var vcsel = ctl.sp.sel_cards
 			print("cards selected "+str(vcsel))
 			for vc in vcsel:
 				ctl.hand.erase(vc.index_in_deck)
@@ -64,9 +64,12 @@ func _ready() -> void:
 				ctl.sp.hidden_cards.append(vc)
 				vc.tween_scale(0.5)
 				vc.visible = false
-			print("hand after card destruction "+str(ctl.hand))
-			
-			
+			var num_eq := len(_enemy_ctl.equipped)
+			_enemy_ctl.equipped = []
+			_enemy_ctl.equipped_cards = []
+			for child in _enemy_ctl.equipped_display.get_children():
+				child.texture = null
+			for i in range(num_eq+1): ctl.exec_atk(db[2][0].atk)
 		return [GameCard.Move.TRASH]
 	
 	
