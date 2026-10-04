@@ -40,6 +40,10 @@ window/stretch/scale_mode="integer"
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[gui]
+
+theme/custom="uid://b1t644yqmnxtb"
+
 [input]
 
 Up={

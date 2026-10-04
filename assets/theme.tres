@@ -1,0 +1,23 @@
+[gd_resource type="Theme" format=3 uid="uid://b1t644yqmnxtb"]
+
+[ext_resource type="FontFile" uid="uid://cvh0krg1x26b5" path="res://assets/fonts/chicago.png" id="1_5x3i2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5x3i2"]
+load_path = "res://.godot/imported/panel.png-98abd75f17820992d19abbe4c1e458c7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wl1kw"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = SubResource("CompressedTexture2D_5x3i2")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[resource]
+Button/fonts/font = ExtResource("1_5x3i2")
+Button/styles/hover = SubResource("StyleBoxTexture_wl1kw")
+Button/styles/normal = SubResource("StyleBoxTexture_wl1kw")
+Button/styles/pressed = SubResource("StyleBoxTexture_wl1kw")
