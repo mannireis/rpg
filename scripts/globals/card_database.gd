@@ -65,11 +65,14 @@ func _ready() -> void:
 				vc.tween_scale(0.5)
 				vc.visible = false
 			var num_eq := len(_enemy_ctl.equipped)
-			_enemy_ctl.equipped = []
+			for index in _enemy_ctl.equipped:
+				if _enemy_ctl.permanent_deck[index].suit != GameCard.S.OTHER:
+					_enemy_ctl.equipped.erase(index)
+				else: print("sparing "+str(index))
 			_enemy_ctl.equipped_cards = []
 			for child in _enemy_ctl.equipped_display.get_children():
 				child.texture = null
-			for i in range(num_eq+1): ctl.exec_atk(db[2][0].atk)
+			for i in range(num_eq): ctl.exec_atk(db[2][0].atk)
 		return [GameCard.Move.TRASH]
 	
 	
