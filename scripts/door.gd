@@ -22,15 +22,17 @@ enum Transition {
 
 @export var other: Door:
 	set(value):
-		if other == value:
-			return
+		match value:
+			other:
+				return
+
+			null:
+				other.other = null
 
 		other = value
 
-		if not Engine.is_editor_hint():
-			return
-
-		other.other = self
+		if Engine.is_editor_hint() and other != null:
+			other.other = self
 
 @export var transition := Transition.NORMAL:
 	set(value):
@@ -39,10 +41,8 @@ enum Transition {
 
 		transition = value
 
-		if not Engine.is_editor_hint():
-			return
-
-		other.transition = transition
+		if Engine.is_editor_hint():
+			other.transition = transition
 
 @onready var collision_shape: SegmentShape2D = $CollisionShape2D.shape
 

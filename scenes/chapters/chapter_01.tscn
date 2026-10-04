@@ -102,7 +102,7 @@ other = NodePath("../Door6")
 [node name="Door6" parent="Doors" unique_id=1362323074 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
 position = Vector2(608, -200)
 rotation = -1.5707964
-other = NodePath("../Door12")
+other = NodePath("../Door5")
 
 [node name="Door7" parent="Doors" unique_id=233242533 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
 position = Vector2(365, -280)
@@ -126,14 +126,14 @@ other = NodePath("../Door10")
 position = Vector2(728, -991.99994)
 other = NodePath("../Door9")
 
-[node name="Door11" parent="Doors" unique_id=864714838 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
-position = Vector2(480, -556)
-rotation = -1.5707964
-other = NodePath("../Door12")
-
-[node name="Door12" parent="Doors" unique_id=2146162086 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
+[node name="Door11" parent="Doors" unique_id=2146162086 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
 position = Vector2(480, -483.99997)
 rotation = 1.5707964
+other = NodePath("../Door12")
+
+[node name="Door12" parent="Doors" unique_id=864714838 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
+position = Vector2(480, -556)
+rotation = -1.5707964
 other = NodePath("../Door11")
 
 [node name="Door13" parent="Doors" unique_id=964769706 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
@@ -143,15 +143,15 @@ other = NodePath("../Door14")
 [node name="Door14" parent="Doors" unique_id=230427178 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
 position = Vector2(311, -640)
 rotation = 3.1415927
-other = NodePath("../Door15")
-
-[node name="Door15" parent="Doors" unique_id=1995660353 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
-position = Vector2(649, -638)
 other = NodePath("../Door16")
 
-[node name="Door16" parent="Doors" unique_id=1908213904 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
+[node name="Door15" parent="Doors" unique_id=1908213904 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
 position = Vector2(630, -638)
-rotation = 3.1415927
+rotation = -3.1415925
+other = NodePath("../Door16")
+
+[node name="Door16" parent="Doors" unique_id=1995660353 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
+position = Vector2(649, -638)
 other = NodePath("../Door15")
 
 [node name="John" parent="." unique_id=392461232 instance=ExtResource("5_vvh82")]
@@ -187,4 +187,5 @@ libraries/ = SubResource("AnimationLibrary_t4sx4")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1678907185]
 anchor_mode = 0
+position_smoothing_enabled = true
 script = SubResource("GDScript_gbcm8")
