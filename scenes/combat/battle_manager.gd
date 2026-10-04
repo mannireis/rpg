@@ -28,6 +28,8 @@ func _ready() -> void:
 	else:
 		var e_inv = RoomChangeGlobal.enemy_battle_inventory
 		enemy = PlayerCtl.create(get_parent(),e_inv.deck,true)
+		if e_inv.ai_atk_chance != null: enemy.ai_default_atk_chance = e_inv.ai_atk_chance
+		if e_inv.ai_block_chance != null: enemy.ai_default_block_chance = e_inv.ai_block_chance
 		enemy.max_hp = e_inv.max_hp
 		enemy.hp = e_inv.hp
 		for eq in e_inv.starting_equipped:

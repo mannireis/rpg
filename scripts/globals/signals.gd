@@ -28,9 +28,11 @@ class BattleInv:
 	var max_hp := 26
 	var hp := max_hp
 	var ai_int := 0
+	var ai_atk_chance: float
+	var ai_block_chance: float
 	var anim_character: AnimatedSprite2D
 	static func convert_to_card(a: Array[Vector2i]) -> Array[GameCard]:
-		var res = []
+		var res: Array[GameCard] = []
 		for i in a:
 			res.append(CardDatabase.db[i[0]][i[1]])
 		return res

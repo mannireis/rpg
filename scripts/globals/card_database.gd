@@ -70,4 +70,6 @@ func _ready() -> void:
 		_ctl.block_accumulator[-1][0] -= 2
 	db[3][3].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		if db[3][3] not in ctl.equipped_cards: return [GameCard.Move.EQUIP]
-		else: return [GameCard.Move.TRASH]
+		else:
+			ctl.exec_atk(Vector2i(db[3][3].atk[0],1))
+			return [GameCard.Move.TRASH]

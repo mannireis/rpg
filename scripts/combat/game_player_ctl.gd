@@ -152,18 +152,21 @@ func run_equipped(method: String, vec: Vector2i = Vector2i(0,0),prio_type: Strin
 
 func receive_dmg(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_dmg_in",dmg,"dmg_in",true)
-	block_current[dmg[1]] += dmg[0]
-	dmg[0] = 0
-	if block_current[dmg[1]] > 0:
-		dmg[0] += block_current[dmg[1]]
-		block_current[dmg[1]] = 0
-		block_display.text = "0"
-		if battle_debug: print("receiving final dmg "+str(dmg))
-		hp -= dmg[0]
+	if len(block_current) > dmg[1]:
+		block_current[dmg[1]] += dmg[0]
+		dmg[0] = 0
+		if block_current[dmg[1]] > 0:
+			dmg[0] += block_current[dmg[1]]
+			block_current[dmg[1]] = 0
+			if !dmg[1]: block_display.text = "0"
+			if battle_debug: print("receiving final dmg "+str(dmg))
+			hp -= dmg[0]
+		else:
+			if battle_debug: print("blocked dmg, remaining block "+str(block_current))
+			if !dmg[1]: block_display.text = str(-block_current[0])
+		hp_display.text = str(hp)+" HP"
 	else:
-		if battle_debug: print("blocked dmg, remaining block "+str(block_current))
-		block_display.text = str(-block_current[0])
-	hp_display.text = str(hp)+" HP"
+		print("dmg of type "+str(dmg[1])+" lacks block, dealing "+str(dmg[0]))
 	pass
 
 
@@ -312,9 +315,11 @@ func ai_turn() -> void:
 		match ai_diff:
 			_:
 				hand.shuffle()
-				var single_tar = hand[0]
-				if battle_debug: print("AI playing "+permanent_deck[single_tar].name+" from hand "+str(hand))
-				enemy_display_cards(true, hand)
-				play_card(single_tar)
+				if len(hand):
+					var single_tar = hand[0]
+					if battle_debug: print("AI playing "+permanent_deck[single_tar].name+" from hand "+str(hand))
+					enemy_display_cards(true, hand)
+					play_card(single_tar)
+				else: printerr("empty hand during AI turn")
 				print("hand after playing "+str(hand))
 	turn_end()

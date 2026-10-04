@@ -7,12 +7,17 @@ var follow := false
 var path: PathFollow2D
 var goodbye := false
 var _prev_pos: Vector2
+var inv: Signals.BattleInv
 func _ready() -> void:
 	super()
 	path = get_parent() as PathFollow2D
 	DialogueManager.current_id.connect(_current_id)
 	Signals.battle_lost.connect(_battle_lost)
 	Signals.battle_won.connect(_battle_won)
+	inv = Signals.BattleInv.create(30,[],[Vector2i(3,3)],[Vector2i(3,3)])
+	inv.ai_atk_chance = 0.5
+	inv.ai_block_chance = 0.3
+	RoomChangeGlobal.enemy_inv_dict[npc_name] = inv
 
 
 func _physics_process(delta: float) -> void:

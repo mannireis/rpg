@@ -7,3 +7,4 @@ var player_hp: int
 var last_battle_result: bool
 var emit_battle: bool = false
 var enemy_battle_inventory: Signals.BattleInv = null
+var enemy_inv_dict: Dictionary[StringName,Signals.BattleInv] = {}
