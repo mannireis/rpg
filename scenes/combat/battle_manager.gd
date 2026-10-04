@@ -14,9 +14,10 @@ func _ready() -> void:
 		player = PlayerCtl.create(get_parent(),p_inv.deck)
 		player.max_hp = p_inv.max_hp
 		player.hp = p_inv.hp
+		player.equipped_display = UI.get_node("PlayerEquipped")
 		for eq in p_inv.starting_equipped:
 			player.permanent_deck.append(eq)
-			player.equipped.append(len(player.permanent_deck)-1)
+			player.equip_card(len(player.permanent_deck)-1)
 		for card in p_inv.starting_hand:
 			player.permanent_deck.append(card)
 			player.hand.append(len(player.permanent_deck)-1)
@@ -32,9 +33,10 @@ func _ready() -> void:
 		if e_inv.ai_block_chance != null: enemy.ai_default_block_chance = e_inv.ai_block_chance
 		enemy.max_hp = e_inv.max_hp
 		enemy.hp = e_inv.hp
+		enemy.equipped_display = UI.get_node("EnemyEquipped")
 		for eq in e_inv.starting_equipped:
 			enemy.permanent_deck.append(eq)
-			enemy.equipped.append(len(enemy.permanent_deck)-1)
+			enemy.equip_card(len(enemy.permanent_deck)-1)
 		for card in e_inv.starting_hand:
 			enemy.permanent_deck.append(card)
 			enemy.hand.append(len(enemy.permanent_deck)-1)

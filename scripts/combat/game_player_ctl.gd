@@ -231,6 +231,22 @@ func player_attack(block:bool=false,choice: bool = false) -> void:
 	else:
 		print("executing choice")
 
+func equip_card(card_index: int) -> void:
+	var card = permanent_deck[card_index]
+	var side_int = 0
+	if is_enemy: side_int = 1
+	equipped.append(card_index)
+	equipped_cards.append(card)
+	card.when_equipped.call(self,battle_manager.get_oppo(is_enemy))
+	run_equipped("mod_any_equipped",Vector2i(card_index,side_int))
+	for child in equipped_display.get_children():
+		if child.texture:
+			continue
+		else:
+			child.texture = card.img
+			print("found free equipped spot: "+str(child))
+			break
+
 
 func play_card(card_index: int) -> Vector2i:
 	var loc = -1
@@ -263,17 +279,7 @@ func play_card(card_index: int) -> Vector2i:
 		M.STAY:
 			return Vector2i(int(M.STAY),loc)
 		M.EQUIP:
-			equipped.append(card_index)
-			equipped_cards.append(card)
-			card.when_equipped.call(self,battle_manager.get_oppo(is_enemy))
-			run_equipped("mod_any_equipped",Vector2i(card_index,side_int))
-			for child in equipped_display.get_children():
-				if child.texture:
-					continue
-				else:
-					child.texture = card.img
-					print("found free equipped spot: "+str(child))
-					break
+			equip_card(card_index)
 		M.RFG:
 			removed_from_game.append(card_index)
 		M.TRASH:
