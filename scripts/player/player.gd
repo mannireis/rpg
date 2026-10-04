@@ -38,15 +38,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	
-	
-
 	for i in get_slide_collision_count():
 		var c := get_slide_collision(i)
 		var collider := c.get_collider()
-		if collider is RigidBody2D and Input.is_action_pressed("Interact"):
-			pass
-			#collider.linear_velocity = velocity
-			#collider.position = collider.position.lerp(position, 20 * delta)
+		if collider is RigidBody2D:
+			collider.apply_central_impulse(-c.get_normal() * 50.0)
+
 
 func play_animations(direction: Vector2):
 	if direction != Vector2.ZERO:

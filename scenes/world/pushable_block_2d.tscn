@@ -21,15 +21,15 @@ shape = SubResource("RectangleShape2D_bqjgo")
 texture = SubResource("PlaceholderTexture2D_fu6fo")
 
 [node name="TopRayCast2D" type="RayCast2D" parent="." unique_id=2023579714]
-target_position = Vector2(0, -12)
+target_position = Vector2(0, -20)
 
 [node name="BottomRayCast2D" type="RayCast2D" parent="." unique_id=649455934]
-target_position = Vector2(0, 12)
+target_position = Vector2(0, 20)
 
 [node name="LeftRayCast2D" type="RayCast2D" parent="." unique_id=200164777]
-target_position = Vector2(-12, 0)
+target_position = Vector2(-20, 0)
 
 [node name="RightRayCast2D" type="RayCast2D" parent="." unique_id=320067210]
-target_position = Vector2(12, 0)
+target_position = Vector2(20, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
