@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://qhgxrqrnr2wx"]
 
 [ext_resource type="Script" uid="uid://b4quh64wej2pi" path="res://scripts/world/pushable_block_2d.gd" id="1_bqjgo"]
+[ext_resource type="Texture2D" uid="uid://dlpf876kmx64j" path="res://assets/box.png" id="2_qbi78"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqjgo"]
 size = Vector2(14, 14)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fu6fo"]
-size = Vector2(16, 16)
-
-[node name="RigidBody2D" type="RigidBody2D" unique_id=1023348165]
+[node name="PushableBlock2D" type="RigidBody2D" unique_id=1023348165]
+gravity_scale = 0.0
+can_sleep = false
 lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 2
@@ -18,7 +18,7 @@ script = ExtResource("1_bqjgo")
 shape = SubResource("RectangleShape2D_bqjgo")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=427750258]
-texture = SubResource("PlaceholderTexture2D_fu6fo")
+texture = ExtResource("2_qbi78")
 
 [node name="TopRayCast2D" type="RayCast2D" parent="." unique_id=2023579714]
 target_position = Vector2(0, -20)
