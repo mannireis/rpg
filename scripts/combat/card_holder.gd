@@ -31,6 +31,24 @@ func get_point_slot() -> Array:
 	#print("found free point "+str(p)+" at ii "+str(ii))
 	return([ii,p])
 
+func exec_turn():
+	battle_manager.player.turn_end()
+	await get_tree().create_timer(1).timeout
+	battle_manager.enemy.ai_turn()
+	await get_tree().create_timer(2).timeout
+	battle_manager.player.turn_begin()
+
+func _default_action(block: bool = false) -> void:
+	var c
+	for p in points_to_play:
+		c = occupied.get(p)
+		if c:
+			print("refusing default action due to "+str(c))
+			return
+	battle_manager.player.player_attack(block)
+	exec_turn()
+
+
 func play_cards() -> void:
 	var selected_cards: Array[Array] = []
 	var card_in_slot
@@ -65,8 +83,4 @@ func play_cards() -> void:
 				battle_manager.player.burn.append(a[1].index_in_deck)
 				occupied.set(a[2],null)
 	if len(selected_cards) > 0:
-		battle_manager.player.turn_end()
-		await get_tree().create_timer(1).timeout
-		battle_manager.enemy.ai_turn()
-		await get_tree().create_timer(2).timeout
-		battle_manager.player.turn_begin()
+		exec_turn()

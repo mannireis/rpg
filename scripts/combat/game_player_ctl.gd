@@ -231,6 +231,7 @@ func player_attack(block:bool=false,choice: bool = false) -> void:
 	else:
 		print("executing choice")
 
+
 func equip_card(card_index: int) -> void:
 	var card = permanent_deck[card_index]
 	var side_int = 0
