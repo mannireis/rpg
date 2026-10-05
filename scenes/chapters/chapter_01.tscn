@@ -165,7 +165,7 @@ other = NodePath("../Door16")
 
 [node name="Door16" parent="Doors" unique_id=1995660353 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
 position = Vector2(649, -638)
-other = NodePath("../Door21")
+other = NodePath("../Door15")
 
 [node name="Door17" parent="Doors" unique_id=1287573390 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
 position = Vector2(193, -482)
@@ -233,8 +233,8 @@ position_smoothing_enabled = true
 script = SubResource("GDScript_gbcm8")
 
 [connection signal="body_entered" from="TileMapLayer2/PushableBlock2D" to="TileMapLayer2/PushableBlock2D" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer2/@RigidBody2D@165253" to="TileMapLayer2/@RigidBody2D@165253" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer2/@RigidBody2D@165254" to="TileMapLayer2/@RigidBody2D@165254" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer2/@RigidBody2D@165255" to="TileMapLayer2/@RigidBody2D@165255" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer2/@RigidBody2D@165256" to="TileMapLayer2/@RigidBody2D@165256" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer2/@RigidBody2D@165257" to="TileMapLayer2/@RigidBody2D@165257" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer2/@RigidBody2D@31926" to="TileMapLayer2/@RigidBody2D@31926" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer2/@RigidBody2D@31927" to="TileMapLayer2/@RigidBody2D@31927" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer2/@RigidBody2D@31928" to="TileMapLayer2/@RigidBody2D@31928" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer2/@RigidBody2D@31929" to="TileMapLayer2/@RigidBody2D@31929" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer2/@RigidBody2D@31930" to="TileMapLayer2/@RigidBody2D@31930" method="_on_body_entered"]
