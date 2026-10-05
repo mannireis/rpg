@@ -5,6 +5,7 @@ class_name PlayerCtl extends Node
 
 const v0 = Vector2i(0,0) #NOT vercel
 const battle_debug: bool = false
+const persist_dmg_type: Array[int] = [2]
 
 var turn: bool = true
 var deck_order = range(52)
@@ -21,6 +22,7 @@ var block_current: Array[int] = [0]
 var block_history: int = 1
 var next_turn: Array[Callable] = []
 var block_accumulator: Array[Array] = [[0]]
+var persistent_dmg: Array[Vector2i] = [v0,v0,v0] ## -1 in second position means endless damage
 var is_enemy: bool = false
 var equipped: Array[int] = []
 var equipped_cards: Array[GameCard] = []
@@ -142,14 +144,16 @@ func receive_dmg(dmg:Vector2i) -> void:
 			block_current[dmg[1]] = 0
 			if !dmg[1]: block_display.text = "0"
 			if battle_debug: print("receiving final dmg "+str(dmg))
-			hp -= dmg[0]
+			if dmg[1] not in persist_dmg_type: hp -= dmg[0]
+			else: persistent_dmg[dmg[1]] = Vector2i(dmg[0],dmg[0])
 		else:
 			if battle_debug: print("blocked dmg, remaining block "+str(block_current))
 			if !dmg[1]: block_display.text = str(-block_current[0])
 		hp_display.text = str(hp)+" HP"
 	else:
 		print("dmg of type "+str(dmg[1])+" lacks block, dealing "+str(dmg[0]))
-		hp -= dmg[0]
+		if dmg[1] not in persist_dmg_type: hp -= dmg[0]
+		else: persistent_dmg[dmg[1]] = Vector2i(dmg[0],dmg[0])
 		hp_display.text = str(hp)+" HP"
 	pass
 
@@ -184,6 +188,22 @@ func turn_end() -> void:
 
 
 func turn_begin() -> void:
+	var i := 0
+	var v := v0
+	while i < len(persistent_dmg):
+		v = persistent_dmg[i]
+		if v[1] == -1:
+			hp -= v[0]
+			i += 1
+			continue
+		elif v[1] == 0:
+			i += 1
+			continue
+		else:
+			v[1] -= 1
+			hp -= v[0]
+		i += 1
+	hp_display.text = str(hp)+" HP"
 	battle_manager.eval_hp()
 	block_display.text = str(-block_current[0])
 	draw(max(5-len(hand),0),!is_enemy)	

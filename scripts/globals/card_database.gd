@@ -13,7 +13,8 @@ var common_textures: Array[Texture2D] = [
 var db: Array[Array] = [
 [GameCard.create(s.SPADES, 0, n, v0, "Double Trouble", 1, preload(p+"0/0.png",), "test"),
 GameCard.create(s.SPADES,1,n,Vector2i(10,0),"Barbaric Strike",2,preload(p+"0/1.png"), "test"),
-GameCard.create(s.SPADES,2,n,Vector2i(1,0),"Poke",0,preload(p+"0/2.png"), "test")],
+GameCard.create(s.SPADES,2,n,Vector2i(1,0),"Poke",0,preload(p+"0/2.png"), "test"),
+GameCard.create(s.SPADES,3,n,Vector2i(5,2),"Fireball",4,preload(p+"0/3.png"),"Persistent burning damage")],
 [GameCard.create(s.CLUBS,0,n,v0,"Good Posture",1,preload(p+"1/0.png"), "test")],
 [GameCard.create(s.HEARTS,0,n,Vector2i(2,0),"Disarm Equipment",2,preload(p+"2/0.png"),"eat the opponent's cards at a cost")],
 [GameCard.create(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload(p+"3/0.png"), "test"),

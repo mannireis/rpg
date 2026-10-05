@@ -38,7 +38,6 @@ class BattleInv:
 		return res
 	static func create(max_hp: int = 26,input_deck: Array[Vector2i] = [], input_equipped: Array[Vector2i] = [], input_hand: Array[Vector2i] = [], ai_int: int = 0) -> BattleInv:
 		var inv = BattleInv.new()
-		inv.max_hp = max_hp
 		inv.input_deck = input_deck
 		inv.input_starting_equipped = input_equipped
 		inv.input_starting_hand = input_hand
