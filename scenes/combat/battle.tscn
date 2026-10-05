@@ -283,6 +283,7 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(2, 0)
 
 [node name="Label" type="Label" parent="CanvasLayer/UI" unique_id=239615582]
+visible = false
 texture_filter = 1
 custom_maximum_size = Vector2(52, 36)
 anchors_preset = 2
@@ -300,6 +301,7 @@ label_settings = ExtResource("7_ypw3g")
 autowrap_mode = 3
 
 [node name="Label2" type="Label" parent="CanvasLayer/UI" unique_id=501860355]
+visible = false
 texture_filter = 1
 custom_maximum_size = Vector2(52, 36)
 anchors_preset = 2
