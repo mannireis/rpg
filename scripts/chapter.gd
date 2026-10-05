@@ -17,7 +17,6 @@ func _process(_delta: float) -> void:
 func _on_transition(door: Door) -> void:
 	match door.transition:
 		Door.Transition.NORMAL:
-			camera.position_smoothing_enabled = true
 			move_player(door)
 
 		Door.Transition.FADE_CANVAS:
@@ -27,6 +26,8 @@ func _on_transition(door: Door) -> void:
 			await animation_player.animation_finished
 			camera.position_smoothing_enabled = false
 			move_player(door)
+			camera.force_update_scroll()
+			camera.position_smoothing_enabled = true
 			player.process_mode = player_process_mode
 			animation_player.play_backwards("fade_canvas")
 
