@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://cvo7w7v04f75t"]
 
-[ext_resource type="Texture2D" uid="uid://h88uxqsvemts" path="res://assets/main.png" id="1_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://h88uxqsvemts" path="res://assets/main_menu.png" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://26y33upjt34j" path="res://scripts/main.gd" id="1_o5qli"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mmkx5"]
 texture = ExtResource("1_0wfyh")
 
-[node name="Main" type="PanelContainer" unique_id=2159167]
+[node name="MainMenu" type="PanelContainer" unique_id=2159167]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
