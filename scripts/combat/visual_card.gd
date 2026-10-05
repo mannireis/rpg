@@ -93,8 +93,8 @@ func animate_hovering() -> void:
 		if !remove_labels:
 			$"../../UI/Label".visible = true
 			$"../../UI/Label2".visible = true
-			$"../../UI/Label".text = data.text
-			$"../../UI/Label2".text = data.name
+			$"../../UI/Label".text = data.name
+			$"../../UI/Label2".text = data.text
 			remove_labels = true
 	else:
 		tween.tween_property(self, "scale", Vector2(1.0,1.0), 0.1)

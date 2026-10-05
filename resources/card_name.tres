@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://b4uje3afx1f5i"]
+
+[ext_resource type="FontFile" uid="uid://cvh0krg1x26b5" path="res://assets/fonts/chicago.png" id="1_iph8m"]
+
+[resource]
+font = ExtResource("1_iph8m")
+font_size = 15
