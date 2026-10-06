@@ -93,7 +93,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		pressed = true
 		
 		GameState.speaking_with = npc_name
-		RoomChangeGlobal.enemy_battle_inventory = RoomChangeGlobal.enemy_inv_dict[npc_name]
+		if RoomChangeGlobal.enemy_inv_dict.has(npc_name): RoomChangeGlobal.enemy_battle_inventory = RoomChangeGlobal.enemy_inv_dict[npc_name]
 		if GameState.has_met(npc_name):
 			DialogueManager.start(dialogue_file, met_id)
 		else:

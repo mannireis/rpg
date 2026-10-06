@@ -68,7 +68,7 @@ animations = [{
 }],
 "loop": 2,
 "name": &"default",
-"speed": 2.0
+"speed": 1.5
 }, {
 "frames": [{
 "duration": 1.0,
@@ -82,7 +82,7 @@ animations = [{
 }],
 "loop": 2,
 "name": &"walk_left",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -96,15 +96,16 @@ animations = [{
 }],
 "loop": 2,
 "name": &"walk_right",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vkhl"]
 radius = 4.0
 height = 18.0
 
-[node name="NPC" type="CharacterBody2D" unique_id=1932718674]
+[node name="Will" type="CharacterBody2D" unique_id=1932718674 node_paths=PackedStringArray("area2d")]
 script = ExtResource("1_xsvxn")
+area2d = NodePath("Area2D")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=896990980]
 
@@ -113,7 +114,6 @@ shape = SubResource("RectangleShape2D_ivh6b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1340853485]
 sprite_frames = SubResource("SpriteFrames_4vkhl")
-animation = &"walk_left"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1313197927]

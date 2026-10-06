@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://s81sw66d8tju" path="res://assets/test_tent.png" id="2_c13y1"]
 [ext_resource type="PackedScene" uid="uid://dwkhcdggcjul5" path="res://scenes/door.tscn" id="4_tcubl"]
 [ext_resource type="PackedScene" uid="uid://dwikxcvj1cl3o" path="res://scenes/npcs/john.tscn" id="5_vvh82"]
+[ext_resource type="PackedScene" uid="uid://4qbrmgkvw5bq" path="res://scenes/npcs/will.tscn" id="7_nxqch"]
 [ext_resource type="PackedScene" uid="uid://dqmxk47s7c2qd" path="res://scenes/npcs/lucy.tscn" id="8_vg2no"]
 [ext_resource type="PackedScene" uid="uid://egs6ra7cs44t" path="res://scenes/npcs/greg.tscn" id="9_gbcm8"]
 [ext_resource type="PackedScene" uid="uid://c2dedt36mj54p" path="res://scenes/npcs/rebeka.tscn" id="10_nxqch"]
@@ -164,6 +165,10 @@ loop = false
 rotation = 1.5378412
 scale = Vector2(1.0000001, 1.0000001)
 
+[node name="Will" parent="ProcessModeReset/NPCs" parent_id_path=PackedInt32Array(1367934931) index="4" unique_id=1932718674 instance=ExtResource("7_nxqch")]
+position = Vector2(792, -632)
+npc_name = &"Will"
+
 [node name="TestTent" type="Sprite2D" parent="." index="1" unique_id=238795368]
 position = Vector2(864.00006, -128)
 scale = Vector2(3, 3)
@@ -179,8 +184,8 @@ buttons = [NodePath("../Buttons/Button2D")]
 position = Vector2(56, -464)
 
 [connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/PushableBlock2D" to="ProcessModeReset/TileMapLayer2/PushableBlock2D" method="_on_body_entered"]
-[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@29943" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@29943" method="_on_body_entered"]
-[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@29944" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@29944" method="_on_body_entered"]
-[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@29945" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@29945" method="_on_body_entered"]
-[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@29946" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@29946" method="_on_body_entered"]
-[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@29947" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@29947" method="_on_body_entered"]
+[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@58077" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@58077" method="_on_body_entered"]
+[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@58078" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@58078" method="_on_body_entered"]
+[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@58079" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@58079" method="_on_body_entered"]
+[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@58080" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@58080" method="_on_body_entered"]
+[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@58081" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@58081" method="_on_body_entered"]

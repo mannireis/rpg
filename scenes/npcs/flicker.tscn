@@ -1,12 +1,24 @@
 [gd_scene format=3 uid="uid://idf2xqbkc2yx"]
 
 [ext_resource type="Script" uid="uid://cvq1dc601nuk2" path="res://scripts/npcs/npc.gd" id="1_xyknl"]
+[ext_resource type="Texture2D" uid="uid://cbpw7gcar53ln" path="res://assets/characters/flicker.png" id="2_y0y0u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivh6b"]
 size = Vector2(48, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4vkhl"]
-size = Vector2(12, 15)
+size = Vector2(12, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4vkhl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y0y0u")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="NPC" type="CharacterBody2D" unique_id=1932718674]
 script = ExtResource("1_xyknl")
@@ -17,8 +29,11 @@ script = ExtResource("1_xyknl")
 shape = SubResource("RectangleShape2D_ivh6b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=518902719]
-position = Vector2(0, 2.5)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_4vkhl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=713781783]
+sprite_frames = SubResource("SpriteFrames_4vkhl")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
