@@ -179,8 +179,8 @@ buttons = [NodePath("../Buttons/Button2D")]
 position = Vector2(56, -464)
 
 [connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/PushableBlock2D" to="ProcessModeReset/TileMapLayer2/PushableBlock2D" method="_on_body_entered"]
-[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@169552" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@169552" method="_on_body_entered"]
-[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@169553" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@169553" method="_on_body_entered"]
-[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@169554" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@169554" method="_on_body_entered"]
-[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@169555" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@169555" method="_on_body_entered"]
-[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@169556" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@169556" method="_on_body_entered"]
+[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@29943" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@29943" method="_on_body_entered"]
+[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@29944" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@29944" method="_on_body_entered"]
+[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@29945" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@29945" method="_on_body_entered"]
+[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@29946" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@29946" method="_on_body_entered"]
+[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@29947" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@29947" method="_on_body_entered"]

@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://4qbrmgkvw5bq"]
+
+[ext_resource type="Script" uid="uid://cvq1dc601nuk2" path="res://scripts/npcs/npc.gd" id="1_xsvxn"]
+[ext_resource type="Texture2D" uid="uid://ch10e717jwmlq" path="res://assets/characters/will-o-the-wisp.png" id="2_lybej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivh6b"]
+size = Vector2(48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij8d8"]
+atlas = ExtResource("2_lybej")
+region = Rect2(0, 96, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhmjf"]
+atlas = ExtResource("2_lybej")
+region = Rect2(0, 72, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqrrs"]
+atlas = ExtResource("2_lybej")
+region = Rect2(20, 72, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d2ic"]
+atlas = ExtResource("2_lybej")
+region = Rect2(40, 72, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lybej"]
+atlas = ExtResource("2_lybej")
+region = Rect2(0, 48, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrli8"]
+atlas = ExtResource("2_lybej")
+region = Rect2(20, 48, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lu3o"]
+atlas = ExtResource("2_lybej")
+region = Rect2(40, 48, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vfwo"]
+atlas = ExtResource("2_lybej")
+region = Rect2(0, 24, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tp5rj"]
+atlas = ExtResource("2_lybej")
+region = Rect2(20, 24, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1omyx"]
+atlas = ExtResource("2_lybej")
+region = Rect2(40, 24, 20, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4vkhl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij8d8")
+}],
+"loop": 1,
+"name": &"alert",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhmjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqrrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0d2ic")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lybej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrli8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lu3o")
+}],
+"loop": 2,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vfwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tp5rj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1omyx")
+}],
+"loop": 2,
+"name": &"walk_right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vkhl"]
+radius = 4.0
+height = 18.0
+
+[node name="NPC" type="CharacterBody2D" unique_id=1932718674]
+script = ExtResource("1_xsvxn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=896990980]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1537684596]
+shape = SubResource("RectangleShape2D_ivh6b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1340853485]
+sprite_frames = SubResource("SpriteFrames_4vkhl")
+animation = &"walk_left"
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1313197927]
+position = Vector2(0, -4)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_4vkhl")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
