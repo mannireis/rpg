@@ -90,7 +90,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if autostart_dialogue or Input.is_action_just_pressed("Interact") and in_range and not pressed:
+	if autostart_dialogue or (Input.is_action_just_pressed("Interact") and in_range and not pressed):
 		pressed = true
 		autostart_dialogue = false
 		GameState.speaking_with = npc_name
