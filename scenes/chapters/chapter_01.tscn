@@ -171,7 +171,13 @@ position = Vector2(792, -632)
 script = ExtResource("8_t4sx4")
 npc_name = &"Will"
 dialogue_file = "res://assets/dialogue/will.txt"
+id = null
 met_id = &"met"
+wander = null
+max_dist = null
+max_wait = null
+speed = null
+min_wait = null
 
 [node name="TestTent" type="Sprite2D" parent="." index="1" unique_id=238795368]
 position = Vector2(864.00006, -128)

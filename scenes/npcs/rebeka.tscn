@@ -215,7 +215,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mxnl"]
-size = Vector2(10, 8)
+size = Vector2(14, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atieb"]
 size = Vector2(48, 48)
@@ -233,9 +233,8 @@ metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1318331409]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_yffm8")
-animation = &"walk_right"
+animation = &"idle_down"
 autoplay = "idle_down"
-frame_progress = 0.66061175
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1752276502]
 position = Vector2(0, 20)
