@@ -1,0 +1,14 @@
+start (
+    Emily: Hey there! Who are you?
+    Will: Will. Will of the Wisp, for formal occasions.
+    Will: What are you doing here?
+    Emily: I found this strange looking cave when I was looking for my pet bunny in the forest near my house.
+    Emily: I went inside and found this weird place. Someone by the name John told me i'm in '?????', which didn't help me much...
+    Will: Oh no... If it could help, I have seen a creature like that hopping around!
+    Will: I think it went to find a warmer spot. Maybe Flicker could know more?
+    Emily: Thank you!
+)
+
+met (
+    ✨✨✨
+)

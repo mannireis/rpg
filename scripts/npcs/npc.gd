@@ -23,6 +23,7 @@ var starting_pos: Vector2
 var target_pos: Vector2
 var in_range := false
 var pressed := false
+var autostart_dialogue := false
 
 func _ready() -> void:
 	if wander:
@@ -89,9 +90,9 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Interact") and in_range and not pressed:
+	if autostart_dialogue or Input.is_action_just_pressed("Interact") and in_range and not pressed:
 		pressed = true
-		
+		autostart_dialogue = false
 		GameState.speaking_with = npc_name
 		if RoomChangeGlobal.enemy_inv_dict.has(npc_name): RoomChangeGlobal.enemy_battle_inventory = RoomChangeGlobal.enemy_inv_dict[npc_name]
 		if GameState.has_met(npc_name):
