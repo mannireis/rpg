@@ -18,6 +18,8 @@ script = ExtResource("1_bqjgo")
 shape = SubResource("RectangleShape2D_bqjgo")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=427750258]
+position = Vector2(-2.9802322e-08, -2.9802322e-08)
+scale = Vector2(0.87500006, 0.87500006)
 texture = ExtResource("2_qbi78")
 
 [node name="TopRayCast2D" type="RayCast2D" parent="." unique_id=2023579714]
