@@ -6,12 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqjgo"]
 size = Vector2(14, 14)
 
-[node name="PushableBlock2D" type="RigidBody2D" unique_id=1023348165]
-gravity_scale = 0.0
-can_sleep = false
-lock_rotation = true
-contact_monitor = true
-max_contacts_reported = 2
+[node name="PushableBlock2D" type="CharacterBody2D" unique_id=361140572]
 script = ExtResource("1_bqjgo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1459407669]
@@ -33,5 +28,3 @@ target_position = Vector2(-20, 0)
 
 [node name="RightRayCast2D" type="RayCast2D" parent="." unique_id=320067210]
 target_position = Vector2(20, 0)
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

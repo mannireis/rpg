@@ -34,15 +34,9 @@ func _physics_process(delta: float) -> void:
 	
 	GameState.player_pos = global_position
 	
-	
-	for i in get_slide_collision_count():
-		var c := get_slide_collision(i)
-		var collider := c.get_collider()
-		if collider is RigidBody2D:
-			collider.apply_central_impulse(-c.get_normal() * 10.0)
-
 	play_animations(direction)
-	move_and_slide()
+	if move_and_slide():
+		resolve_collisions()
 
 func play_animations(direction: Vector2):
 	if direction != Vector2.ZERO:
@@ -56,3 +50,10 @@ func play_animations(direction: Vector2):
 			animation.play("idle_right" if last_dir.x > 0 else "idle_left")
 		else:
 			animation.play("idle_down" if last_dir.y > 0 else "idle_up")
+
+func resolve_collisions() -> void:
+	for i in get_slide_collision_count():
+		var collision := get_slide_collision(i)
+		var body := collision.get_collider() as PushableBlock2D
+		if body:
+			body.apply_impact(velocity)

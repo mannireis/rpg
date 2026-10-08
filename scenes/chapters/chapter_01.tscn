@@ -33,6 +33,31 @@ tile_map_data = PackedByteArray("AADs/97/AAABAAMAAADs/+n/BgAAAAMAAADt/97/AAABAAM
 [node name="TileMapLayer2" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="2" unique_id=318211980]
 tile_map_data = PackedByteArray("AAAVAO7/BAAAAAEAAAAaAMH/BQAAAAMAAAAbAMD/BQABAAMAAAAbAMH/BQABAAAAAAAcAMH/BQACAAMAAAAfAMD/BQACAAAAAAAgAMD/BQACAAAAAAAhAMP/BQAAAAEAAAAhAMT/BQAAAAIAAAAyAMD/AwAAAAAAAQA0AMP/BQAAAAEAAAA0AMT/BQAAAAIAAAA1AMD/BQACAAAAAAA1AMP/BQABAAEAAAA1AMT/BQABAAIAAAA2AML/BQAAAAAAAAA2AMP/BQACAAEAAAA2AMT/BQACAAIAAAA2AMX/BQAAAAAAAAAHAOT/AwAAAAAAAgD0/+7/BgAGAAIAAAD0/+//BgAGAAIAAAD2/+7/BgAGAAIAAAD2/+//BgAGAAIAAADy/+//BgAGAAIAAADy/+7/BgAGAAIAAADx/+//BgAGAAIAAADw/+//BgAGAAIAAADw/+7/BgAGAAIAAADw/+3/BgAGAAIAAADw/+z/BgAGAAIAAADw/+v/BgAGAAIAAADx/+v/BgAGAAIAAADy/+v/BgAGAAIAAADz/+v/BgAGAAIAAADz/+r/BgAGAAIAAADz/+n/BgAGAAIAAADz/+j/BgAGAAIAAAD4/+//BgAGAAIAAAD4/+7/BgAGAAIAAAD5/+7/BgAGAAIAAAD6/+7/BgAGAAIAAAD1/+r/BgAGAAIAAAD1/+n/BgAGAAIAAAD1/+j/BgAGAAIAAADz/+f/BgAGAAIAAAD0/+b/BgAGAAIAAAD2/+b/BgAGAAIAAAD3/+r/BgAGAAIAAAD3/+n/BgAGAAIAAAD3/+f/BgAGAAIAAAD2/+n/BgAGAAIAAAD4/+3/BgAGAAIAAAD4/+z/BgAGAAIAAAD5/+z/BgAGAAIAAAD7/+3/BgAGAAIAAAD8/+z/BgAGAAIAAAD8/+v/BgAGAAIAAAD8/+r/BgAGAAIAAAD7/+r/BgAGAAIAAAD7/+n/BgAGAAIAAAD5/+n/BgAGAAIAAAD5/+j/BgAGAAIAAAD5/+r/BgAGAAIAAAD6/+f/BgAGAAIAAAD7/+j/BgAGAAIAAADx/+z/AwAAAAAAAgD2/+j/AwAAAAAAAgD6/+j/AwAAAAAAAgD1/+v/BgAGAAIAAAD1/+z/BgAGAAIAAAD8/+3/BgAGAAIAAAD7/+7/BgAGAAIAAADz/+b/BgAGAAIAAAD3/+b/BgAGAAIAAAD4/+f/BgAGAAIAAAD5/+f/BgAGAAIAAAD7/+f/BgAGAAIAAAA=")
 
+[node name="Buttons" type="Node" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="3" unique_id=650053970]
+
+[node name="Button2D" parent="ProcessModeReset/Buttons" index="0" unique_id=2094274420 instance=ExtResource("11_t4sx4")]
+position = Vector2(56, -464)
+
+[node name="Button2D2" parent="ProcessModeReset/Buttons" index="1" unique_id=914947917 instance=ExtResource("11_t4sx4")]
+position = Vector2(-168, -272)
+
+[node name="Button2D3" parent="ProcessModeReset/Buttons" index="2" unique_id=1831679661 instance=ExtResource("11_t4sx4")]
+position = Vector2(-200, -272)
+
+[node name="Button2D4" parent="ProcessModeReset/Buttons" index="3" unique_id=1493734156 instance=ExtResource("11_t4sx4")]
+position = Vector2(-136, -272)
+
+[node name="DoorBlockers" type="Node" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="4" unique_id=127819652]
+
+[node name="DoorBlocker" parent="ProcessModeReset/DoorBlockers" index="0" unique_id=30276462 node_paths=PackedStringArray("buttons") instance=ExtResource("11_vpuhq")]
+position = Vector2(16, -464)
+buttons = [NodePath("../../Buttons/Button2D")]
+
+[node name="DoorBlocker2" parent="ProcessModeReset/DoorBlockers" index="1" unique_id=1369555257 node_paths=PackedStringArray("buttons") instance=ExtResource("11_vpuhq")]
+position = Vector2(-160, -208)
+rotation = 1.5707964
+buttons = [NodePath("../../Buttons/Button2D2"), NodePath("../../Buttons/Button2D3"), NodePath("../../Buttons/Button2D4")]
+
 [node name="Door" parent="ProcessModeReset/Doors" parent_id_path=PackedInt32Array(662505405) index="0" unique_id=13791502 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
 position = Vector2(232, 112)
 rotation = 3.1415925
@@ -143,6 +168,18 @@ other = NodePath("../Door22")
 position = Vector2(11, -464)
 other = NodePath("../Door21")
 
+[node name="Door23" parent="ProcessModeReset/Doors" parent_id_path=PackedInt32Array(662505405) index="22" unique_id=1545180358 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
+position = Vector2(-160, -200)
+rotation = -1.5707964
+other = NodePath("../Door24")
+transition = 1
+
+[node name="Door24" parent="ProcessModeReset/Doors" parent_id_path=PackedInt32Array(662505405) index="23" unique_id=704902564 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
+position = Vector2(-160, -128)
+rotation = 1.5707964
+other = NodePath("../Door23")
+transition = 1
+
 [node name="John" parent="ProcessModeReset/NPCs" parent_id_path=PackedInt32Array(1367934931) index="0" unique_id=392461232 instance=ExtResource("5_vvh82")]
 position = Vector2(456, 64)
 
@@ -175,26 +212,3 @@ met_id = &"met"
 position = Vector2(864.00006, -128)
 scale = Vector2(3, 3)
 texture = ExtResource("2_c13y1")
-
-[node name="DoorBlocker" parent="." index="2" unique_id=30276462 node_paths=PackedStringArray("buttons") instance=ExtResource("11_vpuhq")]
-position = Vector2(8, -464)
-buttons = [NodePath("../Buttons/Button2D")]
-
-[node name="Buttons" type="Node" parent="." index="3" unique_id=650053970]
-
-[node name="Button2D" parent="Buttons" index="0" unique_id=2094274420 instance=ExtResource("11_t4sx4")]
-position = Vector2(56, -464)
-
-[node name="Button2D2" parent="Buttons" index="1" unique_id=914947917 instance=ExtResource("11_t4sx4")]
-position = Vector2(-168, -272)
-
-[node name="Button2D3" parent="Buttons" index="2" unique_id=1831679661 instance=ExtResource("11_t4sx4")]
-position = Vector2(-200, -272)
-
-[node name="Button2D4" parent="Buttons" index="3" unique_id=1493734156 instance=ExtResource("11_t4sx4")]
-position = Vector2(-136, -272)
-
-[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/PushableBlock2D" to="ProcessModeReset/TileMapLayer2/PushableBlock2D" method="_on_body_entered"]
-[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@59938" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@59938" method="_on_body_entered"]
-[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@59939" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@59939" method="_on_body_entered"]
-[connection signal="body_entered" from="ProcessModeReset/TileMapLayer2/@RigidBody2D@59940" to="ProcessModeReset/TileMapLayer2/@RigidBody2D@59940" method="_on_body_entered"]
