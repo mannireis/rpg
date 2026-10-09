@@ -1,0 +1,21 @@
+start (
+    Emily: Hello, are you Flicker?
+    Flicker: That would be me, yes. What do you want from me, strange child?
+    Emily: I'm looking for Sir Hearts, my pet bunny. Have you seen a bunny around here?
+    Flicker: I've seen one cross into my lands, I was just preparing to go on a hunt to catch it!
+    Flicker: Be warned though, I am not good with sharing, and I do not wish to be interrupted.
+    >> choice
+)
+
+choice (
+    Flicker: Perhaps you should go back where you came from...
+        Stop Flicker > battle_init
+        Convince > convince
+)
+
+convince (
+    Emily: B-but it's Sir Diamond! You can't just catch him or something!!
+    Flicker: I do not want to miss out on this opportunity.
+    Flicker: Few things excite me as much as hunting a magical creature. A battle with a skilled opponent, maybe...
+    >> battle_init_spec
+)
