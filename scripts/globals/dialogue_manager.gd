@@ -66,7 +66,7 @@ func _parse(source: String) -> Dictionary:
 
 func _goto(id: String) -> void:
 	current_id.emit(id)
-	if id == "battle":
+	if id.begins_with("battle_init"):
 		Signals.start_battle.emit()
 		_end()
 		return

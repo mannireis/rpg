@@ -3,7 +3,7 @@ start (
 	Emily: Why?
 	Rebeka: It's too dangerous for weaklings like you.
 	Rebeka: Win me in a battle to prove you are strong enough.
-		Battle > battle
+		Battle > battle_init
 		Flirt > flirt
 		Run > run
 )
@@ -16,7 +16,7 @@ ran (
 
 battle_talk (
 	Emily: I wanna battle this time!
-	Battle > battle
+	Battle > battle_init
 )
 
 run_again (

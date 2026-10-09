@@ -8,7 +8,9 @@ signal battle_lost
 signal start_battle
 func _start_battle() -> void:
 	var p = get_tree().current_scene.scene_file_path
-	if !GameState.won(GameState.speaking_with):
+	var w: bool = GameState.won(GameState.speaking_with)
+	print(w)
+	if !w:
 		RoomChangeGlobal.activate = true
 		RoomChangeGlobal.player_pos = GameState.player_pos
 		RoomChangeGlobal.scene_return = p
