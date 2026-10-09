@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://c8uktlilwm8ft"]
+
+[ext_resource type="Script" uid="uid://be487um858p2g" path="res://scripts/npcs/elaine.gd" id="1_7fggm"]
+[ext_resource type="Texture2D" uid="uid://bqt8l3jahxs2l" path="res://assets/characters/elaine.png" id="2_7fggm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g84d5"]
+atlas = ExtResource("2_7fggm")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db84g"]
+atlas = ExtResource("2_7fggm")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ib3ld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g84d5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_db84g")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ib3ld"]
+size = Vector2(16, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fggm"]
+size = Vector2(64, 64)
+
+[node name="Elaine" type="CharacterBody2D" unique_id=234258619 node_paths=PackedStringArray("area2d", "animation")]
+script = ExtResource("1_7fggm")
+npc_name = &"Elaine"
+dialogue_file = "res://assets/dialogue/elaine.txt"
+met_id = &"met"
+area2d = NodePath("Area2D")
+animation = NodePath("AnimatedSprite2D")
+metadata/_custom_type_script = "uid://cvq1dc601nuk2"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=151356349]
+sprite_frames = SubResource("SpriteFrames_ib3ld")
+animation = &"idle_down"
+frame_progress = 0.931102
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2137660336]
+position = Vector2(-2, 22)
+shape = SubResource("RectangleShape2D_ib3ld")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=944402809]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1690127275]
+position = Vector2(0, 19)
+shape = SubResource("RectangleShape2D_7fggm")

@@ -1,0 +1,16 @@
+start (
+	Elaine: What is humanling like you doing here?
+	Emily: I have been looking for my pet bunny for a while now have you seen it anywhere?
+	Elaine: How does it look mayhaps?
+	Emily: He has a top hat and a monocle and is a very pretty white color!
+	Elaine: Hmmm sorry but I don't remember :(
+	Elaine: Do you wanna check my shop tho?
+	Sure :O > shop
+	No thanks > End
+)
+
+met (
+	Elaine: Do you wanna check my shop?
+	Sure :O > shop
+	No thanks > End
+)
