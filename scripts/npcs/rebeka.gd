@@ -18,7 +18,8 @@ func _ready() -> void:
 	inv = Signals.BattleInv.create(30,[],[Vector2i(3,3)],[Vector2i(3,3)])
 	inv.ai_atk_chance = 0.5
 	inv.ai_block_chance = 0.3
-	RoomChangeGlobal.enemy_inv_dict[npc_name] = inv
+	RoomChangeGlobal.enemy_inv_dict[npc_name] = []
+	RoomChangeGlobal.enemy_inv_dict[npc_name].append(inv)
 
 
 func _physics_process(delta: float) -> void:
