@@ -5,12 +5,17 @@ start (
 	Emily: He has a top hat and a monocle and is a very pretty white color!
 	Elaine: Hmmm sorry but I don't remember :(
 	Elaine: Do you wanna check my shop tho?
-	Sure :O > shop
+	Sure! > shop
 	No thanks > End
 )
 
 met (
 	Elaine: Do you wanna check my shop?
-	Yes! > shop
+	Sure! > shop
 	No thanks > End
+)
+
+
+shop (
+	t: t
 )

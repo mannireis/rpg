@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c7pwh6ylcko45"]
+
+[ext_resource type="Script" uid="uid://dhnccxr3oq4mv" path="res://scripts/ui/shop_item.gd" id="1_strbt"]
+
+[node name="ShopItem" type="Button" unique_id=1275012645]
+offset_right = 4.0
+offset_bottom = 4.0
+offset_transform_enabled = true
+script = ExtResource("1_strbt")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

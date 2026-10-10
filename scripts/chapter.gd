@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_released(&"pause_game"):
+	if event.is_action_released(&"pause_game") and not ShopUi.visible:
 		var tree := get_tree()
 		tree.paused = not tree.paused
 		pause_menu.visible = not pause_menu.visible

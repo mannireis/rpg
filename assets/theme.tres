@@ -18,6 +18,7 @@ texture_margin_bottom = 1.0
 
 [resource]
 Button/fonts/font = ExtResource("1_5x3i2")
+Button/styles/disabled = SubResource("StyleBoxTexture_wl1kw")
 Button/styles/hover = SubResource("StyleBoxTexture_wl1kw")
 Button/styles/normal = SubResource("StyleBoxTexture_wl1kw")
 Button/styles/pressed = SubResource("StyleBoxTexture_wl1kw")

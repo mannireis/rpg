@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://stmkbcmgchr0" path="res://scripts/shop_ui.gd" id="1_nwxdi"]
 [ext_resource type="Texture2D" uid="uid://bptr8c0oisjcs" path="res://assets/mockup_shop.png" id="1_ygcrn"]
-[ext_resource type="Texture2D" uid="uid://cek6ei6frdk5u" path="res://assets/block_small.png" id="2_avfhx"]
+[ext_resource type="Script" uid="uid://dhnccxr3oq4mv" path="res://scripts/ui/shop_item.gd" id="3_nwxdi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avfhx"]
 
@@ -23,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 68
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 68
@@ -30,41 +31,65 @@ theme_override_constants/margin_bottom = 37
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=955635164]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=220912152]
 custom_maximum_size = Vector2(93, -1)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_avfhx")
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/PanelContainer" unique_id=1180087609]
 layout_mode = 2
-theme_override_constants/h_separation = 1
-theme_override_constants/v_separation = 1
+mouse_filter = 2
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
 columns = 2
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/GridContainer" unique_id=1266667505]
+[node name="ShopItem" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/GridContainer" unique_id=1338178815]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "Button"
-icon = ExtResource("2_avfhx")
+script = ExtResource("3_nwxdi")
+metadata/_custom_type_script = "uid://dhnccxr3oq4mv"
 
-[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/GridContainer" unique_id=106383750]
+[node name="ShopItem2" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/GridContainer" unique_id=1851795118]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "Button"
-icon = ExtResource("2_avfhx")
+script = ExtResource("3_nwxdi")
+suit = 1
+metadata/_custom_type_script = "uid://dhnccxr3oq4mv"
 
-[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/GridContainer" unique_id=2045981082]
+[node name="ShopItem3" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/GridContainer" unique_id=1334683877]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "Button"
-icon = ExtResource("2_avfhx")
+script = ExtResource("3_nwxdi")
+suit = 2
+metadata/_custom_type_script = "uid://dhnccxr3oq4mv"
+
+[node name="ShopItem4" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/GridContainer" unique_id=1449280831]
+layout_mode = 2
+script = ExtResource("3_nwxdi")
+suit = 3
+metadata/_custom_type_script = "uid://dhnccxr3oq4mv"
 
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=792298139]
+custom_maximum_size = Vector2(93, -1)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_nwxdi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer2" unique_id=1600549592]
+layout_mode = 2
+
+[node name="CardName" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer2/VBoxContainer" unique_id=1028109920]
+layout_mode = 2
+text = "Meow"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/PanelContainer2/VBoxContainer" unique_id=1505894452]
+layout_mode = 2
+
+[node name="CardDescription" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer2/VBoxContainer" unique_id=1364300850]
+layout_mode = 2
+text = "meow"
+horizontal_alignment = 1
+autowrap_mode = 3

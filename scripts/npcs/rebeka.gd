@@ -8,6 +8,7 @@ var path: PathFollow2D
 var goodbye := false
 var _prev_pos: Vector2
 var inv: Signals.BattleInv
+
 func _ready() -> void:
 	super()
 	path = get_parent() as PathFollow2D
