@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bcfa8y8bngme2"]
 
+[ext_resource type="Script" uid="uid://stmkbcmgchr0" path="res://scripts/shop_ui.gd" id="1_nwxdi"]
 [ext_resource type="Texture2D" uid="uid://bptr8c0oisjcs" path="res://assets/mockup_shop.png" id="1_ygcrn"]
 [ext_resource type="Texture2D" uid="uid://cek6ei6frdk5u" path="res://assets/block_small.png" id="2_avfhx"]
 
@@ -8,6 +9,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nwxdi"]
 
 [node name="ShopUi" type="CanvasLayer" unique_id=503293221]
+script = ExtResource("1_nwxdi")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=383991356]
 offset_right = 40.0
@@ -21,10 +23,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 67
-theme_override_constants/margin_top = 29
-theme_override_constants/margin_right = 67
-theme_override_constants/margin_bottom = 36
+theme_override_constants/margin_left = 68
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 68
+theme_override_constants/margin_bottom = 37
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=955635164]
 layout_mode = 2
@@ -35,25 +37,27 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_avfhx")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer" unique_id=367007202]
-custom_maximum_size = Vector2(93, -1)
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/PanelContainer" unique_id=1180087609]
 layout_mode = 2
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+columns = 2
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/HBoxContainer" unique_id=1266667505]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "Button"
-icon = ExtResource("2_avfhx")
-
-[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/HBoxContainer" unique_id=106383750]
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/GridContainer" unique_id=1266667505]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Button"
 icon = ExtResource("2_avfhx")
 
-[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/HBoxContainer" unique_id=2045981082]
+[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/GridContainer" unique_id=106383750]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Button"
+icon = ExtResource("2_avfhx")
+
+[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/GridContainer" unique_id=2045981082]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0

@@ -11,6 +11,6 @@ start (
 
 met (
 	Elaine: Do you wanna check my shop?
-	Sure :O > shop
+	Yes! > shop
 	No thanks > End
 )

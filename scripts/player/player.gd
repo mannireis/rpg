@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var friction : float = 1000.0
 
 var last_dir := Vector2.DOWN
-
+var intended_velocity := Vector2.ZERO
 
 func _ready() -> void:
 	add_to_group("player")
@@ -31,6 +31,8 @@ func _physics_process(delta: float) -> void:
 		velocity = speed * direction.normalized()
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+	
+	intended_velocity = velocity
 	
 	GameState.player_pos = global_position
 	
@@ -56,4 +58,4 @@ func resolve_collisions() -> void:
 		var collision := get_slide_collision(i)
 		var body := collision.get_collider() as PushableBlock2D
 		if body:
-			body.apply_impact(velocity)
+			body.apply_impact(intended_velocity)

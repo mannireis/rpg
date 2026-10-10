@@ -24,6 +24,7 @@ Dialogue="*uid://c4wkyyi1muhiy"
 GameState="*uid://cgvvxg1upvrf4"
 PlayerUi="*uid://b431ig3lsl8cg"
 Signals="*uid://ckqpy1428lv42"
+ShopUi="*uid://bcfa8y8bngme2"
 
 [display]
 
