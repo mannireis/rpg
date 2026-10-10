@@ -10,7 +10,9 @@ var player_battle_inventory: Signals.BattleInv
 
 
 func _ready() -> void:
-	player_battle_inventory = PlayerCtl.starter_deck()
+	if !player_battle_inventory:
+		player_battle_inventory = Signals.BattleInv.create()
+		player_battle_inventory.deck = PlayerCtl.starter_deck()
 
 
 func meet(npc_id: StringName) -> void:
@@ -37,4 +39,4 @@ func won(npc_id: StringName) -> bool:
 
 
 func add_card(card: GameCard) -> void:
-	player_battle_inventory.append(card)
+	player_battle_inventory.deck.append(card)
