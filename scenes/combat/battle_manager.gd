@@ -20,7 +20,8 @@ func _ready() -> void:
 			player.equip_card(len(player.permanent_deck)-1)
 		for card in p_inv.starting_hand:
 			player.permanent_deck.append(card)
-			player.hand.append(len(player.permanent_deck)-1)
+			player.deck_order.append(len(player.permanent_deck)-1)
+			player.draw(1,true)
 	player.hp_display = c.get_node("PlayerHP")
 	player.hp_display.text = str(player.hp)+" HP"
 	player.block_display = c.get_node("PlayerBlock")
