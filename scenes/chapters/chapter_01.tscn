@@ -203,6 +203,15 @@ rotation = 1.5707964
 other = NodePath("../Door25")
 transition = 1
 
+[node name="Door27" parent="ProcessModeReset/Doors" parent_id_path=PackedInt32Array(662505405) index="26" unique_id=1548386224 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
+position = Vector2(944, -635)
+rotation = -3.1415925
+other = NodePath("../Door28")
+
+[node name="Door28" parent="ProcessModeReset/Doors" parent_id_path=PackedInt32Array(662505405) index="27" unique_id=2038330449 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
+position = Vector2(977, -635)
+other = NodePath("../Door27")
+
 [node name="Elaine" parent="ProcessModeReset/NPCs" parent_id_path=PackedInt32Array(1367934931) index="0" unique_id=234258619 instance=ExtResource("10_t4sx4")]
 position = Vector2(-208, -144)
 
