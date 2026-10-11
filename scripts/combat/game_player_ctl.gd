@@ -4,7 +4,7 @@ class_name PlayerCtl extends Node
 @onready var UI_node = get_tree().get_root().get_node("BattleRoom").get_node("CanvasLayer").get_node("UI")
 
 const v0 = Vector2i(0,0) #NOT vercel
-const battle_debug: bool = false
+const battle_debug: bool = true
 const persist_dmg_type: Array[int] = [2]
 
 var turn: bool = true
@@ -140,6 +140,7 @@ func run_equipped(method: String, vec: Vector2i = Vector2i(0,0),prio_type: Strin
 
 func receive_dmg(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_dmg_in",dmg,"dmg_in",true)
+	print("side "+str(is_enemy)+" receiving "+str(dmg))
 	if len(block_current) > dmg[1]:
 		block_current[dmg[1]] += dmg[0]
 		dmg[0] = 0
@@ -198,14 +199,11 @@ func turn_begin() -> void:
 		v = persistent_dmg[i]
 		if v[1] == -1:
 			hp -= v[0]
-			i += 1
-			continue
-		elif v[1] == 0:
-			i += 1
-			continue
+		elif v[1] == 0: pass
 		else:
 			v[1] -= 1
 			hp -= v[0]
+			if battle_debug: print("side "+str(is_enemy)+" receiving "+str(v[0])+" damage from i"+str(i))
 		i += 1
 	hp_display.text = str(hp)+" HP"
 	await battle_manager.get_tree().create_timer(0.2).timeout
@@ -236,7 +234,7 @@ func player_attack(block:bool=false,choice: bool = false) -> void:
 			if card.able == req and card.weapon_atk:
 				res_card = card
 		if res_card:
-			print("auto chose "+str(res_card.name))
+			if battle_debug: print("auto chose "+str(res_card.name))
 			if block:
 				exec_block(res_card.weapon_atk(v0,self,battle_manager.get_oppo(is_enemy)))
 			else:
@@ -340,7 +338,7 @@ func ai_turn() -> void:
 				hand.shuffle()
 				if len(hand):
 					var single_tar = hand[0]
-					if battle_debug: print("AI playing "+permanent_deck[single_tar].name+" from hand "+str(hand))
+					print("AI playing "+permanent_deck[single_tar].name+" from hand "+str(hand))
 					enemy_display_cards(true, hand)
 					play_card(single_tar)
 				else: printerr("empty hand during AI turn")
