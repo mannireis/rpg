@@ -11,6 +11,8 @@ func _ready() -> void:
 	
 	for child in grid_container.get_children():
 		if child as ShopItem:
+			child.suit = GameCard.S.values().pick_random()
+			child.index = randi_range(0, 3)
 			child.mouse_entered.connect(_show_info.bind(child, true))
 			child.mouse_exited.connect(_show_info.bind(child, false))
 
