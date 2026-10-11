@@ -17,8 +17,9 @@ metadata/_edit_horizontal_guides_ = [-12.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1172803837]
 
-[node name="SnapPoints" type="Node" parent="CanvasLayer" unique_id=1029013003 node_paths=PackedStringArray("snap_points", "points_to_play")]
+[node name="SnapPoints" type="Node" parent="CanvasLayer" unique_id=1029013003 node_paths=PackedStringArray("play_button", "snap_points", "points_to_play")]
 script = ExtResource("1_3vhqq")
+play_button = NodePath("../UI/Play")
 snap_points = [NodePath("SnapPoint"), NodePath("SnapPoint2"), NodePath("SnapPoint3"), NodePath("SnapPoint4"), NodePath("SnapPoint5"), NodePath("SnapPoint6"), NodePath("SnapPoint7"), NodePath("SnapPoint8")]
 points_to_play = [NodePath("SnapPoint6"), NodePath("SnapPoint7"), NodePath("SnapPoint8")]
 
