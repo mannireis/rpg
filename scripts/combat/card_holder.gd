@@ -44,8 +44,10 @@ func exec_turn():
 	battle_manager.player.turn_end()
 	await get_tree().create_timer(1).timeout
 	battle_manager.enemy.ai_turn()
+	print("AI turn finished")
 	await get_tree().create_timer(2).timeout
-	battle_manager.player.turn_begin()
+	print("player turn starting")
+	await battle_manager.player.turn_begin()
 
 func _cards_selected_cleanup() -> void:
 	sel_count = 0

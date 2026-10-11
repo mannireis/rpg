@@ -4,7 +4,7 @@ class_name PlayerCtl extends Node
 @onready var UI_node = get_tree().get_root().get_node("BattleRoom").get_node("CanvasLayer").get_node("UI")
 
 const v0 = Vector2i(0,0) #NOT vercel
-const battle_debug: bool = false
+const battle_debug: bool = true
 const persist_dmg_type: Array[int] = [2]
 
 var turn: bool = true
@@ -23,6 +23,7 @@ var block_history: int = 1
 var next_turn: Array[Callable] = []
 var block_accumulator: Array[Array] = [[0]]
 var persistent_dmg: Array[Vector2i] = [v0,v0,v0] ## -1 in second position means endless damage
+const pers_decrease: Array[int] = [2]
 var is_enemy: bool = false
 var equipped: Array[int] = []
 var equipped_cards: Array[GameCard] = []
@@ -150,7 +151,7 @@ func receive_dmg(dmg:Vector2i) -> void:
 			if !dmg[1]: block_display.text = "0"
 			if battle_debug: print("receiving final dmg "+str(dmg))
 			if dmg[1] not in persist_dmg_type: hp -= dmg[0]
-			else: persistent_dmg[dmg[1]] = Vector2i(dmg[0],dmg[0])
+			else: persistent_dmg[dmg[1]] = Vector2i(dmg[0]+persistent_dmg[dmg[1]][0],dmg[0])
 		else:
 			if battle_debug: print("blocked dmg, remaining block "+str(block_current))
 			if !dmg[1]: block_display.text = str(-block_current[0])
@@ -158,7 +159,7 @@ func receive_dmg(dmg:Vector2i) -> void:
 	else:
 		print("dmg of type "+str(dmg[1])+" lacks block, dealing "+str(dmg[0]))
 		if dmg[1] not in persist_dmg_type: hp -= dmg[0]
-		else: persistent_dmg[dmg[1]] = Vector2i(dmg[0],dmg[0])
+		else: persistent_dmg[dmg[1]] = Vector2i(dmg[0]+persistent_dmg[dmg[1]][0],dmg[0])
 		hp_display.text = str(hp)+" HP"
 	pass
 
@@ -201,9 +202,12 @@ func turn_begin() -> void:
 			hp -= v[0]
 		elif v[1] == 0: pass
 		else:
-			v[1] -= 1
+			persistent_dmg[i][1] -= 1
 			hp -= v[0]
 			if battle_debug: print("side "+str(is_enemy)+" receiving "+str(v[0])+" damage from i"+str(i))
+			if i in pers_decrease:
+				persistent_dmg[i][0] -= 1
+				print("pers "+str(i)+" decreased to "+str(persistent_dmg[i]))
 		i += 1
 	hp_display.text = str(hp)+" HP"
 	await battle_manager.get_tree().create_timer(0.2).timeout
@@ -328,7 +332,7 @@ func enemy_display_cards(show: bool = true, cards: Array[int] = []) -> void:
 
 func ai_turn() -> void:
 	print("AI turn at "+str(ai_diff)+" difficulty")
-	turn_begin()
+	await turn_begin()
 	var r: float = rand.randf()
 	if r < ai_default_atk_chance: player_attack()
 	elif r < ai_default_atk_chance+ai_default_block_chance: player_attack(true)
