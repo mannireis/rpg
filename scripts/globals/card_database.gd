@@ -50,6 +50,9 @@ func _ready() -> void:
 		
 	db[2][0].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		if !ctl.is_enemy:
+			if len(ctl.hand) < 2:
+				print("can't discard 2 cards from "+str(ctl.hand))
+				return [GameCard.Move.TRASH]
 			ctl.sp.sel_count = 2
 			ctl.sp.sel_autosubmit = true
 			print(ctl.sp.sel_cards)

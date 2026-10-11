@@ -67,7 +67,8 @@ func _parse(source: String) -> Dictionary:
 func _goto(id: String) -> void:
 	current_id.emit(id)
 	if id.begins_with("battle_init"):
-		Signals.start_battle.emit()
+		if id == "battle_init_spec": Signals.start_battle.emit(1)
+		else: Signals.start_battle.emit(0)
 		_end()
 		return
 	if id == "end" or not _parsed_dialogue.has(id):
