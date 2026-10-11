@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cxrd5ke6fiatw"]
+
+[ext_resource type="Script" uid="uid://bsabdxee8jisf" path="res://scripts/ui/health_progress_bar.gd" id="1_kyqmk"]
+[ext_resource type="Texture2D" uid="uid://bcaac5yyw61ef" path="res://assets/panel_battle.png" id="2_7bxy6"]
+[ext_resource type="Texture2D" uid="uid://c5ydhltj1rta3" path="res://assets/shield_progress_bar.png" id="3_2sngf"]
+[ext_resource type="Texture2D" uid="uid://baawqx5k3utvj" path="res://assets/health_progress_bar.png" id="4_7bxy6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_62e2m"]
+texture = ExtResource("2_7bxy6")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_62e2m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_80uk7"]
+texture = ExtResource("3_2sngf")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qtu10"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0fbet"]
+texture = ExtResource("4_7bxy6")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="HealthBar2D" type="Panel" unique_id=1680376864]
+custom_minimum_size = Vector2(10, 66)
+theme_override_styles/panel = SubResource("StyleBoxTexture_62e2m")
+script = ExtResource("1_kyqmk")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1424033359]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1777019056]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="ShieldProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=720420990]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(8, 0)
+custom_maximum_size = Vector2(8, 32)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/background = SubResource("StyleBoxEmpty_62e2m")
+theme_override_styles/fill = SubResource("StyleBoxTexture_80uk7")
+max_value = 1.0
+step = 0.1
+fill_mode = 3
+show_percentage = false
+
+[node name="HealthProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=1390503625]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(8, 0)
+custom_maximum_size = Vector2(8, 32)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/background = SubResource("StyleBoxEmpty_qtu10")
+theme_override_styles/fill = SubResource("StyleBoxTexture_0fbet")
+max_value = 1.0
+step = 0.1
+fill_mode = 3
+show_percentage = false

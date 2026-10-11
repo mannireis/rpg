@@ -1,22 +1,19 @@
-extends Control
+class_name HealthBar2D
+extends Panel
 
-@export var max_value: float = 6.0
-@export var o_speed: float = 0.5  # units per second
-@export var x_speed: float = 0.5
+@onready var shield_progress_bar: ProgressBar = %ShieldProgressBar
+@onready var health_progress_bar: ProgressBar = %HealthProgressBar
 
-var o: float = 0.0
-var x: float = 0.0
-
-@onready var back: ProgressBar = $ProgressBar    # X
-@onready var front: ProgressBar = $ProgressBar2  # O
+@export_range(0, 1, 0.1) var health_value: float = 0.0
+@export_range(0, 1, 0.1) var shield_value: float = 0.0
 
 func _ready() -> void:
-	back.max_value = max_value
-	front.max_value = max_value
+	for bar in [shield_progress_bar, health_progress_bar]:
+		bar.value = bar.max_value
+		bar.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+		bar.add_theme_stylebox_override("background", StyleBoxEmpty.new())
 
-func _process(delta: float) -> void:
-	o = minf(o + o_speed * delta, max_value)
-	x = minf(x + x_speed * delta, max_value - o)
 
-	front.value = o
-	back.value = o + x
+func _process(_delta: float) -> void:
+	shield_progress_bar.custom_minimum_size.y = shield_value * 32
+	health_progress_bar.custom_minimum_size.y = health_value * 32
