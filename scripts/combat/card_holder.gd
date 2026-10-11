@@ -2,6 +2,7 @@ extends Node
 
 @onready var battle_manager = get_tree().get_root().get_node("BattleRoom").get_node("BattleManager")
 
+@export var play_button: Button
 @export var snap_points: Array[Control] = []
 @export var points_to_play: Array[Control] = []
 
@@ -14,6 +15,7 @@ signal cards_selected ## Set sel_autosubmit and sel_count in SnapPoints, when si
 
 func _ready() -> void:
 	cards_selected.connect(_cards_selected_cleanup)
+	play_button.pressed.connect(play_cards)
 
 func get_nearest_point(global_pos: Vector2) -> Control:
 	var nearest: Control = null
