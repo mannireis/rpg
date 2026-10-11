@@ -40,7 +40,9 @@ func _ready() -> void:
 	db[0][2].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		ctl.exec_atk(db[0][2].atk)
 		return [GameCard.Move.STAY]
-		
+	db[0][3].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
+		ctl.exec_atk(db[0][3].atk)
+		return [GameCard.Move.TRASH]	
 		
 	db[1][0].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		ctl.player_attack(true)

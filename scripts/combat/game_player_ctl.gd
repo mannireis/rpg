@@ -4,7 +4,7 @@ class_name PlayerCtl extends Node
 @onready var UI_node = get_tree().get_root().get_node("BattleRoom").get_node("CanvasLayer").get_node("UI")
 
 const v0 = Vector2i(0,0) #NOT vercel
-const battle_debug: bool = true
+const battle_debug: bool = false
 const persist_dmg_type: Array[int] = [2]
 
 var turn: bool = true
