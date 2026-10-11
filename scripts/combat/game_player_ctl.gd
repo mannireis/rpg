@@ -30,6 +30,7 @@ var hand: Array[int] = []
 var burn: Array[int] = []
 var removed_from_game: Array[int] = []
 var permanent_deck: Array[GameCard] = []
+var lose_next_turn := false
 var equipped_display: HBoxContainer
 var rand = RandomNumberGenerator.new()
 
@@ -38,6 +39,9 @@ func draw(count: int = 1, gui: bool = false) -> void:
 	var vis_card: Control = null
 	var data: GameCard
 	for i in range(count):
+		if len(deck_order) == 0:
+			print("no cards in deck")
+			return
 		if gui:
 			slot_res = sp.get_point_slot()
 			if slot_res[0] != -1 and len(sp.hidden_cards) > 0:
@@ -204,9 +208,16 @@ func turn_begin() -> void:
 			hp -= v[0]
 		i += 1
 	hp_display.text = str(hp)+" HP"
+	await battle_manager.get_tree().create_timer(0.2).timeout
+	if lose_next_turn:
+		print("enemy "+str(is_enemy)+", lose_next_turn set")
+		hp_display.text = "---"
+		await battle_manager.get_tree().create_timer(0.3).timeout
+		hp = -1
 	battle_manager.eval_hp()
 	block_display.text = str(-block_current[0])
-	draw(max(5-len(hand),0),!is_enemy)	
+	if len(deck_order) == 0: lose_next_turn = true
+	else: draw(max(5-len(hand),0),!is_enemy)	
 	enemy_display_cards(false)
 	turn = true
 	if !is_enemy:
