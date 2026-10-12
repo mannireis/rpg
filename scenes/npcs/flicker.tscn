@@ -33,16 +33,9 @@ animations = [{
 
 [node name="Flicker" type="CharacterBody2D" unique_id=1932718674 node_paths=PackedStringArray("area2d")]
 script = ExtResource("1_y0y0u")
-npc_name = null
 dialogue_file = "res://assets/dialogue/flicker.txt"
-id = null
 met_id = &"choice"
 area2d = NodePath("Area2D")
-wander = null
-max_dist = null
-max_wait = null
-speed = null
-min_wait = null
 
 [node name="Area2D" type="Area2D" parent="." unique_id=896990980]
 

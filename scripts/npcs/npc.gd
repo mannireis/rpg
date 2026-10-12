@@ -25,6 +25,7 @@ var in_range := false
 var pressed := false
 var autostart_dialogue := false
 
+
 func _ready() -> void:
 	if wander:
 		starting_pos = global_position
@@ -39,7 +40,7 @@ func _choose_pos() -> void:
 	var angle = randf() * TAU
 	var dist = randf() * max_dist
 	target_pos = starting_pos + Vector2(cos(angle), sin(angle)) * dist
-	
+
 	var wait_time = randf_range(min_wait, max_wait)
 	get_tree().create_timer(wait_time).timeout.connect(_choose_pos)
 
@@ -48,13 +49,13 @@ func _physics_process(delta: float) -> void:
 	if wander:
 		var to_target = target_pos - global_position
 		var direction := Vector2.ZERO
-		
+
 		if to_target.length() >= 2.0:
 			direction = to_target.normalized()
 			velocity = direction * speed
 		else:
 			velocity = Vector2.ZERO
-	
+
 		play_animations(direction)
 		move_and_slide()
 
@@ -73,7 +74,6 @@ func play_animations(direction: Vector2):
 			animation.play("idle_down" if last_dir.y > 0 else "idle_up")
 
 
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		in_range = true
@@ -83,22 +83,26 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		GameState.speaking_with = &""
-		
+
 		in_range = false
 		pressed = false
 		PlayerUi.hide_label()
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if autostart_dialogue or (Input.is_action_just_pressed("Interact") and in_range and not pressed):
+	if autostart_dialogue or (event.is_action_pressed(&"Interact") and in_range and not pressed):
 		pressed = true
 		autostart_dialogue = false
 		GameState.speaking_with = npc_name
 		if GameState.has_met(npc_name):
-			DialogueManager.start(dialogue_file, met_id)
+			Signals.dialogue_started.emit(dialogue_file, met_id)
+			#DialogueManager.start(dialogue_file, met_id)
 		else:
-			DialogueManager.start(dialogue_file, id)
+			Signals.dialogue_started.emit(dialogue_file, id)
+			#DialogueManager.start(dialogue_file, id)
 			GameState.meet(npc_name)
+
+
 
 func diag_start(body: Node2D) -> void:
 	if body.is_in_group("player") and not GameState.has_met(npc_name):
