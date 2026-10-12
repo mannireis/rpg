@@ -6,7 +6,7 @@ var defeated_npcs: Dictionary[StringName,int] = {}
 var battle_running: bool = false
 var player_pos: Vector2
 var speaking_with: StringName
-var player_battle_inventory: Signals.BattleInv
+var player_battle_inventory: Signals.BattleInv ## Initialised once, modify only its attributes
 
 
 func _ready() -> void:

@@ -87,6 +87,7 @@ func eval_hp() -> void:
 
 	if game_result[0]:
 		RoomChangeGlobal.player_hp = player.hp
+		GameState.player_battle_inventory.hp = player.hp
 		RoomChangeGlobal.last_battle_result = game_result[1]
 		RoomChangeGlobal.emit_battle = true
 

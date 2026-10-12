@@ -1,4 +1,5 @@
 extends NPC
+var first_seen := false
 func v(a:int, b:int = 0) -> Vector2i: return Vector2i(a,b)
 func _ready() -> void:
 	var base: Array[Vector2i] = [v(0,2),v(0,2),v(1,0),v(1,0),v(1,0),v(1,0),v(1,0),v(1,0),v(0,0),v(0,0),v(0,0),v(0,0),v(0,0)]
@@ -9,7 +10,20 @@ func _ready() -> void:
 	inv.ai_atk_chance = 0.25
 	inv.ai_block_chance = 0.15
 	deck2.append_array([v(0,0),v(0,0),v(3,1),v(3,1),v(0,3)])
-	var inv2 = Signals.BattleInv.create(22,deck2,[],[v(0,3),v(0,3)])
+	var inv2 = Signals.BattleInv.create(22,deck2,[],[v(0,3),v(0,3)]) ## "smarter" Flicker
 	inv2.ai_atk_chance = 0.2
 	inv2.ai_block_chance = 0.1
 	RoomChangeGlobal.enemy_inv_dict[npc_name] = [inv,inv2]
+	var doors = get_tree().get_root().get_node("Chapter01/ProcessModeReset/Doors")
+	var door27: Door = doors.get_node("Door27")
+	door27.body_entered.connect(room_entered)
+	print(door27.body_entered.get_connections())
+	
+func room_entered(body: Node2D) -> void: # make the passersby creature appear when the player first enters flicker's room
+	print("flicker's room entered")
+	if body.is_in_group("player") and !first_seen:
+		first_seen = true
+		get_parent().get_node("ThePassersby").passersby_appear.emit()
+		await get_tree().create_timer(3).timeout
+		get_parent().get_node("ThePassersby").passersby_die.emit()
+		

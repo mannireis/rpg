@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://idf2xqbkc2yx" path="res://scenes/npcs/flicker.tscn" id="11_2br45"]
 [ext_resource type="PackedScene" uid="uid://g48tq4wfuoeo" path="res://scenes/world/button_2d.tscn" id="11_t4sx4"]
 [ext_resource type="PackedScene" uid="uid://bshgjd1m5t75o" path="res://scenes/world/door_blocker.tscn" id="11_vpuhq"]
-[ext_resource type="Script" uid="uid://wyg8bikasvc6" path="res://scripts/npcs/flicker.gd" id="12_2br45"]
+[ext_resource type="PackedScene" uid="uid://kebwg68buqsq" path="res://scenes/npcs/passersby.tscn" id="13_nb3ya"]
 
 [sub_resource type="Curve2D" id="Curve2D_gbcm8"]
 bake_interval = 0.01
@@ -246,12 +246,21 @@ dialogue_file = "res://assets/dialogue/will.txt"
 met_id = &"met"
 
 [node name="Flicker" parent="ProcessModeReset/NPCs" parent_id_path=PackedInt32Array(1367934931) index="6" unique_id=1027138446 instance=ExtResource("11_2br45")]
-position = Vector2(1072, -632)
-script = ExtResource("12_2br45")
-dialogue_file = "res://assets/dialogue/flicker.txt"
+position = Vector2(1144, -632)
+npc_name = &""
+id = &"start"
+wander = false
+max_dist = 64.0
+max_wait = 5.0
+speed = 25.0
+min_wait = 1.0
+
+[node name="ThePassersby" parent="ProcessModeReset/NPCs" parent_id_path=PackedInt32Array(1367934931) index="7" unique_id=945158310 instance=ExtResource("13_nb3ya")]
+visible = false
+position = Vector2(1033, -636)
 
 [node name="DevTeleport" type="Node2D" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="10" unique_id=175322713]
-position = Vector2(1192, -624)
+position = Vector2(856, -624)
 
 [node name="TestTent" type="Sprite2D" parent="." index="1" unique_id=238795368]
 z_index = 156

@@ -1,1 +1,1 @@
-extends NPC
+extends "res://scripts/npcs/npc.gd"

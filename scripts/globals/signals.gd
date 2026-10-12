@@ -5,7 +5,7 @@ signal transition(door: Door)
 signal battle_won
 signal battle_lost
 @warning_ignore_restore("unused_signal")
-signal start_battle(which_inv: int) ## If the NPC has multiple inventories for multiple encounters, which_deck selects the encounter
+signal start_battle(which_inv: int) ## If the NPC has multiple inventories for multiple encounters, which_inv selects the encounter
 func _start_battle(which_inv: int = 0) -> void:
 	var p = get_tree().current_scene.scene_file_path
 	if RoomChangeGlobal.enemy_inv_dict.has(GameState.speaking_with):
@@ -26,8 +26,11 @@ func _start_battle(which_inv: int = 0) -> void:
 	else: print(GameState.battled_npcs)
 
 func _ready() -> void: start_battle.connect(_start_battle)
-
-class BattleInv:
+## Container for start-of-battle config
+##
+## Passed down to battle_manager.gd through RoomChangeGlobal.enemy_battle_inventory and GameState.player_battle_inventory.
+## Contains the deck as well as the cards that will always start the battle equipped or in hand
+class BattleInv: 
 	var input_deck: Array[Vector2i] ##Array of (suit,id) vectors
 	var input_starting_equipped: Array[Vector2i]
 	var input_starting_hand: Array[Vector2i]
@@ -37,8 +40,8 @@ class BattleInv:
 	var max_hp := 26
 	var hp := max_hp
 	var ai_int := 0
-	var ai_atk_chance: float
-	var ai_block_chance: float
+	var ai_atk_chance: float ## <0;1>, chance to perform the default attack action
+	var ai_block_chance: float ## <0;1>, chance to perform the default block action
 	var anim_character: AnimatedSprite2D
 	static func convert_to_card(a: Array[Vector2i]) -> Array[GameCard]:
 		var res: Array[GameCard] = []

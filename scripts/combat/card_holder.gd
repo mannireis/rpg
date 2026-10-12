@@ -40,7 +40,7 @@ func get_point_slot() -> Array:
 	#print("found free point "+str(p)+" at ii "+str(ii))
 	return([ii,p])
 
-func exec_turn():
+func exec_turn(): ## Sequence from player's turn ending to player's turn beginning, linked to the Play/Attack/Block buttons being clicked
 	battle_manager.player.turn_end()
 	await get_tree().create_timer(1).timeout
 	battle_manager.enemy.ai_turn()

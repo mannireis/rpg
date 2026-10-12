@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://idf2xqbkc2yx"]
 
-[ext_resource type="Script" uid="uid://cvq1dc601nuk2" path="res://scripts/npcs/npc.gd" id="1_xyknl"]
+[ext_resource type="Script" uid="uid://wyg8bikasvc6" path="res://scripts/npcs/flicker.gd" id="1_y0y0u"]
 [ext_resource type="Texture2D" uid="uid://cbpw7gcar53ln" path="res://assets/characters/flicker.png" id="2_y0y0u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivh6b"]
@@ -21,8 +21,17 @@ animations = [{
 }]
 
 [node name="Flicker" type="CharacterBody2D" unique_id=1932718674 node_paths=PackedStringArray("area2d")]
-script = ExtResource("1_xyknl")
+script = ExtResource("1_y0y0u")
+npc_name = null
+dialogue_file = "res://assets/dialogue/flicker.txt"
+id = null
+met_id = &"choice"
 area2d = NodePath("Area2D")
+wander = null
+max_dist = null
+max_wait = null
+speed = null
+min_wait = null
 
 [node name="Area2D" type="Area2D" parent="." unique_id=896990980]
 

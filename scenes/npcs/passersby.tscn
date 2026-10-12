@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://kebwg68buqsq"]
+
+[ext_resource type="Script" uid="uid://dcfnm5uyjj8kk" path="res://scripts/npcs/passersby.gd" id="1_stamm"]
+[ext_resource type="Texture2D" uid="uid://dydfdom68txyw" path="res://assets/characters/passerby.png" id="2_stamm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbsw4"]
+size = Vector2(14, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5d8r"]
+atlas = ExtResource("2_stamm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynlgs"]
+atlas = ExtResource("2_stamm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oelsv"]
+atlas = ExtResource("2_stamm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tbsw4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5d8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynlgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oelsv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ThePassersby" type="CharacterBody2D" unique_id=1932718674]
+script = ExtResource("1_stamm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1563531611]
+shape = SubResource("RectangleShape2D_tbsw4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1392330665]
+sprite_frames = SubResource("SpriteFrames_tbsw4")

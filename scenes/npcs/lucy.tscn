@@ -220,14 +220,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Lucy" type="CharacterBody2D" unique_id=926653456 node_paths=PackedStringArray("area2d", "animation")]
+[node name="Lucy" type="CharacterBody2D" unique_id=926653456 node_paths=PackedStringArray("area2d")]
 script = ExtResource("1_khasj")
-npc_name = &"lucy"
 dialogue_file = "res://assets/dialogue/lucy.txt"
 area2d = NodePath("Area2D")
-wander = true
-max_dist = 48.0
-animation = NodePath("AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1433095104]

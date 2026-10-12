@@ -1,4 +1,4 @@
-extends NPC
+extends "res://scripts/npcs/npc.gd"
 
 @export var follow_speed: float = 0.083
 
