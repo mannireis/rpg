@@ -14,8 +14,9 @@ choice (
 )
 
 convince (
-    Emily: B-but it's Sir Diamond! You can't just catch him or something!!
+    Emily: B-but it's Sir Hearts! You can't just catch him or something!!
     Flicker: I do not want to miss out on this opportunity.
-    Flicker: Few things excite me as much as hunting a magical creature. A battle with a skilled opponent, maybe...
+    Flicker: Few things excite me as much as hunting a magical creature.
+    Flicker: A battle with a skilled opponent, maybe...
     >> battle_init_spec
 )

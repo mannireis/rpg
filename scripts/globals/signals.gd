@@ -5,15 +5,16 @@ signal transition(door: Door)
 signal battle_won
 signal battle_lost
 @warning_ignore_restore("unused_signal")
-signal start_battle(which_deck: int) ## If the NPC has multiple inventories for multiple encounters, which_deck selects the encounter
-func _start_battle(which_deck: int = 0) -> void:
+signal start_battle(which_inv: int) ## If the NPC has multiple inventories for multiple encounters, which_deck selects the encounter
+func _start_battle(which_inv: int = 0) -> void:
 	var p = get_tree().current_scene.scene_file_path
 	if RoomChangeGlobal.enemy_inv_dict.has(GameState.speaking_with):
 		var array_inv = RoomChangeGlobal.enemy_inv_dict[GameState.speaking_with]
-		if !array_inv[which_deck]:
+		if !array_inv[which_inv]:
 			RoomChangeGlobal.enemy_battle_inventory = array_inv[0]
-			print("inventory array for "+GameState.speaking_with+" ("+str(array_inv)+") missing "+str(which_deck))
-		else: RoomChangeGlobal.enemy_battle_inventory = array_inv[which_deck]
+			print("inventory array for "+GameState.speaking_with+" ("+str(array_inv)+") missing "+str(which_inv))
+		else: RoomChangeGlobal.enemy_battle_inventory = array_inv[which_inv]
+	else: RoomChangeGlobal.enemy_battle_inventory = null
 	var w: bool = GameState.won(GameState.speaking_with)
 	print(w)
 	if !w:

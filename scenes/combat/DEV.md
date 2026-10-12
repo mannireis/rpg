@@ -28,3 +28,16 @@ Cards are usually represented by their index in the `permanent_deck`; this is wh
 Since equipped (permanent) cards can change how much damage is taken or what the default attack is, PlayerCtl has helper functions such as `run_equipped(method: String,...)` for applying all equipped cards' modifiers in the priority order (with the `feedback` parameter controlling whether the methods just react to something, or modify the `vec: Vector2i` passed to them), or `player_attack(block:bool,choice:bool)` for executing a default or UI-chosen block/attack ability.
 
 Either side's PlayerCtl can be accessed through the BattleManager node. To deal damage to a PlayerCtl, the opposing side should use BattleManager's `call_as_player("receive_dmg",[dmg],is_enemy)` with its own `is_enemy` attr; do not directly decrease HP outside of special effects.
+
+## Battle inventory
+
+A `Signals.BattleInv` represents all modifications to be done to a side when the battle starts. It's created with a `Signals.BattleInv.create(max_hp: int, input_deck, input_equipped, input_hand, ai_int: int)` call, where all `input_` arguments are an `Array[Vector2i]` of (suit,id). When a BattleInv is passed down to `battle_manager.gd` by being set as the `GameState.player_battle_inventory` or `RoomChangeGlobal.enemy_battle_inventory`, its `.deck` will be loaded as the respective side's deck, the `.starting_equipped` will be automatically equipped and displayed, and the side's hand will always contain cards from `.starting_hand`. An empty `deck` means the deck will be taken from `PlayerCtl.starter_deck()` when the battle starts.
+
+There are also parameters that only affect the enemy and their AI: `ai_int` is currently unused and affects the decisions the NPC makes when choosing cards. `ai_atk_chance` and `ai_block_chance` are floats from 0 to 1 representing the chance to take a default attack (mini sword) or default block (mini shield in player UI) action. `1-(ai_atk_chance+ai_block_chance)` will then be the chance to actually play a card, therefore lowering these numbers makes the NPC more 'powerful'.
+
+## Starting a battle
+
+A battle can be started by emitting `Signals.start_battle(which_inv: int)` while `GameState.speaking_with` is set (while talking with an NPC), usually done by returning /`battle_init*`/ from a dialogue file.
+If a NPC has a battle option, it should create a `Signals.BattleInv` object, set `RoomChangeGlobal.enemy_inv_dict[npc_name]` to an array, and append a BattleInv object to that array in its `_ready()`. Adding multiple different BattleInvs allows the NPC to have different loadouts in battles, for example `flicker.gd` having a 'smarter' version at position 1 of the array, which is used when `battle_init_spec` is returned from dialogue. Leaving `enemy_inv_dict[npc_name]` blank will make the battle start with the starter deck and default parameters.
+
+The player's BattleInv is initialised once and stored in `GameState.player_battle_inventory`. All changes to it (for example, purchases in the shop adding cards to your deck) should work with its attributes, e.g. appending to `GameState.player_battle_inventory.deck`.
