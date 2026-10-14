@@ -20,10 +20,12 @@ func _ready() -> void:
 	print(door27.body_entered.get_connections())
 	
 func room_entered(body: Node2D) -> void: # make the passersby creature appear when the player first enters flicker's room
-	print("flicker's room entered")
 	if body.is_in_group("player") and !first_seen:
 		first_seen = true
-		get_parent().get_node("ThePassersby").passersby_appear.emit()
-		await get_tree().create_timer(3).timeout
-		get_parent().get_node("ThePassersby").passersby_die.emit()
+		get_parent().get_node("ThePassersby").appear()
+		await get_tree().create_timer(1).timeout
+		var f = get_node("FireballBullet")
+		f.get_node("AnimatedSprite2D").play("fireball")
+		f.add_to_group("fireball")
+		get_node("FireballBullet").appear()
 		
