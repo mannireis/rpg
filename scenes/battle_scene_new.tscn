@@ -41,7 +41,7 @@ offset_top = 19.0
 offset_right = 317.0
 offset_bottom = 85.0
 health_value = 0.8
-shield_value = 0.5
+shield_value = 0.4
 
 [node name="SnapPoints" type="Node" parent="Panel" unique_id=1690052500 node_paths=PackedStringArray("snap_points", "points_to_play")]
 script = ExtResource("3_pyb61")
