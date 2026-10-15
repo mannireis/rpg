@@ -50,5 +50,4 @@ enum Transition {
 func _on_body_entered(body: Node2D) -> void:
 	if body is not Player:
 		return
-	print("door "+str(self)+" entered")
 	Signals.transition.emit(self)

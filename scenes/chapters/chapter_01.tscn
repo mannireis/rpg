@@ -255,9 +255,16 @@ max_wait = 5.0
 speed = 25.0
 min_wait = 1.0
 
+[node name="FireballBullet" parent="ProcessModeReset/NPCs/Flicker" index="3" unique_id=117924838 node_paths=PackedStringArray("target") instance=ExtResource("13_nb3ya")]
+visible = false
+vel_scale = 55.0
+target = NodePath("../../ThePassersby")
+
 [node name="ThePassersby" parent="ProcessModeReset/NPCs" parent_id_path=PackedInt32Array(1367934931) index="7" unique_id=945158310 instance=ExtResource("13_nb3ya")]
 visible = false
 position = Vector2(1033, -636)
+vel = Vector2i(3, 2)
+vel_scale = 10.0
 
 [node name="DevTeleport" type="Node2D" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="10" unique_id=175322713]
 position = Vector2(856, -624)
