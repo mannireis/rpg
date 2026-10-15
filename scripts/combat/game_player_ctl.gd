@@ -334,8 +334,15 @@ func ai_turn() -> void:
 	print("AI turn at "+str(ai_diff)+" difficulty")
 	await turn_begin()
 	var r: float = rand.randf()
-	if r < ai_default_atk_chance: player_attack()
-	elif r < ai_default_atk_chance+ai_default_block_chance: player_attack(true)
+	var node: TextureRect = UI_node.get_node("EnemyCard")
+	if r < ai_default_atk_chance:
+		player_attack()
+		node.texture = preload("res://assets/basic_attack.png")
+		node.visible = true
+	elif r < ai_default_atk_chance+ai_default_block_chance:
+		player_attack(true)
+		node.texture = preload("res://assets/basic_block.png")
+		node.visible = true
 	else:
 		match ai_diff:
 			_:
