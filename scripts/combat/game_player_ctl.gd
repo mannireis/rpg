@@ -86,7 +86,7 @@ static func starter_deck() -> Array[GameCard]:
 static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy: bool = false) -> PlayerCtl:
 	var ctl = PlayerCtl.new()
 	ctl.battle_manager = battle_room.get_node("BattleManager")
-	ctl.UI_node = battle_room.get_node("CanvasLayer/UI")
+	ctl.UI_node = battle_room.get_node("GameContainer/SubViewport/CanvasLayer/UI")
 	if deck == []:
 		deck = starter_deck()
 	ctl.deck_order = range(len(deck))
@@ -95,7 +95,7 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 	deck.append(CardDatabase.db[5][1])
 	ctl.equipped.append(len(deck)-1)
 	ctl.equipped.append(len(deck)-2)
-	var snap_points = battle_room.get_node("CanvasLayer/SnapPoints")
+	var snap_points = battle_room.get_node("GameContainer/SubViewport/CanvasLayer/SnapPoints")
 	ctl.sp = snap_points
 	print(snap_points.occupied)
 	if !init_is_enemy:

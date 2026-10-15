@@ -1,9 +1,8 @@
 @tool
 extends Control
 
-@onready var card_texture: TextureRect = $CardTexture
 @onready var battle_manager: Node = get_tree().get_root().get_node("BattleRoom").get_node("BattleManager")
-
+var card_texture: TextureRect
 var index_in_deck: int = -1
 var color: GameCard.S
 var id: int
@@ -17,6 +16,8 @@ var dup_point: Control = null
 var remove_labels: bool = false
 
 func _ready() -> void:
+	card_texture = $CardTexture
+	print("_ready card_texture: "+str(card_texture))
 	if index_in_deck > -1:
 		card_texture.texture = data.img
 	else:
@@ -29,6 +30,9 @@ func update_img(_color: GameCard.S, _id: int) -> void:
 	id = _id
 	#print("updated "+str(self)+" to ("+str(color)+","+str(id)+"), with index "+str(index_in_deck))
 	data = CardDatabase.db[int(color)][id]
+	print(card_texture) #why this is null when it's set in _ready is beyond me
+	#SubViewport hard at work or something
+	card_texture = $CardTexture
 	card_texture.texture = data.img
 
 func _process(_delta: float) -> void:
