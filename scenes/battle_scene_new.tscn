@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cxrd5ke6fiatw" path="res://scenes/ui/health_bar_2d.tscn" id="2_b0qsy"]
 [ext_resource type="Script" uid="uid://ov2xhwty8yje" path="res://scripts/combat/card_holder.gd" id="3_pyb61"]
 [ext_resource type="PackedScene" uid="uid://b8r8mkw0q8nwx" path="res://scenes/combat/visual_card.tscn" id="4_eaile"]
+[ext_resource type="Script" uid="uid://5s8gps1iisx" path="res://scenes/combat/battle_manager.gd" id="5_eaile"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tyypf"]
 texture = ExtResource("1_ugsma")
@@ -170,3 +171,6 @@ offset_top = 132.0
 offset_right = 123.0
 offset_bottom = 174.0
 mouse_filter = 2
+
+[node name="BattleManager" type="Node" parent="." unique_id=1947032979]
+script = ExtResource("5_eaile")
