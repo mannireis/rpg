@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 @export var speed : float = 70.0
 @export var friction : float = 1000.0
-
+var render_fix_moved := false
 var last_dir := Vector2.DOWN
 var intended_velocity := Vector2.ZERO
 
@@ -18,6 +18,8 @@ func _ready() -> void:
 		RoomChangeGlobal.emit_battle = false
 		if RoomChangeGlobal.last_battle_result: Signals.battle_won.emit()
 		else: Signals.battle_lost.emit()
+	$Timer.timeout.connect(_render_fix)
+	$Timer.start()
 
 func _physics_process(delta: float) -> void:
 	if DialogueManager.active:
@@ -29,9 +31,9 @@ func _physics_process(delta: float) -> void:
 	
 	if direction:
 		velocity = speed * direction.normalized()
+		render_fix_moved = true
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
-	
 	intended_velocity = velocity
 	if Input.is_action_just_pressed("Teleport"):
 		global_position = get_tree().get_root().get_node("Chapter01/ProcessModeReset/DevTeleport").global_position
@@ -40,6 +42,11 @@ func _physics_process(delta: float) -> void:
 	play_animations(direction)
 	if move_and_slide():
 		resolve_collisions()
+
+func _render_fix() -> void: ## Round position to whole pixels to avoid weird rendering
+	if !render_fix_moved: global_position = Vector2(round(global_position.x),round(global_position.y))
+	else: render_fix_moved = false
+func _process(_delta): _render_fix()
 
 func play_animations(direction: Vector2):
 	if direction != Vector2.ZERO:

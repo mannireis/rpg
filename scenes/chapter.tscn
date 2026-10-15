@@ -45,55 +45,68 @@ _data = {
 process_mode = 3
 script = ExtResource("1_7sbe3")
 
-[node name="ProcessModeReset" type="Node2D" parent="." unique_id=1846203273]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=80207955]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=124503214]
+physics_interpolation_mode = 0
+handle_input_locally = false
+size = Vector2i(320, 180)
+render_target_update_mode = 4
+
+[node name="ProcessModeReset" type="Node2D" parent="SubViewportContainer/SubViewport" unique_id=1846203273]
 process_mode = 1
 
-[node name="PauseMenu" type="CanvasLayer" parent="ProcessModeReset" unique_id=92497863]
+[node name="PauseMenu" type="CanvasLayer" parent="SubViewportContainer/SubViewport/ProcessModeReset" unique_id=92497863]
 unique_name_in_owner = true
 process_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="ProcessModeReset/PauseMenu" unique_id=2012409161]
+[node name="CenterContainer" type="CenterContainer" parent="SubViewportContainer/SubViewport/ProcessModeReset/PauseMenu" unique_id=2012409161]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ProcessModeReset/PauseMenu/CenterContainer" unique_id=896090556]
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/ProcessModeReset/PauseMenu/CenterContainer" unique_id=896090556]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ProcessModeReset/PauseMenu/CenterContainer/VBoxContainer" unique_id=2125420729]
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/ProcessModeReset/PauseMenu/CenterContainer/VBoxContainer" unique_id=2125420729]
 layout_mode = 2
 text = "Game paused, press ESC to resume"
 
-[node name="MainMenuButton" type="Button" parent="ProcessModeReset/PauseMenu/CenterContainer/VBoxContainer" unique_id=1697325138]
+[node name="MainMenuButton" type="Button" parent="SubViewportContainer/SubViewport/ProcessModeReset/PauseMenu/CenterContainer/VBoxContainer" unique_id=1697325138]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Main menu"
 
-[node name="TileMapLayer" type="TileMapLayer" parent="ProcessModeReset" unique_id=1252034803]
+[node name="TileMapLayer" type="TileMapLayer" parent="SubViewportContainer/SubViewport/ProcessModeReset" unique_id=1252034803]
 tile_set = ExtResource("2_xh8w3")
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="ProcessModeReset" unique_id=318211980]
+[node name="TileMapLayer2" type="TileMapLayer" parent="SubViewportContainer/SubViewport/ProcessModeReset" unique_id=318211980]
 tile_set = ExtResource("2_xh8w3")
 
-[node name="Doors" type="Node" parent="ProcessModeReset" unique_id=662505405]
+[node name="Doors" type="Node" parent="SubViewportContainer/SubViewport/ProcessModeReset" unique_id=662505405]
 
-[node name="NPCs" type="Node" parent="ProcessModeReset" unique_id=1367934931]
+[node name="NPCs" type="Node" parent="SubViewportContainer/SubViewport/ProcessModeReset" unique_id=1367934931]
 
-[node name="Player" parent="ProcessModeReset" unique_id=1648858471 instance=ExtResource("3_xh8w3")]
+[node name="Player" parent="SubViewportContainer/SubViewport/ProcessModeReset" unique_id=1648858471 instance=ExtResource("3_xh8w3")]
 unique_name_in_owner = true
 position = Vector2(160, 120)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="ProcessModeReset" unique_id=1775480778]
+[node name="CanvasModulate" type="CanvasModulate" parent="SubViewportContainer/SubViewport/ProcessModeReset" unique_id=1775480778]
 unique_name_in_owner = true
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ProcessModeReset/CanvasModulate" unique_id=1001195419]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/ProcessModeReset/CanvasModulate" unique_id=1001195419]
 libraries/ = SubResource("AnimationLibrary_pkj1h")
 
-[node name="Camera2D" type="Camera2D" parent="ProcessModeReset" unique_id=1490290502]
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport/ProcessModeReset" unique_id=1490290502]
 unique_name_in_owner = true
 anchor_mode = 0
 position_smoothing_enabled = true
 
-[connection signal="pressed" from="ProcessModeReset/PauseMenu/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/ProcessModeReset/PauseMenu/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
