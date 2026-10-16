@@ -1,9 +1,11 @@
 extends Node
 
 @warning_ignore_start("unused_signal")
+
 signal transition(door: Door)
 signal battle_won
 signal battle_lost
+
 @warning_ignore_restore("unused_signal")
 signal start_battle(which_inv: int) ## If the NPC has multiple inventories for multiple encounters, which_inv selects the encounter
 func _start_battle(which_inv: int = 0) -> void:
@@ -22,7 +24,7 @@ func _start_battle(which_inv: int = 0) -> void:
 		RoomChangeGlobal.player_pos = GameState.player_pos
 		RoomChangeGlobal.scene_return = p
 		GameState.battle_running = true
-		get_tree().call_deferred("change_scene_to_file", "res://scenes/combat/battle.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/combat/battle_scene.tscn")
 	else: print(GameState.battled_npcs)
 
 func _ready() -> void: start_battle.connect(_start_battle)
@@ -43,11 +45,13 @@ class BattleInv:
 	var ai_atk_chance: float ## <0;1>, chance to perform the default attack action
 	var ai_block_chance: float ## <0;1>, chance to perform the default block action
 	var anim_character: AnimatedSprite2D
+
 	static func convert_to_card(a: Array[Vector2i]) -> Array[GameCard]:
 		var res: Array[GameCard] = []
 		for i in a:
 			res.append(CardDatabase.db[i[0]][i[1]])
 		return res
+
 	static func create(max_hp: int = 26,input_deck: Array[Vector2i] = [], input_equipped: Array[Vector2i] = [], input_hand: Array[Vector2i] = [], ai_int: int = 0) -> BattleInv:
 		var inv = BattleInv.new()
 		inv.input_deck = input_deck

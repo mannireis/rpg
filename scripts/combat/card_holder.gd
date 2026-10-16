@@ -13,9 +13,11 @@ var sel_cards = [] ## Returns VisualCards, get .index_in_deck from them
 var sel_count: int = 0 ## Non-zero value retains selection mode until that many cards have been selected
 signal cards_selected ## Set sel_autosubmit and sel_count in SnapPoints, when signal fires, collect resulting VisualCards in sel_cards 
 
+
 func _ready() -> void:
 	cards_selected.connect(_cards_selected_cleanup)
 	play_button.pressed.connect(play_cards)
+
 
 func get_nearest_point(global_pos: Vector2) -> Control:
 	var nearest: Control = null
@@ -27,6 +29,7 @@ func get_nearest_point(global_pos: Vector2) -> Control:
 			nearset_dist = dist
 			nearest = point
 	return nearest
+
 
 func get_point_slot() -> Array:
 	var ii: int = 0
@@ -40,6 +43,7 @@ func get_point_slot() -> Array:
 	#print("found free point "+str(p)+" at ii "+str(ii))
 	return([ii,p])
 
+
 func exec_turn(): ## Sequence from player's turn ending to player's turn beginning, linked to the Play/Attack/Block buttons being clicked
 	battle_manager.player.turn_end()
 	await get_tree().create_timer(1).timeout
@@ -49,6 +53,7 @@ func exec_turn(): ## Sequence from player's turn ending to player's turn beginni
 	print("player turn starting")
 	await battle_manager.player.turn_begin()
 
+
 func _cards_selected_cleanup() -> void:
 	sel_count = 0
 	for vc in sel_cards:
@@ -57,6 +62,7 @@ func _cards_selected_cleanup() -> void:
 	Input.set_custom_mouse_cursor(null)
 	await get_tree().create_timer(0.2).timeout
 	if sel_count == 0: sel_cards = [] # mutex-ish
+
 
 func _default_action(block: bool = false) -> void:
 	var c

@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://pkp7pg7vj7gi" path="res://scripts/combat/visual_card.gd" id="1_0d0pt"]
 [ext_resource type="Texture2D" uid="uid://ca6xykrojikwr" path="res://assets/aseprite/cards/frame_white.png" id="2_lhhd1"]
+[ext_resource type="Texture2D" uid="uid://b81kjpi46g6jp" path="res://assets/card_shadow.png" id="4_d5j0w"]
 
 [node name="VisualCard" type="Control" unique_id=176121807]
-custom_minimum_size = Vector2(37, 52)
-custom_maximum_size = Vector2(37, 52)
+custom_minimum_size = Vector2(30, 42)
+custom_maximum_size = Vector2(30, 42)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 37.0
@@ -21,7 +22,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stretch_mode = 2
+mouse_filter = 2
+expand_mode = 1
 
 [node name="WhiteFrame" type="TextureRect" parent="." unique_id=806955949]
 visible = false
@@ -31,7 +33,16 @@ offset_left = -2.0
 offset_top = -2.0
 offset_right = 39.0
 offset_bottom = 54.0
+mouse_filter = 2
 texture = ExtResource("2_lhhd1")
+
+[node name="CardShadow" type="TextureRect" parent="." unique_id=630728506]
+z_index = 1
+layout_mode = 0
+offset_right = 31.0
+offset_bottom = 43.0
+mouse_filter = 2
+texture = ExtResource("4_d5j0w")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

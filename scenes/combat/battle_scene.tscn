@@ -1,0 +1,365 @@
+[gd_scene format=3 uid="uid://vpp6ajthpv20"]
+
+[ext_resource type="Texture2D" uid="uid://bcaac5yyw61ef" path="res://assets/panel_battle.png" id="1_hj64o"]
+[ext_resource type="Script" uid="uid://l0nipgcb3sev" path="res://scripts/ui/play.gd" id="2_ou3et"]
+[ext_resource type="Texture2D" uid="uid://boer8slf5lsps" path="res://assets/atk_icon.png" id="6_ylo0j"]
+[ext_resource type="Texture2D" uid="uid://cek6ei6frdk5u" path="res://assets/block_small.png" id="7_0pj22"]
+[ext_resource type="Texture2D" uid="uid://m3v68wusnow2" path="res://assets/battle_scene.png" id="8_7oxxd"]
+[ext_resource type="Texture2D" uid="uid://fnhcpfb1mb2x" path="res://assets/panel.png" id="8_ou3et"]
+[ext_resource type="PackedScene" uid="uid://cxrd5ke6fiatw" path="res://scenes/ui/health_bar_2d.tscn" id="9_kkxeg"]
+[ext_resource type="Script" uid="uid://urtllnp62o4p" path="res://scripts/ui/card_tooltip.gd" id="9_m68oi"]
+[ext_resource type="Script" uid="uid://ov2xhwty8yje" path="res://scripts/combat/card_holder.gd" id="10_f4arg"]
+[ext_resource type="PackedScene" uid="uid://b8r8mkw0q8nwx" path="res://scenes/combat/visual_card.tscn" id="11_uf13u"]
+[ext_resource type="Script" uid="uid://5s8gps1iisx" path="res://scenes/combat/battle_manager.gd" id="12_aox2g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g72on"]
+texture = ExtResource("1_hj64o")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ou3et"]
+texture = ExtResource("8_ou3et")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hj64o"]
+content_margin_left = 1.0
+content_margin_right = 1.0
+bg_color = Color(1, 1, 1, 1)
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tyypf"]
+texture = ExtResource("8_7oxxd")
+
+[node name="BattleRoom" type="Control" unique_id=824998214]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="UI" type="Node" parent="." unique_id=979507508]
+unique_name_in_owner = true
+
+[node name="EnemyCard" type="TextureRect" parent="UI" unique_id=1380893639]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+offset_left = 223.0
+offset_top = 12.0
+offset_right = 260.0
+offset_bottom = 64.0
+
+[node name="Play" type="Button" parent="UI" unique_id=1277223638]
+custom_minimum_size = Vector2(30, 42)
+custom_maximum_size = Vector2(30, 42)
+offset_left = 209.0
+offset_top = 79.0
+offset_right = 239.0
+offset_bottom = 121.0
+offset_transform_enabled = true
+theme_override_styles/normal = SubResource("StyleBoxTexture_g72on")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g72on")
+theme_override_styles/hover = SubResource("StyleBoxTexture_g72on")
+text = "Play"
+script = ExtResource("2_ou3et")
+
+[node name="DeckPos" type="Control" parent="UI" unique_id=1763104915]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 254.0
+offset_top = 124.0
+offset_right = 291.0
+offset_bottom = 176.0
+mouse_filter = 2
+
+[node name="PlayerEquipped" type="HBoxContainer" parent="UI" unique_id=1273344756]
+offset_left = 257.00003
+offset_top = 120.99999
+offset_right = 369.00003
+offset_bottom = 173.0
+scale = Vector2(0.4, 0.4)
+theme_override_constants/separation = 2
+
+[node name="MiniCard" type="TextureRect" parent="UI/PlayerEquipped" unique_id=2064383906]
+custom_minimum_size = Vector2(36, 52)
+custom_maximum_size = Vector2(36, 52)
+layout_mode = 2
+
+[node name="MiniCard2" type="TextureRect" parent="UI/PlayerEquipped" unique_id=1748746928]
+custom_minimum_size = Vector2(36, 52)
+custom_maximum_size = Vector2(36, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="MiniCard3" type="TextureRect" parent="UI/PlayerEquipped" unique_id=2030812758]
+custom_minimum_size = Vector2(36, 52)
+custom_maximum_size = Vector2(36, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="EnemyEquipped" type="HBoxContainer" parent="UI" unique_id=707671414]
+offset_left = 256.99997
+offset_top = 10.0
+offset_right = 368.99997
+offset_bottom = 62.0
+scale = Vector2(0.4, 0.4)
+theme_override_constants/separation = 2
+
+[node name="MiniCard" type="TextureRect" parent="UI/EnemyEquipped" unique_id=1549977087]
+custom_minimum_size = Vector2(36, 52)
+custom_maximum_size = Vector2(36, 52)
+layout_mode = 2
+
+[node name="MiniCard2" type="TextureRect" parent="UI/EnemyEquipped" unique_id=714954767]
+custom_minimum_size = Vector2(36, 52)
+custom_maximum_size = Vector2(36, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="MiniCard3" type="TextureRect" parent="UI/EnemyEquipped" unique_id=374552952]
+custom_minimum_size = Vector2(36, 52)
+custom_maximum_size = Vector2(36, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="DefaultAtk" type="TextureButton" parent="UI" unique_id=7966281]
+custom_minimum_size = Vector2(10, 12)
+custom_maximum_size = Vector2(10, 12)
+offset_left = 3.0
+offset_top = 87.0
+offset_right = 13.0
+offset_bottom = 99.0
+texture_normal = ExtResource("6_ylo0j")
+
+[node name="DefaultBlock" type="TextureButton" parent="UI" unique_id=1264685075]
+custom_minimum_size = Vector2(10, 12)
+custom_maximum_size = Vector2(10, 12)
+offset_left = 3.0
+offset_top = 100.0
+offset_right = 13.0
+offset_bottom = 112.0
+texture_normal = ExtResource("7_0pj22")
+
+[node name="CardTooltip" type="Panel" parent="UI" unique_id=1019244480]
+unique_name_in_owner = true
+visible = false
+z_index = 255
+custom_minimum_size = Vector2(66, 50)
+custom_maximum_size = Vector2(66, -1)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ou3et")
+script = ExtResource("9_m68oi")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/CardTooltip" unique_id=1393612080]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CardTooltip/MarginContainer" unique_id=328349450]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="CardName" type="Label" parent="UI/CardTooltip/MarginContainer/VBoxContainer" unique_id=553330554]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Card Name"
+
+[node name="HSeparator" type="HSeparator" parent="UI/CardTooltip/MarginContainer/VBoxContainer" unique_id=283714651]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_hj64o")
+
+[node name="CardDescription" type="Label" parent="UI/CardTooltip/MarginContainer/VBoxContainer" unique_id=1356068215]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+text = "CardDescription
+CardDescription
+CardDescription"
+autowrap_mode = 3
+
+[node name="Panel" type="Panel" parent="." unique_id=430596268]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tyypf")
+
+[node name="HealthBarPlayer" parent="Panel" unique_id=1680376864 instance=ExtResource("9_kkxeg")]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 19.0
+offset_right = 13.0
+offset_bottom = 85.0
+mouse_filter = 2
+
+[node name="HealthBarEnemy" parent="Panel" unique_id=200172648 instance=ExtResource("9_kkxeg")]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 19.0
+offset_right = 317.0
+offset_bottom = 85.0
+mouse_filter = 2
+
+[node name="SnapPoints" type="Node" parent="Panel" unique_id=1690052500 node_paths=PackedStringArray("play_button", "snap_points", "points_to_play")]
+script = ExtResource("10_f4arg")
+play_button = NodePath("../../UI/Play")
+snap_points = [NodePath("SnapPoint"), NodePath("SnapPoint2"), NodePath("SnapPoint3"), NodePath("SnapPoint4"), NodePath("SnapPoint5"), NodePath("SnapPoint6"), NodePath("SnapPoint7"), NodePath("SnapPoint8")]
+points_to_play = [NodePath("SnapPoint6"), NodePath("SnapPoint7"), NodePath("SnapPoint8")]
+
+[node name="VisualCard" parent="Panel/SnapPoints" unique_id=176121807 instance=ExtResource("11_uf13u")]
+offset_left = 1.0
+offset_top = 135.0
+offset_right = 31.0
+offset_bottom = 177.0
+pivot_offset = Vector2(18.5, 26)
+
+[node name="VisualCard2" parent="Panel/SnapPoints" unique_id=797397834 instance=ExtResource("11_uf13u")]
+offset_left = 1.0
+offset_top = 135.0
+offset_right = 31.0
+offset_bottom = 177.0
+pivot_offset = Vector2(18.5, 26)
+
+[node name="VisualCard3" parent="Panel/SnapPoints" unique_id=698064639 instance=ExtResource("11_uf13u")]
+offset_left = 1.0
+offset_top = 135.0
+offset_right = 31.0
+offset_bottom = 177.0
+pivot_offset = Vector2(18.5, 26)
+
+[node name="VisualCard4" parent="Panel/SnapPoints" unique_id=1764488547 instance=ExtResource("11_uf13u")]
+offset_left = 1.0
+offset_top = 135.0
+offset_right = 31.0
+offset_bottom = 177.0
+pivot_offset = Vector2(18.5, 26)
+
+[node name="VisualCard5" parent="Panel/SnapPoints" unique_id=1046656593 instance=ExtResource("11_uf13u")]
+offset_left = 1.0
+offset_top = 135.0
+offset_right = 31.0
+offset_bottom = 177.0
+pivot_offset = Vector2(18.5, 26)
+
+[node name="SnapPoint8" type="Control" parent="Panel/SnapPoints" unique_id=1394377575]
+custom_minimum_size = Vector2(30, 42)
+custom_maximum_size = Vector2(30, 42)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 113.0
+offset_top = 79.0
+offset_right = 143.0
+offset_bottom = 121.0
+mouse_filter = 2
+
+[node name="SnapPoint7" type="Control" parent="Panel/SnapPoints" unique_id=1473735973]
+custom_minimum_size = Vector2(30, 42)
+custom_maximum_size = Vector2(30, 42)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 145.0
+offset_top = 79.0
+offset_right = 175.0
+offset_bottom = 121.0
+mouse_filter = 2
+
+[node name="SnapPoint6" type="Control" parent="Panel/SnapPoints" unique_id=1785956452]
+custom_minimum_size = Vector2(30, 42)
+custom_maximum_size = Vector2(30, 42)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 177.0
+offset_top = 79.0
+offset_right = 207.0
+offset_bottom = 121.0
+mouse_filter = 2
+
+[node name="SnapPoint5" type="Control" parent="Panel/SnapPoints" unique_id=1505869329]
+custom_minimum_size = Vector2(30, 42)
+custom_maximum_size = Vector2(30, 42)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 197.0
+offset_top = 132.0
+offset_right = 227.0
+offset_bottom = 174.0
+mouse_filter = 2
+
+[node name="SnapPoint4" type="Control" parent="Panel/SnapPoints" unique_id=8208068]
+custom_minimum_size = Vector2(30, 42)
+custom_maximum_size = Vector2(30, 42)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 171.0
+offset_top = 130.0
+offset_right = 201.0
+offset_bottom = 172.0
+mouse_filter = 2
+
+[node name="SnapPoint3" type="Control" parent="Panel/SnapPoints" unique_id=550487826]
+custom_minimum_size = Vector2(30, 42)
+custom_maximum_size = Vector2(30, 42)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 145.0
+offset_top = 128.0
+offset_right = 175.0
+offset_bottom = 170.0
+mouse_filter = 2
+
+[node name="SnapPoint2" type="Control" parent="Panel/SnapPoints" unique_id=460016515]
+custom_minimum_size = Vector2(30, 42)
+custom_maximum_size = Vector2(30, 42)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 119.0
+offset_top = 130.0
+offset_right = 149.0
+offset_bottom = 172.0
+mouse_filter = 2
+
+[node name="SnapPoint" type="Control" parent="Panel/SnapPoints" unique_id=580495693]
+custom_minimum_size = Vector2(30, 42)
+custom_maximum_size = Vector2(30, 42)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 93.0
+offset_top = 132.0
+offset_right = 123.0
+offset_bottom = 174.0
+mouse_filter = 2
+
+[node name="BattleManager" type="Node" parent="." unique_id=1947032979]
+unique_name_in_owner = true
+script = ExtResource("12_aox2g")
+
+[connection signal="pressed" from="UI/DefaultAtk" to="Panel/SnapPoints" method="_default_action"]
+[connection signal="pressed" from="UI/DefaultBlock" to="Panel/SnapPoints" method="_default_action" binds= [true]]

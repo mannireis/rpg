@@ -267,7 +267,7 @@ vel = Vector2i(3, 2)
 vel_scale = 8.0
 
 [node name="DevTeleport" type="Node2D" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="10" unique_id=175322713]
-position = Vector2(856, -624)
+position = Vector2(165, -455)
 
 [node name="TestTent" type="Sprite2D" parent="." index="1" unique_id=238795368]
 z_index = 156

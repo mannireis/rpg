@@ -24,12 +24,14 @@ func _ready() -> void:
 		card_texture.texture = CardDatabase.common_textures[-1]
 	pivot_offset = size / 2
 
+
 func update_img(_color: GameCard.S, _id: int) -> void:
 	color = _color
 	id = _id
 	#print("updated "+str(self)+" to ("+str(color)+","+str(id)+"), with index "+str(index_in_deck))
 	data = CardDatabase.db[int(color)][id]
 	card_texture.texture = data.img
+
 
 func _process(_delta: float) -> void:
 	animate_hovering()
@@ -52,6 +54,7 @@ func _gui_input(event) -> void:
 	elif event is InputEventMouseMotion and dragging:
 		global_position = get_global_mouse_position() - drag_offset
 
+
 func tween_scale(to_scale: float = 0.5, time: float = 0.25) -> void:
 	var tween = create_tween()
 	tween.tween_property(self,"scale",Vector2(to_scale,to_scale),time)
@@ -60,6 +63,7 @@ func tween_scale(to_scale: float = 0.5, time: float = 0.25) -> void:
 func tween_to_point(target_point: Node, time: float = 0.15) -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", target_point.global_position + (target_point.size - size) / 2.0, time)
+
 
 func snap_to_nearest_point() -> void:
 	var point_manager = get_parent()
@@ -86,22 +90,23 @@ func snap_to_nearest_point() -> void:
 func animate_hovering() -> void:
 	if dragging:
 		return
+	
 	var tween = create_tween()
+	
 	if hovering:
+		print("hovering")
 		tween.tween_property(self, "scale", Vector2(1.2,1.2), 0.15)
 		tween.parallel().tween_property(self, "rotation_degrees", 15.0, 0.15)
 		if !remove_labels:
-			$"../../UI/Label".visible = true
-			$"../../UI/Label2".visible = true
-			$"../../UI/Label".text = data.name
-			$"../../UI/Label2".text = data.text
+			%CardTooltip.visible = true
+			%CardName.text = data.name
+			%CardDescription.text = data.text
 			remove_labels = true
 	else:
 		tween.tween_property(self, "scale", Vector2(1.0,1.0), 0.1)
 		tween.parallel().tween_property(self, "rotation_degrees", 0.0, 0.15)
 		if remove_labels:
-			$"../../UI/Label".visible = false
-			$"../../UI/Label2".visible = false
+			%CardTooltip.visible = false
 			remove_labels = false
 
 func _on_mouse_short_click() -> void:
@@ -122,6 +127,7 @@ func _on_mouse_short_click() -> void:
 
 func _on_mouse_entered() -> void:
 	hovering = true
+	print("I used to kill for it")
 
 
 func _on_mouse_exited() -> void:

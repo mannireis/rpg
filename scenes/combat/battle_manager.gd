@@ -27,9 +27,12 @@ func _ready() -> void:
 			player.deck_order.append(len(player.permanent_deck)-1)
 			player.draw(1,true)
 
-	player.hp_display = c.get_node("PlayerHP")
-	player.hp_display.text = str(player.hp)+" HP"
-	player.block_display = c.get_node("PlayerBlock")
+
+	player.hp_bar = $"../Panel/HealthBarPlayer"
+	player.hp_bar.health_value = 32
+	#player.hp_display = c.get_node("PlayerHP")
+	#player.hp_display.text = str(player.hp)+" HP"
+	#player.block_display = c.get_node("PlayerBlock")
 	player.equipped_display = UI.get_node("PlayerEquipped")
 	player.draw(2,true)
 
@@ -54,9 +57,11 @@ func _ready() -> void:
 			enemy.permanent_deck.append(card)
 			enemy.hand.append(len(enemy.permanent_deck)-1)
 
-	enemy.hp_display = c.get_node("EnemyHP")
-	enemy.hp_display.text = str(enemy.hp)+" HP"
-	enemy.block_display = c.get_node("EnemyBlock")
+	enemy.hp_bar = $"../Panel/HealthBarEnemy"
+	enemy.hp_bar.health_value = 32
+	#enemy.hp_display = c.get_node("EnemyHP")
+	#enemy.hp_display.text = str(enemy.hp)+" HP"
+	#enemy.block_display = c.get_node("EnemyBlock")
 	enemy.equipped_display = UI.get_node("EnemyEquipped")
 	player.turn_begin()
 

@@ -1,7 +1,7 @@
 class_name PlayerCtl extends Node
 
-@onready var battle_manager = get_tree().get_root().get_node("BattleRoom").get_node("BattleManager")
-@onready var UI_node = get_tree().get_root().get_node("BattleRoom").get_node("CanvasLayer").get_node("UI")
+var battle_manager: Node = null
+var UI_node: Node = null
 
 const v0 = Vector2i(0,0) #NOT vercel
 const battle_debug: bool = false
@@ -16,8 +16,9 @@ var sp: Node = null
 var energy: int = 4
 var max_hp: int = 26
 var hp: int = max_hp
-var hp_display: Label
-var block_display: Label
+var hp_bar: HealthBar2D
+#var hp_display: Label
+#var block_display: Label
 var block_current: Array[int] = [0]
 var block_history: int = 1
 var next_turn: Array[Callable] = []
@@ -34,6 +35,7 @@ var permanent_deck: Array[GameCard] = []
 var lose_next_turn := false
 var equipped_display: HBoxContainer
 var rand = RandomNumberGenerator.new()
+
 
 func draw(count: int = 1, gui: bool = false) -> void:
 	var slot_res: Array
@@ -87,7 +89,7 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 	var ctl = PlayerCtl.new()
 	
 	ctl.battle_manager = battle_room.get_node("BattleManager")
-	ctl.UI_node = battle_room.get_node("CanvasLayer/UI")
+	ctl.UI_node = battle_room.get_node("UI")
 	
 	if deck == []:
 		deck = starter_deck()
@@ -98,7 +100,7 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 	ctl.equipped.append(len(deck)-1)
 	ctl.equipped.append(len(deck)-2)
 	
-	var snap_points = battle_room.get_node("CanvasLayer/SnapPoints")
+	var snap_points = battle_room.get_node("Panel/SnapPoints")
 	
 	ctl.sp = snap_points
 	print(snap_points.occupied)
@@ -155,19 +157,20 @@ func receive_dmg(dmg:Vector2i) -> void:
 		if block_current[dmg[1]] > 0:
 			dmg[0] += block_current[dmg[1]]
 			block_current[dmg[1]] = 0
-			if !dmg[1]: block_display.text = "0"
+			if !dmg[1]: hp_bar.shield_value = 0
 			if battle_debug: print("receiving final dmg "+str(dmg))
 			if dmg[1] not in persist_dmg_type: hp -= dmg[0]
 			else: persistent_dmg[dmg[1]] = Vector2i(dmg[0]+persistent_dmg[dmg[1]][0],dmg[0])
 		else:
 			if battle_debug: print("blocked dmg, remaining block "+str(block_current))
-			if !dmg[1]: block_display.text = str(-block_current[0])
-		hp_display.text = str(hp)+" HP"
+			if !dmg[1]: hp_bar.shield_value = clampi(-block_current[0], 0, 32)
+		hp_bar.health_value = clampi(roundi(hp / float(max_hp) * 32.0), 0, 32)
 	else:
 		print("dmg of type "+str(dmg[1])+" lacks block, dealing "+str(dmg[0]))
 		if dmg[1] not in persist_dmg_type: hp -= dmg[0]
 		else: persistent_dmg[dmg[1]] = Vector2i(dmg[0]+persistent_dmg[dmg[1]][0],dmg[0])
-		hp_display.text = str(hp)+" HP"
+		hp_bar.health_value = clampi(roundi(hp / float(max_hp) * 32.0), 0, 32)
+		#hp_display.text = str(hp)+" HP"
 	pass
 
 
@@ -195,7 +198,7 @@ func turn_end() -> void:
 			block_accumulator[type_i].pop_front()
 			block_accumulator[type_i].append(0)
 		type_i += 1
-	block_display.text = str(-block_current[0])
+	hp_bar.shield_value = clampi(-block_current[0], 0, 32)
 	UI_node.get_node("Play").visible = false
 	turn = false
 
@@ -216,15 +219,15 @@ func turn_begin() -> void:
 				persistent_dmg[i][0] -= 1
 				print("pers "+str(i)+" decreased to "+str(persistent_dmg[i]))
 		i += 1
-	hp_display.text = str(hp)+" HP"
+	hp_bar.health_value = clampi(roundi(hp / float(max_hp) * 32.0), 0, 32)
 	await battle_manager.get_tree().create_timer(0.2).timeout
 	if lose_next_turn:
 		print("enemy "+str(is_enemy)+", lose_next_turn set")
-		hp_display.text = "---"
+		hp_bar.health_value = 0
 		await battle_manager.get_tree().create_timer(0.3).timeout
 		hp = -1
 	battle_manager.eval_hp()
-	block_display.text = str(-block_current[0])
+	hp_bar.shield_value = clampi(-block_current[0], 0, 32)
 	if len(deck_order) == 0: lose_next_turn = true
 	else: draw(max(5-len(hand),0),!is_enemy)	
 	enemy_display_cards(false)

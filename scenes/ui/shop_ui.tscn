@@ -32,6 +32,7 @@ theme_override_constants/margin_bottom = 37
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=955635164]
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/separation = 10
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=220912152]
 custom_maximum_size = Vector2(93, -1)
@@ -86,6 +87,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/PanelContainer2/VBoxContainer" unique_id=1505894452]
+clip_contents = true
 layout_mode = 2
 
 [node name="CardDescription" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer2/VBoxContainer" unique_id=1364300850]
