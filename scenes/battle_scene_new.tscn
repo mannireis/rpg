@@ -5,11 +5,18 @@
 [ext_resource type="Script" uid="uid://ov2xhwty8yje" path="res://scripts/combat/card_holder.gd" id="3_pyb61"]
 [ext_resource type="PackedScene" uid="uid://b8r8mkw0q8nwx" path="res://scenes/combat/visual_card.tscn" id="4_eaile"]
 [ext_resource type="Script" uid="uid://5s8gps1iisx" path="res://scenes/combat/battle_manager.gd" id="5_eaile"]
+[ext_resource type="FontFile" uid="uid://dwbkxf4ig1c77" path="res://assets/fonts/PixFont (Pixel Font).ttf" id="6_oj0mc"]
+[ext_resource type="LabelSettings" uid="uid://cvat017lktncw" path="res://resources/theme.tres" id="7_buq8c"]
+[ext_resource type="Texture2D" uid="uid://donpbplhg0ts1" path="res://assets/block.png" id="8_0i7x2"]
+[ext_resource type="LabelSettings" uid="uid://b4uje3afx1f5i" path="res://resources/card_name.tres" id="9_robcm"]
+[ext_resource type="LabelSettings" uid="uid://b7bnm855glef8" path="res://resources/card_desc.tres" id="10_p28by"]
+[ext_resource type="Texture2D" uid="uid://boer8slf5lsps" path="res://assets/atk_icon.png" id="11_vkoqu"]
+[ext_resource type="Texture2D" uid="uid://cek6ei6frdk5u" path="res://assets/block_small.png" id="12_5uv1q"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tyypf"]
 texture = ExtResource("1_ugsma")
 
-[node name="Control" type="Control" unique_id=824998214]
+[node name="BattleRoom" type="Control" unique_id=824998214]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,8 +39,6 @@ offset_left = 3.0
 offset_top = 19.0
 offset_right = 13.0
 offset_bottom = 85.0
-health_value = 1.0
-shield_value = 0.3
 
 [node name="HealthBarEnemy" parent="Panel" unique_id=200172648 instance=ExtResource("2_b0qsy")]
 layout_mode = 0
@@ -44,8 +49,9 @@ offset_bottom = 85.0
 health_value = 0.8
 shield_value = 0.4
 
-[node name="SnapPoints" type="Node" parent="Panel" unique_id=1690052500 node_paths=PackedStringArray("snap_points", "points_to_play")]
+[node name="SnapPoints" type="Node" parent="Panel" unique_id=1690052500 node_paths=PackedStringArray("play_button", "snap_points", "points_to_play")]
 script = ExtResource("3_pyb61")
+play_button = NodePath("../../UI/Play")
 snap_points = [NodePath("SnapPoint"), NodePath("SnapPoint2"), NodePath("SnapPoint3"), NodePath("SnapPoint4"), NodePath("SnapPoint5"), NodePath("SnapPoint6"), NodePath("SnapPoint7"), NodePath("SnapPoint8")]
 points_to_play = [NodePath("SnapPoint6"), NodePath("SnapPoint7"), NodePath("SnapPoint8")]
 
@@ -174,3 +180,186 @@ mouse_filter = 2
 
 [node name="BattleManager" type="Node" parent="." unique_id=1947032979]
 script = ExtResource("5_eaile")
+
+[node name="UI" type="Node" parent="." unique_id=979507508]
+
+[node name="EnemyCard" type="TextureRect" parent="UI" unique_id=1380893639]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+offset_left = 223.0
+offset_top = 12.0
+offset_right = 260.0
+offset_bottom = 64.0
+
+[node name="Play" type="Button" parent="UI" unique_id=1277223638]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+offset_left = 223.0
+offset_top = 75.0
+offset_right = 260.0
+offset_bottom = 127.0
+
+[node name="DeckPos" type="Control" parent="UI" unique_id=1763104915]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 263.0
+offset_top = 131.0
+offset_right = 300.0
+offset_bottom = 183.0
+mouse_filter = 2
+
+[node name="Container" type="VBoxContainer" parent="UI" unique_id=821572298]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 55.0
+offset_bottom = 129.0
+
+[node name="EnemyBlock" type="Label" parent="UI/Container" unique_id=416585291]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 9)
+theme_override_fonts/font = ExtResource("6_oj0mc")
+text = "0"
+label_settings = ExtResource("7_buq8c")
+
+[node name="EnemyHP" type="Label" parent="UI/Container" unique_id=1767002168]
+layout_mode = 2
+text = "26 HP"
+label_settings = ExtResource("7_buq8c")
+
+[node name="PlayerHP" type="Label" parent="UI/Container" unique_id=629476814]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 18)
+text = "26 HP"
+label_settings = ExtResource("7_buq8c")
+
+[node name="PlayerBlock" type="Label" parent="UI/Container" unique_id=822354480]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 9)
+theme_override_fonts/font = ExtResource("6_oj0mc")
+text = "0"
+label_settings = ExtResource("7_buq8c")
+
+[node name="BlockIcon" type="TextureRect" parent="UI" unique_id=1824427281]
+offset_left = 32.0
+offset_top = 101.0
+offset_right = 52.0
+offset_bottom = 125.0
+texture = ExtResource("8_0i7x2")
+
+[node name="BlockIcon2" type="TextureRect" parent="UI" unique_id=526432474]
+offset_left = 32.0
+offset_top = 5.0
+offset_right = 52.0
+offset_bottom = 29.0
+texture = ExtResource("8_0i7x2")
+
+[node name="PlayerEquipped" type="HBoxContainer" parent="UI" unique_id=1273344756]
+offset_left = 268.0
+offset_top = 107.000015
+offset_right = 387.0
+offset_bottom = 159.00002
+scale = Vector2(0.4, 0.4)
+
+[node name="MiniCard" type="TextureRect" parent="UI/PlayerEquipped" unique_id=2064383906]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+
+[node name="MiniCard2" type="TextureRect" parent="UI/PlayerEquipped" unique_id=1748746928]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="MiniCard3" type="TextureRect" parent="UI/PlayerEquipped" unique_id=2030812758]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="EnemyEquipped" type="HBoxContainer" parent="UI" unique_id=707671414]
+offset_left = 268.20004
+offset_top = 13.0000305
+offset_right = 387.20004
+offset_bottom = 65.000046
+scale = Vector2(0.4, 0.4)
+
+[node name="MiniCard" type="TextureRect" parent="UI/EnemyEquipped" unique_id=1549977087]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+
+[node name="MiniCard2" type="TextureRect" parent="UI/EnemyEquipped" unique_id=714954767]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="MiniCard3" type="TextureRect" parent="UI/EnemyEquipped" unique_id=374552952]
+custom_minimum_size = Vector2(37, 52)
+custom_maximum_size = Vector2(37, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="Label" type="Label" parent="UI" unique_id=242828641]
+visible = false
+texture_filter = 1
+custom_maximum_size = Vector2(52, 36)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -47.0
+offset_right = 49.0
+offset_bottom = -11.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("6_oj0mc")
+theme_override_font_sizes/font_size = 9
+text = "weh
+"
+label_settings = ExtResource("9_robcm")
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="UI" unique_id=1042138966]
+visible = false
+texture_filter = 1
+custom_maximum_size = Vector2(52, 36)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+offset_right = 49.0
+offset_bottom = 8.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("6_oj0mc")
+theme_override_font_sizes/font_size = 9
+text = "weh
+"
+label_settings = ExtResource("10_p28by")
+autowrap_mode = 3
+
+[node name="DefaultAtk" type="TextureButton" parent="UI" unique_id=7966281]
+custom_minimum_size = Vector2(10, 12)
+custom_maximum_size = Vector2(10, 12)
+offset_left = 57.0
+offset_top = 114.0
+offset_right = 67.0
+offset_bottom = 126.0
+texture_normal = ExtResource("11_vkoqu")
+
+[node name="DefaultBlock" type="TextureButton" parent="UI" unique_id=1264685075]
+custom_minimum_size = Vector2(10, 12)
+custom_maximum_size = Vector2(10, 12)
+offset_left = 89.0
+offset_top = 114.0
+offset_right = 99.0
+offset_bottom = 126.0
+texture_normal = ExtResource("12_5uv1q")

@@ -1,6 +1,6 @@
 extends Node
 
-@onready var UI = get_parent().get_node("CanvasLayer/UI")
+@onready var UI = $"../UI"
 
 var player: PlayerCtl
 var enemy: PlayerCtl

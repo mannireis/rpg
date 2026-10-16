@@ -85,8 +85,10 @@ static func starter_deck() -> Array[GameCard]:
 
 static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy: bool = false) -> PlayerCtl:
 	var ctl = PlayerCtl.new()
+	
 	ctl.battle_manager = battle_room.get_node("BattleManager")
 	ctl.UI_node = battle_room.get_node("CanvasLayer/UI")
+	
 	if deck == []:
 		deck = starter_deck()
 	ctl.deck_order = range(len(deck))
@@ -95,9 +97,12 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 	deck.append(CardDatabase.db[5][1])
 	ctl.equipped.append(len(deck)-1)
 	ctl.equipped.append(len(deck)-2)
+	
 	var snap_points = battle_room.get_node("CanvasLayer/SnapPoints")
+	
 	ctl.sp = snap_points
 	print(snap_points.occupied)
+	
 	if !init_is_enemy:
 		var to_hide: Array[Control] = [snap_points.get_node("VisualCard"),snap_points.get_node("VisualCard2"),
 		snap_points.get_node("VisualCard3"),snap_points.get_node("VisualCard4"),
@@ -106,10 +111,12 @@ static func create(battle_room: Node, deck: Array[GameCard] = [], init_is_enemy:
 			i.visible = false
 			snap_points.hidden_cards.append(i)
 		print(snap_points.hidden_cards)
+
 	ctl.permanent_deck = deck
 	ctl.is_enemy = init_is_enemy
 	return ctl
-	
+
+
 func run_equipped(method: String, vec: Vector2i = Vector2i(0,0),prio_type: String = "other",feedback: bool = false):
 	var targets = range(len(equipped))
 	var prio = 0
