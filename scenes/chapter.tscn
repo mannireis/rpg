@@ -78,11 +78,7 @@ tile_set = ExtResource("2_xh8w3")
 
 [node name="Doors" type="Node" parent="ProcessModeReset" unique_id=662505405]
 
-[node name="NPCs" type="Node" parent="ProcessModeReset" unique_id=1367934931]
-
-[node name="Player" parent="ProcessModeReset" unique_id=1648858471 instance=ExtResource("3_xh8w3")]
-unique_name_in_owner = true
-position = Vector2(160, 120)
+[node name="NPCs" type="Node2D" parent="ProcessModeReset" unique_id=1218614627]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="ProcessModeReset" unique_id=1775480778]
 unique_name_in_owner = true
@@ -95,5 +91,9 @@ libraries/ = SubResource("AnimationLibrary_pkj1h")
 unique_name_in_owner = true
 anchor_mode = 0
 position_smoothing_enabled = true
+
+[node name="Player" parent="ProcessModeReset" unique_id=1648858471 instance=ExtResource("3_xh8w3")]
+unique_name_in_owner = true
+position = Vector2(160, 120)
 
 [connection signal="pressed" from="ProcessModeReset/PauseMenu/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

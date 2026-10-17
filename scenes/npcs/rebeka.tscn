@@ -231,17 +231,17 @@ animation = NodePath("AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1318331409]
-position = Vector2(0, -1)
+position = Vector2(0, -23)
 sprite_frames = SubResource("SpriteFrames_yffm8")
 animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1752276502]
-position = Vector2(0, 20)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_5mxnl")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1025306014]
-position = Vector2(0, 16)
+position = Vector2(0, -6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1455412215]
 shape = SubResource("RectangleShape2D_atieb")
