@@ -91,6 +91,7 @@ func eval_hp() -> void:
 		game_result = [true,false]
 
 	if game_result[0]:
+		player.hp += max(player.max_hp-player.hp,5)
 		RoomChangeGlobal.player_hp = player.hp
 		GameState.player_battle_inventory.hp = player.hp
 		RoomChangeGlobal.last_battle_result = game_result[1]
