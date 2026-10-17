@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bshgjd1m5t75o" path="res://scenes/world/door_blocker.tscn" id="11_vpuhq"]
 [ext_resource type="PackedScene" uid="uid://kebwg68buqsq" path="res://scenes/npcs/passersby.tscn" id="13_nb3ya"]
 [ext_resource type="PackedScene" uid="uid://diijohfuonl31" path="res://scenes/pressure_plate.tscn" id="14_nb3ya"]
+[ext_resource type="Script" uid="uid://t3megsbvr7h5" path="res://scenes/chapters/give_card.gd" id="15_uoens"]
 
 [sub_resource type="Curve2D" id="Curve2D_gbcm8"]
 bake_interval = 0.01
@@ -38,7 +39,6 @@ tile_map_data = PackedByteArray("AADs/97/AAAGAAMAAADs/+n/BgAAAAMAAADt/97/AAAGAAM
 
 [node name="PressurePlate" parent="ProcessModeReset/PreasurePlates" index="0" unique_id=293633059 node_paths=PackedStringArray("other_preasure_plates") instance=ExtResource("14_nb3ya")]
 position = Vector2(-184, 104)
-house = 0
 other_preasure_plates = [NodePath("."), NodePath("../PressurePlate2"), NodePath("../PressurePlate3"), NodePath("../PressurePlate4")]
 password = Array[int]([4, 1, 2, 4])
 
@@ -50,6 +50,7 @@ password = Array[int]([4, 1, 2, 4])
 
 [node name="PressurePlate3" parent="ProcessModeReset/PreasurePlates" index="2" unique_id=1216738658 node_paths=PackedStringArray("other_preasure_plates") instance=ExtResource("14_nb3ya")]
 position = Vector2(-152, 104)
+house = 2
 other_preasure_plates = [NodePath("../PressurePlate"), NodePath("../PressurePlate2"), NodePath("."), NodePath("../PressurePlate4")]
 password = Array[int]([4, 1, 2, 4])
 
@@ -289,4 +290,9 @@ texture = ExtResource("2_c13y1")
 offset = Vector2(0, -24)
 
 [node name="DevTeleport" type="Node2D" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="4" unique_id=175322713]
-position = Vector2(-168, 72)
+position = Vector2(-159, 73)
+
+[node name="GiveCard" type="Node2D" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="5" unique_id=1939478653]
+script = ExtResource("15_uoens")
+
+[connection signal="correct_password" from="ProcessModeReset/PreasurePlates/PressurePlate" to="ProcessModeReset/GiveCard" method="_on_pressure_plate_correct_password"]

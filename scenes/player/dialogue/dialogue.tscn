@@ -73,7 +73,7 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "banana bread"
+text = "Joker"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=917398033]
 layout_mode = 2
