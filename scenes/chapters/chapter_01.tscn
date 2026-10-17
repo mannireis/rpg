@@ -36,20 +36,28 @@ tile_map_data = PackedByteArray("AADs/97/AAAGAAMAAADs/+n/BgAAAAMAAADt/97/AAAGAAM
 
 [node name="PreasurePlates" type="Node" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="2" unique_id=1164926083]
 
-[node name="PressurePlate" parent="ProcessModeReset/PreasurePlates" index="0" unique_id=293633059 instance=ExtResource("14_nb3ya")]
+[node name="PressurePlate" parent="ProcessModeReset/PreasurePlates" index="0" unique_id=293633059 node_paths=PackedStringArray("other_preasure_plates") instance=ExtResource("14_nb3ya")]
 position = Vector2(-184, 104)
 house = 0
+other_preasure_plates = [NodePath("."), NodePath("../PressurePlate2"), NodePath("../PressurePlate3"), NodePath("../PressurePlate4")]
+password = Array[int]([4, 1, 2, 4])
 
-[node name="PressurePlate2" parent="ProcessModeReset/PreasurePlates" index="1" unique_id=69114836 instance=ExtResource("14_nb3ya")]
+[node name="PressurePlate2" parent="ProcessModeReset/PreasurePlates" index="1" unique_id=69114836 node_paths=PackedStringArray("other_preasure_plates") instance=ExtResource("14_nb3ya")]
 position = Vector2(-168, 104)
 house = 1
+other_preasure_plates = [NodePath("../PressurePlate"), NodePath("."), NodePath("../PressurePlate3"), NodePath("../PressurePlate4")]
+password = Array[int]([4, 1, 2, 4])
 
-[node name="PressurePlate3" parent="ProcessModeReset/PreasurePlates" index="2" unique_id=1216738658 instance=ExtResource("14_nb3ya")]
+[node name="PressurePlate3" parent="ProcessModeReset/PreasurePlates" index="2" unique_id=1216738658 node_paths=PackedStringArray("other_preasure_plates") instance=ExtResource("14_nb3ya")]
 position = Vector2(-152, 104)
+other_preasure_plates = [NodePath("../PressurePlate"), NodePath("../PressurePlate2"), NodePath("."), NodePath("../PressurePlate4")]
+password = Array[int]([4, 1, 2, 4])
 
-[node name="PressurePlate4" parent="ProcessModeReset/PreasurePlates" index="3" unique_id=1435061500 instance=ExtResource("14_nb3ya")]
+[node name="PressurePlate4" parent="ProcessModeReset/PreasurePlates" index="3" unique_id=1435061500 node_paths=PackedStringArray("other_preasure_plates") instance=ExtResource("14_nb3ya")]
 position = Vector2(-136, 104)
 house = 3
+other_preasure_plates = [NodePath("../PressurePlate"), NodePath("../PressurePlate2"), NodePath("../PressurePlate3"), NodePath(".")]
+password = Array[int]([4, 1, 2, 4])
 
 [node name="TileMapLayer2" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="0" unique_id=318211980]
 tile_map_data = PackedByteArray("AAAVAO7/BAAAAAEAAAAaAMH/BQAAAAMAAAAbAMD/BQABAAMAAAAbAMH/BQABAAAAAAAcAMH/BQACAAMAAAAfAMD/BQACAAAAAAAgAMD/BQACAAAAAAAhAMP/BQAAAAEAAAAhAMT/BQAAAAIAAAAyAMD/AwAAAAAAAQA0AMP/BQAAAAEAAAA0AMT/BQAAAAIAAAA1AMD/BQACAAAAAAA1AMP/BQABAAEAAAA1AMT/BQABAAIAAAA2AML/BQAAAAAAAAA2AMP/BQACAAEAAAA2AMT/BQACAAIAAAA2AMX/BQAAAAAAAAAHAOT/AwAAAAAAAgD0/+7/BgAGAAEAAAD0/+//BgAGAAEAAAD2/+7/BgAGAAEAAAD2/+//BgAGAAEAAADy/+//BgAGAAEAAADy/+7/BgAGAAEAAADx/+//BgAGAAEAAADw/+//BgAGAAEAAADw/+7/BgAGAAEAAADw/+3/BgAGAAEAAADw/+z/BgAGAAEAAADw/+v/BgAGAAEAAADx/+v/BgAGAAEAAADy/+v/BgAGAAEAAADz/+v/BgAGAAEAAADz/+r/BgAGAAEAAADz/+n/BgAGAAEAAADz/+j/BgAGAAEAAAD4/+//BgAGAAEAAAD4/+7/BgAGAAEAAAD5/+7/BgAGAAEAAAD6/+7/BgAGAAEAAAD1/+r/BgAGAAEAAAD1/+n/BgAGAAEAAAD1/+j/BgAGAAEAAADz/+f/BgAGAAEAAAD0/+b/BgAGAAEAAAD2/+b/BgAGAAEAAAD3/+r/BgAGAAEAAAD3/+n/BgAGAAEAAAD3/+f/BgAGAAEAAAD2/+n/BgAGAAEAAAD4/+3/BgAGAAEAAAD4/+z/BgAGAAEAAAD5/+z/BgAGAAEAAAD7/+3/BgAGAAEAAAD8/+z/BgAGAAEAAAD8/+v/BgAGAAEAAAD8/+r/BgAGAAEAAAD7/+r/BgAGAAEAAAD7/+n/BgAGAAEAAAD5/+n/BgAGAAEAAAD5/+j/BgAGAAEAAAD5/+r/BgAGAAEAAAD6/+f/BgAGAAEAAAD7/+j/BgAGAAEAAADx/+z/AwAAAAAAAgD2/+j/AwAAAAAAAgD6/+j/AwAAAAAAAgD1/+v/BgAGAAEAAAD1/+z/BgAGAAEAAAD8/+3/BgAGAAEAAAD7/+7/BgAGAAEAAADz/+b/BgAGAAEAAAD3/+b/BgAGAAEAAAD4/+f/BgAGAAEAAAD5/+f/BgAGAAEAAAD7/+f/BgAGAAEAAAA6ANn/CAABAAAAAAA6ANj/CAABAAAAAAA5ANn/CAABAAAAAAA/ANr/CAAAAAEAAGBAANr/CAABAAEAAGA/ANv/CAAAAAAAAGA+ANr/CAABAAAAAAA/ANn/CAABAAEAAGBAANv/CAAAAAEAAGBBANv/CAABAAAAAABCANv/CAABAAAAAABBANr/CAABAAAAAAA+ANn/CAABAAAAAABCANr/CAAAAAEAAFA5ANj/CAAAAAEAAAA9ANn/CAABAAAAAAA9ANj/CAABAAAAAAA+ANj/CAAAAAEAAFAHAAIACQABAAEAAAAaAAIACQAAAAAAAADz//b/CQABAAAAAAD8/wEACQABAAEAAAA=")
