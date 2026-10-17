@@ -290,7 +290,7 @@ texture = ExtResource("2_c13y1")
 offset = Vector2(0, -24)
 
 [node name="DevTeleport" type="Node2D" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="4" unique_id=175322713]
-position = Vector2(-159, 73)
+position = Vector2(1049, -614)
 
 [node name="GiveCard" type="Node2D" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="5" unique_id=1939478653]
 position = Vector2(468, -422)

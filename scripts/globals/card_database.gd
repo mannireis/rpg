@@ -29,14 +29,14 @@ var db: Array[Array] = [
 	GameCard.create(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload(p+"3/2.png"), "test"),
 	GameCard.create(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload(p+"3/3.png"), "Pretty, isn't it?")
 ],
-[],
+[
+	GameCard.create(s.JOKER, 0 , n, Vector2i.ZERO, "Golden Joker", 3, preload("res://assets/jester_joker.png"), "Do 25% more damage per round")
+],
 [
 	GameCard.create(s.OTHER,0,GameCard.Able.ATK,Vector2i(3,0),"Punch",0),
 	GameCard.create(s.OTHER,0,GameCard.Able.BLOCK,Vector2i(-3,0),"Block",0)
-],
-[
-	GameCard.create(s.JOKER, 0 , n, Vector2i.ZERO, "Golden Joker", 3, preload("res://assets/jester_joker.png"), "Do 25% more damage per round")
 ]]
+
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -136,9 +136,9 @@ func _ready() -> void:
 			ctl.exec_atk(Vector2i(db[3][3].atk[0],1))
 			return [GameCard.Move.TRASH]
 	
-	db[5][0].play = func(ctl:PlayerCtl, _enemy_ctl:PlayerCtl):
+	db[4][0].play = func(ctl:PlayerCtl, _enemy_ctl:PlayerCtl):
 		return [GameCard.Move.EQUIP]
-	db[5][0].turn_end = func(_null, ctl:PlayerCtl, _enemy_ctl:PlayerCtl):
+	db[4][0].turn_end = func(_null, ctl:PlayerCtl, _enemy_ctl:PlayerCtl):
 		var amount = ctl.turn_dmg_dealt * 0.25
 		
 		ctl.exec_atk(Vector2i(amount,0))
