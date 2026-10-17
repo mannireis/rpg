@@ -14,7 +14,7 @@ func _ready() -> void:
 	inv2.ai_atk_chance = 0.2
 	inv2.ai_block_chance = 0.1
 	RoomChangeGlobal.enemy_inv_dict[npc_name] = [inv,inv2]
-	var doors = get_tree().get_root().get_node("Chapter01/ProcessModeReset/Doors")
+	var doors = get_tree().get_root().get_node("Chapter01/ProcessModeReset/YSort/Doors")
 	var door27: Door = doors.get_node("Door27")
 	door27.body_entered.connect(room_entered)
 	print(door27.body_entered.get_connections())
