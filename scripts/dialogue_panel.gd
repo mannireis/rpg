@@ -10,10 +10,10 @@ var _parsed_dialogue: Dictionary = {}
 var _current_id := ""
 var _current_line := 0
 
-@onready var panel: Panel = $MarginContainer/Panel
-@onready var speaker: Label = $MarginContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer/Speaker
-@onready var content: Label = $MarginContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer/Content
-@onready var choices: VBoxContainer = $MarginContainer/Panel/MarginContainer/HBoxContainer/Choices
+@onready var panel: PanelContainer = $MarginContainer/PanelContainer
+@onready var speaker: Label = $MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/Speaker
+@onready var content: Label = $MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/Content
+@onready var choices: VBoxContainer = $MarginContainer/PanelContainer/HBoxContainer/Choices
 
 
 func _ready():

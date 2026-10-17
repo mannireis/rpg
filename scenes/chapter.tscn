@@ -5,10 +5,10 @@
 [ext_resource type="TileSet" uid="uid://ctpxu0oeyokmb" path="res://assets/tile_set.tres" id="2_xh8w3"]
 [ext_resource type="FontFile" uid="uid://4c2t8wmtn2wg" path="res://assets/fonts/m3x6.ttf" id="3_23v15"]
 [ext_resource type="PackedScene" uid="uid://dn85my2emfvu8" path="res://scenes/player/player.tscn" id="3_xh8w3"]
-[ext_resource type="Theme" uid="uid://be6nkpog7kvd8" path="res://scenes/ui/themes/theme.tres" id="4_teg3p"]
+[ext_resource type="Theme" uid="uid://be6nkpog7kvd8" path="res://assets/themes/theme.tres" id="4_teg3p"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvs5w"]
-bg_color = Color(0.44313726, 0.25490198, 0.23137255, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmkx5"]
+bg_color = Color(0, 0, 0, 0.75000006)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8e2s4"]
 content_margin_bottom = 2.0
@@ -72,21 +72,33 @@ unique_name_in_owner = true
 process_mode = 2
 visible = false
 
-[node name="CenterContainer" type="CenterContainer" parent="ProcessModeReset/PauseMenu" unique_id=2012409161]
+[node name="PanelContainer" type="PanelContainer" parent="ProcessModeReset/PauseMenu" unique_id=1557545236]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mmkx5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ProcessModeReset/PauseMenu/CenterContainer" unique_id=896090556]
+[node name="CenterContainer" type="CenterContainer" parent="ProcessModeReset/PauseMenu/PanelContainer" unique_id=2012409161]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ProcessModeReset/PauseMenu/CenterContainer/VBoxContainer" unique_id=2125420729]
+[node name="VBoxContainer" type="VBoxContainer" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer" unique_id=896090556]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer" unique_id=188246897]
+layout_mode = 2
+text = "RPG"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer" unique_id=1770161624]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer" unique_id=2125420729]
 layout_mode = 2
 text = "Game paused, press ESC to resume"
 
-[node name="MainMenuButton" type="Button" parent="ProcessModeReset/PauseMenu/CenterContainer/VBoxContainer" unique_id=1697325138]
+[node name="MainMenuButton" type="Button" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer" unique_id=1697325138]
 layout_mode = 2
 text = "Main menu"
 
@@ -102,43 +114,25 @@ anchor_bottom = 1.0
 offset_top = -69.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 
-[node name="Panel" type="Panel" parent="ProcessModeReset/DialoguePanel/MarginContainer" unique_id=441629022]
-custom_minimum_size = Vector2(0, 64)
-custom_maximum_size = Vector2(320, 64)
+[node name="PanelContainer" type="PanelContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer" unique_id=1112610150]
 layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_hvs5w")
 
-[node name="MarginContainer" type="MarginContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/Panel" unique_id=550099058]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/Panel/MarginContainer" unique_id=1730092513]
+[node name="HBoxContainer" type="HBoxContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer" unique_id=1730092513]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/Panel/MarginContainer/HBoxContainer" unique_id=926781399]
+[node name="VBoxContainer" type="VBoxContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer" unique_id=926781399]
 custom_minimum_size = Vector2(204, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_override_constants/separation = 0
 
-[node name="Speaker" type="Label" parent="ProcessModeReset/DialoguePanel/MarginContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=821447798]
+[node name="Speaker" type="Label" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=821447798]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -148,12 +142,12 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_8e2s4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wk6rp")
 text = "banana bread"
 
-[node name="HSeparator" type="HSeparator" parent="ProcessModeReset/DialoguePanel/MarginContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1027053736]
+[node name="HSeparator" type="HSeparator" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=1027053736]
 layout_mode = 2
 theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxFlat_sph6d")
 
-[node name="Content" type="Label" parent="ProcessModeReset/DialoguePanel/MarginContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1591778239]
+[node name="Content" type="Label" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=1591778239]
 custom_maximum_size = Vector2(204, -1)
 layout_mode = 2
 size_flags_vertical = 8
@@ -164,27 +158,27 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ka2j4")
 text = "asrarstratrast"
 autowrap_mode = 3
 
-[node name="Choices" type="VBoxContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/Panel/MarginContainer/HBoxContainer" unique_id=1568809243]
+[node name="Choices" type="VBoxContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer" unique_id=1568809243]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/Panel/MarginContainer/HBoxContainer/Choices" unique_id=532236600]
+[node name="Button" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=532236600]
 layout_mode = 2
 theme = ExtResource("4_teg3p")
 text = "Option 1"
 
-[node name="Button2" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/Panel/MarginContainer/HBoxContainer/Choices" unique_id=1005288353]
+[node name="Button2" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=1005288353]
 layout_mode = 2
 theme = ExtResource("4_teg3p")
 text = "Option 1"
 
-[node name="Button3" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/Panel/MarginContainer/HBoxContainer/Choices" unique_id=887819704]
+[node name="Button3" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=887819704]
 layout_mode = 2
 theme = ExtResource("4_teg3p")
 text = "Option 1"
 
-[node name="Button4" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/Panel/MarginContainer/HBoxContainer/Choices" unique_id=596984324]
+[node name="Button4" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=596984324]
 layout_mode = 2
 theme = ExtResource("4_teg3p")
 text = "Option 1"
@@ -220,4 +214,4 @@ position_smoothing_enabled = true
 unique_name_in_owner = true
 position = Vector2(160, 120)
 
-[connection signal="pressed" from="ProcessModeReset/PauseMenu/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

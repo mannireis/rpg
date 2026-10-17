@@ -19,10 +19,9 @@ func _process(_delta: float) -> void:
 	)
 
 
-#func _notification(what: int) -> void:
-	#if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		#ResourceSaver.save(Save.new(), SAVE_PATH)
-		#get_tree().quit()
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		_quit()
 
 
 func _on_play_button_pressed() -> void:
@@ -30,4 +29,9 @@ func _on_play_button_pressed() -> void:
 
 
 func _on_quit_button_pressed() -> void:
+	_quit()
+
+
+func _quit() -> void:
+	ResourceSaver.save(save, SAVE_PATH)
 	get_tree().quit()
