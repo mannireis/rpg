@@ -224,7 +224,8 @@ script = ExtResource("1_8afob")
 sprite_frames = SubResource("SpriteFrames_ib3ld")
 animation = &"walk_up"
 frame_progress = 0.41342232
+offset = Vector2(0, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=78072334]
-position = Vector2(0, 10)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_ib3ld")

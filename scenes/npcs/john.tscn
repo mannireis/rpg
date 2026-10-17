@@ -59,16 +59,18 @@ area2d = NodePath("Area2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=727085948]
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_ib3ld")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.26722488
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=972199641]
-position = Vector2(0, 12)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_l1yr0")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=896990980]
+position = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1537684596]
 shape = SubResource("RectangleShape2D_ivh6b")

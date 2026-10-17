@@ -73,27 +73,32 @@ text = "Main menu"
 [node name="TileMapLayer" type="TileMapLayer" parent="ProcessModeReset" unique_id=1252034803]
 tile_set = ExtResource("2_xh8w3")
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="ProcessModeReset" unique_id=318211980]
+[node name="YSort" type="Node2D" parent="ProcessModeReset" unique_id=814699326]
+y_sort_enabled = true
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="ProcessModeReset/YSort" unique_id=318211980]
+y_sort_enabled = true
 tile_set = ExtResource("2_xh8w3")
 
-[node name="Doors" type="Node" parent="ProcessModeReset" unique_id=662505405]
+[node name="Doors" type="Node" parent="ProcessModeReset/YSort" unique_id=662505405]
 
-[node name="NPCs" type="Node" parent="ProcessModeReset" unique_id=1367934931]
+[node name="NPCs" type="Node2D" parent="ProcessModeReset/YSort" unique_id=1218614627]
+y_sort_enabled = true
 
-[node name="Player" parent="ProcessModeReset" unique_id=1648858471 instance=ExtResource("3_xh8w3")]
-unique_name_in_owner = true
-position = Vector2(160, 120)
-
-[node name="CanvasModulate" type="CanvasModulate" parent="ProcessModeReset" unique_id=1775480778]
+[node name="CanvasModulate" type="CanvasModulate" parent="ProcessModeReset/YSort" unique_id=1775480778]
 unique_name_in_owner = true
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ProcessModeReset/CanvasModulate" unique_id=1001195419]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ProcessModeReset/YSort/CanvasModulate" unique_id=1001195419]
 libraries/ = SubResource("AnimationLibrary_pkj1h")
 
-[node name="Camera2D" type="Camera2D" parent="ProcessModeReset" unique_id=1490290502]
+[node name="Camera2D" type="Camera2D" parent="ProcessModeReset/YSort" unique_id=1490290502]
 unique_name_in_owner = true
 anchor_mode = 0
 position_smoothing_enabled = true
+
+[node name="Player" parent="ProcessModeReset/YSort" unique_id=1648858471 instance=ExtResource("3_xh8w3")]
+unique_name_in_owner = true
+position = Vector2(160, 120)
 
 [connection signal="pressed" from="ProcessModeReset/PauseMenu/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
