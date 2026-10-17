@@ -107,6 +107,33 @@ layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(2, 0)
 
+[node name="PlayerJokers" type="HBoxContainer" parent="UI" unique_id=865349818]
+offset_left = 257.0
+offset_top = 96.99999
+offset_right = 369.0
+offset_bottom = 149.0
+scale = Vector2(0.4, 0.4)
+theme_override_constants/separation = 2
+
+[node name="MiniCard" type="TextureRect" parent="UI/PlayerJokers" unique_id=1524330302]
+custom_minimum_size = Vector2(36, 52)
+custom_maximum_size = Vector2(36, 52)
+layout_mode = 2
+
+[node name="MiniCard2" type="TextureRect" parent="UI/PlayerJokers" unique_id=663737950]
+custom_minimum_size = Vector2(36, 52)
+custom_maximum_size = Vector2(36, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="MiniCard3" type="TextureRect" parent="UI/PlayerJokers" unique_id=1665988193]
+custom_minimum_size = Vector2(36, 52)
+custom_maximum_size = Vector2(36, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
 [node name="EnemyEquipped" type="HBoxContainer" parent="UI" unique_id=707671414]
 offset_left = 256.99997
 offset_top = 10.0
@@ -128,6 +155,33 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(2, 0)
 
 [node name="MiniCard3" type="TextureRect" parent="UI/EnemyEquipped" unique_id=374552952]
+custom_minimum_size = Vector2(36, 52)
+custom_maximum_size = Vector2(36, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="EnemyJokers" type="HBoxContainer" parent="UI" unique_id=718193608]
+offset_left = 256.99997
+offset_top = 34.0
+offset_right = 368.99997
+offset_bottom = 86.0
+scale = Vector2(0.4, 0.4)
+theme_override_constants/separation = 2
+
+[node name="MiniCard" type="TextureRect" parent="UI/EnemyJokers" unique_id=551603058]
+custom_minimum_size = Vector2(36, 52)
+custom_maximum_size = Vector2(36, 52)
+layout_mode = 2
+
+[node name="MiniCard2" type="TextureRect" parent="UI/EnemyJokers" unique_id=518026812]
+custom_minimum_size = Vector2(36, 52)
+custom_maximum_size = Vector2(36, 52)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(2, 0)
+
+[node name="MiniCard3" type="TextureRect" parent="UI/EnemyJokers" unique_id=854506241]
 custom_minimum_size = Vector2(36, 52)
 custom_maximum_size = Vector2(36, 52)
 layout_mode = 2

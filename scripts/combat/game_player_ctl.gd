@@ -26,14 +26,16 @@ var block_accumulator: Array[Array] = [[0]]
 var persistent_dmg: Array[Vector2i] = [v0,v0,v0] ## -1 in second position means endless damage
 const pers_decrease: Array[int] = [2]
 var is_enemy: bool = false
-var equipped: Array[int] = []
-var equipped_cards: Array[GameCard] = []
+var equipped: Array[int] = [] ## Index in deck (both jokers and normal equipped cards), run_equipped() runs all these cards' game methods
+var equipped_cards: Array[GameCard] = [] ## Used for duplicity checking
 var hand: Array[int] = []
 var burn: Array[int] = []
 var removed_from_game: Array[int] = []
 var permanent_deck: Array[GameCard] = []
 var lose_next_turn := false
 var equipped_display: HBoxContainer
+var jokers_display: HBoxContainer
+var target_display: HBoxContainer
 var rand = RandomNumberGenerator.new()
 var turn_dmg_dealt: int
 
@@ -264,28 +266,9 @@ func player_attack(block:bool=false,choice: bool = false) -> void:
 	else:
 		print("executing choice")
 
-
-func equip_card(card_index: int) -> void:
-	var card = permanent_deck[card_index]
-	var side_int = 0
-	if is_enemy: side_int = 1
-	equipped.append(card_index)
-	equipped_cards.append(card)
-	card.when_equipped.call(self,battle_manager.get_oppo(is_enemy))
-	run_equipped("mod_any_equipped",Vector2i(card_index,side_int))
-	for child in equipped_display.get_children():
-		if child.texture:
-			continue
-		else:
-			child.texture = card.img
-			print("found free equipped spot: "+str(child))
-			break
-
-
-func play_card(card_index: int) -> Vector2i: ## TODO: (2,0) messes with hand contents after ind has been set. Fix this func to avoid deleting the wrong card from hand when this happens.
+func find_index_pos(card_index: int) -> Vector2i:
 	var loc = -1
 	var ind = -1
-	const M = GameCard.Move
 	if hand.has(card_index):
 		loc = 0
 		ind = hand.find(card_index)
@@ -300,7 +283,47 @@ func play_card(card_index: int) -> Vector2i: ## TODO: (2,0) messes with hand con
 		ind = removed_from_game.has(card_index)
 	else:
 		printerr("card #"+str(card_index)+" name "+permanent_deck[card_index].name+" not present in hand "+str(hand)+" or elsewhere")
-		return Vector2i(int(M.STAY),loc)
+	return Vector2i(loc,ind)
+
+
+func equip_card(card_index: int) -> void:
+	var card = permanent_deck[card_index]
+	if card.suit == GameCard.S.JOKER: target_display = jokers_display
+	else: target_display = equipped_display
+	var side_int = 0
+	var slotted := false
+	if is_enemy: side_int = 1
+	for child in target_display.get_children():
+		if child.texture:
+			continue
+		else:
+			child.texture = card.img
+			print("found free equipped spot: "+str(child))
+			slotted = true
+			break
+	if slotted and card not in equipped_cards:
+		run_equipped("mod_any_equipped",Vector2i(card_index,side_int))
+		equipped.append(card_index)
+		equipped_cards.append(card)
+		card.when_equipped.call(self,battle_manager.get_oppo(is_enemy))
+	else:
+		var find_res := find_index_pos(card_index)
+		burn.append(card_index)
+		run_equipped("mod_any_trashed",Vector2i(card_index,side_int))
+		match find_res[0]:
+			0: hand.pop_at(find_res[1])
+			1: burn.pop_at(find_res[1])
+			2: deck_order.pop_at(find_res[1])
+			3: removed_from_game.pop_at(find_res[1])
+		
+
+
+func play_card(card_index: int) -> Vector2i: ## TODO: (2,0) messes with hand contents after ind has been set. Fix this func to avoid deleting the wrong card from hand when this happens.
+	var find_res := find_index_pos(card_index)
+	var loc = find_res[0]
+	var ind = find_res[1]
+	const M = GameCard.Move
+	if loc < 0 or ind < 0: return Vector2i(M.STAY,-1)
 	var card: GameCard = permanent_deck[card_index]
 	var res: Array = await card.play.call(self,battle_manager.get_oppo(is_enemy))
 	if len(res) > 1 and res[1] != v0:

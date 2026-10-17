@@ -66,6 +66,9 @@ func _cards_selected_cleanup() -> void:
 
 func _default_action(block: bool = false) -> void:
 	var c
+	if !battle_manager.player.turn:
+		print("refusing default action out of turn")
+		return
 	for p in points_to_play:
 		c = occupied.get(p)
 		if c:

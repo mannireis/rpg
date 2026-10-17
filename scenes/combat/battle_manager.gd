@@ -8,7 +8,6 @@ var game_result: Array[bool] = [false,false]
 
 
 func _ready() -> void:
-	var c = UI.get_node("Container")
 
 	if !GameState.player_battle_inventory: player = PlayerCtl.create(get_parent(),[])
 	else:
@@ -18,6 +17,7 @@ func _ready() -> void:
 		player.max_hp = p_inv.max_hp
 		player.hp = p_inv.hp
 		player.equipped_display = UI.get_node("PlayerEquipped")
+		player.jokers_display = UI.get_node("PlayerJokers")
 
 		for eq in p_inv.starting_equipped:
 			player.permanent_deck.append(eq)
@@ -34,6 +34,7 @@ func _ready() -> void:
 	#player.hp_display.text = str(player.hp)+" HP"
 	#player.block_display = c.get_node("PlayerBlock")
 	player.equipped_display = UI.get_node("PlayerEquipped")
+	player.jokers_display = UI.get_node("PlayerJokers")
 	player.draw(2,true)
 
 	if !RoomChangeGlobal.enemy_battle_inventory: enemy = PlayerCtl.create(get_parent(),[],true)
@@ -49,7 +50,7 @@ func _ready() -> void:
 		enemy.max_hp = e_inv.max_hp
 		enemy.hp = e_inv.hp
 		enemy.equipped_display = UI.get_node("EnemyEquipped")
-
+		enemy.jokers_display = UI.get_node("EnemyJokers")
 		for eq in e_inv.starting_equipped:
 			enemy.permanent_deck.append(eq)
 			enemy.equip_card(len(enemy.permanent_deck)-1)
@@ -63,6 +64,7 @@ func _ready() -> void:
 	#enemy.hp_display.text = str(enemy.hp)+" HP"
 	#enemy.block_display = c.get_node("EnemyBlock")
 	enemy.equipped_display = UI.get_node("EnemyEquipped")
+	enemy.jokers_display = UI.get_node("EnemyJokers")
 	player.turn_begin()
 
 
