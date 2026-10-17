@@ -9,10 +9,12 @@ extends Node2D
 
 func _ready():
 	Signals.transition.connect(_on_transition)
+	print(get_viewport_rect().size)
+	debug_t()
 
 
 func _process(_delta: float) -> void:
-	var viewport := get_viewport_rect().size
+	var viewport := Vector2(320,180) #hardcoded because get_viewport_rect doesn't work here
 	camera.position = (player.position - viewport / 2).snapped(viewport)
 
 	main_menu_button.offset_transform_position = (
@@ -54,3 +56,11 @@ func _on_main_menu_button_pressed() -> void:
 	var tree := get_tree()
 	tree.paused = false
 	tree.change_scene_to_file("res://scenes/main_menu.tscn")
+
+func t() -> SceneTreeTimer: return get_tree().create_timer(2)
+func debug_t():
+	var viewport := get_viewport_rect().size
+	print(player.position - viewport / 2)
+	print((player.position - viewport / 2).snapped(viewport))
+	var timer = t()
+	timer.timeout.connect(debug_t)
