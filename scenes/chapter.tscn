@@ -3,25 +3,16 @@
 [ext_resource type="Script" uid="uid://cw10mpwn7wl6g" path="res://scripts/chapter.gd" id="1_7sbe3"]
 [ext_resource type="Script" uid="uid://cvvde3tjg4wk5" path="res://scripts/dialogue_panel.gd" id="2_k12pt"]
 [ext_resource type="TileSet" uid="uid://ctpxu0oeyokmb" path="res://assets/tile_set.tres" id="2_xh8w3"]
-[ext_resource type="FontFile" uid="uid://4c2t8wmtn2wg" path="res://assets/fonts/m3x6.ttf" id="3_23v15"]
 [ext_resource type="PackedScene" uid="uid://dn85my2emfvu8" path="res://scenes/player/player.tscn" id="3_xh8w3"]
-[ext_resource type="Theme" uid="uid://be6nkpog7kvd8" path="res://assets/themes/theme.tres" id="4_teg3p"]
+[ext_resource type="Theme" uid="uid://be6nkpog7kvd8" path="res://scenes/ui/themes/theme.tres" id="4_teg3p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmkx5"]
 bg_color = Color(0, 0, 0, 0.75000006)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8e2s4"]
-content_margin_bottom = 2.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wk6rp"]
-content_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sph6d"]
 bg_color = Color(0.35686275, 0.19215687, 0.21960784, 1)
 expand_margin_top = 1.0
 expand_margin_bottom = 1.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ka2j4"]
 
 [sub_resource type="Animation" id="Animation_gbcm8"]
 length = 0.001
@@ -136,10 +127,6 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("3_23v15")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxEmpty_8e2s4")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_wk6rp")
 text = "banana bread"
 
 [node name="HSeparator" type="HSeparator" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=1027053736]
@@ -151,10 +138,6 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_sph6d")
 custom_maximum_size = Vector2(204, -1)
 layout_mode = 2
 size_flags_vertical = 8
-theme = ExtResource("4_teg3p")
-theme_override_fonts/font = ExtResource("3_23v15")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ka2j4")
 text = "asrarstratrast"
 autowrap_mode = 3
 
