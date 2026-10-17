@@ -12,6 +12,8 @@ var name: String
 var img: Texture2D
 var text: String = ""
 var prio = {"dmg_in":5,"dmg_out":5,"block":5,"other":5}
+
+
 static func create(suit: S, id: int, can_atk: Able, atk_dmg: Vector2i = Vector2i(0,0), cardname:String = "", cardcost:int = 1, img_texture:Texture2D = null, text:String = "") -> GameCard:
 	var card = GameCard.new()
 	card.suit = suit
@@ -23,7 +25,7 @@ static func create(suit: S, id: int, can_atk: Able, atk_dmg: Vector2i = Vector2i
 	card.img = img_texture
 	card.text = text
 	return card
-	
+
 var play: Callable = func play(_ctl:PlayerCtl, _enemy_ctl: PlayerCtl) -> Array:
 	return [Move.TRASH]
 

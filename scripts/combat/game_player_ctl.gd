@@ -35,6 +35,7 @@ var permanent_deck: Array[GameCard] = []
 var lose_next_turn := false
 var equipped_display: HBoxContainer
 var rand = RandomNumberGenerator.new()
+var turn_dmg_dealt: int
 
 
 func draw(count: int = 1, gui: bool = false) -> void:
@@ -174,13 +175,15 @@ func receive_dmg(dmg:Vector2i) -> void:
 	pass
 
 
-func exec_atk(dmg:Vector2i) -> void:
+func exec_atk(dmg: Vector2i) -> void:
+	turn_dmg_dealt += dmg[0]
+	
 	dmg = run_equipped("mod_dmg_out",dmg,"dmg_out",true)
 	if battle_debug: print("E"+str(is_enemy)+" dealing final dmg "+str(dmg))
 	battle_manager.call_as_player("receive_dmg",[dmg],is_enemy)
 
 
-func exec_block(dmg:Vector2i) -> void:
+func exec_block(dmg: Vector2i) -> void:
 	dmg = run_equipped("mod_block",dmg,"block",true)
 	if battle_debug: print("final block "+str(dmg))
 	block_accumulator[dmg[1]][-1] += dmg[0]
@@ -206,6 +209,9 @@ func turn_end() -> void:
 func turn_begin() -> void:
 	var i := 0
 	var v := v0
+	
+	turn_dmg_dealt = 0
+	
 	while i < len(persistent_dmg):
 		v = persistent_dmg[i]
 		if v[1] == -1:

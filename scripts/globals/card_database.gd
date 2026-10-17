@@ -11,19 +11,32 @@ var common_textures: Array[Texture2D] = [
 ]
 
 var db: Array[Array] = [
-[GameCard.create(s.SPADES, 0, n, v0, "Double Trouble", 1, preload(p+"0/0.png",), "test"),
-GameCard.create(s.SPADES,1,n,Vector2i(10,0),"Barbaric Strike",2,preload(p+"0/1.png"), "test"),
-GameCard.create(s.SPADES,2,n,Vector2i(1,0),"Poke",0,preload(p+"0/2.png"), "test"),
-GameCard.create(s.SPADES,3,n,Vector2i(5,2),"Fireball",4,preload(p+"0/3.png"),"Persistent burning damage")],
-[GameCard.create(s.CLUBS,0,n,v0,"Good Posture",1,preload(p+"1/0.png"), "test")],
-[GameCard.create(s.HEARTS,0,n,Vector2i(2,0),"Disarm Equipment",2,preload(p+"2/0.png"),"eat the opponent's cards at a cost")],
-[GameCard.create(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload(p+"3/0.png"), "test"),
-GameCard.create(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload(p+"3/1.png"), "test"),
-GameCard.create(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload(p+"3/2.png"), "test"),
-GameCard.create(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload(p+"3/3.png"), "Pretty, isn't it?")],
+[
+	GameCard.create(s.SPADES, 0, n, v0, "Double Trouble", 1, preload(p+"0/0.png",), "test"),
+	GameCard.create(s.SPADES,1,n,Vector2i(10,0),"Barbaric Strike",2,preload(p+"0/1.png"), "test"),
+	GameCard.create(s.SPADES,2,n,Vector2i(1,0),"Poke",0,preload(p+"0/2.png"), "test"),
+	GameCard.create(s.SPADES,3,n,Vector2i(5,2),"Fireball",4,preload(p+"0/3.png"),"Persistent burning damage")
+],
+[
+	GameCard.create(s.CLUBS,0,n,v0,"Good Posture",1,preload(p+"1/0.png"), "test")
+],
+[
+	GameCard.create(s.HEARTS,0,n,Vector2i(2,0),"Disarm Equipment",2,preload(p+"2/0.png"),"eat the opponent's cards at a cost")
+],
+[
+	GameCard.create(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload(p+"3/0.png"), "test"),
+	GameCard.create(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload(p+"3/1.png"), "test"),
+	GameCard.create(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload(p+"3/2.png"), "test"),
+	GameCard.create(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload(p+"3/3.png"), "Pretty, isn't it?")
+],
 [],
-[GameCard.create(s.OTHER,0,GameCard.Able.ATK,Vector2i(3,0),"Punch",0),
-GameCard.create(s.OTHER,0,GameCard.Able.BLOCK,Vector2i(-3,0),"Block",0)]]
+[
+	GameCard.create(s.OTHER,0,GameCard.Able.ATK,Vector2i(3,0),"Punch",0),
+	GameCard.create(s.OTHER,0,GameCard.Able.BLOCK,Vector2i(-3,0),"Block",0)
+],
+[
+	GameCard.create(s.JOKER, 0 , n, Vector2i.ZERO, "Golden Joker", 3, preload("res://assets/jester_joker.png"), "Do 25% more damage per round")
+]]
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -96,6 +109,7 @@ func _ready() -> void:
 		else:
 			ctl.exec_atk(Vector2i(6,0))
 			return [GameCard.Move.TRASH]
+
 	db[3][1].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		if db[3][1] not in ctl.equipped_cards and len(ctl.equipped_cards) < 3:
 			print("equipping "+self.name)
@@ -103,6 +117,7 @@ func _ready() -> void:
 		else:
 			ctl.exec_block(Vector2i(-6,0))
 			return [GameCard.Move.TRASH]
+
 	db[3][2].play = func(ctl: PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		if db[3][2] not in ctl.equipped_cards and len(ctl.equipped_cards) < 3:
 			return [GameCard.Move.EQUIP]
@@ -114,8 +129,16 @@ func _ready() -> void:
 		else: return dmg
 	db[3][2].turn_end = func(_null,_ctl:PlayerCtl,_enemy_ctl:PlayerCtl):
 		_ctl.block_accumulator[-1][0] -= 2
+
 	db[3][3].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		if db[3][3] not in ctl.equipped_cards: return [GameCard.Move.EQUIP]
 		else:
 			ctl.exec_atk(Vector2i(db[3][3].atk[0],1))
 			return [GameCard.Move.TRASH]
+	
+	db[5][0].play = func(ctl:PlayerCtl, _enemy_ctl:PlayerCtl):
+		return [GameCard.Move.EQUIP]
+	db[5][0].turn_end = func(_null, ctl:PlayerCtl, _enemy_ctl:PlayerCtl):
+		var amount = ctl.turn_dmg_dealt * 0.25
+		
+		ctl.exec_atk(Vector2i(amount,0))

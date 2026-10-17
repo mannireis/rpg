@@ -14,8 +14,3 @@ met (
 	Sure! > shop
 	No thanks > End
 )
-
-
-shop (
-	t: t
-)
