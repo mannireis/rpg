@@ -2,7 +2,7 @@ extends NPC
 
 func _ready() -> void:
 	super()
-	DialogueManager.current_id.connect(_current_id)
+	Signals.dialogue_branched.connect(_current_id)
 
 
 func _physics_process(delta: float) -> void:

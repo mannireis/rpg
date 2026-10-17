@@ -1,16 +1,19 @@
 # rpg
 
-A silly RPG. WIP, so you can only walk around the rooms and talk to NPCs for now. Say hi to John, Lucy and Greg!
+A silly RPG. WIP, for now you can only walk around rooms and talk to NPCs. Say hi to John, Lucy and Greg!
 
 ## Controls
 
-- W,A,S,D to walk
+- WASD to move
 - Q to interact
-- left click to proceed when talking with NPCs
+- Left click to proceed when talking to NPCs
 
-## Credits 
+## Credits
 
 ### Fonts
 
-[Silver](https://poppyworks.itch.io/silver)
-[Pixfont](https://davidziesfunnythings2026.itch.io/cool-pixel-font)
+- [Silver](https://poppyworks.itch.io/silver)
+- [Pixfont](https://davidziesfunnythings2026.itch.io/cool-pixel-font)
+- Monogram
+- M3X6
+- Chicago

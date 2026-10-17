@@ -1,13 +1,16 @@
 extends Node
 
 @warning_ignore_start("unused_signal")
-
 signal transition(door: Door)
+signal dialogue_started(path: String, at: StringName)
+signal dialogue_branched(to: StringName)
+signal star
 signal battle_won
 signal battle_lost
-
 @warning_ignore_restore("unused_signal")
 signal start_battle(which_inv: int) ## If the NPC has multiple inventories for multiple encounters, which_inv selects the encounter
+
+
 func _start_battle(which_inv: int = 0) -> void:
 	var p = get_tree().current_scene.scene_file_path
 	if RoomChangeGlobal.enemy_inv_dict.has(GameState.speaking_with):
@@ -27,12 +30,16 @@ func _start_battle(which_inv: int = 0) -> void:
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/combat/battle_scene.tscn")
 	else: print(GameState.battled_npcs)
 
-func _ready() -> void: start_battle.connect(_start_battle)
+
+func _ready() -> void:
+	start_battle.connect(_start_battle)
+
+
 ## Container for start-of-battle config
 ##
 ## Passed down to battle_manager.gd through RoomChangeGlobal.enemy_battle_inventory and GameState.player_battle_inventory.
 ## Contains the deck as well as the cards that will always start the battle equipped or in hand
-class BattleInv: 
+class BattleInv:
 	var input_deck: Array[Vector2i] ##Array of (suit,id) vectors
 	var input_starting_equipped: Array[Vector2i]
 	var input_starting_hand: Array[Vector2i]
@@ -52,7 +59,7 @@ class BattleInv:
 			res.append(CardDatabase.db[i[0]][i[1]])
 		return res
 
-	static func create(max_hp: int = 26,input_deck: Array[Vector2i] = [], input_equipped: Array[Vector2i] = [], input_hand: Array[Vector2i] = [], ai_int: int = 0) -> BattleInv:
+	static func create(max_hp: int = 26, input_deck: Array[Vector2i] = [], input_equipped: Array[Vector2i] = [], input_hand: Array[Vector2i] = [], ai_int: int = 0) -> BattleInv:
 		var inv = BattleInv.new()
 		inv.input_deck = input_deck
 		inv.input_starting_equipped = input_equipped
