@@ -51,6 +51,7 @@ func die() -> void:
 	active = false
 	await get_tree().create_timer(0.6).timeout
 	visible = false
+	$CollisionShape2D.disabled = true
 	
 func explode() -> void:
 	velocity = Vector2i(0,0)
@@ -59,6 +60,7 @@ func explode() -> void:
 	active = false
 	await get_tree().create_timer(0.3).timeout
 	visible = false
+	$CollisionShape2D.disabled = true
 
 func _on_body_entered(node: Node2D) -> void:
 	if node.is_in_group("fireball") and node != self:
