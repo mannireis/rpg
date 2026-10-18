@@ -13,7 +13,7 @@ func _ready() -> void:
 	var inv = Signals.BattleInv.create(20,deck,[],[v(0,3),v(0,3)])
 	var inv2 = Signals.BattleInv.create(22,deck2,[],[v(0,3),v(0,3)]) ## "smarter" Flicker
 	var doors = get_tree().get_root().get_node("Chapter01/ProcessModeReset/YSort/Doors")
-	var door27: Door = doors.get_node("Door27")
+	var door30: Door = doors.get_node("Door30")
 
 	deck.append_array([v(1,0),v(1,0),v(0,1),v(0,1),v(0,1)])
 
@@ -27,8 +27,8 @@ func _ready() -> void:
 
 	RoomChangeGlobal.enemy_inv_dict[npc_name] = [inv,inv2]
 
-	door27.body_entered.connect(room_entered)
-	print(door27.body_entered.get_connections())
+	door30.body_entered.connect(room_entered)
+	print(door30.body_entered.get_connections())
 
 
 func room_entered(body: Node2D) -> void: # make the passersby creature appear when the player first enters flicker's room
