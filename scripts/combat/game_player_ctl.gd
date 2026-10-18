@@ -163,7 +163,7 @@ func receive_dmg(dmg:Vector2i) -> void:
 			if !dmg[1]: hp_bar.shield_value = 0
 			if battle_debug: print("receiving final dmg "+str(dmg))
 			if dmg[1] not in persist_dmg_type: hp -= dmg[0]
-			else: persistent_dmg[dmg[1]] = Vector2i(dmg[0]+persistent_dmg[dmg[1]][0],dmg[0])
+			else: persistent_dmg[dmg[1]] = Vector2i(dmg[0]+persistent_dmg[dmg[1]][0],dmg[0]+persistent_dmg[dmg[1]][1])
 		else:
 			if battle_debug: print("blocked dmg, remaining block "+str(block_current))
 			if !dmg[1]: hp_bar.shield_value = clampi(-block_current[0], 0, 32)
