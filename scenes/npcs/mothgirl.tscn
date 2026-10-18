@@ -26,7 +26,8 @@ size = Vector2(64, 64)
 
 [node name="MothGirl" type="CharacterBody2D" unique_id=1818552278 node_paths=PackedStringArray("area2d", "animation")]
 script = ExtResource("1_cr04o")
-npc_name = &"Moth Girl"
+npc_name = &"Kira"
+dialogue_file = "res://assets/dialogue/mothgirl.txt"
 area2d = NodePath("Area2D")
 animation = NodePath("AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"

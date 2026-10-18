@@ -1,6 +1,11 @@
 # rpg
 
-A silly RPG. WIP, for now you can only walk around rooms and talk to NPCs. Say hi to John, Lucy and Greg!
+A silly RPG. WIP, for now you can only walk around rooms and talk to NPCs. Say hi to a few npc's.
+Find the shop and crack the code to get a special card !
+Battle Rebeka and Flicker!
+
+
+
 
 ## Controls
 
