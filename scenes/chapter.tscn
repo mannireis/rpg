@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dgit23mgouwda"]
 
 [ext_resource type="Script" uid="uid://cw10mpwn7wl6g" path="res://scripts/chapter.gd" id="1_7sbe3"]
+[ext_resource type="PackedScene" uid="uid://bsufd13kj3255" path="res://scenes/infinite_grid.tscn" id="2_23v15"]
 [ext_resource type="Script" uid="uid://cvvde3tjg4wk5" path="res://scripts/dialogue_panel.gd" id="2_k12pt"]
 [ext_resource type="TileSet" uid="uid://ctpxu0oeyokmb" path="res://assets/tile_set.tres" id="2_xh8w3"]
 [ext_resource type="PackedScene" uid="uid://dn85my2emfvu8" path="res://scenes/player/player.tscn" id="3_xh8w3"]
@@ -90,6 +91,7 @@ layout_mode = 2
 text = "Game paused, press ESC to resume"
 
 [node name="MainMenuButton" type="Button" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer" unique_id=1697325138]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Main menu"
 
@@ -196,5 +198,7 @@ position_smoothing_enabled = true
 [node name="Player" parent="ProcessModeReset/YSort" unique_id=1648858471 instance=ExtResource("3_xh8w3")]
 unique_name_in_owner = true
 position = Vector2(160, 120)
+
+[node name="InfiniteGrid" parent="ProcessModeReset" unique_id=1400324603 instance=ExtResource("2_23v15")]
 
 [connection signal="pressed" from="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

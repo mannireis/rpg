@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bsufd13kj3255"]
+
+[ext_resource type="Script" uid="uid://daf0l8uv5iigx" path="res://scripts/infinite_grid.gd" id="1_7342y"]
+
+[node name="InfiniteGrid" type="Node2D" unique_id=1400324603]
+script = ExtResource("1_7342y")

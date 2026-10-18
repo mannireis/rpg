@@ -26,11 +26,7 @@ point_count = 7
 [node name="Chapter01" unique_id=1529227125 instance=ExtResource("1_btfvo")]
 
 [node name="MainMenuButton" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer" parent_id_path=PackedInt32Array(896090556) index="3" unique_id=1697325138]
-unique_name_in_owner = true
 offset_transform_enabled = true
-
-[node name="DialoguePanel" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="1" unique_id=1908602964]
-visible = true
 
 [node name="PreasurePlates" type="Node" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="2" unique_id=1164926083]
 
