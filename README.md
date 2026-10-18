@@ -5,8 +5,6 @@ Find the shop and crack the code to get a special card !
 Battle Rebeka and Flicker!
 
 
-
-
 ## Controls
 
 - WASD to move
