@@ -13,7 +13,6 @@ func _ready() -> void:
 	if !player_battle_inventory:
 		player_battle_inventory = Signals.BattleInv.create()
 		player_battle_inventory.deck = PlayerCtl.starter_deck()
-		player_battle_inventory.starting_hand.append(CardDatabase.db[4][0])
 
 
 func meet(npc_id: StringName) -> void:

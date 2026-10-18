@@ -45,6 +45,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		print("correct!")
 		correct_password.emit()
 		_typed_password.clear()
+		correct_password.emit()
 	elif _typed_password.size() >= password.size():
 		print("WRONG :<<<<<")
 		_typed_password.clear()
