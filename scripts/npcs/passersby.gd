@@ -43,6 +43,7 @@ func appear() -> void:
 	visible = true
 	velocity = vel*vel_scale
 	if target: velocity = last_aim
+	print(str(name)+" appearing")
 	
 func die() -> void:
 	velocity = Vector2i(0,0)
