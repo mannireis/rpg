@@ -223,6 +223,7 @@ animations = [{
 [node name="Lucy" type="CharacterBody2D" unique_id=926653456 node_paths=PackedStringArray("area2d")]
 script = ExtResource("1_khasj")
 dialogue_file = "res://assets/dialogue/lucy.txt"
+met_id = &"met"
 area2d = NodePath("Area2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bfj0hc2sxlm7r"]
 
 [ext_resource type="Script" uid="uid://cvq1dc601nuk2" path="res://scripts/npcs/npc.gd" id="1_cr04o"]
-[ext_resource type="Texture2D" uid="uid://lcbfp0ybqkxi" path="res://assets/mothgirl.png" id="2_qwvua"]
+[ext_resource type="Texture2D" uid="uid://bfnpu1ps13rfg" path="res://assets/moth_girl.png" id="2_qwvua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hviow"]
 size = Vector2(12, 4)
@@ -10,15 +10,22 @@ size = Vector2(12, 4)
 atlas = ExtResource("2_qwvua")
 region = Rect2(0, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hviow"]
+atlas = ExtResource("2_qwvua")
+region = Rect2(48, 0, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ib3ld"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ugaiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hviow")
 }],
 "loop": 1,
 "name": &"idle_down",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ib3ld"]
@@ -41,6 +48,7 @@ position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_ib3ld")
 animation = &"idle_down"
 autoplay = "idle_down"
+frame_progress = 0.22026657
 
 [node name="Area2D" type="Area2D" parent="." unique_id=280858597]
 

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bqc5iabo1c3ts"]
+
+[ext_resource type="Script" uid="uid://chyk4dtrmy0qn" path="res://scripts/npcs/belhop.gd" id="1_8agrv"]
+[ext_resource type="Texture2D" uid="uid://cydyc3hksafuy" path="res://assets/characters/bellhop.png" id="2_8agrv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8agrv"]
+size = Vector2(20, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3wmt"]
+size = Vector2(48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3wmt"]
+atlas = ExtResource("2_8agrv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gy4h"]
+atlas = ExtResource("2_8agrv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ib3ld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3wmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gy4h")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 3.0
+}]
+
+[node name="belhop" type="CharacterBody2D" unique_id=1878565043 node_paths=PackedStringArray("area2d", "animation")]
+script = ExtResource("1_8agrv")
+npc_name = &"Belhop"
+dialogue_file = "res://assets/dialogue/belhop.txt"
+area2d = NodePath("Area2D")
+animation = NodePath("AnimatedSprite2D")
+metadata/_custom_type_script = "uid://cvq1dc601nuk2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1934499402]
+position = Vector2(3, -3)
+shape = SubResource("RectangleShape2D_8agrv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=288430248]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=196262368]
+position = Vector2(-8, -17)
+shape = SubResource("RectangleShape2D_b3wmt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=892616503]
+sprite_frames = SubResource("SpriteFrames_ib3ld")
+animation = &"idle_down"
+autoplay = "idle_down"
+frame_progress = 0.12132607
+offset = Vector2(0, -16)

@@ -7,7 +7,7 @@ var battle_running: bool = false
 var player_pos: Vector2
 var speaking_with: StringName
 var player_battle_inventory: Signals.BattleInv ## Initialised once, modify only its attributes
-
+var item_inventory: Array[Item] = []
 
 func _ready() -> void:
 	if !player_battle_inventory:
@@ -40,3 +40,11 @@ func won(npc_id: StringName) -> bool:
 
 func add_card(card: GameCard) -> void:
 	player_battle_inventory.deck.append(card)
+
+
+func add_item(item: Item) -> void:
+	item_inventory.append(item)
+
+
+func remove_item(item: Item) -> void:
+	item_inventory.erase(item)

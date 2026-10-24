@@ -1,5 +1,5 @@
 start (
-	Rebeka: rhgrhhr It's prohibited to pass here.
+	Rebeka: RHGRHHR It's prohibited to pass here.
 	Emily: Why?
 	Rebeka: It's too dangerous for weaklings like you.
 	Rebeka: Win me in a battle to prove you are strong enough.
@@ -9,42 +9,42 @@ start (
 )
 
 ran (
-	Rebeka: ghrh you again really? What do you want now.
+	Rebeka: GHRH you again really? What do you want now.
 	Battle > battle_talk
 	Run > run_again
 )
 
 battle_talk (
-	Emily: I wanna battle this time!
+	Emily: I wanna battle!
 	Battle > battle_init
 )
 
 run_again (
-	Emily: sorry for bothering you!
+	Emily: Sorry for bothering you!
 	Rebeka: Coward!!
 	>> run
 )
 
 battle_won (
-	Rebeka: rhg you have won my respect do you want to come with me?
+	Rebeka: RHG you have won my respect do you want to come with me?
 		Yes > follow
 		No > dont_follow
 )
 
 follow (
 	Emily: yesyesyes!
-	Rebeka: grhh don't be too enthusiastic.
+	Rebeka: GRHH don't be too enthusiastic.
 	>> end
 )
 
 dont_follow (
-	Emily: no thank you!
+	Emily: No thank you!
 	>> end
 )
 
 frens (
-	Rebeka: so cool we are frens now :)
-	Emily: yah
+	Emily: so cool we are friends now.
+	Rabeka: We are not friends.
 	>> goodbye
 )
 
@@ -53,7 +53,7 @@ run (
 )
 
 flirt (
-	Emily: That bandana you have is pretty :3
+	Emily: That bandana you have on is pretty :3
 	Rebeka: Thanks.
 	Compliment hair > hair
 	Compliment axe > axe
@@ -61,15 +61,15 @@ flirt (
 )
 
 hair (
-	Emily: Y'know your hair is realliy pretty as well
+	Emily: Y'know your hair is really pretty as well.
 	Rebeka: You are way too pretty for me you can find way better.
 	>> end
 )
 
 axe (
-	Emily: wowowowow that axe you have there is really cool!!
-	Rebeka: grr its not an axe its a halberd.
-	Emily: oh sorry I din't know, you can always learn tho!
+	Emily: woa that axe you have there is really cool!
+	Rebeka: Grr its not an axe its a halberd.
+	Emily: Oh sorry I din't know, you can always learn tho!
 	Rebeka: I guess.
 	Emily: Can I go thru now ?
 	Rebeka: Fiiinee.
@@ -79,6 +79,6 @@ axe (
 )
 
 goodbye (
-	Emily: baiii :3
+	Emily: Baii :3
 	Rebeka: Goodbye.
 )

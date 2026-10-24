@@ -1,3 +1,13 @@
 start (
-	lucy: hello
+	Emily: Hey, Who are you?
+	Lucy: I'm Lucy I'm the herbalist of this village, what about you?
+	Emily: I'm Emily and I'm looking for my white bunny have you seen it?
+	Lucy: Hmm I'm not sure but I don't think I've seen one sorry.
+	Emily: Thank's anyway.
+)
+
+met (
+	Emily: Hey, how are you doing?
+	Lucy: I'm good. me and my husband are gonna have our hundredth child soon! What about you?
+	Emily: I'm fine still a little sad my bunny hasnt been found yet.
 )

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://df6tneo4xndxm"]
+
+[ext_resource type="Script" uid="uid://bi3fytgnuy1ks" path="res://scripts/resources/item.gd" id="1_d8jny"]
+[ext_resource type="Texture2D" uid="uid://dwtnlj43m8rbs" path="res://assets/ticket.png" id="1_w4h1j"]
+
+[resource]
+script = ExtResource("1_d8jny")
+icon = ExtResource("1_w4h1j")
+name = "Circus ticket"
+description = "A ticket to enter the circus"
+metadata/_custom_type_script = "uid://bi3fytgnuy1ks"

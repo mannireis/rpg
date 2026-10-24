@@ -1,0 +1,5 @@
+start (
+	Belhop: Do you have a ticket?
+	Yes > yes
+	No > end
+)

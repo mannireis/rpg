@@ -1,30 +1,43 @@
 meet_john (
 	Emily: uhh hi?
+		Ask about bunny > bunny
 		Where am I? > where
 		Who are you? > who
 		Bye > bye
 )
 
+bunny (
+	Emily: Have you seen a white bunny with a black top hat and a monocle around here?
+	John: I saw him.
+	Emily: Where we're was he headed?
+	John: To the land where the snow doesen't melt, 2 feet, 4 paws.
+	Emily: What?
+	John: ...
+	>> meet_john
+)
+
 john (
-	John: Hey, em!
-	Emily: haiiiiiii.
+	John: Hey, Em. How are you doing?
+	Emily: haiii.
 	>> bye
 )
 
 where (
-	John: You are in ?????.
-	Emily: "?????"?
-	John: :) seems like you are not a level high enough!
+	John: You are in The Crypt.
+	Emily: The Crypt?
+	John: You'll find out more when you have advanced more...
 	>> meet_john
 )
 
 who (
-	John: Hey, I'm John! What about you?
-	Emily: I'm Emily. 
+	John: I’m the one who walks north, comes back, still here.
+	Emily: I just wanted to know your name.
+	John: I'm John what about you?
+	Emily: I'm Emily but go by Em.
 	>> meet_john
 )
 
 bye (
-	Emily: Goodbye !!
+	Emily: Goodbye!
 	John: Farewell.
 )

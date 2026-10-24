@@ -224,6 +224,7 @@ animations = [{
 script = ExtResource("1_m33i2")
 npc_name = &"greg"
 dialogue_file = "res://assets/dialogue/greg.txt"
+met_id = &"met"
 area2d = NodePath("Area2D")
 wander = true
 max_wait = 10.0
