@@ -77,8 +77,13 @@ func _parse(source: String) -> Dictionary:
 func _goto(id: String) -> void:
 	Signals.dialogue_branched.emit(id)
 	if id.begins_with("battle_init"):
-		if id == "battle_init_spec": Signals.start_battle.emit(1)
-		else: Signals.start_battle.emit(0)
+		var parts = id.split("[", true, 1)
+		var inv = parts[1].replace("]", "").strip_edges()
+		if inv.is_valid_int():
+			var value: int = inv
+			Signals.start_battle.emit()
+		else: 
+			push_error("Warning (" + inv + ") is not a valid int")
 		_end()
 		return
 	if id == "end" or not _parsed_dialogue.has(id):

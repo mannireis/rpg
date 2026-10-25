@@ -5,7 +5,7 @@ start (
 	Flicker: I've seen one cross into my lands with something else beside it, I was just preparing to go on a hunt to catch them!
 	Flicker: Be warned though, I am not good with sharing, and I do not wish to be interrupted.
 	Flicker: Perhaps you should go back where you came from...
-		Stop Flicker > battle_init
+		Stop Flicker > battle_init[0]
 		Convince > convince
 )
 
@@ -14,5 +14,5 @@ convince (
 	Flicker: I do not want to miss out on this opportunity.
 	Flicker: Few things excite me as much as hunting a magical creature.
 	Flicker: A battle with a skilled opponent, maybe...
-	>> battle_init_spec
+	>> battle_init[1]
 )

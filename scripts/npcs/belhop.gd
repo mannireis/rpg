@@ -1,6 +1,6 @@
 extends NPC
 
-const TICKET = preload("res://scripts/resources/ticket.tres")
+const TICKET = preload("res://assets/ticket.tres")
 
 func _ready() -> void:
 	super()

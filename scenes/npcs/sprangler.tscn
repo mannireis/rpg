@@ -73,10 +73,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aomwt"]
 size = Vector2(32, 32)
 
-[node name="Sprangler" type="CharacterBody2D" unique_id=1040220559]
+[node name="Sprangler" type="CharacterBody2D" unique_id=1040220559 node_paths=PackedStringArray("area2d")]
 script = ExtResource("1_i1fvj")
 npc_name = &"The Sprangler"
 met_id = &"met"
+area2d = NodePath("Area2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=632702777]

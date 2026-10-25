@@ -1,3 +1,21 @@
-start ()
+start (
+	Emily: Hey! Would it be possible for me to pass through?
+	Sprangler: Why should I let you pass?
+	You are very cute! > cute
+	Looking for bunny. > bunny
+	You just should > just
+)
 
-met ()
+cute (
+	
+)
+
+bunny (
+	
+)
+
+just (
+	Sprangler: Grhh I'm not letting you just pass.
+	Emily: Pleaseee.
+	>> battle_init
+)
