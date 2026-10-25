@@ -1,7 +1,7 @@
 @tool
 extends Node2D
 
-const _COLOR = Color.PURPLE
+const _COLOR = Color(1, 1, 1, 0.2)
 
 var _viewport := Vector2(
 	ProjectSettings.get_setting("display/window/size/viewport_width"),
