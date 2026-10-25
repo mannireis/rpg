@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://cvkbq4dsmvujn"]
+
+[ext_resource type="Script" uid="uid://cvq1dc601nuk2" path="res://scripts/npcs/npc.gd" id="1_i1fvj"]
+[ext_resource type="Texture2D" uid="uid://bta0m34wpibh7" path="res://assets/characters/sprangler.png" id="2_p76rt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p76rt"]
+size = Vector2(32, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aomwt"]
+atlas = ExtResource("2_p76rt")
+region = Rect2(0, 0, 32, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff527"]
+atlas = ExtResource("2_p76rt")
+region = Rect2(32, 0, 32, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6et2"]
+atlas = ExtResource("2_p76rt")
+region = Rect2(64, 0, 32, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu5tr"]
+atlas = ExtResource("2_p76rt")
+region = Rect2(96, 0, 32, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdu0k"]
+atlas = ExtResource("2_p76rt")
+region = Rect2(128, 0, 32, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq0u0"]
+atlas = ExtResource("2_p76rt")
+region = Rect2(160, 0, 32, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5c2kp"]
+atlas = ExtResource("2_p76rt")
+region = Rect2(192, 0, 32, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_terry"]
+atlas = ExtResource("2_p76rt")
+region = Rect2(224, 0, 32, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ib3ld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aomwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff527")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6et2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu5tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdu0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq0u0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5c2kp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_terry")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aomwt"]
+size = Vector2(32, 32)
+
+[node name="Sprangler" type="CharacterBody2D" unique_id=1040220559]
+script = ExtResource("1_i1fvj")
+npc_name = &"The Sprangler"
+met_id = &"met"
+metadata/_custom_type_script = "uid://cvq1dc601nuk2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=632702777]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_p76rt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1483368523]
+sprite_frames = SubResource("SpriteFrames_ib3ld")
+autoplay = "default"
+frame = 1
+frame_progress = 0.9232917
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1163510274]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=3099083]
+position = Vector2(0, -66)
+shape = SubResource("RectangleShape2D_aomwt")
