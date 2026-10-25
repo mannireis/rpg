@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5ppysggqt844"
-path="res://.godot/imported/cave_tileset.png-1dd6f101c39817003a8319546b693c11.ctex"
+uid="uid://j2ahi5i8d1v8"
+path="res://.godot/imported/pressure_plates.png-5bc8adb33f599724395dcfabbc8821e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/cave_tileset.png"
-dest_files=["res://.godot/imported/cave_tileset.png-1dd6f101c39817003a8319546b693c11.ctex"]
+source_file="res://assets/tilesets/pressure_plates.png"
+dest_files=["res://.godot/imported/pressure_plates.png-5bc8adb33f599724395dcfabbc8821e2.ctex"]
 
 [params]
 
