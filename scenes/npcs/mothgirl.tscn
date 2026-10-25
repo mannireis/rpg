@@ -35,6 +35,7 @@ size = Vector2(64, 64)
 script = ExtResource("1_cr04o")
 npc_name = &"Kira"
 dialogue_file = "res://assets/dialogue/mothgirl.txt"
+met_id = &"met"
 area2d = NodePath("Area2D")
 animation = NodePath("AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
