@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bimbxcadoh7qc"
-path="res://.godot/imported/tileset3.png-84a37210ce933ddf20a8f59b91fbc240.ctex"
+uid="uid://lcrlxwaowisb"
+path="res://.godot/imported/orange.png-5cb0126512220e3685f30febc2ec2b2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/tileset3.png"
-dest_files=["res://.godot/imported/tileset3.png-84a37210ce933ddf20a8f59b91fbc240.ctex"]
+source_file="res://assets/aseprite/orange.png"
+dest_files=["res://.godot/imported/orange.png-5cb0126512220e3685f30febc2ec2b2c.ctex"]
 
 [params]
 
