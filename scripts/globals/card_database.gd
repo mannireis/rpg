@@ -12,30 +12,29 @@ var common_textures: Array[Texture2D] = [
 
 var db: Array[Array] = [
 [
-	GameCard.create(s.SPADES, 0, n, v0, "Double Trouble", 1, preload(p+"0/0.png",), "test"),
-	GameCard.create(s.SPADES,1,n,Vector2i(10,0),"Barbaric Strike",2,preload(p+"0/1.png"), "test"),
-	GameCard.create(s.SPADES,2,n,Vector2i(1,0),"Poke",0,preload(p+"0/2.png"), "test"),
-	GameCard.create(s.SPADES,3,n,Vector2i(5,2),"Fireball",4,preload(p+"0/3.png"),"Persistent burning damage"),
-	GameCard.create(s.SPADES,4,n,Vector2i(3,2),"Sprangler's tooth",4,preload("res://assets/cards/spranglers_tooth.png"),"Deals 4 damage when played, then 2 damage for 2 rounds")
+	GameCard.create(s.SPADES, 0, n, v0, "Double Trouble", 1, preload("res://assets/cards/double_trouble.png"), "Does 2 basic attacks dealing 6 points of damage"),
+	GameCard.create(s.SPADES,1,n,Vector2i(10,0),"Barbaric Strike",2,preload("res://assets/cards/barbaric_strike.png"), "Deal 10 points of damage, to the enemy"),
+	GameCard.create(s.SPADES,2,n,Vector2i(5,2),"Fireball",4,preload("res://assets/cards/fireball.png"),"Do persistent burning damage. Deals 5 damage for 2 rounds"),
+	GameCard.create(s.SPADES,3,n,Vector2i(3,2),"Sprangler's tooth",4,preload("res://assets/cards/spranglers_tooth.png"),"Deals 4 damage when played, then 2 damage for 2 rounds")
 ],
 [
-	GameCard.create(s.CLUBS,0,n,v0,"Good Posture",1,preload(p+"1/0.png"), "test")
+	GameCard.create(s.CLUBS,0,n,v0,"Good Posture",1,preload("res://assets/cards/good_posture.png"), "Add 6 points to shield")
 ],
 [
-	GameCard.create(s.HEARTS,0,n,Vector2i(2,0),"Disarm Equipment",2,preload(p+"2/0.png"),"eat the opponent's cards at a cost")
+	GameCard.create(s.HEARTS,0,n,Vector2i(2,0),"Disarm Equipment",2,preload(p+"2/0.png"),"Eat the opponent's cards at a cost")
 ],
 [
-	GameCard.create(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload(p+"3/0.png"), "test"),
-	GameCard.create(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload(p+"3/1.png"), "test"),
+	GameCard.create(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload(p+"3/0.png"), "Add +2 damage per round"),
+	GameCard.create(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload(p+"3/1.png"), "Adds +5 shield points"),
 	GameCard.create(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload(p+"3/2.png"), "test"),
-	GameCard.create(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload(p+"3/3.png"), "Pretty, isn't it?")
+	GameCard.create(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload(p+"3/3.png"), "Pretty, isn't it? Does 8 damage points")
 ],
 [
 	GameCard.create(s.JOKER, 0 , n, Vector2i.ZERO, "Golden Joker", 3, preload("res://assets/jester_joker.png"), "Do 25% more damage per round")
 ],
 [
-	GameCard.create(s.OTHER,0,GameCard.Able.ATK,Vector2i(3,0),"Punch",0),
-	GameCard.create(s.OTHER,0,GameCard.Able.BLOCK,Vector2i(-3,0),"Block",0)
+	GameCard.create(s.OTHER,0,GameCard.Able.ATK,Vector2i(3,0),"Punch",0, preload("res://assets/aseprite/cards/1/0.png"), "Basic attack does 3 attack"),
+	GameCard.create(s.OTHER,0,GameCard.Able.BLOCK,Vector2i(-3,0),"Block",0, preload("res://assets/aseprite/cards/1/0.png"), "Basic shield adds +3 shield points")
 ]]
 
 
@@ -53,12 +52,9 @@ func _ready() -> void:
 			_enemy_ctl.exec_atk(Vector2i(4,0))
 		return [GameCard.Move.TRASH]
 	db[0][2].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
-		ctl.exec_atk(db[0][2].atk)
-		return [GameCard.Move.STAY]
-	db[0][3].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		ctl.exec_atk(db[0][3].atk)
 		return [GameCard.Move.TRASH]
-	db[0][4].play = func(ctl: PlayerCtl, enemy_ctl: PlayerCtl) -> Array:
+	db[0][3].play = func(ctl: PlayerCtl, enemy_ctl: PlayerCtl) -> Array:
 		ctl.exec_atk(Vector2i(4, 0))
 		enemy_ctl.persistent_dmg[1] = Vector2i(2, 2)
 		return [GameCard.Move.TRASH]
@@ -119,10 +115,10 @@ func _ready() -> void:
 
 	db[3][1].play = func(ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Array:
 		if db[3][1] not in ctl.equipped_cards and len(ctl.equipped_cards) < 3:
-			print("eqsuipping "+self.name)
+			print("equipping "+self.name)
 			return [GameCard.Move.EQUIP]
 		else:
-			ctl.exessc_block(Vector2i(-6,0))
+			ctl.exec_block(Vector2i(-6,0))
 			return [GameCard.Move.TRASH]
 
 	db[3][2].play = func(ctl: PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:

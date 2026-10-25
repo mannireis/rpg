@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lcrlxwaowisb"
-path="res://.godot/imported/orange.png-5cb0126512220e3685f30febc2ec2b2c.ctex"
+uid="uid://di24rrra3h7nu"
+path="res://.godot/imported/barbaric_strike.png-3d20c7d7b9f89ca60a9e199d3316ff3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/orange.png"
-dest_files=["res://.godot/imported/orange.png-5cb0126512220e3685f30febc2ec2b2c.ctex"]
+source_file="res://assets/cards/barbaric_strike.png"
+dest_files=["res://.godot/imported/barbaric_strike.png-3d20c7d7b9f89ca60a9e199d3316ff3a.ctex"]
 
 [params]
 

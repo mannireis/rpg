@@ -138,7 +138,6 @@ size = Vector2(32, 32)
 script = ExtResource("1_p76rt")
 npc_name = &"The Sprangler"
 dialogue_file = "res://assets/dialogue/sprangler.txt"
-met_id = &"met"
 area2d = NodePath("Area2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 

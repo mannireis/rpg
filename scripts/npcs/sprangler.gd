@@ -1,5 +1,7 @@
 extends NPC
 
+var battle_won := false
+
 func _ready() -> void:
 	super()
 	Signals.dialogue_branched.connect(_current_id)
@@ -36,12 +38,13 @@ func _ready() -> void:
 
 func _on_battle_won() -> void:
 	GameState.add_card(CardDatabase.db[0][4])
+	battle_won = true
 
 
 func _current_id(id: String) -> void:
 	if GameState.speaking_with != npc_name:
 		return
-	if id == &"correct":
+	if id == &"correct" or battle_won:
 		met_id = &"met"
 		$CollisionShape2D.shape.size.y = 28
 		$CollisionShape2D.position.y = 42

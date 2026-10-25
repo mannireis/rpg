@@ -8,12 +8,11 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3wmt"]
 size = Vector2(64, 48)
 
-[node name="belhop" type="CharacterBody2D" unique_id=1878565043 node_paths=PackedStringArray("area2d", "animation")]
+[node name="belhop" type="CharacterBody2D" unique_id=1878565043 node_paths=PackedStringArray("area2d")]
 script = ExtResource("1_8agrv")
 npc_name = &"Belhop"
 dialogue_file = "res://assets/dialogue/belhop.txt"
 area2d = NodePath("Area2D")
-animation = NodePath("")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1934499402]
