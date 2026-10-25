@@ -386,11 +386,12 @@ other = NodePath("../Door13")
 
 [node name="Door15" parent="ProcessModeReset/YSort/Doors" parent_id_path=PackedInt32Array(662505405) index="14" unique_id=175261676 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
 position = Vector2(630, -638)
-rotation = -3.1415925
 other = NodePath("../Door16")
 
 [node name="Door16" parent="ProcessModeReset/YSort/Doors" parent_id_path=PackedInt32Array(662505405) index="15" unique_id=659566476 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
 position = Vector2(649, -638)
+rotation = 3.1415927
+flip = true
 other = NodePath("../Door15")
 
 [node name="Door17" parent="ProcessModeReset/YSort/Doors" parent_id_path=PackedInt32Array(662505405) index="16" unique_id=1363644394 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
@@ -522,7 +523,7 @@ flip = true
 other = NodePath("../Door37")
 
 [node name="Door39" parent="ProcessModeReset/YSort/Doors" parent_id_path=PackedInt32Array(662505405) index="36" unique_id=1555854329 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
-position = Vector2(1912, -992)
+position = Vector2(1904, -992)
 width = 4
 other = NodePath("../Door40")
 
