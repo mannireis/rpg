@@ -1,4 +1,4 @@
-start (
+=== start
 	Emily: Hey! I was passing through while looking for my bunny and I was wondering if you have seen him wondering around here?
 	Kira: Hmm I've seen a few bunny's passing but mayhaps how does he look like?
 	Emily: He is white with a top hat and a monocle.
@@ -7,16 +7,16 @@ start (
 	Kira: I'm Kira, the leader of this caravan.
 	Kira: We are actually going North-East if you would like to come with us.
 	Kira: We will take you if you bring 3 moulberrys.
-	Will bring soon > bring
-	No thank you > start_battle
-)
+	* Will bring soon -> bring
+	* No thank you -> start_battle
+===
 
-met (
+=== met
 	Kira: Have you come to bring me the moulberrys?
-	Yes > yes
-	No > end
-)
+	* Yes -> yes
+	* No -> end
+===
 
-yes (
+=== yes
 	Kira: Thank You!
-)
+===

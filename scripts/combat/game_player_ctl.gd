@@ -3,7 +3,7 @@ class_name PlayerCtl extends Node
 var battle_manager: Node = null
 var UI_node: Node = null
 
-const v0 = Vector2i(0,0) #NOT vercel
+const v0 = Vector2i(0,0) #NOT vercel - nina: i think its vercel :3
 const battle_debug: bool = false
 const persist_dmg_type: Array[int] = [2]
 
@@ -17,8 +17,6 @@ var energy: int = 4
 var max_hp: int = 26
 var hp: int = max_hp
 var hp_bar: HealthBar2D
-#var hp_display: Label
-#var block_display: Label
 var block_current: Array[int] = [0]
 var block_history: int = 1
 var next_turn: Array[Callable] = []

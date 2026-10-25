@@ -1,12 +1,12 @@
-meet_john (
+=== meet_john
 	Emily: uhh hi?
-		Ask about bunny > bunny
-		Where am I? > where
-		Who are you? > who
-		Bye > bye
-)
+	* Ask about bunny -> bunny
+	* Where am I? -> where
+	* Who are you? -> who
+	* Bye -> bye
+===
 
-bunny (
+=== bunny
 	Emily: Have you seen a white bunny with a black top hat and a monocle around here?
 	John: I saw him.
 	Emily: Where we're was he headed?
@@ -14,30 +14,30 @@ bunny (
 	Emily: What?
 	John: ...
 	>> meet_john
-)
+===
 
-john (
+=== john
 	John: Hey, Em. How are you doing?
 	Emily: haiii.
 	>> bye
-)
+===
 
-where (
-	John: You are in The Crypt.
-	Emily: The Crypt?
-	John: You'll find out more when you have advanced more...
+=== where
+	John: You are in [wave amp=10 freq=5]The Crypt[/wave]
+	Emily: [wave amp=10 freq=5]The Crypt?[/wave]
+	John: [wave amp=10 freq=5]You'll find out more when you have advanced more...[/wave]
 	>> meet_john
-)
+===
 
-who (
+=== who
 	John: I’m the one who walks north, comes back, still here.
 	Emily: I just wanted to know your name.
 	John: I'm John what about you?
 	Emily: I'm Emily but go by Em.
 	>> meet_john
-)
+===
 
-bye (
+=== bye
 	Emily: Goodbye!
 	John: Farewell.
-)
+===

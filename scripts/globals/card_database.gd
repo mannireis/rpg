@@ -15,7 +15,8 @@ var db: Array[Array] = [
 	GameCard.create(s.SPADES, 0, n, v0, "Double Trouble", 1, preload(p+"0/0.png",), "test"),
 	GameCard.create(s.SPADES,1,n,Vector2i(10,0),"Barbaric Strike",2,preload(p+"0/1.png"), "test"),
 	GameCard.create(s.SPADES,2,n,Vector2i(1,0),"Poke",0,preload(p+"0/2.png"), "test"),
-	GameCard.create(s.SPADES,3,n,Vector2i(5,2),"Fireball",4,preload(p+"0/3.png"),"Persistent burning damage")
+	GameCard.create(s.SPADES,3,n,Vector2i(5,2),"Fireball",4,preload(p+"0/3.png"),"Persistent burning damage"),
+	GameCard.create(s.SPADES,4,n,Vector2i(3,2),"Sprangler's tooth",4,preload("res://assets/cards/spranglers_tooth.png"),"Deals 4 damage when played, then 2 damage for 2 rounds")
 ],
 [
 	GameCard.create(s.CLUBS,0,n,v0,"Good Posture",1,preload(p+"1/0.png"), "test")
@@ -41,6 +42,7 @@ var db: Array[Array] = [
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print(typeof(db[0][0].play))
+	
 	db[0][0].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		ctl.player_attack() #glorious impl of a dual punch
 		ctl.player_attack()
@@ -55,7 +57,12 @@ func _ready() -> void:
 		return [GameCard.Move.STAY]
 	db[0][3].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		ctl.exec_atk(db[0][3].atk)
-		return [GameCard.Move.TRASH]	
+		return [GameCard.Move.TRASH]
+	db[0][4].play = func(ctl: PlayerCtl, enemy_ctl: PlayerCtl) -> Array:
+		ctl.exec_atk(Vector2i(4, 0))
+		enemy_ctl.persistent_dmg[1] = Vector2i(2, 2)
+		return [GameCard.Move.TRASH]
+		
 		
 	db[1][0].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		ctl.player_attack(true)
@@ -102,7 +109,7 @@ func _ready() -> void:
 		return [GameCard.Move.TRASH]
 	
 	
-	db[3][0].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
+	db[3][0].play = func(ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Array:
 		if db[3][0] not in ctl.equipped_cards and len(ctl.equipped_cards) < 3:
 			print("equipping "+self.name)
 			return [GameCard.Move.EQUIP]
@@ -110,12 +117,12 @@ func _ready() -> void:
 			ctl.exec_atk(Vector2i(6,0))
 			return [GameCard.Move.TRASH]
 
-	db[3][1].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
+	db[3][1].play = func(ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Array:
 		if db[3][1] not in ctl.equipped_cards and len(ctl.equipped_cards) < 3:
-			print("equipping "+self.name)
+			print("eqsuipping "+self.name)
 			return [GameCard.Move.EQUIP]
 		else:
-			ctl.exec_block(Vector2i(-6,0))
+			ctl.exessc_block(Vector2i(-6,0))
 			return [GameCard.Move.TRASH]
 
 	db[3][2].play = func(ctl: PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:

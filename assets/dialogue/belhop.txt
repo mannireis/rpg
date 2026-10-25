@@ -1,5 +1,5 @@
-start (
+=== start
 	Belhop: Do you have a ticket?
-	Yes > yes
-	No > end
-)
+	* Yes -> yes
+	* No -> end
+===

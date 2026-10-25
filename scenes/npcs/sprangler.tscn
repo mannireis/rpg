@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cvkbq4dsmvujn"]
 
-[ext_resource type="Script" uid="uid://cvq1dc601nuk2" path="res://scripts/npcs/npc.gd" id="1_i1fvj"]
+[ext_resource type="Script" uid="uid://br5yjydvxtap3" path="res://scripts/npcs/sprangler.gd" id="1_p76rt"]
 [ext_resource type="Texture2D" uid="uid://bta0m34wpibh7" path="res://assets/characters/sprangler.png" id="2_p76rt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p76rt"]
@@ -74,7 +74,7 @@ animations = [{
 size = Vector2(32, 32)
 
 [node name="Sprangler" type="CharacterBody2D" unique_id=1040220559 node_paths=PackedStringArray("area2d")]
-script = ExtResource("1_i1fvj")
+script = ExtResource("1_p76rt")
 npc_name = &"The Sprangler"
 met_id = &"met"
 area2d = NodePath("Area2D")

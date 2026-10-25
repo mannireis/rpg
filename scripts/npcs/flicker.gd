@@ -3,7 +3,8 @@ extends NPC
 var first_seen := false
 
 
-func v(a:int, b:int = 0) -> Vector2i: return Vector2i(a,b)
+func v(a: int, b: int = 0) -> Vector2i: 
+	return Vector2i(a,b)
 
 
 func _ready() -> void:

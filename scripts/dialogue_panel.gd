@@ -12,7 +12,7 @@ var _current_line := 0
 
 @onready var panel: PanelContainer = $MarginContainer/PanelContainer
 @onready var speaker: Label = $MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/Speaker
-@onready var content: Label = $MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/Content
+@onready var content: RichTextLabel = $MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/Content
 @onready var choices: VBoxContainer = $MarginContainer/PanelContainer/HBoxContainer/Choices
 
 
@@ -48,27 +48,34 @@ func _parse(source: String) -> Dictionary:
 		if line.is_empty() or line.begins_with("#"):
 			continue
 
-		if current_id == "" and line.ends_with("("):
-			current_id = line.trim_suffix("(").strip_edges().to_lower()
-			current = []
-		elif line.ends_with(")"):
-			parsed_dialogue[current_id] = current
-			current_id = ""
+		if line.begins_with("==="):
+			var block_id := line.trim_prefix("===").strip_edges().to_lower()
+			if block_id == "":
+				if current_id != "":
+					parsed_dialogue[current_id] = current
+				current_id = ""
+				current = []
+			else:
+				current_id = block_id
+				current = []
 		elif current_id != "":
 			if line.begins_with(">>"):
 				current.append({"goto": line.trim_prefix(">>").strip_edges().to_lower()})
+			elif line.begins_with("*") and line.contains("->"):
+				if current.is_empty():
+					push_warning("Choice outside a speaker line: " + line)
+					continue
+				var choice_parts := line.trim_prefix("*").split("->", true, 1)
+				current[-1]["choices"].append({
+					"text": choice_parts[0].strip_edges(),
+					"next": choice_parts[1].strip_edges().to_lower(),
+				})
 			elif line.contains(":"):
-				var parts = line.split(":", true, 1)
+				var parts := line.split(":", true, 1)
 				current.append({
 					"speaker": parts[0].strip_edges(),
 					"text": parts[1].strip_edges(),
 					"choices": [],
-				})
-			elif line.contains(">"):
-				var parts = line.split(">", true, 1)
-				current[-1]["choices"].append({
-					"text": parts[0].strip_edges(),
-					"next": parts[1].strip_edges().to_lower(),
 				})
 
 	return parsed_dialogue
@@ -77,12 +84,15 @@ func _parse(source: String) -> Dictionary:
 func _goto(id: String) -> void:
 	Signals.dialogue_branched.emit(id)
 	if id.begins_with("battle_init"):
-		var parts = id.split("[", true, 1)
-		var inv = parts[1].replace("]", "").strip_edges()
+		var parts := id.split("[", true, 1)
+		if parts.size() < 2:
+			push_error("battle_init needs an index, e.g. battle_init[0]")
+			_end()
+			return
+		var inv := parts[1].replace("]", "").strip_edges()
 		if inv.is_valid_int():
-			var value: int = inv
-			Signals.start_battle.emit()
-		else: 
+			Signals.start_battle.emit(int(inv))
+		else:
 			push_error("Warning (" + inv + ") is not a valid int")
 		_end()
 		return
@@ -96,13 +106,15 @@ func _goto(id: String) -> void:
 
 
 func _show_line() -> void:
-	var line = _parsed_dialogue.get(_current_id).get(_current_line)
-	if line:
-		if line.has("goto"):
-			_goto(line["goto"])
-			return
-		_on_line(line)
-	else: printerr(str(_parsed_dialogue.get(_current_id))+" missing line "+str(_current_line))
+	var block: Array = _parsed_dialogue.get(_current_id, [])
+	if _current_line >= block.size():
+		_end()
+		return
+	var line = block[_current_line]
+	if line.has("goto"):
+		_goto(line["goto"])
+		return
+	_on_line(line)
 
 
 func advance() -> void:
