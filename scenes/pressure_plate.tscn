@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://diijohfuonl31"]
 
-[ext_resource type="Texture2D" uid="uid://j2ahi5i8d1v8" path="res://assets/pressure_plates.png" id="1_ct5vs"]
+[ext_resource type="Texture2D" uid="uid://j2ahi5i8d1v8" path="res://assets/tilesets/pressure_plates.png" id="1_ct5vs"]
 [ext_resource type="Script" uid="uid://dunihewlx66ad" path="res://scripts/pressure_plate.gd" id="1_xtofl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xtofl"]

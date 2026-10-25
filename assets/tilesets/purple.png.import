@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt64ku81lh8eb"
-path="res://.godot/imported/bunny_sighthings.png-798a0d4f5de0b48cf12379d6e901ccbb.ctex"
+uid="uid://ciqw8s38jysal"
+path="res://.godot/imported/purple.png-12e5202e6586d622fc41a3c21932230e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bunny_sighthings.png"
-dest_files=["res://.godot/imported/bunny_sighthings.png-798a0d4f5de0b48cf12379d6e901ccbb.ctex"]
+source_file="res://assets/tilesets/purple.png"
+dest_files=["res://.godot/imported/purple.png-12e5202e6586d622fc41a3c21932230e.ctex"]
 
 [params]
 
