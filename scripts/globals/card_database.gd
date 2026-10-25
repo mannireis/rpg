@@ -21,16 +21,16 @@ var db: Array[Array] = [
 	GameCard.create(s.CLUBS,0,n,v0,"Good Posture",1,preload("res://assets/cards/good_posture.png"), "Add 6 points to shield")
 ],
 [
-	GameCard.create(s.HEARTS,0,n,Vector2i(2,0),"Disarm Equipment",2,preload(p+"2/0.png"),"Eat the opponent's cards at a cost")
+	GameCard.create(s.HEARTS,0,n,Vector2i(2,0),"Disarm Equipment",2,preload("res://assets/cards/disarm_equipment.png"),"Eat the opponent's cards at a cost")
 ],
 [
-	GameCard.create(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload(p+"3/0.png"), "Add +2 damage per round"),
-	GameCard.create(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload(p+"3/1.png"), "Adds +5 shield points"),
-	GameCard.create(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload(p+"3/2.png"), "test"),
+	GameCard.create(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload("res://assets/cards/pirate_saber.png"), "Add +2 damage per round"),
+	GameCard.create(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload("res://assets/cards/sturdy_shield.png"), "Adds +5 shield points per round"),
+	GameCard.create(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload("res://assets/cards/abstract_art.png"), "test"),
 	GameCard.create(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload(p+"3/3.png"), "Pretty, isn't it? Does 8 damage points")
 ],
 [
-	GameCard.create(s.JOKER, 0 , n, Vector2i.ZERO, "Golden Joker", 3, preload("res://assets/jester_joker.png"), "Do 25% more damage per round")
+	GameCard.create(s.JOKER, 0 , n, Vector2i.ZERO, "Golden Joker", 3, preload("res://assets/cards/jester_joker.png"), "Do 25% more damage per round")
 ],
 [
 	GameCard.create(s.OTHER,0,GameCard.Able.ATK,Vector2i(3,0),"Punch",0, preload("res://assets/aseprite/cards/1/0.png"), "Basic attack does 3 attack"),

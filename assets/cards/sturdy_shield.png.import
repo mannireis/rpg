@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl2prplfvpxg3"
-path="res://.godot/imported/jester_joker.png-86947c087dbabbcd36e73b3253f0109b.ctex"
+uid="uid://b1nagsg0jid4u"
+path="res://.godot/imported/sturdy_shield.png-19fdd67050d19896207b9e067a1ec24b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/jester_joker.png"
-dest_files=["res://.godot/imported/jester_joker.png-86947c087dbabbcd36e73b3253f0109b.ctex"]
+source_file="res://assets/cards/sturdy_shield.png"
+dest_files=["res://.godot/imported/sturdy_shield.png-19fdd67050d19896207b9e067a1ec24b.ctex"]
 
 [params]
 
