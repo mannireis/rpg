@@ -2,7 +2,7 @@ extends NPC
 
 func _ready() -> void:
 	super()
-	
+	Signals.dialogue_branched.connect(_current_id)
 	Signals.battle_won.connect(_on_battle_won)
 
 	var deck: Array[Vector2i] = [
@@ -36,3 +36,16 @@ func _ready() -> void:
 
 func _on_battle_won() -> void:
 	GameState.add_card(CardDatabase.db[0][4])
+
+
+func _current_id(id: String) -> void:
+	if GameState.speaking_with != npc_name:
+		return
+	if id == &"correct":
+		met_id = &"met"
+		$CollisionShape2D.shape.size.y = 28
+		$CollisionShape2D.position.y = 42
+		$Area2D.position.y = 15
+		$AnimatedSprite2D.play("idle_low")
+	if id == &"wrong":
+		met_id = &"start"
