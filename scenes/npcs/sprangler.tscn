@@ -147,9 +147,7 @@ shape = SubResource("RectangleShape2D_p76rt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1483368523]
 sprite_frames = SubResource("SpriteFrames_ib3ld")
-animation = &"idle_low"
 autoplay = "default"
-frame_progress = 0.20683031
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1163510274]
 position = Vector2(0, -69)
