@@ -29,7 +29,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ib3ld"]
-size = Vector2(64, 64)
+size = Vector2(22, 64)
 
 [node name="MothGirl" type="CharacterBody2D" unique_id=1818552278 node_paths=PackedStringArray("area2d", "animation")]
 script = ExtResource("1_cr04o")
@@ -54,4 +54,5 @@ frame_progress = 0.22026657
 [node name="Area2D" type="Area2D" parent="." unique_id=280858597]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2146052147]
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_ib3ld")

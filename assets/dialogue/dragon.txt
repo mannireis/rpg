@@ -1,13 +1,19 @@
 start (
-	
-	
+	Emily: Hey, Who are you? I'm Emily.
+	Fynn: I'm Fynn, I'm just a caravan member.
+	Emily: What is this caravan for?
+	Fynn: We sell equipment for a lot of shops.
+	Emily: hmm intresting where could I buy some of this equipment?
+	Fynn: There is person with a shop if you go a bit more south and take care of the puzzle.
 )
 
 met_kira (
-	
-	
+	Fynn: I see you have me my boss Kira.
+	Emily: I have.
+	Fynn: I would not trust her...
 )
 
 met (
-	
+	Fynn: Hey there Emily!
+	Emily: Hey!
 )

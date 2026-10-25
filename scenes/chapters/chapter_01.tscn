@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://b1dpr2irnlwdj" path="res://assets/tent.png" id="17_4jiuh"]
 [ext_resource type="Texture2D" uid="uid://b5y6y4fl6hdjt" path="res://assets/campfire.png" id="17_s3vlm"]
 [ext_resource type="PackedScene" uid="uid://bqc5iabo1c3ts" path="res://scenes/npcs/belhop.tscn" id="19_y7tnt"]
+[ext_resource type="PackedScene" uid="uid://cafiofuoiw86j" path="res://scenes/npcs/dragon.tscn" id="20_t8ort"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8mqf"]
 atlas = ExtResource("4_h8mqf")
@@ -497,7 +498,7 @@ buttons = [NodePath("../../Buttons/Button2D2"), NodePath("../../Buttons/Button2D
 position = Vector2(1141, -30)
 
 [node name="MothGirl" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="1" unique_id=1818552278 instance=ExtResource("8_4jiuh")]
-position = Vector2(-160, -680)
+position = Vector2(-160, -687)
 
 [node name="Elaine" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="2" unique_id=234258619 instance=ExtResource("10_t4sx4")]
 position = Vector2(-208, -144)
@@ -543,6 +544,9 @@ target = NodePath("../../ThePassersby")
 position = Vector2(1408, -824)
 vel = Vector2i(3, 2)
 vel_scale = 8.0
+
+[node name="Dragon" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="10" unique_id=1871835439 instance=ExtResource("20_t8ort")]
+position = Vector2(-205, -651)
 
 [node name="Campfire" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="6" unique_id=1003647821]
 position = Vector2(-160, -656)
