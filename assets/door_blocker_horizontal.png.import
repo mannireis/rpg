@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dholu8nt2w5b3"
-path="res://.godot/imported/tileset3.png-e36fc0c60b9e0315f259a3adc696f190.ctex"
+uid="uid://cf7q3r34xpon7"
+path="res://.godot/imported/door_blocker_horizontal.png-d0283d530f4fcc2d308be2b945920b17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/tileset3.png"
-dest_files=["res://.godot/imported/tileset3.png-e36fc0c60b9e0315f259a3adc696f190.ctex"]
+source_file="res://assets/door_blocker_horizontal.png"
+dest_files=["res://.godot/imported/door_blocker_horizontal.png-d0283d530f4fcc2d308be2b945920b17.ctex"]
 
 [params]
 

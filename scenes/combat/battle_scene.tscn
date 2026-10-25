@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://urtllnp62o4p" path="res://scripts/ui/card_tooltip.gd" id="9_m68oi"]
 [ext_resource type="Script" uid="uid://ov2xhwty8yje" path="res://scripts/combat/card_holder.gd" id="10_f4arg"]
 [ext_resource type="PackedScene" uid="uid://b8r8mkw0q8nwx" path="res://scenes/combat/visual_card.tscn" id="11_uf13u"]
-[ext_resource type="Script" uid="uid://5s8gps1iisx" path="res://scenes/combat/battle_manager.gd" id="12_aox2g"]
+[ext_resource type="Script" uid="uid://5s8gps1iisx" path="res://scripts/battle_manager.gd" id="12_aox2g"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g72on"]
 texture = ExtResource("1_hj64o")

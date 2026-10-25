@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://cvvde3tjg4wk5" path="res://scripts/dialogue_panel.gd" id="2_k12pt"]
 [ext_resource type="TileSet" uid="uid://ctpxu0oeyokmb" path="res://assets/tile_set.tres" id="2_xh8w3"]
 [ext_resource type="PackedScene" uid="uid://dn85my2emfvu8" path="res://scenes/player/player.tscn" id="3_xh8w3"]
-[ext_resource type="Theme" uid="uid://be6nkpog7kvd8" path="res://scenes/ui/themes/theme.tres" id="4_teg3p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmkx5"]
 bg_color = Color(0, 0, 0, 0.75000006)
@@ -146,26 +145,21 @@ autowrap_mode = 3
 [node name="Choices" type="VBoxContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer" unique_id=1568809243]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 0
 
 [node name="Button" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=532236600]
 layout_mode = 2
-theme = ExtResource("4_teg3p")
 text = "Option 1"
 
 [node name="Button2" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=1005288353]
 layout_mode = 2
-theme = ExtResource("4_teg3p")
 text = "Option 1"
 
 [node name="Button3" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=887819704]
 layout_mode = 2
-theme = ExtResource("4_teg3p")
 text = "Option 1"
 
 [node name="Button4" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=596984324]
 layout_mode = 2
-theme = ExtResource("4_teg3p")
 text = "Option 1"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="ProcessModeReset" unique_id=1252034803]
