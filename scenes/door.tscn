@@ -1,19 +1,39 @@
 [gd_scene format=3 uid="uid://dwkhcdggcjul5"]
 
 [ext_resource type="Script" uid="uid://b3rvxs7ntnlu3" path="res://scripts/door.gd" id="1_hpvv5"]
+[ext_resource type="Texture2D" uid="uid://cf7q3r34xpon7" path="res://assets/door_blocker_horizontal.png" id="2_83dcw"]
+[ext_resource type="Texture2D" uid="uid://b01txect8kbs6" path="res://assets/door_blocker_vertical.png" id="3_la1wf"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_uvdjg"]
 resource_local_to_scene = true
 a = Vector2(0, -16)
 b = Vector2(0, 16)
 
-[node name="Door" type="Area2D" unique_id=13791502]
+[node name="Door" type="Node2D" unique_id=1581805967]
 script = ExtResource("1_hpvv5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1982365462]
+[node name="Area2D" type="Area2D" parent="." unique_id=2068297697]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1982365462]
 shape = SubResource("SegmentShape2D_uvdjg")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1434430048]
-position = Vector2(16, 0)
+position = Vector2(-16, 0)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=517716551]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=642504930]
+position = Vector2(4, 0)
+shape = SubResource("SegmentShape2D_uvdjg")
+
+[node name="BlockerHorizontal" type="Sprite2D" parent="." unique_id=210988461]
+visible = false
+rotation = 1.5707964
+texture = ExtResource("2_83dcw")
+
+[node name="BlockerVertical" type="Sprite2D" parent="." unique_id=173344203]
+visible = false
+position = Vector2(2, 0)
+texture = ExtResource("3_la1wf")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
