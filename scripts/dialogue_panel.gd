@@ -70,12 +70,28 @@ func _parse(source: String) -> Dictionary:
 					"text": choice_parts[0].strip_edges(),
 					"next": choice_parts[1].strip_edges().to_lower(),
 				})
+			elif line.begins_with("*") and line.contains("{") and line.contains("}"):
+				var part := line.split(",", true, 3)
+				
+				var correct_answer := part[0].replace("{", "").replace("*", "").strip_edges()
+				var correct := part[1].strip_edges()
+				var wrong := part[2].replace("}", "").strip_edges()
+				
+				print(correct_answer + correct + wrong)
+				
+				current[-1]["text_box"].append({
+					"correct_answer": correct_answer,
+					"correct": correct,
+					"wrong": wrong
+				})
+
 			elif line.contains(":"):
 				var parts := line.split(":", true, 1)
 				current.append({
 					"speaker": parts[0].strip_edges(),
 					"text": parts[1].strip_edges(),
 					"choices": [],
+					"text_box": [],
 				})
 
 	return parsed_dialogue
@@ -134,6 +150,9 @@ func choose(target: String) -> void:
 
 func _end() -> void:
 	DialogueManager.active = false
+	for c in choices.get_children():
+		c.queue_free()
+	
 	hide()
 
 
@@ -148,13 +167,15 @@ func _on_line(line: Dictionary) -> void:
 	for c in line["choices"]:
 		var b := Button.new()
 		b.mouse_filter = Control.MOUSE_FILTER_STOP
-
-
-		b.theme = load("res://scenes/ui/themes/theme.tres")
-
 		b.text = c["text"]
 		b.pressed.connect(choose.bind(c["next"]))
 		choices.add_child(b)
+	
+	for t in line["text_box"]:
+		var box := LineEdit.new()
+		box.text_submitted.connect(_on_answer_submitted.bind(t))
+		choices.add_child(box)
+		box.grab_focus.call_deferred()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -196,3 +217,10 @@ func say(text:String):
 		else: tween.tween_interval(PUNCTUATION_TIME)
 
 		last_punctuation_index = index
+
+func _on_answer_submitted(text: String, data: Dictionary) -> void:
+	var answer := text.strip_edges().to_lower()
+	if answer == data["correct_answer"]:
+		choose(data["correct"])
+	else:
+		choose(data["wrong"])

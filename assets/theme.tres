@@ -17,6 +17,14 @@ texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p76rt"]
+texture = ExtResource("2_wl1kw")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+region_rect = Rect2(0, 0, 3, 3)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23v15"]
 texture = ExtResource("2_wl1kw")
 texture_margin_left = 1.0
@@ -31,4 +39,8 @@ Button/styles/hover = SubResource("StyleBoxTexture_wl1kw")
 Button/styles/normal = SubResource("StyleBoxTexture_wl1kw")
 Button/styles/pressed = SubResource("StyleBoxTexture_wl1kw")
 Label/fonts/font = ExtResource("1_5x3i2")
+LineEdit/fonts/font = ExtResource("1_5x3i2")
+LineEdit/styles/focus = SubResource("StyleBoxTexture_p76rt")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_p76rt")
+LineEdit/styles/read_only = SubResource("StyleBoxTexture_p76rt")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_23v15")

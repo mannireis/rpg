@@ -38,6 +38,38 @@ region = Rect2(192, 0, 32, 112)
 atlas = ExtResource("2_p76rt")
 region = Rect2(224, 0, 32, 112)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_p76rt"]
+atlas = ExtResource("2_p76rt")
+region = Rect2(0, 112, 32, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh5jj"]
+atlas = ExtResource("2_p76rt")
+region = Rect2(32, 112, 32, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78xcy"]
+atlas = ExtResource("2_p76rt")
+region = Rect2(64, 112, 32, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bb4h"]
+atlas = ExtResource("2_p76rt")
+region = Rect2(96, 112, 32, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8r06"]
+atlas = ExtResource("2_p76rt")
+region = Rect2(128, 112, 32, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff016"]
+atlas = ExtResource("2_p76rt")
+region = Rect2(160, 112, 32, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bchnu"]
+atlas = ExtResource("2_p76rt")
+region = Rect2(192, 112, 32, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ug1dg"]
+atlas = ExtResource("2_p76rt")
+region = Rect2(224, 112, 32, 112)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ib3ld"]
 animations = [{
 "frames": [{
@@ -68,6 +100,35 @@ animations = [{
 "loop": 1,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p76rt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh5jj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78xcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bb4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8r06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff016")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bchnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ug1dg")
+}],
+"loop": 1,
+"name": &"idle_low",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aomwt"]
@@ -76,22 +137,22 @@ size = Vector2(32, 32)
 [node name="Sprangler" type="CharacterBody2D" unique_id=1040220559 node_paths=PackedStringArray("area2d")]
 script = ExtResource("1_p76rt")
 npc_name = &"The Sprangler"
+dialogue_file = "res://assets/dialogue/sprangler.txt"
 met_id = &"met"
 area2d = NodePath("Area2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=632702777]
-position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_p76rt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1483368523]
 sprite_frames = SubResource("SpriteFrames_ib3ld")
+animation = &"idle_low"
 autoplay = "default"
-frame = 1
-frame_progress = 0.9232917
+frame_progress = 0.20683031
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1163510274]
+position = Vector2(0, -69)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=3099083]
-position = Vector2(0, -66)
 shape = SubResource("RectangleShape2D_aomwt")
