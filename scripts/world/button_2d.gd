@@ -1,25 +1,27 @@
 class_name Button2D
 extends Area2D
 
-signal toggled(is_on: bool)
+signal toggled(value: bool)
 
-var bodies_on_button := 0
-var is_on := false
+var body_count := 0
+var is_toggled := false
 
-func _ready() -> void:
-	body_entered.connect(_on_body_entered)
-	body_exited.connect(_on_body_exited)
+@onready var sprite: Sprite2D = $Sprite2D
 
-func _on_body_entered(body: Node2D) -> void:
-	bodies_on_button += 1
-	if bodies_on_button >= 1:
-		$Sprite2D.frame = 1
-		is_on = true
-		toggled.emit(true)
 
-func _on_body_exited(body: Node2D) -> void:
-	bodies_on_button -= 1
-	if bodies_on_button == 0:
-		$Sprite2D.frame = 0
-		is_on = false
-		toggled.emit(false)
+func _on_body_entered(_body: Node2D) -> void:
+	body_count += 1
+
+	if body_count >= 1:
+		sprite.frame = 1
+		is_toggled = true
+		toggled.emit(is_toggled)
+
+
+func _on_body_exited(_body: Node2D) -> void:
+	body_count -= 1
+
+	if body_count == 0:
+		sprite.frame = 0
+		is_toggled = false
+		toggled.emit(is_toggled)

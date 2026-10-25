@@ -28,18 +28,22 @@ func _ready() -> void:
 
 	RoomChangeGlobal.enemy_inv_dict[npc_name] = [inv,inv2]
 
-	room_door.body_entered.connect(room_entered)
-	print(room_door.body_entered.get_connections())
+	Signals.transition.connect(room_entered)
+	#print(room_door.body_entered.get_connections())
 
 
-func room_entered(body: Node2D) -> void: # make the passersby creature appear when the player first enters flicker's room
-	print(str(body)+", "+str(body.get_groups())+" entered flicker's room. seen? "+str(first_seen))
-	if body.is_in_group("player") and !first_seen:
-		first_seen = true
-		get_parent().get_node("ThePassersby").appear()
-		await get_tree().create_timer(1).timeout
-		var f = get_node("FireballBullet")
-		f.get_node("AnimatedSprite2D").play("fireball")
-		f.add_to_group("fireball")
-		get_node("FireballBullet").appear()
+func room_entered(door: Door) -> void: # make the passersby creature appear when the player first enters flicker's room
+	pass
+	#if door != room_door:
+		#return
+	#
+	#print(str(door)+", "+str(oo.get_groups())+" entered flicker's room. seen? "+str(first_seen))
+	#if body.is_in_group("player") and !first_seen:
+		#first_seen = true
+		#get_parent().get_node("ThePassersby").appear()
+		#await get_tree().create_timer(1).timeout
+		#var f = get_node("FireballBullet")
+		#f.get_node("AnimatedSprite2D").play("fireball")
+		#f.add_to_group("fireball")
+		#get_node("FireballBullet").appear()
 		
