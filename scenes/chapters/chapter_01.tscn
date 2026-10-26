@@ -631,6 +631,7 @@ position = Vector2(1888, -984)
 
 [node name="LastFlame" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="12" unique_id=922127529 instance=ExtResource("20_c1lyj")]
 position = Vector2(1056, -470)
+dialogue_file = "res://assets/dialogue/lastflame.txt"
 
 [node name="Caravan" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="6" unique_id=1391059496]
 position = Vector2(-53, -664)

@@ -1,0 +1,11 @@
+start (
+    Purple flame: Hello traveller.
+    Emily: [a fire that talks? what is this?]
+    Emily: Wh- what are you?
+    Purple flame: I am a projection of the Last Flame.
+    Projection of the Last Flame: The Hotlands draw their power from living flames; the Last Flame is tasked with keeping the Hotlands together when all other flames go out.
+    Projection of the Last Flame: Each flame combines and balances two colors. Observe; the Last Flame balances red and blue, so it appears purple, and so do I.
+    Projection of the Last Flame: I want you to prove your knowledge of the Flames. In exchange, I offer a powerful gift that is sure to help you out.
+    Projection of the Last Flame: Come back to show off the knowledge you have attained.
+    >> end
+)
