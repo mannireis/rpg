@@ -1,4 +1,4 @@
-start (
+=== start
     Purple flame: Hello traveller.
     Emily: [a fire that talks? what is this?]
     Emily: Wh- what are you?
@@ -7,5 +7,35 @@ start (
     Projection of the Last Flame: Each flame combines and balances two colors. Observe; the Last Flame balances red and blue, so it appears purple, and so do I.
     Projection of the Last Flame: I want you to prove your knowledge of the Flames. In exchange, I offer a powerful gift that is sure to help you out.
     Projection of the Last Flame: Come back to show off the knowledge you have attained.
+    Emily: Alright!
     >> end
-)
+===
+
+=== met
+    Projection of the Last Flame: So, do you have the knowledge that I expect?
+    Emily: I sure hope I do!
+    Projection of the Last Flame: Let us test it.
+    Projection of the Last Flame: What color does the First Flame appear in?
+        * Orange
+        * Green -> wrong
+        * Purple -> wrong
+===
+
+=== correct_first
+    Projection of the Last Flame: What color does the Second Flame appear in?
+        * Orange -> wrong
+        * Green -> wrong
+        * Purple -> correct_second
+===
+
+=== correct_second
+    Projection of the Last Flame: What color does the Third Flame appear in?
+        * Orange -> wrong
+        * Green -> wrong
+        * Purple -> correct_third
+
+=== wrong
+    Projection of the Last Flame: A traveller is not worthy of this power unless they know enough about our lands.
+    Projection of the Last Flame: Explore more and come back later.
+    >>end
+===
