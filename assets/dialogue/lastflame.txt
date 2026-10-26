@@ -16,7 +16,7 @@
     Emily: I sure hope I do!
     Projection of the Last Flame: Let us test it.
     Projection of the Last Flame: What color does the First Flame appear in?
-        * Orange
+        * Orange -> correct_first
         * Green -> wrong
         * Purple -> wrong
 ===
@@ -33,6 +33,20 @@
         * Orange -> wrong
         * Green -> wrong
         * Purple -> correct_third
+===
+
+=== correct_third
+    Projection of the Last Flame: What color does the Fourth Flame appear in?
+        * Orange -> wrong
+        * Green -> correct_all
+        * Purple -> wrong
+===
+
+=== correct_all
+    Projection of the Last Flame: Very well. It is clear you've explored our lands thoroughly. Here is your reward.
+    Emily: Thank you mysterious flame!
+    >>end
+===
 
 === wrong
     Projection of the Last Flame: A traveller is not worthy of this power unless they know enough about our lands.
