@@ -1,8 +1,5 @@
 extends Control
 
-const SAVE_PATH = "user://save.tres"
-var save := load(SAVE_PATH) as Save if ResourceLoader.exists(SAVE_PATH) else Save.new()
-
 @onready var play_button: Button = $CenterContainer/VBoxContainer/PlayButton
 @onready var quit_button: Button = $CenterContainer/VBoxContainer/QuitButton
 
@@ -33,5 +30,4 @@ func _on_quit_button_pressed() -> void:
 
 
 func _quit() -> void:
-	ResourceSaver.save(save, SAVE_PATH)
 	get_tree().quit()

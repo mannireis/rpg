@@ -33,245 +33,273 @@ script = ExtResource("2_tguk3")
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=875125534]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1488059601]
+[node name="ButtonContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1488059601]
 layout_mode = 2
 
-[node name="LoadButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1753720915]
+[node name="LoadButton" type="Button" parent="CenterContainer/ButtonContainer" unique_id=1753720915]
 custom_minimum_size = Vector2(196, 32)
 layout_mode = 2
+offset_transform_enabled = true
 theme_override_styles/normal = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/focus = SubResource("StyleBoxTexture_81axd")
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/LoadButton" unique_id=1285763071]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ButtonContainer/LoadButton" unique_id=1285763071]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/LoadButton/MarginContainer" unique_id=95218345]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/ButtonContainer/LoadButton/MarginContainer" unique_id=95218345]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/LoadButton/MarginContainer/HBoxContainer" unique_id=1623291088]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/ButtonContainer/LoadButton/MarginContainer/HBoxContainer" unique_id=1623291088]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_constants/separation = 1
 
-[node name="PlayerName" type="Label" parent="CenterContainer/VBoxContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1246735515]
+[node name="PlayerName" type="Label" parent="CenterContainer/ButtonContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1246735515]
 layout_mode = 2
 text = "Emily"
 
-[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1719061017]
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/ButtonContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1719061017]
 propagate_maximum_size = true
 clip_contents = true
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 1
 theme_override_styles/separator = SubResource("StyleBoxTexture_aja8b")
 
-[node name="InfoHBox" type="HBoxContainer" parent="CenterContainer/VBoxContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer" unique_id=455533276]
+[node name="InfoHBox" type="HBoxContainer" parent="CenterContainer/ButtonContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer" unique_id=455533276]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="TimePlayed" type="Label" parent="CenterContainer/VBoxContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1210155094]
+[node name="TimePlayed" type="Label" parent="CenterContainer/ButtonContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1210155094]
 layout_mode = 2
 text = "1h 5m"
 
-[node name="Separator" type="Label" parent="CenterContainer/VBoxContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=2063326183]
+[node name="Separator" type="Label" parent="CenterContainer/ButtonContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=2063326183]
 layout_mode = 2
 text = "|"
 
-[node name="CurrentChapter" type="Label" parent="CenterContainer/VBoxContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=506341817]
+[node name="CurrentChapter" type="Label" parent="CenterContainer/ButtonContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=506341817]
 layout_mode = 2
 text = "Chapter 1"
 
-[node name="ChapterBanner" type="TextureRect" parent="CenterContainer/VBoxContainer/LoadButton/MarginContainer/HBoxContainer" unique_id=117072863]
+[node name="ChapterBanner" type="TextureRect" parent="CenterContainer/ButtonContainer/LoadButton/MarginContainer/HBoxContainer" unique_id=117072863]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("3_aja8b")
 
-[node name="LoadButton2" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1154389539]
+[node name="LoadButton2" type="Button" parent="CenterContainer/ButtonContainer" unique_id=1154389539]
 custom_minimum_size = Vector2(196, 32)
 layout_mode = 2
+offset_transform_enabled = true
 theme_override_styles/normal = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/focus = SubResource("StyleBoxTexture_81axd")
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/LoadButton2" unique_id=924556736]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ButtonContainer/LoadButton2" unique_id=924556736]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/LoadButton2/MarginContainer" unique_id=1645797679]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/ButtonContainer/LoadButton2/MarginContainer" unique_id=1645797679]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/LoadButton2/MarginContainer/HBoxContainer" unique_id=1120263220]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/ButtonContainer/LoadButton2/MarginContainer/HBoxContainer" unique_id=1120263220]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_constants/separation = 1
 
-[node name="PlayerName" type="Label" parent="CenterContainer/VBoxContainer/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1586928414]
+[node name="PlayerName" type="Label" parent="CenterContainer/ButtonContainer/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1586928414]
 layout_mode = 2
 text = "Emily"
 
-[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1046662016]
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/ButtonContainer/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1046662016]
 propagate_maximum_size = true
 clip_contents = true
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 1
 theme_override_styles/separator = SubResource("StyleBoxTexture_aja8b")
 
-[node name="InfoHBox" type="HBoxContainer" parent="CenterContainer/VBoxContainer/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1287273609]
+[node name="InfoHBox" type="HBoxContainer" parent="CenterContainer/ButtonContainer/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1287273609]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="TimePlayed" type="Label" parent="CenterContainer/VBoxContainer/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=393573830]
+[node name="TimePlayed" type="Label" parent="CenterContainer/ButtonContainer/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=393573830]
 layout_mode = 2
 text = "1h 5m"
 
-[node name="Separator" type="Label" parent="CenterContainer/VBoxContainer/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1811018190]
+[node name="Separator" type="Label" parent="CenterContainer/ButtonContainer/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1811018190]
 layout_mode = 2
 text = "|"
 
-[node name="CurrentChapter" type="Label" parent="CenterContainer/VBoxContainer/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=732454034]
+[node name="CurrentChapter" type="Label" parent="CenterContainer/ButtonContainer/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=732454034]
 layout_mode = 2
 text = "Chapter 1"
 
-[node name="ChapterBanner" type="TextureRect" parent="CenterContainer/VBoxContainer/LoadButton2/MarginContainer/HBoxContainer" unique_id=454811564]
+[node name="ChapterBanner" type="TextureRect" parent="CenterContainer/ButtonContainer/LoadButton2/MarginContainer/HBoxContainer" unique_id=454811564]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("3_aja8b")
 
-[node name="LoadButton3" type="Button" parent="CenterContainer/VBoxContainer" unique_id=2021685608]
+[node name="LoadButton3" type="Button" parent="CenterContainer/ButtonContainer" unique_id=2021685608]
 custom_minimum_size = Vector2(196, 32)
 layout_mode = 2
+offset_transform_enabled = true
 theme_override_styles/normal = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/focus = SubResource("StyleBoxTexture_81axd")
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/LoadButton3" unique_id=1905012318]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ButtonContainer/LoadButton3" unique_id=1905012318]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/LoadButton3/MarginContainer" unique_id=1833729721]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/ButtonContainer/LoadButton3/MarginContainer" unique_id=1833729721]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/LoadButton3/MarginContainer/HBoxContainer" unique_id=1950970444]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/ButtonContainer/LoadButton3/MarginContainer/HBoxContainer" unique_id=1950970444]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_constants/separation = 1
 
-[node name="PlayerName" type="Label" parent="CenterContainer/VBoxContainer/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer" unique_id=141587987]
+[node name="PlayerName" type="Label" parent="CenterContainer/ButtonContainer/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer" unique_id=141587987]
 layout_mode = 2
 text = "Emily"
 
-[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1564910892]
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/ButtonContainer/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1564910892]
 propagate_maximum_size = true
 clip_contents = true
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 1
 theme_override_styles/separator = SubResource("StyleBoxTexture_aja8b")
 
-[node name="InfoHBox" type="HBoxContainer" parent="CenterContainer/VBoxContainer/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1013425803]
+[node name="InfoHBox" type="HBoxContainer" parent="CenterContainer/ButtonContainer/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1013425803]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="TimePlayed" type="Label" parent="CenterContainer/VBoxContainer/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1001135614]
+[node name="TimePlayed" type="Label" parent="CenterContainer/ButtonContainer/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1001135614]
 layout_mode = 2
 text = "1h 5m"
 
-[node name="Separator" type="Label" parent="CenterContainer/VBoxContainer/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=2072483818]
+[node name="Separator" type="Label" parent="CenterContainer/ButtonContainer/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=2072483818]
 layout_mode = 2
 text = "|"
 
-[node name="CurrentChapter" type="Label" parent="CenterContainer/VBoxContainer/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1715434423]
+[node name="CurrentChapter" type="Label" parent="CenterContainer/ButtonContainer/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1715434423]
 layout_mode = 2
 text = "Chapter 1"
 
-[node name="ChapterBanner" type="TextureRect" parent="CenterContainer/VBoxContainer/LoadButton3/MarginContainer/HBoxContainer" unique_id=173090136]
+[node name="ChapterBanner" type="TextureRect" parent="CenterContainer/ButtonContainer/LoadButton3/MarginContainer/HBoxContainer" unique_id=173090136]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("3_aja8b")
 
-[node name="LoadButton4" type="Button" parent="CenterContainer/VBoxContainer" unique_id=2111730338]
+[node name="LoadButton4" type="Button" parent="CenterContainer/ButtonContainer" unique_id=2111730338]
 custom_minimum_size = Vector2(196, 32)
 layout_mode = 2
+offset_transform_enabled = true
 theme_override_styles/normal = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/focus = SubResource("StyleBoxTexture_81axd")
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/LoadButton4" unique_id=1582543874]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ButtonContainer/LoadButton4" unique_id=1582543874]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/LoadButton4/MarginContainer" unique_id=130227161]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/ButtonContainer/LoadButton4/MarginContainer" unique_id=130227161]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/LoadButton4/MarginContainer/HBoxContainer" unique_id=1248289053]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/ButtonContainer/LoadButton4/MarginContainer/HBoxContainer" unique_id=1248289053]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_constants/separation = 1
 
-[node name="PlayerName" type="Label" parent="CenterContainer/VBoxContainer/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer" unique_id=115895967]
+[node name="PlayerName" type="Label" parent="CenterContainer/ButtonContainer/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer" unique_id=115895967]
 layout_mode = 2
 text = "Emily"
 
-[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer" unique_id=478961298]
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/ButtonContainer/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer" unique_id=478961298]
 propagate_maximum_size = true
 clip_contents = true
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 1
 theme_override_styles/separator = SubResource("StyleBoxTexture_aja8b")
 
-[node name="InfoHBox" type="HBoxContainer" parent="CenterContainer/VBoxContainer/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer" unique_id=50787643]
+[node name="InfoHBox" type="HBoxContainer" parent="CenterContainer/ButtonContainer/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer" unique_id=50787643]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="TimePlayed" type="Label" parent="CenterContainer/VBoxContainer/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1957379683]
+[node name="TimePlayed" type="Label" parent="CenterContainer/ButtonContainer/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1957379683]
 layout_mode = 2
 text = "1h 5m"
 
-[node name="Separator" type="Label" parent="CenterContainer/VBoxContainer/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1513855260]
+[node name="Separator" type="Label" parent="CenterContainer/ButtonContainer/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1513855260]
 layout_mode = 2
 text = "|"
 
-[node name="CurrentChapter" type="Label" parent="CenterContainer/VBoxContainer/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=969009690]
+[node name="CurrentChapter" type="Label" parent="CenterContainer/ButtonContainer/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=969009690]
 layout_mode = 2
 text = "Chapter 1"
 
-[node name="ChapterBanner" type="TextureRect" parent="CenterContainer/VBoxContainer/LoadButton4/MarginContainer/HBoxContainer" unique_id=520783771]
+[node name="ChapterBanner" type="TextureRect" parent="CenterContainer/ButtonContainer/LoadButton4/MarginContainer/HBoxContainer" unique_id=520783771]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("3_aja8b")
