@@ -21,6 +21,27 @@ content_margin_bottom = 5.0
 texture = ExtResource("2_4ekot")
 region_rect = Rect2(2, 1, 1, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tguk3"]
+texture = ExtResource("2_4ekot")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fffe2"]
+texture = ExtResource("2_4ekot")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6c0dq"]
+texture = ExtResource("2_4ekot")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
 [node name="SaveLoadMenu" type="PanelContainer" unique_id=374621346]
 anchors_preset = 15
 anchor_right = 1.0
@@ -303,3 +324,15 @@ text = "Chapter 1"
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("3_aja8b")
+
+[node name="SetNameBox" type="LineEdit" parent="CenterContainer" unique_id=1018741485]
+visible = false
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_tguk3")
+theme_override_styles/read_only = SubResource("StyleBoxTexture_fffe2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6c0dq")
+placeholder_text = "Emily"
+alignment = 1
+expand_to_text_length = true
+emoji_menu_enabled = false
