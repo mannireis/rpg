@@ -158,7 +158,12 @@ func _end() -> void:
 
 func _on_line(line: Dictionary) -> void:
 	show()
-	speaker.text = line["speaker"]
+
+	if line["speaker"] == "$player":
+		speaker.text = GameState.player_name
+	else:
+		speaker.text = line["speaker"]
+
 	say(line["text"])
 
 	for c in choices.get_children():

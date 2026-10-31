@@ -1,5 +1,5 @@
 === meet_john
-	Emily: uhh hi?
+	$player: uhh hi?
 	* Ask about bunny -> bunny
 	* Where am I? -> where
 	* Who are you? -> who
@@ -7,37 +7,37 @@
 ===
 
 === bunny
-	Emily: Have you seen a white bunny with a black top hat and a monocle around here?
+	$player: Have you seen a white bunny with a black top hat and a monocle around here?
 	John: I saw him.
-	Emily: Where we're was he headed?
+	$player: Where we're was he headed?
 	John: To the land where the snow doesen't melt, 2 feet, 4 paws.
-	Emily: What?
+	$player: What?
 	John: ...
 	>> meet_john
 ===
 
 === john
 	John: Hey, Em. How are you doing?
-	Emily: haiii.
+	$player: haiii.
 	>> bye
 ===
 
 === where
 	John: You are in [wave amp=10 freq=5]The Crypt[/wave]
-	Emily: [wave amp=10 freq=5]The Crypt?[/wave]
+	$player: [wave amp=10 freq=5]The Crypt?[/wave]
 	John: [wave amp=10 freq=5]You'll find out more when you have advanced more...[/wave]
 	>> meet_john
 ===
 
 === who
 	John: I’m the one who walks north, comes back, still here.
-	Emily: I just wanted to know your name.
+	$player: I just wanted to know your name.
 	John: I'm John what about you?
-	Emily: I'm Emily but go by Em.
+	$player: I'm Emily but go by Em.
 	>> meet_john
 ===
 
 === bye
-	Emily: Goodbye!
+	$player: Goodbye!
 	John: Farewell.
 ===

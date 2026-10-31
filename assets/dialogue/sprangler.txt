@@ -1,5 +1,5 @@
 === start
-	Emily: Hey! Would it be possible for me to pass through?
+	$player: Hey! Would it be possible for me to pass through?
 	Sprangler: Why should I let you pass?
 	* You are very cute! -> cute
 	* Looking for bunny. -> bunny
@@ -14,9 +14,9 @@
 
 === bunny
 	Spangler: You must first solve my riddle.
-	Emily: What riddle?
+	$player: What riddle?
 	Spangler OMG! Have patience.
-	Emily: Sorry.
+	$player: Sorry.
 	Spangler: So the riddle goes.
 	Spangler: [wave amp=50.0 freq=5.0 connected=1][rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]What jumps around that is not wet.[/rainbow][/wave]
 	* {bunny, correct, wrong}
@@ -24,7 +24,7 @@
 
 === just
 	Sprangler: Grhh I'm not letting you just pass.
-	Emily: Pleaseee.
+	$player: Pleaseee.
 	Sprangler: Let's battle.
 	>> battle_init[0]
 ===
@@ -32,13 +32,13 @@
 === wrong
 	Sprangler: You lost by failing the riddle.
 	Sprangler: I'm making you battle me!
-	Emily: nooo :<
+	$player: nooo :<
 	>> battle_init[0]
 ===
 
 === met
 	Sprangler: You may pass through for now..
-	Emily: Thank you.
+	$player: Thank you.
 ===
 
 === correct

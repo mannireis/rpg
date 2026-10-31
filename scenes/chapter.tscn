@@ -94,7 +94,7 @@ text = "Game paused, press ESC to resume"
 [node name="MainMenuButton" type="Button" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer" unique_id=1697325138]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Main menu"
+text = "Save & quit to title"
 
 [node name="DialoguePanel" type="CanvasLayer" parent="ProcessModeReset" unique_id=1908602964]
 visible = false

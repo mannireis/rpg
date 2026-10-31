@@ -1,7 +1,7 @@
 === start
-	Emily: Hello, are you Flicker?
+	$player: Hello, are you Flicker?
 	Flicker: That would be me, yes. What do you want from me, strange child?
-	Emily: I'm looking for Sir Hearts, my pet bunny. Have you seen a bunny around here?
+	$player: I'm looking for Sir Hearts, my pet bunny. Have you seen a bunny around here?
 	Flicker: I've seen one cross into my lands with something else beside it, I was just preparing to go on a hunt to catch them!
 	Flicker: Be warned though, I am not good with sharing, and I do not wish to be interrupted.
 	Flicker: Perhaps you should go back where you came from...
@@ -10,7 +10,7 @@
 ===
 
 === convince
-	Emily: B-but it's Sir Hearts! You can't just catch him or something!!
+	$player: B-but it's Sir Hearts! You can't just catch him or something!!
 	Flicker: I do not want to miss out on this opportunity.
 	Flicker: Few things excite me as much as hunting a magical creature.
 	Flicker: A battle with a skilled opponent, maybe...

@@ -1,19 +1,19 @@
 === start
     Purple flame: Hello traveller.
-    Emily: [a fire that talks? what is this?]
-    Emily: Wh- what are you?
+    $player: [a fire that talks? what is this?]
+    $player: Wh- what are you?
     Purple flame: I am a projection of the Last Flame.
     Projection of the Last Flame: The Hotlands draw their power from living flames; the Last Flame is tasked with keeping the Hotlands together when all other flames go out.
     Projection of the Last Flame: Each flame combines and balances two colors. Observe; the Last Flame balances red and blue, so it appears purple, and so do I.
     Projection of the Last Flame: I want you to prove your knowledge of the Flames. In exchange, I offer a powerful gift that is sure to help you out.
     Projection of the Last Flame: Come back to show off the knowledge you have attained.
-    Emily: Alright!
+    $player: Alright!
     >> end
 ===
 
 === met
     Projection of the Last Flame: So, do you have the knowledge that I expect?
-    Emily: I sure hope I do!
+    $player: I sure hope I do!
     Projection of the Last Flame: Let us test it.
     Projection of the Last Flame: What color does the First Flame appear in?
         * Orange -> correct_first
@@ -44,7 +44,7 @@
 
 === correct_all
     Projection of the Last Flame: Very well. It is clear you've explored our lands thoroughly. Here is your reward.
-    Emily: Thank you mysterious flame!
+    $player: Thank you mysterious flame!
     >>end
 ===
 

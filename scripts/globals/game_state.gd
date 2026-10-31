@@ -1,5 +1,6 @@
 extends Node
 
+var player_name: String = "Emily"
 var met_npcs: Dictionary = {}
 var battled_npcs: Dictionary = {}
 var defeated_npcs: Dictionary[StringName,int] = {}

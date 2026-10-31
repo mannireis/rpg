@@ -1,6 +1,6 @@
 === start
 	Rebeka: RHGRHHR It's prohibited to pass here.
-	Emily: Why?
+	$player: Why?
 	Rebeka: It's too dangerous for weaklings like you.
 	Rebeka: Win me in a battle to prove you are strong enough.
 	* Battle -> battle_init[0]
@@ -15,12 +15,12 @@
 ===
 
 === battle_talk
-	Emily: I wanna battle!
+	$player: I wanna battle!
 	* Battle -> battle_init[0]
 ===
 
 === run_again
-	Emily: Sorry for bothering you!
+	$player: Sorry for bothering you!
 	Rebeka: Coward!!
 	>> run
 ===
@@ -32,18 +32,18 @@
 ===
 
 === follow
-	Emily: yesyesyes!
+	$player: yesyesyes!
 	Rebeka: GRHH don't be too enthusiastic.
 	>> end
 ===
 
 === dont_follow
-	Emily: No thank you!
+	$player: No thank you!
 	>> end
 ===
 
 === frens
-	Emily: so cool we are friends now.
+	$player: so cool we are friends now.
 	Rabeka: We are not friends.
 	>> goodbye
 ===
@@ -53,7 +53,7 @@
 ===
 
 === flirt
-	Emily: That bandana you have on is pretty :3
+	$player: That bandana you have on is pretty :3
 	Rebeka: Thanks.
 	* Compliment hair -> hair
 	* Compliment axe -> axe
@@ -61,17 +61,17 @@
 ===
 
 === hair
-	Emily: Y'know your hair is really pretty as well.
+	$player: Y'know your hair is really pretty as well.
 	Rebeka: You are way too pretty for me you can find way better.
 	>> end
 ===
 
 === axe
-	Emily: woa that axe you have there is really cool!
+	$player: woa that axe you have there is really cool!
 	Rebeka: Grr its not an axe its a halberd.
-	Emily: Oh sorry I din't know, you can always learn tho!
+	$player: Oh sorry I din't know, you can always learn tho!
 	Rebeka: I guess.
-	Emily: Can I go thru now ?
+	$player: Can I go thru now ?
 	Rebeka: Fiiinee.
 	Rebeka: Do you want to come with me?
 	* Follow -> follow
@@ -79,6 +79,6 @@
 ===
 
 === goodbye
-	Emily: Baii :3
+	$player: Baii :3
 	Rebeka: Goodbye.
 ===

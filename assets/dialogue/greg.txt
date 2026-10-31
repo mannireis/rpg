@@ -1,10 +1,10 @@
 === start
-	Emily: Hey, who are you?
+	$player: Hey, who are you?
 	Greg: I'm Greg what about you?
-	Emily: I'm Emily.
+	$player: I'm Emily.
 ===
 
 === met
-	Emily: Hello Greg, How are you?
+	$player: Hello Greg, How are you?
 	Greg: I'm fine.
 ===
