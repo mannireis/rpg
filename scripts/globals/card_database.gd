@@ -27,7 +27,7 @@ var db: Array[Array] = [
 	GameCard.create(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload("res://assets/cards/pirate_saber.png"), "Add +2 damage per round"),
 	GameCard.create(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload("res://assets/cards/sturdy_shield.png"), "Adds +5 shield points per round"),
 	GameCard.create(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload("res://assets/cards/abstract_art.png"), "test"),
-	GameCard.create(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload(p+"3/3.png"), "Pretty, isn't it? Does 8 damage points")
+	GameCard.create(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload("res://assets/cards/rebekas_halberd.png"), "Pretty, isn't it? Does 8 damage points")
 ],
 [
 	GameCard.create(s.JOKER, 0 , n, Vector2i.ZERO, "Jester", 3, preload("res://assets/cards/jester_joker.png"), "Does 25% more damage per round while equipted")
@@ -41,7 +41,7 @@ var db: Array[Array] = [
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print(typeof(db[0][0].play))
-	
+
 	db[0][0].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
 		ctl.player_attack() #glorious impl of a dual punch
 		ctl.player_attack()
