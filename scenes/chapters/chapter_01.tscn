@@ -513,45 +513,45 @@ other = NodePath("../Door35")
 transition = 1
 
 [node name="Door37" parent="ProcessModeReset/YSort/Doors" parent_id_path=PackedInt32Array(662505405) index="34" unique_id=1989458464 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
-position = Vector2(1543, -608)
+position = Vector2(1863, -608)
 other = NodePath("../Door38")
 
 [node name="Door38" parent="ProcessModeReset/YSort/Doors" parent_id_path=PackedInt32Array(662505405) index="35" unique_id=11223451 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
-position = Vector2(1609, -608)
+position = Vector2(1929, -608)
 rotation = 3.1415927
 flip = true
 other = NodePath("../Door37")
 
 [node name="Door39" parent="ProcessModeReset/YSort/Doors" parent_id_path=PackedInt32Array(662505405) index="36" unique_id=1555854329 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
-position = Vector2(1904, -992)
+position = Vector2(2224, -992)
 width = 4
 other = NodePath("../Door40")
 
 [node name="Door40" parent="ProcessModeReset/YSort/Doors" parent_id_path=PackedInt32Array(662505405) index="37" unique_id=1417645397 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
-position = Vector2(2040, -992)
+position = Vector2(2360, -992)
 rotation = 3.1415927
 flip = true
 width = 4
 other = NodePath("../Door39")
 
 [node name="Door41" parent="ProcessModeReset/YSort/Doors" parent_id_path=PackedInt32Array(662505405) index="38" unique_id=1805403602 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
-position = Vector2(1912, -832)
+position = Vector2(2232, -832)
 other = NodePath("../Door42")
 
 [node name="Door42" parent="ProcessModeReset/YSort/Doors" parent_id_path=PackedInt32Array(662505405) index="39" unique_id=1999208551 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
-position = Vector2(1928, -832)
+position = Vector2(2248, -832)
 rotation = 3.1415927
 flip = true
 other = NodePath("../Door41")
 
 [node name="Door25" parent="ProcessModeReset/YSort/Doors" parent_id_path=PackedInt32Array(662505405) index="40" unique_id=1581805967 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
-position = Vector2(1536, -744)
+position = Vector2(1856, -744)
 rotation = 1.5707964
 horizontal = true
 other = NodePath("../Door26")
 
 [node name="Door26" parent="ProcessModeReset/YSort/Doors" parent_id_path=PackedInt32Array(662505405) index="41" unique_id=1455650423 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
-position = Vector2(1536, -688)
+position = Vector2(1856, -688)
 rotation = 4.712389
 horizontal = true
 flip = true
@@ -611,7 +611,7 @@ dialogue_file = "res://assets/dialogue/will.txt"
 met_id = &"met"
 
 [node name="Flicker" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="8" unique_id=1027138446 instance=ExtResource("11_2br45")]
-position = Vector2(1527, -812)
+position = Vector2(1847, -812)
 
 [node name="FireballBullet" parent="ProcessModeReset/YSort/NPCs/Flicker" index="3" unique_id=117924838 node_paths=PackedStringArray("target") instance=ExtResource("13_nb3ya")]
 visible = false
@@ -619,7 +619,7 @@ vel_scale = 44.0
 target = NodePath("../../ThePassersby")
 
 [node name="ThePassersby" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="9" unique_id=945158310 instance=ExtResource("13_nb3ya")]
-position = Vector2(1408, -824)
+position = Vector2(1728, -824)
 vel = Vector2i(3, 2)
 vel_scale = 8.0
 
@@ -627,7 +627,7 @@ vel_scale = 8.0
 position = Vector2(-205, -651)
 
 [node name="Sprangler" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="11" unique_id=1040220559 instance=ExtResource("22_3dk3t")]
-position = Vector2(1888, -984)
+position = Vector2(2208, -984)
 
 [node name="LastFlame" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="12" unique_id=922127529 instance=ExtResource("20_c1lyj")]
 position = Vector2(1056, -470)
@@ -645,7 +645,7 @@ texture = ExtResource("19_cqq4f")
 offset = Vector2(0, -30)
 
 [node name="Caravan2" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="7" unique_id=487939752]
-position = Vector2(1656, -1168)
+position = Vector2(1976, -1168)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProcessModeReset/YSort/Caravan2" index="0" unique_id=2143752886]
 shape = SubResource("RectangleShape2D_ib3ld")
