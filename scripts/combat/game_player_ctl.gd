@@ -151,7 +151,7 @@ func run_equipped(method: String, vec: Vector2i = Vector2i(0,0),prio_type: Strin
 
 func receive_dmg(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_dmg_in",dmg,"dmg_in",true)
-	if battle_debug: print("side "+str(is_enemy)+" receiving "+str(dmg))
+	print("side "+str(is_enemy)+" receiving "+str(dmg))
 	if len(block_current) > dmg[1]:
 		block_current[dmg[1]] += dmg[0]
 		dmg[0] = 0

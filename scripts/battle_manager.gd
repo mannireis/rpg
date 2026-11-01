@@ -101,5 +101,4 @@ func eval_hp() -> void:
 
 		print("game ending, enemy won? "+str(game_result[1]))
 		await get_tree().create_timer(2).timeout
-		print("connections after battle: lost "+str(Signals.battle_lost.get_connections())+" won "+str(Signals.battle_won.get_connections()))
 		get_tree().call_deferred("change_scene_to_file",RoomChangeGlobal.scene_return)

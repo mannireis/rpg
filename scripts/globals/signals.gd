@@ -21,7 +21,7 @@ func _start_battle(which_inv: int = 0) -> void:
 		else: RoomChangeGlobal.enemy_battle_inventory = array_inv[which_inv]
 	else: RoomChangeGlobal.enemy_battle_inventory = null
 	var w: bool = GameState.won(GameState.speaking_with)
-	print("has won yet? "+str(w))
+	print(w)
 	if !w:
 		RoomChangeGlobal.activate = true
 		RoomChangeGlobal.player_pos = GameState.player_pos
@@ -29,12 +29,10 @@ func _start_battle(which_inv: int = 0) -> void:
 		GameState.battle_running = true
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/combat/battle_scene.tscn")
 	else: print(GameState.battled_npcs)
-	print("connections: battle_lost "+str(Signals.battle_lost.get_connections())+" battle_won "+str(Signals.battle_won.get_connections()))
 
 
 func _ready() -> void:
 	start_battle.connect(_start_battle)
-	print("Signals _ready")
 
 
 ## Container for start-of-battle config
