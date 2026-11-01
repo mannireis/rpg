@@ -5,7 +5,7 @@ var battle_won := false
 func _ready() -> void:
 	super()
 	Signals.dialogue_branched.connect(_current_id)
-	Signals.battle_won.connect(_on_battle_won)
+	Signals.battle_won.connect(_battle_won)
 
 	var deck: Array[Vector2i] = [
 		Vector2i(0, 0), Vector2i(0, 0),
@@ -36,8 +36,10 @@ func _ready() -> void:
 	RoomChangeGlobal.enemy_inv_dict[npc_name] = [inv]
 
 
-func _on_battle_won() -> void:
-	GameState.add_card(CardDatabase.db[0][4])
+func _battle_won() -> void:
+	if npc_name != GameState.speaking_with: return
+	super()
+	GameState.add_card(CardDatabase.db[0][3])
 	battle_won = true
 
 

@@ -151,7 +151,7 @@ func run_equipped(method: String, vec: Vector2i = Vector2i(0,0),prio_type: Strin
 
 func receive_dmg(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_dmg_in",dmg,"dmg_in",true)
-	print("side "+str(is_enemy)+" receiving "+str(dmg))
+	if battle_debug: print("side "+str(is_enemy)+" receiving "+str(dmg))
 	if len(block_current) > dmg[1]:
 		block_current[dmg[1]] += dmg[0]
 		dmg[0] = 0
@@ -368,7 +368,7 @@ func enemy_display_cards(show: bool = true, cards: Array[int] = []) -> void:
 
 
 func ai_turn() -> void:
-	print("AI turn at "+str(ai_diff)+" difficulty")
+	#print("AI turn at "+str(ai_diff)+" difficulty")
 	await turn_begin()
 	var r: float = rand.randf()
 	var node: TextureRect = UI_node.get_node("EnemyCard")

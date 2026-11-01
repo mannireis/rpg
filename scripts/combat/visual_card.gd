@@ -127,7 +127,6 @@ func _on_mouse_short_click() -> void:
 
 func _on_mouse_entered() -> void:
 	hovering = true
-	print("I used to kill for it")
 
 
 func _on_mouse_exited() -> void:

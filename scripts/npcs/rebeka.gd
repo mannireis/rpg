@@ -73,12 +73,12 @@ func apply_state(state: Dictionary) -> void:
 
 
 func _battle_lost() -> void:
-	print("lost battle")
-
-	GameState.fought(npc_name, false)
+	if GameState.speaking_with != npc_name: return
+	super()
+	print("rebeka lost battle")
 
 func _battle_won() -> void:
-	print("won battle")
-
+	if GameState.speaking_with != npc_name: return
+	super()
+	print("rebeka won battle")
 	met_id = &"battle_won"
-	GameState.fought(npc_name, true)

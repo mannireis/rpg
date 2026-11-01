@@ -125,3 +125,10 @@ func diag_start(body: Node2D) -> void:
 		autostart_dialogue = true
 		print("trying autostart")
 		_unhandled_input(null)
+		
+func _battle_lost() -> void:
+	print("writing loss for "+str(npc_name))
+	GameState.fought(npc_name,false)
+func _battle_won() -> void:
+	print("writing win for "+str(npc_name))
+	GameState.fought(npc_name,true)
