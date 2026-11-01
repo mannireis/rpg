@@ -57,4 +57,15 @@ func room_entered(door: Door) -> void: # make the passersby creature appear when
 		f.get_node("AnimatedSprite2D").play("fireball")
 		f.add_to_group("fireball")
 		get_node("FireballBullet").appear()
+func _battle_lost() -> void:
+	if GameState.spoke_before_battle != npc_name: return
+	super()
+	print("flicker battle lost")
+	met_id = &"battle_lost"
+
+func _battle_won() -> void:
+	if GameState.spoke_before_battle != npc_name: return
+	super()
+	print("flicker battle won")
+	met_id = &"battle_won"
 		

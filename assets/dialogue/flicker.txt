@@ -16,3 +16,11 @@
 	Flicker: A battle with a skilled opponent, maybe...
 	>> battle_init[1]
 ===
+
+=== battle_lost
+	Flicker: Back for round two? I must say I find your dedication admirable. A good huntswoman should not give up on her target, anyway.
+	>> battle_init[1]
+
+=== battle_won
+	Flicker: Very well then. You have bested me! I will not go after a creature guarded by someone this skilled.
+===

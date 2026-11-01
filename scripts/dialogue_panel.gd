@@ -34,6 +34,7 @@ func _on_dialogue_started(file: String, at: StringName) -> void:
 		return
 	_parsed_dialogue = _parse(txt)
 	DialogueManager.active = true
+	print("starting dialogue for "+file+" key "+str(at))
 	_goto(at)
 
 

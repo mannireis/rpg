@@ -636,6 +636,7 @@ met_id = &"met"
 
 [node name="Flicker" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="8" unique_id=1027138446 instance=ExtResource("11_2br45")]
 position = Vector2(1783, -804)
+met_id = &"start"
 
 [node name="FireballBullet" parent="ProcessModeReset/YSort/NPCs/Flicker" index="3" unique_id=117924838 node_paths=PackedStringArray("target") instance=ExtResource("13_nb3ya")]
 visible = false

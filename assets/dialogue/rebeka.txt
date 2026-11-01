@@ -62,14 +62,14 @@
 
 === hair
 	$player: Y'know your hair is really pretty as well.
-	Rebeka: You are way too pretty for me you can find way better.
+	Rebeka: Your sweet words don't show me your strength.
 	>> end
 ===
 
 === axe
 	$player: woa that axe you have there is really cool!
-	Rebeka: Grr its not an axe its a halberd.
-	$player: Oh sorry I din't know, you can always learn tho!
+	Rebeka: That's not an axe, silly. It's a halberd. Thank you though.
+	$player: Oh, sorry, I didn't know. You can always learn tho!
 	Rebeka: I guess.
 	$player: Can I go thru now ?
 	Rebeka: Fiiinee.
