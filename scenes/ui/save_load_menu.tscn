@@ -475,6 +475,7 @@ expand_to_text_length = true
 emoji_menu_enabled = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=228061620]
+unique_name_in_owner = true
 stream = ExtResource("7_pajdi")
 bus = &"UI"
 

@@ -9,12 +9,13 @@ var color: GameCard.S
 var id: int
 var data = CardDatabase.db[int(color)][id]
 var dragging = false
-var hovering = false
+var hovering := false
 var drag_offset = Vector2()
 var current_point: Control = null
 var last_point: Control = null
 var dup_point: Control = null
 var remove_labels: bool = false
+var was_hovering := false
 
 func _ready() -> void:
 	if index_in_deck > -1:
@@ -94,9 +95,17 @@ func animate_hovering() -> void:
 	var tween = create_tween()
 	
 	if hovering:
-		print("hovering")
+		if !was_hovering:
+			%AudioStreamPlayerUI.pitch_scale = randf_range(0.9, 1.1)
+			%AudioStreamPlayerUI.play()
+			%CardTooltip.visible = true
+			%CardName.text = data.name
+			%CardDescription.text = data.text
+			remove_labels = true
+		
 		tween.tween_property(self, "scale", Vector2(1.2,1.2), 0.15)
 		tween.parallel().tween_property(self, "rotation_degrees", 15.0, 0.15)
+		
 		if !remove_labels:
 			%CardTooltip.visible = true
 			%CardName.text = data.name
@@ -108,6 +117,8 @@ func animate_hovering() -> void:
 		if remove_labels:
 			%CardTooltip.visible = false
 			remove_labels = false
+	
+	was_hovering = hovering
 
 func _on_mouse_short_click() -> void:
 	print(str(self.data.name)+" clicked")
