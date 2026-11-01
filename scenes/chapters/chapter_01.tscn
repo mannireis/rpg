@@ -564,7 +564,7 @@ other = NodePath("../Door44")
 
 [node name="Door44" parent="ProcessModeReset/YSort/Doors" parent_id_path=PackedInt32Array(662505405) index="43" unique_id=628849969 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
 position = Vector2(1608, -800)
-rotation = -3.1415925
+rotation = 3.1415927
 flip = true
 other = NodePath("../Door43")
 
