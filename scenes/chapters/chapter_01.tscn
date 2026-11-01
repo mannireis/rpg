@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dgit23mgouwda" path="res://scenes/chapter.tscn" id="1_btfvo"]
 [ext_resource type="Texture2D" uid="uid://bvtfs835o20j8" path="res://assets/pedastal.png" id="4_h8mqf"]
 [ext_resource type="PackedScene" uid="uid://dwkhcdggcjul5" path="res://scenes/door.tscn" id="4_tcubl"]
+[ext_resource type="TileSet" uid="uid://ctpxu0oeyokmb" path="res://assets/tile_set.tres" id="5_c1lyj"]
 [ext_resource type="PackedScene" uid="uid://dwikxcvj1cl3o" path="res://scenes/npcs/john.tscn" id="5_vvh82"]
 [ext_resource type="PackedScene" uid="uid://4qbrmgkvw5bq" path="res://scenes/npcs/will.tscn" id="7_nxqch"]
 [ext_resource type="PackedScene" uid="uid://bfj0hc2sxlm7r" path="res://scenes/npcs/mothgirl.tscn" id="8_4jiuh"]
@@ -296,7 +297,12 @@ frame = 17
 frame_progress = 1.0
 
 [node name="TileMapLayer2" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="0" unique_id=318211980]
-tile_map_data = PackedByteArray("AAAVAO7/BAAAAAEAAAAaAMH/BQAAAAMAAAAbAMD/BQABAAMAAAAbAMH/BQABAAAAAAAcAMH/BQACAAMAAAAfAMD/BQACAAAAAAAgAMD/BQACAAAAAAAhAMP/BQAAAAEAAAAhAMT/BQAAAAIAAAAyAMD/AwAAAAAAAQA0AMP/BQAAAAEAAAA0AMT/BQAAAAIAAAA1AMD/BQACAAAAAAA1AMP/BQABAAEAAAA1AMT/BQABAAIAAAA2AML/BQAAAAAAAAA2AMP/BQACAAEAAAA2AMT/BQACAAIAAAA2AMX/BQAAAAAAAAAHAOT/AwAAAAAAAgD0/+7/BgAGAAEAAAD0/+//BgAGAAEAAAD2/+7/BgAGAAEAAAD2/+//BgAGAAEAAADy/+//BgAGAAEAAADy/+7/BgAGAAEAAADx/+//BgAGAAEAAADw/+//BgAGAAEAAADw/+7/BgAGAAEAAADw/+3/BgAGAAEAAADw/+z/BgAGAAEAAADw/+v/BgAGAAEAAADx/+v/BgAGAAEAAADy/+v/BgAGAAEAAADz/+v/BgAGAAEAAADz/+r/BgAGAAEAAADz/+n/BgAGAAEAAADz/+j/BgAGAAEAAAD4/+//BgAGAAEAAAD4/+7/BgAGAAEAAAD5/+7/BgAGAAEAAAD6/+7/BgAGAAEAAAD1/+r/BgAGAAEAAAD1/+n/BgAGAAEAAAD1/+j/BgAGAAEAAADz/+f/BgAGAAEAAAD0/+b/BgAGAAEAAAD2/+b/BgAGAAEAAAD3/+r/BgAGAAEAAAD3/+n/BgAGAAEAAAD3/+f/BgAGAAEAAAD2/+n/BgAGAAEAAAD4/+3/BgAGAAEAAAD4/+z/BgAGAAEAAAD5/+z/BgAGAAEAAAD7/+3/BgAGAAEAAAD8/+z/BgAGAAEAAAD8/+v/BgAGAAEAAAD8/+r/BgAGAAEAAAD7/+r/BgAGAAEAAAD7/+n/BgAGAAEAAAD5/+n/BgAGAAEAAAD5/+j/BgAGAAEAAAD5/+r/BgAGAAEAAAD6/+f/BgAGAAEAAAD7/+j/BgAGAAEAAADx/+z/AwAAAAAAAgD2/+j/AwAAAAAAAgD6/+j/AwAAAAAAAgD1/+v/BgAGAAEAAAD1/+z/BgAGAAEAAAD8/+3/BgAGAAEAAAD7/+7/BgAGAAEAAADz/+b/BgAGAAEAAAD3/+b/BgAGAAEAAAD4/+f/BgAGAAEAAAD5/+f/BgAGAAEAAAD7/+f/BgAGAAEAAAAHAAIACQABAAEAAAAaAAIACQAAAAAAAADz//b/CQABAAAAAAD8/wIACQABAAEAAABEANT/CwAAAAEAAABNANn/CwACAAAAAABAAMr/CwADAAAAAAB9AMz/AwAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAAVAO7/BAAAAAEAAAAaAMH/BQAAAAMAAAAbAMD/BQABAAMAAAAbAMH/BQABAAAAAAAcAMH/BQACAAMAAAAfAMD/BQACAAAAAAAgAMD/BQACAAAAAAAhAMP/BQAAAAEAAAAhAMT/BQAAAAIAAAAyAMD/AwAAAAAAAQA0AMP/BQAAAAEAAAA0AMT/BQAAAAIAAAA1AMD/BQACAAAAAAA1AMP/BQABAAEAAAA1AMT/BQABAAIAAAA2AML/BQAAAAAAAAA2AMP/BQACAAEAAAA2AMT/BQACAAIAAAA2AMX/BQAAAAAAAAAHAOT/AwAAAAAAAgD0/+7/BgAGAAEAAAD0/+//BgAGAAEAAAD2/+7/BgAGAAEAAAD2/+//BgAGAAEAAADy/+//BgAGAAEAAADy/+7/BgAGAAEAAADx/+//BgAGAAEAAADw/+//BgAGAAEAAADw/+7/BgAGAAEAAADw/+3/BgAGAAEAAADw/+z/BgAGAAEAAADw/+v/BgAGAAEAAADx/+v/BgAGAAEAAADy/+v/BgAGAAEAAADz/+v/BgAGAAEAAADz/+r/BgAGAAEAAADz/+n/BgAGAAEAAADz/+j/BgAGAAEAAAD4/+//BgAGAAEAAAD4/+7/BgAGAAEAAAD5/+7/BgAGAAEAAAD6/+7/BgAGAAEAAAD1/+r/BgAGAAEAAAD1/+n/BgAGAAEAAAD1/+j/BgAGAAEAAADz/+f/BgAGAAEAAAD0/+b/BgAGAAEAAAD2/+b/BgAGAAEAAAD3/+r/BgAGAAEAAAD3/+n/BgAGAAEAAAD3/+f/BgAGAAEAAAD2/+n/BgAGAAEAAAD4/+3/BgAGAAEAAAD4/+z/BgAGAAEAAAD5/+z/BgAGAAEAAAD7/+3/BgAGAAEAAAD8/+z/BgAGAAEAAAD8/+v/BgAGAAEAAAD8/+r/BgAGAAEAAAD7/+r/BgAGAAEAAAD7/+n/BgAGAAEAAAD5/+n/BgAGAAEAAAD5/+j/BgAGAAEAAAD5/+r/BgAGAAEAAAD6/+f/BgAGAAEAAAD7/+j/BgAGAAEAAADx/+z/AwAAAAAAAgD2/+j/AwAAAAAAAgD6/+j/AwAAAAAAAgD1/+v/BgAGAAEAAAD1/+z/BgAGAAEAAAD8/+3/BgAGAAEAAAD7/+7/BgAGAAEAAADz/+b/BgAGAAEAAAD3/+b/BgAGAAEAAAD4/+f/BgAGAAEAAAD5/+f/BgAGAAEAAAD7/+f/BgAGAAEAAAAHAAIACQABAAEAAAAaAAIACQAAAAAAAADz//b/CQABAAAAAAD8/wIACQABAAEAAABEANT/CwAAAAEAAABNANn/CwACAAAAAABAAMr/CwADAAAAAAB9AMz/AwAAAAAAAgBlAMv/DAAAAAAAAABbAM7/DAAAAAAAAABbAMz/DAAAAAAAAABdAMz/DAAAAAAAAABfAMz/DAAAAAAAAABhAMz/DAAAAAAAAABdAM7/DAAAAAAAAABfAM7/DAAAAAAAAABhAM7/DAAAAAAAAABnAMv/DAAAAAAAAABpAMv/DAAAAAAAAABrAMv/DAAAAAAAAABtAMv/DAAAAAAAAABvAMv/DAAAAAAAAABlAM//DAAAAAAAAABnAM//DAAAAAAAAABpAM//DAAAAAAAAABrAM//DAAAAAAAAABtAM//DAAAAAAAAABvAM//DAAAAAAAAAA=")
+
+[node name="OffsetLayer" type="TileMapLayer" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="1" unique_id=873144189]
+visible = false
+position = Vector2(8, -8)
+tile_set = ExtResource("5_c1lyj")
 
 [node name="Door" parent="ProcessModeReset/YSort/Doors" parent_id_path=PackedInt32Array(662505405) index="0" unique_id=13791502 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
 position = Vector2(232, 112)
@@ -568,7 +574,7 @@ rotation = 3.1415927
 flip = true
 other = NodePath("../Door43")
 
-[node name="Buttons" type="Node" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="2" unique_id=650053970]
+[node name="Buttons" type="Node" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="3" unique_id=650053970]
 
 [node name="Button2D" parent="ProcessModeReset/YSort/Buttons" index="0" unique_id=2094274420 instance=ExtResource("11_t4sx4")]
 position = Vector2(56, -464)
@@ -645,7 +651,7 @@ position = Vector2(1056, -470)
 dialogue_file = "res://assets/dialogue/lastflame.txt"
 met_id = &"met"
 
-[node name="Caravan" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="6" unique_id=1391059496]
+[node name="Caravan" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="7" unique_id=1391059496]
 position = Vector2(-53, -664)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProcessModeReset/YSort/Caravan" index="0" unique_id=802618380]
@@ -655,7 +661,7 @@ shape = SubResource("RectangleShape2D_ib3ld")
 texture = ExtResource("19_cqq4f")
 offset = Vector2(0, -30)
 
-[node name="Caravan2" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="7" unique_id=487939752]
+[node name="Caravan2" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="8" unique_id=487939752]
 position = Vector2(1976, -1168)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProcessModeReset/YSort/Caravan2" index="0" unique_id=2143752886]
@@ -665,7 +671,7 @@ shape = SubResource("RectangleShape2D_ib3ld")
 texture = ExtResource("19_cqq4f")
 offset = Vector2(0, -30)
 
-[node name="Campfire" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="8" unique_id=1003647821]
+[node name="Campfire" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="9" unique_id=1003647821]
 position = Vector2(-160, -656)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ProcessModeReset/YSort/Campfire" index="0" unique_id=1819208327]
@@ -676,7 +682,7 @@ offset = Vector2(0, -12)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProcessModeReset/YSort/Campfire" index="1" unique_id=1597917484]
 shape = SubResource("RectangleShape2D_s3vlm")
 
-[node name="Tent" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="9" unique_id=1982072699]
+[node name="Tent" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="10" unique_id=1982072699]
 y_sort_enabled = true
 
 [node name="Tent" type="Sprite2D" parent="ProcessModeReset/YSort/Tent" index="0" unique_id=1267871247]

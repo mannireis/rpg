@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cqx6p753r2s1r" path="res://scenes/world/fireplace.tscn" id="4_qvmtg"]
 [ext_resource type="Texture2D" uid="uid://dxayar305gha7" path="res://assets/tilesets/house.png" id="5_3vqt5"]
 [ext_resource type="Texture2D" uid="uid://bi27dfk7n53gu" path="res://assets/houses/lucyandgreghouse.png" id="5_6dy5u"]
+[ext_resource type="Texture2D" uid="uid://2m007g770mo" path="res://assets/tilesets/battle_flame.png" id="5_6i0mp"]
 [ext_resource type="Texture2D" uid="uid://54aeg1xrqrf0" path="res://assets/tilesets/furniture.png" id="5_lmoxx"]
 [ext_resource type="PackedScene" uid="uid://qhgxrqrnr2wx" path="res://scenes/world/pushable_block_2d.tscn" id="5_qvmtg"]
 [ext_resource type="Texture2D" uid="uid://5ppysggqt844" path="res://assets/tilesets/cave.png" id="10_p73ri"]
@@ -213,6 +214,14 @@ texture = ExtResource("3_uic34")
 1:4/0 = 0
 2:4/0 = 0
 3:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3vqt5"]
+texture = ExtResource("5_6i0mp")
+0:0/animation_speed = 3.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g1a73"]
 texture = ExtResource("5_3vqt5")
@@ -553,3 +562,4 @@ sources/8 = SubResource("TileSetAtlasSource_581ag")
 sources/9 = SubResource("TileSetAtlasSource_uic34")
 sources/11 = SubResource("TileSetAtlasSource_5e0im")
 sources/10 = SubResource("TileSetAtlasSource_6i0mp")
+sources/12 = SubResource("TileSetAtlasSource_3vqt5")
