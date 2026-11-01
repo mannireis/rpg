@@ -692,4 +692,7 @@ texture = ExtResource("17_4jiuh")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ProcessModeReset/YSort/Tent" index="1" unique_id=1885983145]
 polygon = PackedVector2Array(926, -43, 926, -44, 928, -44, 928, -45, 930, -45, 930, -46, 931, -46, 931, -47, 933, -47, 933, -48, 935, -48, 935, -49, 937, -49, 937, -50, 938, -50, 938, -52, 939, -52, 939, -54, 940, -54, 940, -55, 942, -55, 942, -56, 944, -56, 944, -57, 942, -57, 942, -58, 940, -58, 940, -60, 939, -60, 939, -64, 810, -64, 810, -63, 809, -63, 809, -60, 808, -60, 808, -59, 805, -59, 805, -58, 802, -58, 802, -57, 800, -57, 800, -56, 803, -56, 803, -55, 805, -55, 805, -54, 807, -54, 807, -53, 808, -53, 808, -52, 810, -52, 810, -51, 811, -51, 811, -50, 813, -50, 813, -49, 816, -49, 816, -48, 818, -48, 818, -47, 820, -47, 820, -46, 822, -46, 822, -45, 825, -45, 825, -44, 829, -44, 829, -43, 831, -43, 831, -42, 834, -42, 834, -41, 837, -41, 837, -40, 850, -40, 850, -41, 863, -54, 885, -54, 885, -53, 886, -53, 886, -48, 887, -48, 887, -44, 888, -44, 888, -41, 888, -40, 913, -40, 913, -41, 917, -41, 917, -42, 923, -42, 923, -43)
 
+[node name="TICKETLOCATION" type="Node2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="12" unique_id=1808576591]
+position = Vector2(2432, -808)
+
 [connection signal="correct_password" from="ProcessModeReset/PreasurePlates/PressurePlate4" to="ProcessModeReset/GiveCard" method="_on_pressure_plate_4_correct_password"]
