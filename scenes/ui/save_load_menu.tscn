@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bbgl8j5gspm8w" path="res://assets/empty_banner.png" id="3_aja8b"]
 [ext_resource type="Texture2D" uid="uid://dynx0pbkwxfbr" path="res://assets/trashbin_icon.png" id="5_fffe2"]
 [ext_resource type="Script" uid="uid://70sinhb57xf2" path="res://scripts/ui/load_button.gd" id="6_6c0dq"]
+[ext_resource type="AudioStream" uid="uid://d36j52ps52leg" path="res://assets/audio/ui_hover.wav" id="7_pajdi"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_stkin"]
 texture = ExtResource("1_81axd")
@@ -84,8 +85,21 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_stkin")
 script = ExtResource("2_tguk3")
 
+[node name="BackButton" type="Button" parent="." unique_id=964880215]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+offset_transform_enabled = true
+theme_override_styles/normal = SubResource("StyleBoxTexture_81axd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_81axd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_81axd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_81axd")
+theme_override_styles/focus = SubResource("StyleBoxTexture_81axd")
+text = "Back"
+
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=875125534]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="ButtonContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1488059601]
 layout_mode = 2
@@ -421,6 +435,7 @@ icon = ExtResource("5_fffe2")
 [node name="SetNameBoxPanel" type="Panel" parent="." unique_id=1040739967]
 visible = false
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tguk3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SetNameBoxPanel" unique_id=1562129334]
@@ -456,4 +471,9 @@ alignment = 1
 expand_to_text_length = true
 emoji_menu_enabled = false
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=228061620]
+stream = ExtResource("7_pajdi")
+bus = &"UI"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="text_submitted" from="SetNameBoxPanel/VBoxContainer/SetNameBox" to="." method="_on_set_name_box_text_submitted"]

@@ -1,12 +1,12 @@
 extends PanelContainer
 
+@onready var back_button: Button = $BackButton
 @onready var delete_buttons: Array[Button] = [
 	%DeleteButton, 
 	%DeleteButton2, 
 	%DeleteButton3, 
 	%DeleteButton4
 ]
-
 @onready var slot_buttons: Array[Button] = [
 	%LoadButton,
 	%LoadButton2,
@@ -17,12 +17,15 @@ extends PanelContainer
 var _player_name: String = "Emily"
 
 func _ready() -> void:
+	back_button.mouse_entered.connect(_play_audio)
 	for slots in slot_buttons.size():
 		var slot := slots
+		slot_buttons[slots].mouse_entered.connect(_play_audio)
 		slot_buttons[slots].refresh(slot)
 		slot_buttons[slots].pressed.connect(_on_slot_pressed.bind(slot))
 	for delete in delete_buttons.size():
 		var slot := delete
+		delete_buttons[delete].mouse_entered.connect(_play_audio)
 		delete_buttons[delete].pressed.connect(_on_delete_pressed.bind(slot))
 
 
@@ -32,6 +35,11 @@ func _process(delta: float) -> void:
 			Vector2.ONE if b.is_hovered()
 			else Vector2.ZERO
 			)
+
+	back_button.offset_transform_position = (
+		Vector2.ONE if back_button.is_hovered()
+		else Vector2.ZERO
+		)
 
 
 func _on_slot_pressed(slot: int) -> void:
@@ -62,3 +70,12 @@ func _on_set_name_box_text_submitted(new_text: String) -> void:
 
 func _refresh_button(button: Button, slot: int) -> void:
 	button.refresh(slot)
+
+func _play_audio() -> void:
+	print("playing")
+	$AudioStreamPlayer.pitch_scale = randf_range(0.9, 1.1)
+	$AudioStreamPlayer.play()
+
+
+func _on_back_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

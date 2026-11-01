@@ -3,6 +3,10 @@ extends Control
 @onready var play_button: Button = $CenterContainer/VBoxContainer/PlayButton
 @onready var quit_button: Button = $CenterContainer/VBoxContainer/QuitButton
 
+func _ready() -> void:
+	play_button.mouse_entered.connect(_play_audio) and play_button.focus_entered.connect(_play_audio)
+	quit_button.mouse_entered.connect(_play_audio) and quit_button.focus_entered.connect(_play_audio)
+
 
 func _process(_delta: float) -> void:
 	play_button.offset_transform_position = (
@@ -31,3 +35,8 @@ func _on_quit_button_pressed() -> void:
 
 func _quit() -> void:
 	get_tree().quit()
+
+func _play_audio() -> void:
+	print("playing")
+	$AudioStreamPlayer.pitch_scale = randf_range(0.9, 1.1)
+	$AudioStreamPlayer.play()
