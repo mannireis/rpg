@@ -1,7 +1,7 @@
 extends NPC
 
 var first_seen := false
-
+var room_door: Door
 
 func v(a: int, b: int = 0) -> Vector2i: 
 	return Vector2i(a,b)
@@ -14,7 +14,7 @@ func _ready() -> void:
 	var inv = Signals.BattleInv.create(20,deck,[],[v(0,3),v(0,3)])
 	var inv2 = Signals.BattleInv.create(22,deck2,[],[v(0,3),v(0,3)]) ## "smarter" Flicker
 	var doors = get_tree().get_root().get_node("Chapter01/ProcessModeReset/YSort/Doors")
-	var room_door: Door = doors.get_node("Door33")
+	room_door = doors.get_node("Door43")
 
 	deck.append_array([v(1,0),v(1,0),v(0,1),v(0,1),v(0,1)])
 
@@ -34,16 +34,16 @@ func _ready() -> void:
 
 func room_entered(door: Door) -> void: # make the passersby creature appear when the player first enters flicker's room
 	pass
-	#if door != room_door:
-		#return
-	#
-	#print(str(door)+", "+str(oo.get_groups())+" entered flicker's room. seen? "+str(first_seen))
-	#if body.is_in_group("player") and !first_seen:
-		#first_seen = true
-		#get_parent().get_node("ThePassersby").appear()
-		#await get_tree().create_timer(1).timeout
-		#var f = get_node("FireballBullet")
-		#f.get_node("AnimatedSprite2D").play("fireball")
-		#f.add_to_group("fireball")
-		#get_node("FireballBullet").appear()
+	if door != room_door:
+		return
+
+	print(str(door)+", "+str(door.get_groups())+" entered flicker's room. seen? "+str(first_seen))
+	if !first_seen:
+		first_seen = true
+		get_parent().get_node("ThePassersby").appear()
+		await get_tree().create_timer(1).timeout
+		var f = get_node("FireballBullet")
+		f.get_node("AnimatedSprite2D").play("fireball")
+		f.add_to_group("fireball")
+		get_node("FireballBullet").appear()
 		
