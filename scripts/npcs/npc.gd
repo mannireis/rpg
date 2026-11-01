@@ -29,6 +29,8 @@ var autostart_dialogue := false
 func _enter_tree() -> void:
 	add_to_group("saveable")
 
+signal talking_to(npc_name)
+signal stopped_talking_to(npc_name)
 
 func save_id() -> String:
 	return String(npc_name) if npc_name != &"" else String(name)
@@ -109,7 +111,15 @@ func _unhandled_input(event: InputEvent) -> void:
 	if autostart_dialogue or (event.is_action_pressed(&"Interact") and in_range and not pressed):
 		pressed = true
 		autostart_dialogue = false
+		var l = Signals.battle_lost
+		var w = Signals.battle_won
+		print("before disconnect: lost "+str(l.get_connections())+" won "+str(w.get_connections()))
+		for i in l.get_connections():
+			l.disconnect(i)
+		for i in w.get_connections():
+			w.disconnect(i)
 		GameState.speaking_with = npc_name
+		talking_to.emit(npc_name)
 		if GameState.has_met(npc_name):
 			Signals.dialogue_started.emit(dialogue_file, met_id)
 			#DialogueManager.start(dialogue_file, met_id)

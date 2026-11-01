@@ -13,13 +13,20 @@ func _ready() -> void:
 	super()
 	path = get_parent() as PathFollow2D
 	Signals.dialogue_branched.connect(_current_id)
-	Signals.battle_lost.connect(_battle_lost)
-	Signals.battle_won.connect(_battle_won)
+	talking_to.connect(_talking_to)
 	inv = Signals.BattleInv.create(30,[],[Vector2i(3,3)],[Vector2i(3,3)])
 	inv.ai_atk_chance = 0.5
 	inv.ai_block_chance = 0.3
 	RoomChangeGlobal.enemy_inv_dict[npc_name] = []
 	RoomChangeGlobal.enemy_inv_dict[npc_name].append(inv)
+	
+func _talking_to(_name) -> void:
+	print("NPC "+str(npc_name)+": received talking to "+str(_name))
+	if _name != npc_name:
+		return
+	Signals.battle_lost.connect(_battle_lost)
+	Signals.battle_won.connect(_battle_won)
+	
 
 
 func _physics_process(delta: float) -> void:

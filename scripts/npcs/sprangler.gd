@@ -5,8 +5,7 @@ var battle_won := false
 func _ready() -> void:
 	super()
 	Signals.dialogue_branched.connect(_current_id)
-	Signals.battle_won.connect(_on_battle_won)
-
+	talking_to.connect(_talking_to)
 	var deck: Array[Vector2i] = [
 		Vector2i(0, 0), Vector2i(0, 0),
 		Vector2i(0, 1), Vector2i(0, 1),
@@ -35,9 +34,14 @@ func _ready() -> void:
 
 	RoomChangeGlobal.enemy_inv_dict[npc_name] = [inv]
 
+func _talking_to(_name) -> void:
+	if _name != npc_name:
+		return
+	Signals.battle_won.connect(_on_battle_won)
 
 func _on_battle_won() -> void:
-	GameState.add_card(CardDatabase.db[0][4])
+	GameState.add_card(CardDatabase.db[0][3])
+	print("got sprangler's tooth")
 	battle_won = true
 
 

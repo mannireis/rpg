@@ -94,7 +94,6 @@ func animate_hovering() -> void:
 	var tween = create_tween()
 	
 	if hovering:
-		print("hovering")
 		tween.tween_property(self, "scale", Vector2(1.2,1.2), 0.15)
 		tween.parallel().tween_property(self, "rotation_degrees", 15.0, 0.15)
 		if !remove_labels:
@@ -110,7 +109,7 @@ func animate_hovering() -> void:
 			remove_labels = false
 
 func _on_mouse_short_click() -> void:
-	print(str(self.data.name)+" clicked")
+	#print(str(self.data.name)+" clicked")
 	var sp: Node = get_parent()
 	if sp.sel_count > len(sp.sel_cards) and current_point not in sp.points_to_play:
 		var ind = sp.sel_cards.find(self)
@@ -127,7 +126,6 @@ func _on_mouse_short_click() -> void:
 
 func _on_mouse_entered() -> void:
 	hovering = true
-	print("I used to kill for it")
 
 
 func _on_mouse_exited() -> void:
