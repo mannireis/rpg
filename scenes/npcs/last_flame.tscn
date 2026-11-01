@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b5lh4mgg1by26"]
 
-[ext_resource type="Script" uid="uid://ds4dedeeqjdmw" path="res://scenes/npcs/last_flame.gd" id="1_nm6hn"]
+[ext_resource type="Script" uid="uid://ds4dedeeqjdmw" path="res://scripts/npcs/last_flame.gd" id="1_nm6hn"]
 [ext_resource type="Texture2D" uid="uid://baksexvbb71fg" path="res://assets/last_flame_projection.png" id="2_nm6hn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivh6b"]
