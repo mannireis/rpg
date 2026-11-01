@@ -466,7 +466,7 @@ other = NodePath("../Door28")
 position = Vector2(968, -608)
 rotation = 3.1415927
 flip = true
-other = NodePath("../Door33")
+other = NodePath("../Door27")
 
 [node name="Door29" parent="ProcessModeReset/YSort/Doors" parent_id_path=PackedInt32Array(662505405) index="26" unique_id=1803516471 node_paths=PackedStringArray("other") instance=ExtResource("4_tcubl")]
 position = Vector2(1216, -677)
@@ -636,7 +636,7 @@ vel_scale = 44.0
 target = NodePath("../../ThePassersby")
 
 [node name="ThePassersby" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="9" unique_id=945158310 instance=ExtResource("13_nb3ya")]
-position = Vector2(1664, -816)
+position = Vector2(1664, -832)
 vel = Vector2i(3, 2)
 vel_scale = 8.0
 
@@ -647,7 +647,7 @@ position = Vector2(-205, -651)
 position = Vector2(2208, -984)
 
 [node name="LastFlame" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="12" unique_id=922127529 instance=ExtResource("20_c1lyj")]
-position = Vector2(1056, -470)
+position = Vector2(1040, -470)
 dialogue_file = "res://assets/dialogue/lastflame.txt"
 met_id = &"met"
 
