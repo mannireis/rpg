@@ -17,7 +17,7 @@
 ===
 
 === john
-	John: Hey, Em. How are you doing?
+	John: Hey. How are you doing?
 	$player: haiii.
 	>> bye
 ===
@@ -33,7 +33,7 @@
 	John: I’m the one who walks north, comes back, still here.
 	$player: I just wanted to know your name.
 	John: I'm John what about you?
-	$player: I'm Emily but go by Em.
+	$player: I'm $player.
 	>> meet_john
 ===
 

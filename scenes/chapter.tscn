@@ -9,7 +9,7 @@
 [ext_resource type="FontFile" uid="uid://jptnllywkipc" path="res://assets/fonts/chicago_bold.png" id="4_teg3p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmkx5"]
-bg_color = Color(0, 0, 0, 0.75000006)
+bg_color = Color(0, 0, 0, 0.7490196)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sph6d"]
 bg_color = Color(0.35686275, 0.19215687, 0.21960784, 1)

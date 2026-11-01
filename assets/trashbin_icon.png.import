@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqr22a1yiag33"
-path="res://.godot/imported/fireball_projectile.png-b465db41fde548752a4f625ee9597bb0.ctex"
+uid="uid://dynx0pbkwxfbr"
+path="res://.godot/imported/trashbin_icon.png-4e646238f403f4e2bc99c63a3aeff8aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/fireball_projectile.png"
-dest_files=["res://.godot/imported/fireball_projectile.png-b465db41fde548752a4f625ee9597bb0.ctex"]
+source_file="res://assets/trashbin_icon.png"
+dest_files=["res://.godot/imported/trashbin_icon.png-4e646238f403f4e2bc99c63a3aeff8aa.ctex"]
 
 [params]
 

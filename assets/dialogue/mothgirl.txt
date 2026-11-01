@@ -3,7 +3,7 @@
 	Kira: Hmm I've seen a few bunny's passing but mayhaps how does he look like?
 	$player: He is white with a top hat and a monocle.
 	Kira: I think he went North-East with someone else, perhaps will or flicker know something.
-	$player: Thank you! Also I don't think I've properly introduced myself I'm Emily, what about you?
+	$player: Thank you! Also I don't think I've properly introduced myself I'm $player, what about you?
 	Kira: I'm Kira, the leader of this caravan.
 	Kira: We are actually going North-East if you would like to come with us.
 	Kira: We will take you if you bring 3 moulberrys.

@@ -55,4 +55,7 @@ func move_player(door: Door) -> void:
 func _on_main_menu_button_pressed() -> void:
 	var tree := get_tree()
 	tree.paused = false
+	
+	SaveManager.save_game(GameState.current_slot)
+	
 	tree.change_scene_to_file("res://scenes/main_menu.tscn")

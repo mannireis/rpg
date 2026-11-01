@@ -1,7 +1,7 @@
 === start
 	$player: Hey, who are you?
 	Greg: I'm Greg what about you?
-	$player: I'm Emily.
+	$player: I'm $player.
 ===
 
 === met
