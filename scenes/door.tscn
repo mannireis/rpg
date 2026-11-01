@@ -28,8 +28,10 @@ shape = SubResource("SegmentShape2D_uvdjg")
 
 [node name="BlockerHorizontal" type="Sprite2D" parent="." unique_id=210988461]
 visible = false
+position = Vector2(-4, 0)
 rotation = 1.5707964
 texture = ExtResource("2_83dcw")
+offset = Vector2(0, -8)
 
 [node name="BlockerVertical" type="Sprite2D" parent="." unique_id=173344203]
 visible = false
