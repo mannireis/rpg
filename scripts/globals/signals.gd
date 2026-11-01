@@ -7,6 +7,7 @@ signal dialogue_branched(to: StringName)
 signal star
 signal battle_won
 signal battle_lost
+signal bcast(action: String)
 @warning_ignore_restore("unused_signal")
 signal start_battle(which_inv: int) ## If the NPC has multiple inventories for multiple encounters, which_inv selects the encounter
 
