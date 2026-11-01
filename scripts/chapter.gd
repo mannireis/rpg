@@ -9,11 +9,15 @@ extends Node2D
 @export var chapter_name: String
 
 func _ready():
+	GameState.time_start = Time.get_unix_time_from_system()
 	Signals.transition.connect(_on_transition)
 	GameState.chapter_name = chapter_name
 
 
 func _process(_delta: float) -> void:
+	GameState.time_now = Time.get_unix_time_from_system()
+	GameState.playtime = GameState.time_now - GameState.time_start
+	
 	var viewport := get_viewport_rect().size
 	camera.position = (player.position - viewport / 2).snapped(viewport)
 

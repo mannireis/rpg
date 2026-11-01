@@ -10,10 +10,17 @@ func refresh(slot: int) -> void:
 	if SaveManager.has_save(slot):
 		var data := load(SaveManager.slot_path(slot)) as Save
 		current_chapter.show()
-		player_name.text + data.player_name
-		time_played.text = "1h 5m"
+		player_name.text = data.player_name
+		time_played.text = format_playtime(data.play_time)
 		current_chapter.text = data.chapter_title
 	else:
 		player_name.text = "New Game"
-		time_played.text = "0m"
 		current_chapter.hide()
+
+
+func format_playtime(time: float) -> String:
+	var seconds := int(time)
+	var hour := seconds / 3600
+	var minutes := (seconds % 3600) / 60
+
+	return "%02d:%02d" % [hour, minutes]

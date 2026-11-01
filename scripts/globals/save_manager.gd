@@ -68,6 +68,7 @@ func save_game(slot: int) -> void:
 	data.max_hp = GameState.player_battle_inventory.max_hp
 	data.hp = GameState.player_battle_inventory.hp
 	data.room = get_tree().current_scene.scene_file_path
+	data.play_time += GameState.playtime
 	
 	data.deck.clear()
 	data.item_paths.clear()

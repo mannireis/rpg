@@ -146,14 +146,14 @@ theme_override_styles/separator = SubResource("StyleBoxTexture_aja8b")
 layout_mode = 2
 mouse_filter = 2
 
-[node name="TimePlayed" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1210155094]
+[node name="CurrentChapter" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=506341817]
 layout_mode = 2
 
 [node name="Separator" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=2063326183]
 layout_mode = 2
 text = "|"
 
-[node name="CurrentChapter" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=506341817]
+[node name="TimePlayed" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1210155094]
 layout_mode = 2
 
 [node name="ChapterBanner" type="TextureRect" parent="CenterContainer/ButtonContainer/HBoxContainer/LoadButton/MarginContainer/HBoxContainer" unique_id=117072863]
@@ -228,14 +228,14 @@ theme_override_styles/separator = SubResource("StyleBoxTexture_aja8b")
 layout_mode = 2
 mouse_filter = 2
 
-[node name="TimePlayed" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer2/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=393573830]
+[node name="CurrentChapter" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer2/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=732454034]
 layout_mode = 2
 
 [node name="Separator" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer2/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1811018190]
 layout_mode = 2
 text = "|"
 
-[node name="CurrentChapter" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer2/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=732454034]
+[node name="TimePlayed" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer2/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=393573830]
 layout_mode = 2
 
 [node name="ChapterBanner" type="TextureRect" parent="CenterContainer/ButtonContainer/HBoxContainer2/LoadButton2/MarginContainer/HBoxContainer" unique_id=454811564]
@@ -310,14 +310,14 @@ theme_override_styles/separator = SubResource("StyleBoxTexture_aja8b")
 layout_mode = 2
 mouse_filter = 2
 
-[node name="TimePlayed" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer3/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1001135614]
+[node name="CurrentChapter" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer3/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1715434423]
 layout_mode = 2
 
 [node name="Separator" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer3/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=2072483818]
 layout_mode = 2
 text = "|"
 
-[node name="CurrentChapter" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer3/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1715434423]
+[node name="TimePlayed" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer3/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1001135614]
 layout_mode = 2
 
 [node name="ChapterBanner" type="TextureRect" parent="CenterContainer/ButtonContainer/HBoxContainer3/LoadButton3/MarginContainer/HBoxContainer" unique_id=173090136]
@@ -392,14 +392,14 @@ theme_override_styles/separator = SubResource("StyleBoxTexture_aja8b")
 layout_mode = 2
 mouse_filter = 2
 
-[node name="TimePlayed" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1957379683]
+[node name="CurrentChapter" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=969009690]
 layout_mode = 2
 
 [node name="Separator" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1513855260]
 layout_mode = 2
 text = "|"
 
-[node name="CurrentChapter" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=969009690]
+[node name="TimePlayed" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1957379683]
 layout_mode = 2
 
 [node name="ChapterBanner" type="TextureRect" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4/MarginContainer/HBoxContainer" unique_id=520783771]

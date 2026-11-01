@@ -12,6 +12,9 @@ var speaking_with: StringName
 var spoke_before_battle: StringName
 var player_battle_inventory: Signals.BattleInv ## Initialised once, modify only its attributes
 var item_inventory: Array[Item] = []
+var time_start: int
+var time_now: int
+var playtime: int
 
 func _ready() -> void:
 	if !player_battle_inventory:
@@ -64,3 +67,6 @@ func reset() -> void:
 	player_battle_inventory = Signals.BattleInv.create()
 	player_battle_inventory.deck = PlayerCtl.starter_deck()
 	item_inventory = []
+	time_start = 0
+	time_now = 0
+	playtime = 0
