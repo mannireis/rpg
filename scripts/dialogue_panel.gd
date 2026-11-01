@@ -120,6 +120,8 @@ func _goto(id: String) -> void:
 	_current_line = 0
 	_show_line()
 
+func _fill_vars(text: String) -> String:
+	return text.replace("$player", GameState.player_name)
 
 func _show_line() -> void:
 	var block: Array = _parsed_dialogue.get(_current_id, [])
@@ -159,12 +161,9 @@ func _end() -> void:
 func _on_line(line: Dictionary) -> void:
 	show()
 
-	if line["speaker"] == "$player":
-		speaker.text = GameState.player_name
-	else:
-		speaker.text = line["speaker"]
+	speaker.text = _fill_vars(line["speaker"])
 
-	say(line["text"])
+	say(_fill_vars(line["text"]))
 
 	for c in choices.get_children():
 		c.queue_free()

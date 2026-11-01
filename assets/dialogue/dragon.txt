@@ -1,5 +1,5 @@
 === start
-	$player: Hey, Who are you? I'm Emily.
+	$player: Hey, Who are you? I'm $player.
 	Fynn: I'm Fynn, I'm just a caravan member.
 	$player: What is this caravan for?
 	Fynn: We sell equipment for a lot of shops.
@@ -14,6 +14,6 @@
 ===
 
 === met
-	Fynn: Hey there Emily!
+	Fynn: Hey there $player!
 	$player: Hey!
 ===

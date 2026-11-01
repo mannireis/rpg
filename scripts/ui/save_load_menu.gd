@@ -19,6 +19,7 @@ var _player_name: String = "Emily"
 func _ready() -> void:
 	for slots in slot_buttons.size():
 		var slot := slots
+		slot_buttons[slots].refresh(slot)
 		slot_buttons[slots].pressed.connect(_on_slot_pressed.bind(slot))
 	for delete in delete_buttons.size():
 		var slot := delete
@@ -44,6 +45,8 @@ func _on_slot_pressed(slot: int) -> void:
 
 
 func _on_delete_pressed(slot: int) -> void:
+	for slots in slot_buttons.size():
+		slot_buttons[slots].refresh(slot)
 	SaveManager.delete_save(slot)
 
 
@@ -53,3 +56,9 @@ func _on_set_name_box_text_submitted(new_text: String) -> void:
 		GameState.player_name = "Emily"
 	else:
 		GameState.player_name = %SetNameBox.text
+	for slots in slot_buttons.size():
+		slot_buttons[slots].refresh(slots)
+
+
+func _refresh_button(button: Button, slot: int) -> void:
+	button.refresh(slot)

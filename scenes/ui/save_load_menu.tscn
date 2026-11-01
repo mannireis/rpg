@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://caxboqvrv6qti" path="res://scripts/ui/save_load_menu.gd" id="2_tguk3"]
 [ext_resource type="Texture2D" uid="uid://bbgl8j5gspm8w" path="res://assets/empty_banner.png" id="3_aja8b"]
 [ext_resource type="Texture2D" uid="uid://dynx0pbkwxfbr" path="res://assets/trashbin_icon.png" id="5_fffe2"]
+[ext_resource type="Script" uid="uid://70sinhb57xf2" path="res://scripts/ui/load_button.gd" id="6_6c0dq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_stkin"]
 texture = ExtResource("1_81axd")
@@ -103,6 +104,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/focus = SubResource("StyleBoxTexture_81axd")
+script = ExtResource("6_6c0dq")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ButtonContainer/HBoxContainer/LoadButton" unique_id=1285763071]
 layout_mode = 1
@@ -186,6 +188,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/focus = SubResource("StyleBoxTexture_81axd")
+script = ExtResource("6_6c0dq")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ButtonContainer/HBoxContainer2/LoadButton2" unique_id=924556736]
 layout_mode = 1
@@ -269,6 +272,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/focus = SubResource("StyleBoxTexture_81axd")
+script = ExtResource("6_6c0dq")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ButtonContainer/HBoxContainer3/LoadButton3" unique_id=1905012318]
 layout_mode = 1
@@ -312,7 +316,6 @@ mouse_filter = 2
 
 [node name="TimePlayed" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer3/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1001135614]
 layout_mode = 2
-text = "1h 5m"
 
 [node name="Separator" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer3/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=2072483818]
 layout_mode = 2
@@ -320,7 +323,6 @@ text = "|"
 
 [node name="CurrentChapter" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer3/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1715434423]
 layout_mode = 2
-text = "Chapter 1"
 
 [node name="ChapterBanner" type="TextureRect" parent="CenterContainer/ButtonContainer/HBoxContainer3/LoadButton3/MarginContainer/HBoxContainer" unique_id=173090136]
 layout_mode = 2
@@ -352,6 +354,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/focus = SubResource("StyleBoxTexture_81axd")
+script = ExtResource("6_6c0dq")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4" unique_id=1582543874]
 layout_mode = 1
@@ -379,7 +382,6 @@ theme_override_constants/separation = 1
 
 [node name="PlayerName" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer" unique_id=115895967]
 layout_mode = 2
-text = "Emily"
 
 [node name="HSeparator" type="HSeparator" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer" unique_id=478961298]
 propagate_maximum_size = true
@@ -395,7 +397,6 @@ mouse_filter = 2
 
 [node name="TimePlayed" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1957379683]
 layout_mode = 2
-text = "1h 5m"
 
 [node name="Separator" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1513855260]
 layout_mode = 2
@@ -403,7 +404,6 @@ text = "|"
 
 [node name="CurrentChapter" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=969009690]
 layout_mode = 2
-text = "Chapter 1"
 
 [node name="ChapterBanner" type="TextureRect" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4/MarginContainer/HBoxContainer" unique_id=520783771]
 layout_mode = 2

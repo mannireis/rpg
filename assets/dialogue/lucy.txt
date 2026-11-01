@@ -1,7 +1,7 @@
 === start
 	$player: Hey, Who are you?
 	Lucy: I'm Lucy I'm the herbalist of this village, what about you?
-	$player: I'm Emily and I'm looking for my white bunny have you seen it?
+	$player: I'm $player and I'm looking for my white bunny have you seen it?
 	Lucy: Hmm I'm not sure but I don't think I've seen one sorry.
 	$player: Thank's anyway.
 ===
