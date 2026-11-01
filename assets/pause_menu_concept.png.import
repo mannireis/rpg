@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hkq2kdcij3tl"
-path="res://.godot/imported/passerby.png-fd72c4033dccb72409a47781af2275c3.ctex"
+uid="uid://cqnbc8u3we0c5"
+path="res://.godot/imported/pause_menu_concept.png-ca1b4c79eba9bd859d5d034a4ca685d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/passerby.png"
-dest_files=["res://.godot/imported/passerby.png-fd72c4033dccb72409a47781af2275c3.ctex"]
+source_file="res://assets/pause_menu_concept.png"
+dest_files=["res://.godot/imported/pause_menu_concept.png-ca1b4c79eba9bd859d5d034a4ca685d5.ctex"]
 
 [params]
 
