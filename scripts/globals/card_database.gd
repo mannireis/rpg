@@ -15,13 +15,14 @@ var db: Array[Array] = [
 	GameCard.create(s.SPADES, 0, n, v0, "Double Trouble", 1, preload("res://assets/cards/double_trouble.png"), "Does 2 basic attacks dealing 6 points of damage"),
 	GameCard.create(s.SPADES,1,n,Vector2i(10,0),"Barbaric Strike",2,preload("res://assets/cards/barbaric_strike.png"), "Deal 10 points of damage, to the enemy"),
 	GameCard.create(s.SPADES,2,n,Vector2i(5,2),"Fireball",4,preload("res://assets/cards/fireball.png"),"Do persistent burning damage. Deals 5 damage for 2 rounds"),
-	GameCard.create(s.SPADES,3,n,Vector2i(3,2),"Sprangler's tooth",4,preload("res://assets/cards/spranglers_tooth.png"),"Deals 4 damage when played, then 2 damage for 2 rounds")
+	GameCard.create(s.SPADES,3,n,Vector2i(3,3),"Sprangler's tooth",4,preload("res://assets/cards/spranglers_tooth.png"),"Deals 4 damage when played, then 2 damage for 2 rounds")
 ],
 [
 	GameCard.create(s.CLUBS,0,n,v0,"Good Posture",1,preload("res://assets/cards/good_posture.png"), "Add 6 points to shield")
 ],
 [
-	GameCard.create(s.HEARTS,0,n,Vector2i(2,0),"Disarm Equipment",2,preload("res://assets/cards/disarm_equipment.png"),"Eat the opponent's cards at a cost")
+	GameCard.create(s.HEARTS,0,n,Vector2i(2,0),"Disarm Equipment",2,preload("res://assets/cards/disarm_equipment.png"),"Eat the opponent's cards at a cost"),
+	GameCard.create(s.HEARTS,1,n,Vector2i(4,0),"Healing Splash",1,preload("res://assets/cards/healing_splash.png"),"Extinguish and heal yourself")
 ],
 [
 	GameCard.create(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload("res://assets/cards/pirate_saber.png"), "Add +2 damage per round"),
@@ -56,7 +57,7 @@ func _ready() -> void:
 		return [GameCard.Move.TRASH]
 	db[0][3].play = func(ctl: PlayerCtl, enemy_ctl: PlayerCtl) -> Array:
 		ctl.exec_atk(Vector2i(4, 0))
-		enemy_ctl.persistent_dmg[1] = Vector2i(2, 2)
+		enemy_ctl.persistent_dmg[3] = Vector2i(2, 2)
 		return [GameCard.Move.TRASH]
 		
 		
@@ -104,6 +105,11 @@ func _ready() -> void:
 			for i in range(num_eq): ctl.exec_atk(db[2][0].atk)
 		return [GameCard.Move.TRASH]
 	
+	db[2][1].play = func(ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Array:
+		ctl.hp = max(ctl.max_hp,ctl.hp+db[2][1].dmg[0])
+		print("erasing fire: "+str(ctl.persistent_dmg[2]))
+		ctl.persistent_dmg[2] = v0
+		return [GameCard.Move.TRASH]
 	
 	db[3][0].play = func(ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Array:
 		if db[3][0] not in ctl.equipped_cards and len(ctl.equipped_cards) < 3:

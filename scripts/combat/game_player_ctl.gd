@@ -21,7 +21,13 @@ var block_current: Array[int] = [0]
 var block_history: int = 1
 var next_turn: Array[Callable] = []
 var block_accumulator: Array[Array] = [[0]]
-var persistent_dmg: Array[Vector2i] = [v0,v0,v0] ## -1 in second position means endless damage
+
+## Deals damage every turn, expires when [1] of the vec reaches 0\n
+## if damage should decrease every turn, add index to pers_decrease\n
+## [normal, piercing, fire, stabbing(tooth)]\n
+## -1 in vec[1] means endless damage
+var persistent_dmg: Array[Vector2i] = [v0,v0,v0,v0] 
+
 const pers_decrease: Array[int] = [2]
 var is_enemy: bool = false
 var equipped: Array[int] = [] ## Index in deck (both jokers and normal equipped cards), run_equipped() runs all these cards' game methods
