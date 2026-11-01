@@ -29,6 +29,22 @@ func _ready() -> void:
 	
 	sprite_2d.region_rect.position.y = 32
 	sprite_2d.region_rect.position.x = house * 16
+	_typed_password = []
+	add_to_group("saveable")
+
+
+func save_id() -> String:
+	return String(name)
+
+
+func save_state() -> Dictionary:
+	return {"password": _typed_password.duplicate()}
+
+
+func apply_state(state: Dictionary) -> void:
+	_typed_password.clear()
+	for value in state.get("password", []):
+		_typed_password.append(int(value))
 
 
 func _physics_process(delta: float) -> void:
@@ -61,7 +77,3 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if bodies_on_preasure_plate <= 0:
 		sprite_2d.region_rect.position.y = 32
 		pressed.emit(false)
-
-
-func _on__correct_password() -> void:
-	pass # Replace with function body.

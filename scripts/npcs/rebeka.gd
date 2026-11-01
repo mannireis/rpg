@@ -54,6 +54,24 @@ func _current_id(id: String) -> void:
 		ran = false
 
 
+func save_state() -> Dictionary:
+	var state := super()
+	state["ran"] = ran
+	state["follow"] = follow
+	state["goodbye"] = goodbye
+	state["path_progress"] = path.progress_ratio if path else 0.0
+	return state
+
+
+func apply_state(state: Dictionary) -> void:
+	super(state)
+	ran = state.get("ran", false)
+	follow = state.get("follow", false)
+	goodbye = state.get("goodbye", false)
+	if path:
+		path.progress_ratio = float(state.get("path_progress", 0.0))
+
+
 func _battle_lost() -> void:
 	print("lost battle")
 

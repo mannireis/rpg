@@ -12,10 +12,30 @@ extends CharacterBody2D
 @export_range(0.0, 1.0) var impact_response := 0.5
 @export var initial_velocity := Vector2.ZERO
 
+var spawn_position: Vector2
+
 
 func _ready() -> void:
+	spawn_position = global_position
 	add_to_group("movable_object")
+	add_to_group("saveable")
 	velocity = initial_velocity
+
+
+func save_id() -> String:
+	return "block_%d_%d" % [
+		roundi(spawn_position.x),
+		roundi(spawn_position.y)
+	]
+
+
+func save_state() -> Dictionary:
+	return {"position": global_position}
+
+
+func apply_state(state: Dictionary) -> void:
+	global_position = state.get("position", global_position)
+	velocity = Vector2.ZERO
 
 
 func apply_impact(impact_velocity: Vector2) -> void:

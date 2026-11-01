@@ -26,6 +26,22 @@ var pressed := false
 var autostart_dialogue := false
 
 
+func _enter_tree() -> void:
+	add_to_group("saveable")
+
+
+func save_id() -> String:
+	return String(npc_name) if npc_name != &"" else String(name)
+
+
+func save_state() -> Dictionary:
+	return {"met_id": String(met_id)}
+
+
+func apply_state(state: Dictionary) -> void:
+	met_id = StringName(state.get("met_id", met_id))
+
+
 func _ready() -> void:
 	if wander:
 		starting_pos = global_position

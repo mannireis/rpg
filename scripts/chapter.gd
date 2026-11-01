@@ -6,9 +6,11 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = %CanvasModulate/AnimationPlayer
 @onready var camera: Camera2D = %Camera2D
 
+@export var chapter_name: String
 
 func _ready():
 	Signals.transition.connect(_on_transition)
+	GameState.chapter_name = chapter_name
 
 
 func _process(_delta: float) -> void:

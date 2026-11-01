@@ -32,6 +32,17 @@ func _ready() -> void:
 	#print(room_door.body_entered.get_connections())
 
 
+func save_state() -> Dictionary:
+	var state := super()
+	state["first_seen"] = first_seen
+	return state
+
+
+func apply_state(state: Dictionary) -> void:
+	super(state)
+	first_seen = state.get("first_seen", false)
+
+
 func room_entered(door: Door) -> void: # make the passersby creature appear when the player first enters flicker's room
 	pass
 	#if door != room_door:

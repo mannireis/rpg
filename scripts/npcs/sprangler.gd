@@ -46,9 +46,26 @@ func _current_id(id: String) -> void:
 		return
 	if id == &"correct" or battle_won:
 		met_id = &"met"
-		$CollisionShape2D.shape.size.y = 28
-		$CollisionShape2D.position.y = 42
-		$Area2D.position.y = 15
-		$AnimatedSprite2D.play("idle_low")
+		_set_met_visuals()
 	if id == &"wrong":
 		met_id = &"start"
+
+
+func _set_met_visuals() -> void:
+	$CollisionShape2D.shape.size.y = 28
+	$CollisionShape2D.position.y = 42
+	$Area2D.position.y = 15
+	$AnimatedSprite2D.play("idle_low")
+
+
+func save_state() -> Dictionary:
+	var state := super()
+	state["battle_won"] = battle_won
+	return state
+
+
+func apply_state(state: Dictionary) -> void:
+	super(state)
+	battle_won = state.get("battle_won", false)
+	if battle_won or met_id == &"met":
+		_set_met_visuals()

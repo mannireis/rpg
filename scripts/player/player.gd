@@ -11,6 +11,7 @@ var intended_velocity := Vector2.ZERO
 
 func _ready() -> void:
 	add_to_group("player")
+	global_position = GameState.player_pos
 	if RoomChangeGlobal.activate:
 		global_position = RoomChangeGlobal.player_pos
 		RoomChangeGlobal.activate = false
