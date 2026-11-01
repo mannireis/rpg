@@ -1,1 +1,0 @@
-extends HealthBar2D

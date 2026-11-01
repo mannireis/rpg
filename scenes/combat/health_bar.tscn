@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cxrd5ke6fiatw"]
 
-[ext_resource type="Script" uid="uid://bsabdxee8jisf" path="res://scripts/ui/health_progress_bar.gd" id="1_kyqmk"]
-[ext_resource type="Texture2D" uid="uid://bcaac5yyw61ef" path="res://assets/panel_battle.png" id="2_7bxy6"]
-[ext_resource type="Texture2D" uid="uid://c5ydhltj1rta3" path="res://assets/shield_progress_bar.png" id="3_2sngf"]
-[ext_resource type="Texture2D" uid="uid://baawqx5k3utvj" path="res://assets/health_progress_bar.png" id="4_7bxy6"]
-[ext_resource type="AudioStream" uid="uid://j7s8huhevcd5" path="res://assets/audio/damage.wav" id="5_80uk7"]
+[ext_resource type="Texture2D" uid="uid://bcaac5yyw61ef" path="res://assets/panel_battle.png" id="1_8ymem"]
+[ext_resource type="Script" uid="uid://bsabdxee8jisf" path="res://scripts/ui/health_progress_bar.gd" id="2_x4hh8"]
+[ext_resource type="Texture2D" uid="uid://c5ydhltj1rta3" path="res://assets/shield_progress_bar.png" id="3_sr7kk"]
+[ext_resource type="Texture2D" uid="uid://baawqx5k3utvj" path="res://assets/health_progress_bar.png" id="4_eu2ep"]
+[ext_resource type="AudioStream" uid="uid://j7s8huhevcd5" path="res://assets/audio/damage.wav" id="5_x4hh8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_62e2m"]
-texture = ExtResource("2_7bxy6")
+texture = ExtResource("1_8ymem")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
@@ -16,21 +16,21 @@ texture_margin_bottom = 1.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_62e2m"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_80uk7"]
-texture = ExtResource("3_2sngf")
+texture = ExtResource("3_sr7kk")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qtu10"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0fbet"]
-texture = ExtResource("4_7bxy6")
+texture = ExtResource("4_eu2ep")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="HealthBar2D" type="Panel" unique_id=1680376864]
+[node name="HealthBar" type="Panel" unique_id=1680376864]
 custom_minimum_size = Vector2(10, 66)
 theme_override_styles/panel = SubResource("StyleBoxTexture_62e2m")
-script = ExtResource("1_kyqmk")
+script = ExtResource("2_x4hh8")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1424033359]
 layout_mode = 1
@@ -77,5 +77,5 @@ show_percentage = false
 
 [node name="AudioStreamPlayerSFX" type="AudioStreamPlayer" parent="." unique_id=492928686]
 unique_name_in_owner = true
-stream = ExtResource("5_80uk7")
+stream = ExtResource("5_x4hh8")
 bus = &"SFX"

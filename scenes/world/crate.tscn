@@ -1,21 +1,21 @@
 [gd_scene format=3 uid="uid://qhgxrqrnr2wx"]
 
-[ext_resource type="Script" uid="uid://b4quh64wej2pi" path="res://scripts/world/pushable_block_2d.gd" id="1_bqjgo"]
-[ext_resource type="Texture2D" uid="uid://dlpf876kmx64j" path="res://assets/box.png" id="2_qbi78"]
+[ext_resource type="Script" uid="uid://b4quh64wej2pi" path="res://scripts/world/crate.gd" id="1_t3qvm"]
+[ext_resource type="Texture2D" uid="uid://dlpf876kmx64j" path="res://assets/crate.png" id="2_qbi78"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqjgo"]
 size = Vector2(14, 14)
 
-[node name="PushableBlock2D" type="CharacterBody2D" unique_id=361140572]
-script = ExtResource("1_bqjgo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1459407669]
-shape = SubResource("RectangleShape2D_bqjgo")
+[node name="Crate" type="CharacterBody2D" unique_id=361140572]
+script = ExtResource("1_t3qvm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=427750258]
 position = Vector2(-2.9802322e-08, -2.9802322e-08)
 scale = Vector2(0.87500006, 0.87500006)
 texture = ExtResource("2_qbi78")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1459407669]
+shape = SubResource("RectangleShape2D_bqjgo")
 
 [node name="TopRayCast2D" type="RayCast2D" parent="." unique_id=2023579714]
 target_position = Vector2(0, -20)

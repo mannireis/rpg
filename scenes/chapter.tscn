@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dgit23mgouwda"]
 
 [ext_resource type="Script" uid="uid://cw10mpwn7wl6g" path="res://scripts/chapter.gd" id="1_7sbe3"]
-[ext_resource type="PackedScene" uid="uid://bsufd13kj3255" path="res://scenes/infinite_grid.tscn" id="2_23v15"]
-[ext_resource type="Script" uid="uid://cvvde3tjg4wk5" path="res://scripts/dialogue_panel.gd" id="2_k12pt"]
+[ext_resource type="PackedScene" uid="uid://bsufd13kj3255" path="res://scenes/utils/infinite_grid.tscn" id="2_23v15"]
+[ext_resource type="Script" uid="uid://cvvde3tjg4wk5" path="res://scripts/ui/dialogue_panel.gd" id="2_k12pt"]
 [ext_resource type="TileSet" uid="uid://ctpxu0oeyokmb" path="res://assets/tile_set.tres" id="2_xh8w3"]
 [ext_resource type="FontFile" uid="uid://cvh0krg1x26b5" path="res://assets/fonts/chicago.png" id="3_23v15"]
-[ext_resource type="PackedScene" uid="uid://dn85my2emfvu8" path="res://scenes/player/player.tscn" id="3_xh8w3"]
+[ext_resource type="PackedScene" uid="uid://dn85my2emfvu8" path="res://scenes/player.tscn" id="3_xh8w3"]
 [ext_resource type="FontFile" uid="uid://jptnllywkipc" path="res://assets/fonts/chicago_bold.png" id="4_teg3p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmkx5"]

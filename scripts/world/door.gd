@@ -86,8 +86,8 @@ enum Transition {
 
 @onready var shape: SegmentShape2D = $Area2D/CollisionShape2D.shape
 @onready var area_2d: Area2D = $Area2D
-@onready var blocker_horizontal: Sprite2D = $BlockerHorizontal
-@onready var blocker_vertical: Sprite2D = $BlockerVertical
+@onready var blocker_wide: Sprite2D = $BlockerWide
+@onready var blocker_narrow: Sprite2D = $BlockerNarrow
 
 
 func _ready() -> void:
@@ -123,14 +123,14 @@ func _block() -> void:
 	area_2d.monitoring = false
 	
 	if horizontal and other.position.y < position.y:
-		blocker_horizontal.modulate = Color.WHITE
-		blocker_horizontal.show()
+		blocker_wide.modulate = Color.WHITE
+		blocker_wide.show()
 	else:
-		blocker_vertical.modulate = Color.WHITE
-		blocker_vertical.show()
+		blocker_narrow.modulate = Color.WHITE
+		blocker_narrow.show()
 
 
 func _unblock() -> void:
 	area_2d.monitoring = true
-	blocker_horizontal.modulate = Color(1, 1, 1, 0.3)
-	blocker_vertical.modulate = Color(1, 1, 1, 0.3)
+	blocker_wide.modulate = Color(1, 1, 1, 0.3)
+	blocker_narrow.modulate = Color(1, 1, 1, 0.3)

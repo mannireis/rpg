@@ -62,4 +62,4 @@ func _on_main_menu_button_pressed() -> void:
 	
 	SaveManager.save_game(GameState.current_slot)
 	
-	tree.change_scene_to_file("res://scenes/main_menu.tscn")
+	tree.change_scene_to_file("res://scenes/ui/main_menu.tscn")

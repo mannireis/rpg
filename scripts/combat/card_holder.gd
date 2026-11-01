@@ -1,6 +1,6 @@
 extends Node
 
-@onready var battle_manager = get_tree().get_root().get_node("BattleRoom").get_node("BattleManager")
+@onready var battle_manager = get_tree().get_root().get_node("Battle").get_node("BattleManager")
 
 @export var play_button: Button
 @export var snap_points: Array[Control] = []

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bqc5iabo1c3ts"]
 
-[ext_resource type="Script" uid="uid://chyk4dtrmy0qn" path="res://scripts/npcs/belhop.gd" id="1_8agrv"]
+[ext_resource type="Script" uid="uid://chyk4dtrmy0qn" path="res://scripts/npcs/bellhop.gd" id="1_8agrv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8agrv"]
 size = Vector2(16, 16)

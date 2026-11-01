@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://kebwg68buqsq"]
 
-[ext_resource type="Script" uid="uid://dcfnm5uyjj8kk" path="res://scripts/npcs/passersby.gd" id="1_stamm"]
+[ext_resource type="Script" uid="uid://dcfnm5uyjj8kk" path="res://scripts/npcs/passerby.gd" id="1_stamm"]
 [ext_resource type="Texture2D" uid="uid://dydfdom68txyw" path="res://assets/characters/passerby.png" id="2_stamm"]
 [ext_resource type="Texture2D" uid="uid://dxm07e8epyfp7" path="res://assets/fireball_projectile.png" id="3_h5d8r"]
 

@@ -1,28 +1,28 @@
 [gd_scene format=3 uid="uid://vpp6ajthpv20"]
 
-[ext_resource type="Texture2D" uid="uid://bcaac5yyw61ef" path="res://assets/panel_battle.png" id="1_hj64o"]
-[ext_resource type="Script" uid="uid://l0nipgcb3sev" path="res://scripts/ui/play.gd" id="2_ou3et"]
-[ext_resource type="Texture2D" uid="uid://boer8slf5lsps" path="res://assets/atk_icon.png" id="6_ylo0j"]
-[ext_resource type="Texture2D" uid="uid://cek6ei6frdk5u" path="res://assets/block_small.png" id="7_0pj22"]
-[ext_resource type="Texture2D" uid="uid://m3v68wusnow2" path="res://assets/battle_scene.png" id="8_7oxxd"]
-[ext_resource type="Texture2D" uid="uid://fnhcpfb1mb2x" path="res://assets/panel.png" id="8_ou3et"]
-[ext_resource type="PackedScene" uid="uid://cxrd5ke6fiatw" path="res://scenes/ui/health_bar_2d.tscn" id="9_kkxeg"]
-[ext_resource type="Script" uid="uid://urtllnp62o4p" path="res://scripts/ui/card_tooltip.gd" id="9_m68oi"]
-[ext_resource type="Script" uid="uid://ov2xhwty8yje" path="res://scripts/combat/card_holder.gd" id="10_f4arg"]
-[ext_resource type="Script" uid="uid://cqjggxnms6uy0" path="res://scripts/ui/player_health_bar_2d.gd" id="10_m68oi"]
-[ext_resource type="PackedScene" uid="uid://b8r8mkw0q8nwx" path="res://scenes/combat/visual_card.tscn" id="11_uf13u"]
-[ext_resource type="Script" uid="uid://5s8gps1iisx" path="res://scripts/battle_manager.gd" id="12_aox2g"]
-[ext_resource type="AudioStream" uid="uid://d36j52ps52leg" path="res://assets/audio/ui_hover.wav" id="12_hj64o"]
+[ext_resource type="Texture2D" uid="uid://bcaac5yyw61ef" path="res://assets/panel_battle.png" id="1_k3fhr"]
+[ext_resource type="Script" uid="uid://l0nipgcb3sev" path="res://scripts/ui/play.gd" id="2_c2mh6"]
+[ext_resource type="Texture2D" uid="uid://boer8slf5lsps" path="res://assets/atk_icon.png" id="3_tk4r7"]
+[ext_resource type="Texture2D" uid="uid://cek6ei6frdk5u" path="res://assets/block_small.png" id="4_k2f2v"]
+[ext_resource type="Texture2D" uid="uid://fnhcpfb1mb2x" path="res://assets/panel.png" id="5_agplw"]
+[ext_resource type="Script" uid="uid://urtllnp62o4p" path="res://scripts/ui/card_tooltip.gd" id="6_jgpvw"]
+[ext_resource type="Texture2D" uid="uid://m3v68wusnow2" path="res://assets/battle_scene.png" id="7_7jovc"]
+[ext_resource type="PackedScene" uid="uid://cxrd5ke6fiatw" path="res://scenes/combat/health_bar.tscn" id="8_fqis5"]
+[ext_resource type="Script" uid="uid://cqjggxnms6uy0" path="res://scripts/ui/player_health_bar.gd" id="9_5wyof"]
+[ext_resource type="Script" uid="uid://ov2xhwty8yje" path="res://scripts/combat/card_holder.gd" id="10_rlev3"]
+[ext_resource type="PackedScene" uid="uid://b8r8mkw0q8nwx" path="res://scenes/combat/visual_card.tscn" id="11_kojbl"]
+[ext_resource type="Script" uid="uid://5s8gps1iisx" path="res://scripts/combat/battle_manager.gd" id="12_mtmyi"]
+[ext_resource type="AudioStream" uid="uid://d36j52ps52leg" path="res://assets/audio/ui_hover.wav" id="13_wdkwq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g72on"]
-texture = ExtResource("1_hj64o")
+texture = ExtResource("1_k3fhr")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ou3et"]
-texture = ExtResource("8_ou3et")
+texture = ExtResource("5_agplw")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
@@ -35,9 +35,9 @@ bg_color = Color(1, 1, 1, 1)
 expand_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tyypf"]
-texture = ExtResource("8_7oxxd")
+texture = ExtResource("7_7jovc")
 
-[node name="BattleRoom" type="CanvasLayer" unique_id=1071012836]
+[node name="Battle" type="CanvasLayer" unique_id=1071012836]
 
 [node name="UI" type="Control" parent="." unique_id=1345722854]
 unique_name_in_owner = true
@@ -67,7 +67,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_g72on")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_g72on")
 theme_override_styles/hover = SubResource("StyleBoxTexture_g72on")
 text = "Play"
-script = ExtResource("2_ou3et")
+script = ExtResource("2_c2mh6")
 
 [node name="DeckPos" type="Control" parent="UI" unique_id=1763104915]
 custom_minimum_size = Vector2(37, 52)
@@ -199,7 +199,7 @@ offset_left = 3.0
 offset_top = 87.0
 offset_right = 13.0
 offset_bottom = 99.0
-texture_normal = ExtResource("6_ylo0j")
+texture_normal = ExtResource("3_tk4r7")
 
 [node name="DefaultBlock" type="TextureButton" parent="UI" unique_id=1264685075]
 custom_minimum_size = Vector2(10, 12)
@@ -209,7 +209,7 @@ offset_left = 3.0
 offset_top = 100.0
 offset_right = 13.0
 offset_bottom = 112.0
-texture_normal = ExtResource("7_0pj22")
+texture_normal = ExtResource("4_k2f2v")
 
 [node name="CardTooltip" type="Panel" parent="UI" unique_id=1019244480]
 unique_name_in_owner = true
@@ -222,7 +222,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ou3et")
-script = ExtResource("9_m68oi")
+script = ExtResource("6_jgpvw")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/CardTooltip" unique_id=1393612080]
 unique_name_in_owner = true
@@ -271,16 +271,16 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_tyypf")
 
-[node name="HealthBarPlayer" parent="Panel" unique_id=1680376864 instance=ExtResource("9_kkxeg")]
+[node name="HealthBarPlayer" parent="Panel" unique_id=1680376864 instance=ExtResource("8_fqis5")]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 19.0
 offset_right = 13.0
 offset_bottom = 85.0
 mouse_filter = 2
-script = ExtResource("10_m68oi")
+script = ExtResource("9_5wyof")
 
-[node name="HealthBarEnemy" parent="Panel" unique_id=200172648 instance=ExtResource("9_kkxeg")]
+[node name="HealthBarEnemy" parent="Panel" unique_id=200172648 instance=ExtResource("8_fqis5")]
 layout_mode = 0
 offset_left = 307.0
 offset_top = 19.0
@@ -289,40 +289,40 @@ offset_bottom = 85.0
 mouse_filter = 2
 
 [node name="SnapPoints" type="Node" parent="Panel" unique_id=1690052500 node_paths=PackedStringArray("play_button", "snap_points", "points_to_play")]
-script = ExtResource("10_f4arg")
+script = ExtResource("10_rlev3")
 play_button = NodePath("../../UI/Play")
 snap_points = [NodePath("SnapPoint"), NodePath("SnapPoint2"), NodePath("SnapPoint3"), NodePath("SnapPoint4"), NodePath("SnapPoint5"), NodePath("SnapPoint6"), NodePath("SnapPoint7"), NodePath("SnapPoint8")]
 points_to_play = [NodePath("SnapPoint6"), NodePath("SnapPoint7"), NodePath("SnapPoint8")]
 
-[node name="VisualCard" parent="Panel/SnapPoints" unique_id=176121807 instance=ExtResource("11_uf13u")]
+[node name="VisualCard" parent="Panel/SnapPoints" unique_id=176121807 instance=ExtResource("11_kojbl")]
 offset_left = 1.0
 offset_top = 135.0
 offset_right = 31.0
 offset_bottom = 177.0
 pivot_offset = Vector2(18.5, 26)
 
-[node name="VisualCard2" parent="Panel/SnapPoints" unique_id=797397834 instance=ExtResource("11_uf13u")]
+[node name="VisualCard2" parent="Panel/SnapPoints" unique_id=797397834 instance=ExtResource("11_kojbl")]
 offset_left = 1.0
 offset_top = 135.0
 offset_right = 31.0
 offset_bottom = 177.0
 pivot_offset = Vector2(18.5, 26)
 
-[node name="VisualCard3" parent="Panel/SnapPoints" unique_id=698064639 instance=ExtResource("11_uf13u")]
+[node name="VisualCard3" parent="Panel/SnapPoints" unique_id=698064639 instance=ExtResource("11_kojbl")]
 offset_left = 1.0
 offset_top = 135.0
 offset_right = 31.0
 offset_bottom = 177.0
 pivot_offset = Vector2(18.5, 26)
 
-[node name="VisualCard4" parent="Panel/SnapPoints" unique_id=1764488547 instance=ExtResource("11_uf13u")]
+[node name="VisualCard4" parent="Panel/SnapPoints" unique_id=1764488547 instance=ExtResource("11_kojbl")]
 offset_left = 1.0
 offset_top = 135.0
 offset_right = 31.0
 offset_bottom = 177.0
 pivot_offset = Vector2(18.5, 26)
 
-[node name="VisualCard5" parent="Panel/SnapPoints" unique_id=1046656593 instance=ExtResource("11_uf13u")]
+[node name="VisualCard5" parent="Panel/SnapPoints" unique_id=1046656593 instance=ExtResource("11_kojbl")]
 offset_left = 1.0
 offset_top = 135.0
 offset_right = 31.0
@@ -419,11 +419,11 @@ mouse_filter = 2
 
 [node name="BattleManager" type="Node" parent="." unique_id=1947032979]
 unique_name_in_owner = true
-script = ExtResource("12_aox2g")
+script = ExtResource("12_mtmyi")
 
 [node name="AudioStreamPlayerUI" type="AudioStreamPlayer" parent="." unique_id=1954161122]
 unique_name_in_owner = true
-stream = ExtResource("12_hj64o")
+stream = ExtResource("13_wdkwq")
 bus = &"UI"
 
 [connection signal="pressed" from="UI/DefaultAtk" to="Panel/SnapPoints" method="_default_action"]

@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://blcxk6na7csnw"]
 
-[ext_resource type="Texture2D" uid="uid://ds77auri0ikae" path="res://assets/save_menu.png" id="1_81axd"]
-[ext_resource type="Texture2D" uid="uid://cvpi1bbiy2k56" path="res://assets/ui_panel.png" id="2_4ekot"]
-[ext_resource type="Script" uid="uid://caxboqvrv6qti" path="res://scripts/ui/save_load_menu.gd" id="2_tguk3"]
-[ext_resource type="Texture2D" uid="uid://bbgl8j5gspm8w" path="res://assets/empty_banner.png" id="3_aja8b"]
-[ext_resource type="Texture2D" uid="uid://culpppnvxyx4b" path="res://assets/aseprite/back_button1.png" id="3_hw6v8"]
-[ext_resource type="Texture2D" uid="uid://bt74y5iaf7nse" path="res://assets/aseprite/back_button2.png" id="4_bqx5o"]
-[ext_resource type="Texture2D" uid="uid://dynx0pbkwxfbr" path="res://assets/trashbin_icon.png" id="5_fffe2"]
-[ext_resource type="Script" uid="uid://70sinhb57xf2" path="res://scripts/ui/load_button.gd" id="6_6c0dq"]
-[ext_resource type="AudioStream" uid="uid://d36j52ps52leg" path="res://assets/audio/ui_hover.wav" id="7_pajdi"]
+[ext_resource type="Texture2D" uid="uid://ds77auri0ikae" path="res://assets/save_menu.png" id="1_84ugx"]
+[ext_resource type="Script" uid="uid://caxboqvrv6qti" path="res://scripts/ui/save_load.gd" id="2_yq84k"]
+[ext_resource type="Texture2D" uid="uid://culpppnvxyx4b" path="res://assets/aseprite/back_button1.png" id="3_j3qbj"]
+[ext_resource type="Texture2D" uid="uid://bt74y5iaf7nse" path="res://assets/aseprite/back_button2.png" id="4_jbtgj"]
+[ext_resource type="Texture2D" uid="uid://cvpi1bbiy2k56" path="res://assets/ui_panel.png" id="5_87bdx"]
+[ext_resource type="Script" uid="uid://70sinhb57xf2" path="res://scripts/ui/load_button.gd" id="6_1c7f8"]
+[ext_resource type="Texture2D" uid="uid://bbgl8j5gspm8w" path="res://assets/empty_banner.png" id="7_qu5hl"]
+[ext_resource type="Texture2D" uid="uid://dynx0pbkwxfbr" path="res://assets/trashbin_icon.png" id="8_ekw5k"]
+[ext_resource type="AudioStream" uid="uid://d36j52ps52leg" path="res://assets/audio/ui_hover.wav" id="9_npkpf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_stkin"]
-texture = ExtResource("1_81axd")
+texture = ExtResource("1_84ugx")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_81axd"]
-texture = ExtResource("2_4ekot")
+texture = ExtResource("5_87bdx")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
@@ -23,32 +23,32 @@ texture_margin_bottom = 1.0
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aja8b"]
 content_margin_top = 5.0
 content_margin_bottom = 5.0
-texture = ExtResource("2_4ekot")
+texture = ExtResource("5_87bdx")
 region_rect = Rect2(2, 1, 1, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pajdi"]
-texture = ExtResource("2_4ekot")
+texture = ExtResource("5_87bdx")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hw6v8"]
-texture = ExtResource("2_4ekot")
+texture = ExtResource("5_87bdx")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqx5o"]
-texture = ExtResource("2_4ekot")
+texture = ExtResource("5_87bdx")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vey4w"]
-texture = ExtResource("2_4ekot")
+texture = ExtResource("5_87bdx")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
@@ -58,34 +58,34 @@ texture_margin_bottom = 1.0
 bg_color = Color(0, 0, 0, 0.7490196)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tguk3"]
-texture = ExtResource("2_4ekot")
+texture = ExtResource("5_87bdx")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fffe2"]
-texture = ExtResource("2_4ekot")
+texture = ExtResource("5_87bdx")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6c0dq"]
-texture = ExtResource("2_4ekot")
+texture = ExtResource("5_87bdx")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 
-[node name="SaveLoadMenu" type="PanelContainer" unique_id=374621346]
+[node name="SaveMenu" type="PanelContainer" unique_id=374621346]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_stkin")
-script = ExtResource("2_tguk3")
+script = ExtResource("2_yq84k")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1855035294]
 layout_mode = 2
@@ -96,9 +96,9 @@ theme_override_constants/margin_top = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture_normal = ExtResource("3_hw6v8")
-texture_pressed = ExtResource("4_bqx5o")
-texture_hover = ExtResource("4_bqx5o")
+texture_normal = ExtResource("3_j3qbj")
+texture_pressed = ExtResource("4_jbtgj")
+texture_hover = ExtResource("4_jbtgj")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=875125534]
 layout_mode = 2
@@ -121,7 +121,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/focus = SubResource("StyleBoxTexture_81axd")
-script = ExtResource("6_6c0dq")
+script = ExtResource("6_1c7f8")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ButtonContainer/HBoxContainer/LoadButton" unique_id=1285763071]
 layout_mode = 1
@@ -176,7 +176,7 @@ layout_mode = 2
 [node name="ChapterBanner" type="TextureRect" parent="CenterContainer/ButtonContainer/HBoxContainer/LoadButton/MarginContainer/HBoxContainer" unique_id=117072863]
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("3_aja8b")
+texture = ExtResource("7_qu5hl")
 
 [node name="DeleteButton" type="Button" parent="CenterContainer/ButtonContainer/HBoxContainer" unique_id=408200002]
 unique_name_in_owner = true
@@ -187,7 +187,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_pajdi")
 theme_override_styles/hover = SubResource("StyleBoxTexture_hw6v8")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_bqx5o")
 theme_override_styles/focus = SubResource("StyleBoxTexture_vey4w")
-icon = ExtResource("5_fffe2")
+icon = ExtResource("8_ekw5k")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/ButtonContainer" unique_id=1052596122]
 layout_mode = 2
@@ -203,7 +203,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/focus = SubResource("StyleBoxTexture_81axd")
-script = ExtResource("6_6c0dq")
+script = ExtResource("6_1c7f8")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ButtonContainer/HBoxContainer2/LoadButton2" unique_id=924556736]
 layout_mode = 1
@@ -258,7 +258,7 @@ layout_mode = 2
 [node name="ChapterBanner" type="TextureRect" parent="CenterContainer/ButtonContainer/HBoxContainer2/LoadButton2/MarginContainer/HBoxContainer" unique_id=454811564]
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("3_aja8b")
+texture = ExtResource("7_qu5hl")
 
 [node name="DeleteButton2" type="Button" parent="CenterContainer/ButtonContainer/HBoxContainer2" unique_id=1169605829]
 unique_name_in_owner = true
@@ -269,7 +269,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_pajdi")
 theme_override_styles/hover = SubResource("StyleBoxTexture_hw6v8")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_bqx5o")
 theme_override_styles/focus = SubResource("StyleBoxTexture_vey4w")
-icon = ExtResource("5_fffe2")
+icon = ExtResource("8_ekw5k")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/ButtonContainer" unique_id=1632061545]
 layout_mode = 2
@@ -285,7 +285,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/focus = SubResource("StyleBoxTexture_81axd")
-script = ExtResource("6_6c0dq")
+script = ExtResource("6_1c7f8")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ButtonContainer/HBoxContainer3/LoadButton3" unique_id=1905012318]
 layout_mode = 1
@@ -340,7 +340,7 @@ layout_mode = 2
 [node name="ChapterBanner" type="TextureRect" parent="CenterContainer/ButtonContainer/HBoxContainer3/LoadButton3/MarginContainer/HBoxContainer" unique_id=173090136]
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("3_aja8b")
+texture = ExtResource("7_qu5hl")
 
 [node name="DeleteButton3" type="Button" parent="CenterContainer/ButtonContainer/HBoxContainer3" unique_id=1996599540]
 unique_name_in_owner = true
@@ -351,7 +351,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_pajdi")
 theme_override_styles/hover = SubResource("StyleBoxTexture_hw6v8")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_bqx5o")
 theme_override_styles/focus = SubResource("StyleBoxTexture_vey4w")
-icon = ExtResource("5_fffe2")
+icon = ExtResource("8_ekw5k")
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="CenterContainer/ButtonContainer" unique_id=718045981]
 layout_mode = 2
@@ -367,7 +367,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_81axd")
 theme_override_styles/focus = SubResource("StyleBoxTexture_81axd")
-script = ExtResource("6_6c0dq")
+script = ExtResource("6_1c7f8")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4" unique_id=1582543874]
 layout_mode = 1
@@ -422,7 +422,7 @@ layout_mode = 2
 [node name="ChapterBanner" type="TextureRect" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4/MarginContainer/HBoxContainer" unique_id=520783771]
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("3_aja8b")
+texture = ExtResource("7_qu5hl")
 
 [node name="DeleteButton4" type="Button" parent="CenterContainer/ButtonContainer/HBoxContainer4" unique_id=1988444977]
 unique_name_in_owner = true
@@ -433,7 +433,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_pajdi")
 theme_override_styles/hover = SubResource("StyleBoxTexture_hw6v8")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_bqx5o")
 theme_override_styles/focus = SubResource("StyleBoxTexture_vey4w")
-icon = ExtResource("5_fffe2")
+icon = ExtResource("8_ekw5k")
 
 [node name="SetNameBoxPanel" type="Panel" parent="." unique_id=1040739967]
 visible = false
@@ -476,7 +476,7 @@ emoji_menu_enabled = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=228061620]
 unique_name_in_owner = true
-stream = ExtResource("7_pajdi")
+stream = ExtResource("9_npkpf")
 bus = &"UI"
 
 [connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

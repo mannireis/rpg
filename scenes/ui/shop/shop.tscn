@@ -1,21 +1,21 @@
 [gd_scene format=3 uid="uid://bcfa8y8bngme2"]
 
-[ext_resource type="Script" uid="uid://stmkbcmgchr0" path="res://scripts/shop_ui.gd" id="1_nwxdi"]
-[ext_resource type="Texture2D" uid="uid://bptr8c0oisjcs" path="res://assets/mockup_shop.png" id="1_ygcrn"]
-[ext_resource type="Script" uid="uid://dhnccxr3oq4mv" path="res://scripts/ui/shop_item.gd" id="3_nwxdi"]
+[ext_resource type="Script" uid="uid://stmkbcmgchr0" path="res://scripts/ui/shop/shop.gd" id="1_2i61c"]
+[ext_resource type="Texture2D" uid="uid://bptr8c0oisjcs" path="res://assets/mockup_shop.png" id="2_85p0y"]
+[ext_resource type="Script" uid="uid://dhnccxr3oq4mv" path="res://scripts/ui/shop/shop_item.gd" id="3_kdvrj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avfhx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nwxdi"]
 
-[node name="ShopUi" type="CanvasLayer" unique_id=503293221]
-script = ExtResource("1_nwxdi")
+[node name="Shop" type="CanvasLayer" unique_id=503293221]
+script = ExtResource("1_2i61c")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=383991356]
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
-texture = ExtResource("1_ygcrn")
+texture = ExtResource("2_85p0y")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=770702887]
 anchors_preset = 15
@@ -50,24 +50,24 @@ columns = 2
 
 [node name="ShopItem" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/GridContainer" unique_id=1338178815]
 layout_mode = 2
-script = ExtResource("3_nwxdi")
+script = ExtResource("3_kdvrj")
 metadata/_custom_type_script = "uid://dhnccxr3oq4mv"
 
 [node name="ShopItem2" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/GridContainer" unique_id=1851795118]
 layout_mode = 2
-script = ExtResource("3_nwxdi")
+script = ExtResource("3_kdvrj")
 suit = 1
 metadata/_custom_type_script = "uid://dhnccxr3oq4mv"
 
 [node name="ShopItem3" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/GridContainer" unique_id=1334683877]
 layout_mode = 2
-script = ExtResource("3_nwxdi")
+script = ExtResource("3_kdvrj")
 suit = 2
 metadata/_custom_type_script = "uid://dhnccxr3oq4mv"
 
 [node name="ShopItem4" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/GridContainer" unique_id=1449280831]
 layout_mode = 2
-script = ExtResource("3_nwxdi")
+script = ExtResource("3_kdvrj")
 suit = 3
 metadata/_custom_type_script = "uid://dhnccxr3oq4mv"
 

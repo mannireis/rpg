@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c7pwh6ylcko45"]
 
-[ext_resource type="Script" uid="uid://dhnccxr3oq4mv" path="res://scripts/ui/shop_item.gd" id="1_strbt"]
+[ext_resource type="Script" uid="uid://dhnccxr3oq4mv" path="res://scripts/ui/shop/shop_item.gd" id="1_strbt"]
 
 [node name="ShopItem" type="Button" unique_id=1275012645]
 offset_right = 4.0
