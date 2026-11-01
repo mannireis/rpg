@@ -122,7 +122,7 @@ func _set_rotation() -> void:
 func _block() -> void:
 	area_2d.monitoring = false
 	
-	if horizontal:
+	if horizontal and other.position.y < position.y:
 		blocker_horizontal.modulate = Color.WHITE
 		blocker_horizontal.show()
 	else:
