@@ -37,7 +37,7 @@ func _ready() -> void:
 
 
 func _battle_won() -> void:
-	if npc_name != GameState.speaking_with: return
+	if npc_name != GameState.spoke_before_battle: return
 	super()
 	GameState.add_card(CardDatabase.db[0][3])
 	battle_won = true

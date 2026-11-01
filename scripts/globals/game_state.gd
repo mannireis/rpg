@@ -8,6 +8,7 @@ var defeated_npcs: Dictionary[StringName,int] = {}
 var battle_running: bool = false
 var player_pos: Vector2 = Vector2(160, 120)
 var speaking_with: StringName
+var spoke_before_battle: StringName
 var player_battle_inventory: Signals.BattleInv ## Initialised once, modify only its attributes
 var item_inventory: Array[Item] = []
 

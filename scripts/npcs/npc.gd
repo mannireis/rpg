@@ -110,6 +110,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		pressed = true
 		autostart_dialogue = false
 		GameState.speaking_with = npc_name
+		GameState.spoke_before_battle = npc_name
 		if GameState.has_met(npc_name):
 			Signals.dialogue_started.emit(dialogue_file, met_id)
 			#DialogueManager.start(dialogue_file, met_id)
