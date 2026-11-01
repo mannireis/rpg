@@ -1,6 +1,6 @@
 extends PanelContainer
 
-@onready var back_button: Button = $BackButton
+@onready var back_button: TextureButton = $MarginContainer/BackButton
 @onready var delete_buttons: Array[Button] = [
 	%DeleteButton, 
 	%DeleteButton2, 
@@ -35,11 +35,6 @@ func _process(delta: float) -> void:
 			Vector2.ONE if b.is_hovered()
 			else Vector2.ZERO
 			)
-
-	back_button.offset_transform_position = (
-		Vector2.ONE if back_button.is_hovered()
-		else Vector2.ZERO
-		)
 
 
 func _on_slot_pressed(slot: int) -> void:
