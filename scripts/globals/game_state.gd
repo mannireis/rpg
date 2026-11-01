@@ -1,11 +1,12 @@
 extends Node
 
+var chapter_name: String
 var player_name: String = "Emily"
 var met_npcs: Dictionary = {}
 var battled_npcs: Dictionary = {}
 var defeated_npcs: Dictionary[StringName,int] = {}
 var battle_running: bool = false
-var player_pos: Vector2
+var player_pos: Vector2 = Vector2.ZERO
 var speaking_with: StringName
 var player_battle_inventory: Signals.BattleInv ## Initialised once, modify only its attributes
 var item_inventory: Array[Item] = []
