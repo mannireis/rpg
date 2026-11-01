@@ -1,5 +1,6 @@
 extends Node
 
+var current_slot: int
 var chapter_name: String
 var player_name: String = "Emily"
 var met_npcs: Dictionary = {}
@@ -50,3 +51,15 @@ func add_item(item: Item) -> void:
 
 func remove_item(item: Item) -> void:
 	item_inventory.erase(item)
+
+func reset() -> void:
+	chapter_name = "Chapter 1"
+	met_npcs = {}
+	battled_npcs = {}
+	defeated_npcs = {}
+	battle_running = false
+	player_pos = Vector2(160, 120)
+	speaking_with = &""
+	player_battle_inventory = Signals.BattleInv.create()
+	player_battle_inventory.deck = PlayerCtl.starter_deck()
+	item_inventory = []
