@@ -106,7 +106,7 @@ func _ready() -> void:
 		return [GameCard.Move.TRASH]
 	
 	db[2][1].play = func(ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Array:
-		ctl.hp = max(ctl.max_hp,ctl.hp+db[2][1].dmg[0])
+		ctl.hp = max(ctl.max_hp,ctl.hp+db[2][1].atk[0])
 		print("erasing fire: "+str(ctl.persistent_dmg[2]))
 		ctl.persistent_dmg[2] = v0
 		return [GameCard.Move.TRASH]
