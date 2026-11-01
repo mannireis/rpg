@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cvpi1bbiy2k56" path="res://assets/ui_panel.png" id="2_4ekot"]
 [ext_resource type="Script" uid="uid://caxboqvrv6qti" path="res://scripts/ui/save_load_menu.gd" id="2_tguk3"]
 [ext_resource type="Texture2D" uid="uid://bbgl8j5gspm8w" path="res://assets/empty_banner.png" id="3_aja8b"]
+[ext_resource type="Texture2D" uid="uid://culpppnvxyx4b" path="res://assets/aseprite/back_button1.png" id="3_hw6v8"]
+[ext_resource type="Texture2D" uid="uid://bt74y5iaf7nse" path="res://assets/aseprite/back_button2.png" id="4_bqx5o"]
 [ext_resource type="Texture2D" uid="uid://dynx0pbkwxfbr" path="res://assets/trashbin_icon.png" id="5_fffe2"]
 [ext_resource type="Script" uid="uid://70sinhb57xf2" path="res://scripts/ui/load_button.gd" id="6_6c0dq"]
 [ext_resource type="AudioStream" uid="uid://d36j52ps52leg" path="res://assets/audio/ui_hover.wav" id="7_pajdi"]
@@ -85,17 +87,18 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_stkin")
 script = ExtResource("2_tguk3")
 
-[node name="BackButton" type="Button" parent="." unique_id=964880215]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1855035294]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+
+[node name="BackButton" type="TextureButton" parent="MarginContainer" unique_id=1939212478]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-offset_transform_enabled = true
-theme_override_styles/normal = SubResource("StyleBoxTexture_81axd")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_81axd")
-theme_override_styles/hover = SubResource("StyleBoxTexture_81axd")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_81axd")
-theme_override_styles/focus = SubResource("StyleBoxTexture_81axd")
-text = "Back"
+texture_normal = ExtResource("3_hw6v8")
+texture_pressed = ExtResource("4_bqx5o")
+texture_hover = ExtResource("4_bqx5o")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=875125534]
 layout_mode = 2
@@ -475,5 +478,5 @@ emoji_menu_enabled = false
 stream = ExtResource("7_pajdi")
 bus = &"UI"
 
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="text_submitted" from="SetNameBoxPanel/VBoxContainer/SetNameBox" to="." method="_on_set_name_box_text_submitted"]
