@@ -12,7 +12,8 @@ func _current_id(id:String) -> void:
 	if id == "met": diag_start_primed = true
 	if id == "poof":
 		print("torchie disappearing")
-		queue_free()
+		visible = false
+		collision_mask = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

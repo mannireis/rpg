@@ -16,10 +16,10 @@
 === happy
     Torchie: I see you've received a gift. I believe you can continue onwards now.
     Torchie: Good luck with your search!
-    $player: Thank you!
     >>poof
 ===
 
 === poof
+    $player: Thank you!
     >>end
 ===
