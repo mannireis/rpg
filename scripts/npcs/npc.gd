@@ -23,7 +23,8 @@ var starting_pos: Vector2
 var target_pos: Vector2
 var in_range := false
 var pressed := false
-var autostart_dialogue := false
+var autostart_dialogue := false ## Do not set directly from your NPC's code!
+var diag_start_primed := false ## Unset every time diag_start fires succesfully
 
 
 func _enter_tree() -> void:
@@ -121,10 +122,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 
-func diag_start(body: Node2D) -> void:
-	if body.is_in_group("player") and not GameState.has_met(npc_name):
+func diag_start(body: Node2D) -> void: ## Connect to area2d.body_entered. Force-starts dialogue when the player walks in range and diag_start_primed is set
+	if body.is_in_group("player") and diag_start_primed:
 		autostart_dialogue = true
 		print("trying autostart")
+		diag_start_primed = false
 		_unhandled_input(null)
 		
 func _battle_lost() -> void:
