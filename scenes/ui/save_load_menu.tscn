@@ -132,7 +132,7 @@ theme_override_constants/separation = 1
 
 [node name="PlayerName" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1246735515]
 layout_mode = 2
-text = "Emily"
+text = "New Game"
 
 [node name="HSeparator" type="HSeparator" parent="CenterContainer/ButtonContainer/HBoxContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1719061017]
 propagate_maximum_size = true
@@ -148,7 +148,6 @@ mouse_filter = 2
 
 [node name="TimePlayed" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1210155094]
 layout_mode = 2
-text = "1h 5m"
 
 [node name="Separator" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=2063326183]
 layout_mode = 2
@@ -156,7 +155,6 @@ text = "|"
 
 [node name="CurrentChapter" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer/LoadButton/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=506341817]
 layout_mode = 2
-text = "Chapter 1"
 
 [node name="ChapterBanner" type="TextureRect" parent="CenterContainer/ButtonContainer/HBoxContainer/LoadButton/MarginContainer/HBoxContainer" unique_id=117072863]
 layout_mode = 2
@@ -216,7 +214,7 @@ theme_override_constants/separation = 1
 
 [node name="PlayerName" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer2/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1586928414]
 layout_mode = 2
-text = "Emily"
+text = "New Game"
 
 [node name="HSeparator" type="HSeparator" parent="CenterContainer/ButtonContainer/HBoxContainer2/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1046662016]
 propagate_maximum_size = true
@@ -232,7 +230,6 @@ mouse_filter = 2
 
 [node name="TimePlayed" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer2/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=393573830]
 layout_mode = 2
-text = "1h 5m"
 
 [node name="Separator" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer2/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=1811018190]
 layout_mode = 2
@@ -240,7 +237,6 @@ text = "|"
 
 [node name="CurrentChapter" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer2/LoadButton2/MarginContainer/HBoxContainer/VBoxContainer/InfoHBox" unique_id=732454034]
 layout_mode = 2
-text = "Chapter 1"
 
 [node name="ChapterBanner" type="TextureRect" parent="CenterContainer/ButtonContainer/HBoxContainer2/LoadButton2/MarginContainer/HBoxContainer" unique_id=454811564]
 layout_mode = 2
@@ -300,7 +296,7 @@ theme_override_constants/separation = 1
 
 [node name="PlayerName" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer3/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer" unique_id=141587987]
 layout_mode = 2
-text = "Emily"
+text = "New Game"
 
 [node name="HSeparator" type="HSeparator" parent="CenterContainer/ButtonContainer/HBoxContainer3/LoadButton3/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1564910892]
 propagate_maximum_size = true
@@ -382,6 +378,7 @@ theme_override_constants/separation = 1
 
 [node name="PlayerName" type="Label" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer" unique_id=115895967]
 layout_mode = 2
+text = "New Game"
 
 [node name="HSeparator" type="HSeparator" parent="CenterContainer/ButtonContainer/HBoxContainer4/LoadButton4/MarginContainer/HBoxContainer/VBoxContainer" unique_id=478961298]
 propagate_maximum_size = true
