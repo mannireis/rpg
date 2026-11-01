@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bqc5iabo1c3ts" path="res://scenes/npcs/belhop.tscn" id="19_y7tnt"]
 [ext_resource type="PackedScene" uid="uid://b5lh4mgg1by26" path="res://scenes/npcs/last_flame.tscn" id="20_c1lyj"]
 [ext_resource type="PackedScene" uid="uid://cafiofuoiw86j" path="res://scenes/npcs/dragon.tscn" id="20_t8ort"]
+[ext_resource type="PackedScene" uid="uid://cij458hgw3wn8" path="res://scenes/npcs/torchie.tscn" id="21_50tnc"]
 [ext_resource type="PackedScene" uid="uid://cvkbq4dsmvujn" path="res://scenes/npcs/sprangler.tscn" id="22_3dk3t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8mqf"]
@@ -650,6 +651,9 @@ position = Vector2(2208, -984)
 position = Vector2(1040, -470)
 dialogue_file = "res://assets/dialogue/lastflame.txt"
 met_id = &"met"
+
+[node name="Torchie" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="13" unique_id=1214935165 instance=ExtResource("21_50tnc")]
+position = Vector2(1408, -808)
 
 [node name="Caravan" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="7" unique_id=1391059496]
 position = Vector2(-53, -664)

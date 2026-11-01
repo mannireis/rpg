@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cij458hgw3wn8"]
+
+[ext_resource type="Script" uid="uid://dhr1gd7ci1kan" path="res://scripts/npcs/torchie.gd" id="1_f6s5w"]
+[ext_resource type="Texture2D" uid="uid://cdhyp6c7cnti2" path="res://assets/characters/torchie.png" id="2_f6s5w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivh6b"]
+size = Vector2(56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sk0x"]
+atlas = ExtResource("2_f6s5w")
+region = Rect2(0, 0, 18, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyk0m"]
+atlas = ExtResource("2_f6s5w")
+region = Rect2(18, 0, 18, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6s5w"]
+atlas = ExtResource("2_f6s5w")
+region = Rect2(36, 0, 18, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ii4y5"]
+atlas = ExtResource("2_f6s5w")
+region = Rect2(54, 0, 18, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6i0mp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sk0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyk0m")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6s5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ii4y5")
+}],
+"loop": 1,
+"name": &"happy",
+"speed": 1.5
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vkhl"]
+radius = 4.0
+height = 20.0
+
+[node name="Torchie" type="CharacterBody2D" unique_id=1932718674 node_paths=PackedStringArray("area2d")]
+script = ExtResource("1_f6s5w")
+dialogue_file = "res://assets/dialogue/torchie.txt"
+met_id = &"met"
+area2d = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=896990980]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1537684596]
+shape = SubResource("RectangleShape2D_ivh6b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1600010341]
+sprite_frames = SubResource("SpriteFrames_6i0mp")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=648149067]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_4vkhl")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
