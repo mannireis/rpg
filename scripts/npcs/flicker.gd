@@ -29,6 +29,8 @@ func _ready() -> void:
 	RoomChangeGlobal.enemy_inv_dict[npc_name] = [inv,inv2]
 
 	Signals.transition.connect(room_entered)
+	Signals.battle_lost.connect(_battle_lost)
+	Signals.battle_won.connect(_battle_won)
 	#print(room_door.body_entered.get_connections())
 
 
