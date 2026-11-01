@@ -30,7 +30,7 @@
 ===
 
 === who
-	John: I’m the one who walks north, comes back, still here.
+	John: I'm the one who walks north, comes back, still here.
 	$player: I just wanted to know your name.
 	John: I'm John what about you?
 	$player: I'm $player.

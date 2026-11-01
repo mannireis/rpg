@@ -4,16 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://doi0xsj1pfqme" path="res://assets/button.png" id="2_o0wx8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_je504"]
-size = Vector2(16, 16)
+size = Vector2(14, 14)
 
 [node name="Button2D" type="Area2D" unique_id=2094274420]
 script = ExtResource("1_qnl0b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=429660592]
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_je504")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=73288725]
 texture = ExtResource("2_o0wx8")
+offset = Vector2(0, 8)
 hframes = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
