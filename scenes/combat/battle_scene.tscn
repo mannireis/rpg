@@ -9,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://cxrd5ke6fiatw" path="res://scenes/ui/health_bar_2d.tscn" id="9_kkxeg"]
 [ext_resource type="Script" uid="uid://urtllnp62o4p" path="res://scripts/ui/card_tooltip.gd" id="9_m68oi"]
 [ext_resource type="Script" uid="uid://ov2xhwty8yje" path="res://scripts/combat/card_holder.gd" id="10_f4arg"]
+[ext_resource type="Script" uid="uid://cqjggxnms6uy0" path="res://scripts/ui/player_health_bar_2d.gd" id="10_m68oi"]
 [ext_resource type="PackedScene" uid="uid://b8r8mkw0q8nwx" path="res://scenes/combat/visual_card.tscn" id="11_uf13u"]
 [ext_resource type="Script" uid="uid://5s8gps1iisx" path="res://scripts/battle_manager.gd" id="12_aox2g"]
+[ext_resource type="AudioStream" uid="uid://d36j52ps52leg" path="res://assets/audio/ui_hover.wav" id="12_hj64o"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g72on"]
 texture = ExtResource("1_hj64o")
@@ -35,21 +37,18 @@ expand_margin_bottom = 1.0
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tyypf"]
 texture = ExtResource("8_7oxxd")
 
-[node name="BattleRoom" type="Control" unique_id=824998214]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="BattleRoom" type="CanvasLayer" unique_id=1071012836]
 
-[node name="UI" type="Node" parent="." unique_id=979507508]
+[node name="UI" type="Control" parent="." unique_id=1345722854]
 unique_name_in_owner = true
+z_index = 50
+layout_mode = 3
+anchors_preset = 0
 
 [node name="EnemyCard" type="TextureRect" parent="UI" unique_id=1380893639]
 custom_minimum_size = Vector2(30, 42)
 custom_maximum_size = Vector2(30, 42)
+layout_mode = 0
 offset_left = 209.0
 offset_top = 11.0
 offset_right = 239.0
@@ -58,6 +57,7 @@ offset_bottom = 53.0
 [node name="Play" type="Button" parent="UI" unique_id=1277223638]
 custom_minimum_size = Vector2(30, 42)
 custom_maximum_size = Vector2(30, 42)
+layout_mode = 0
 offset_left = 209.0
 offset_top = 79.0
 offset_right = 239.0
@@ -72,7 +72,6 @@ script = ExtResource("2_ou3et")
 [node name="DeckPos" type="Control" parent="UI" unique_id=1763104915]
 custom_minimum_size = Vector2(37, 52)
 custom_maximum_size = Vector2(37, 52)
-layout_mode = 3
 anchors_preset = 0
 offset_left = 254.0
 offset_top = 124.0
@@ -81,6 +80,7 @@ offset_bottom = 176.0
 mouse_filter = 2
 
 [node name="PlayerEquipped" type="HBoxContainer" parent="UI" unique_id=1273344756]
+layout_mode = 0
 offset_left = 257.00003
 offset_top = 120.99999
 offset_right = 369.00003
@@ -108,6 +108,7 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(2, 0)
 
 [node name="PlayerJokers" type="HBoxContainer" parent="UI" unique_id=865349818]
+layout_mode = 0
 offset_left = 257.0
 offset_top = 96.99999
 offset_right = 369.0
@@ -135,6 +136,7 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(2, 0)
 
 [node name="EnemyEquipped" type="HBoxContainer" parent="UI" unique_id=707671414]
+layout_mode = 0
 offset_left = 256.99997
 offset_top = 10.0
 offset_right = 368.99997
@@ -162,6 +164,7 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(2, 0)
 
 [node name="EnemyJokers" type="HBoxContainer" parent="UI" unique_id=718193608]
+layout_mode = 0
 offset_left = 256.99997
 offset_top = 34.0
 offset_right = 368.99997
@@ -191,6 +194,7 @@ offset_transform_position = Vector2(2, 0)
 [node name="DefaultAtk" type="TextureButton" parent="UI" unique_id=7966281]
 custom_minimum_size = Vector2(10, 12)
 custom_maximum_size = Vector2(10, 12)
+layout_mode = 0
 offset_left = 3.0
 offset_top = 87.0
 offset_right = 13.0
@@ -200,6 +204,7 @@ texture_normal = ExtResource("6_ylo0j")
 [node name="DefaultBlock" type="TextureButton" parent="UI" unique_id=1264685075]
 custom_minimum_size = Vector2(10, 12)
 custom_maximum_size = Vector2(10, 12)
+layout_mode = 0
 offset_left = 3.0
 offset_top = 100.0
 offset_right = 13.0
@@ -212,6 +217,7 @@ visible = false
 z_index = 255
 custom_minimum_size = Vector2(66, 50)
 custom_maximum_size = Vector2(66, -1)
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
@@ -257,7 +263,6 @@ CardDescription"
 autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="." unique_id=430596268]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -273,6 +278,7 @@ offset_top = 19.0
 offset_right = 13.0
 offset_bottom = 85.0
 mouse_filter = 2
+script = ExtResource("10_m68oi")
 
 [node name="HealthBarEnemy" parent="Panel" unique_id=200172648 instance=ExtResource("9_kkxeg")]
 layout_mode = 0
@@ -415,5 +421,11 @@ mouse_filter = 2
 unique_name_in_owner = true
 script = ExtResource("12_aox2g")
 
+[node name="AudioStreamPlayerUI" type="AudioStreamPlayer" parent="." unique_id=1954161122]
+unique_name_in_owner = true
+stream = ExtResource("12_hj64o")
+bus = &"UI"
+
 [connection signal="pressed" from="UI/DefaultAtk" to="Panel/SnapPoints" method="_default_action"]
 [connection signal="pressed" from="UI/DefaultBlock" to="Panel/SnapPoints" method="_default_action" binds= [true]]
+[connection signal="damaged" from="Panel/HealthBarPlayer" to="Panel/HealthBarPlayer" method="_on_damaged"]

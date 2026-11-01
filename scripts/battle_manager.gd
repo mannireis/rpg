@@ -8,7 +8,8 @@ var game_result: Array[bool] = [false,false]
 
 
 func _ready() -> void:
-
+	$"../UI/Play".mouse_entered.connect(_play_sound)
+	
 	if !GameState.player_battle_inventory: player = PlayerCtl.create(get_parent(),[])
 	else:
 		var p_inv = GameState.player_battle_inventory
@@ -102,3 +103,8 @@ func eval_hp() -> void:
 		print("game ending, enemy won? "+str(game_result[1]))
 		await get_tree().create_timer(2).timeout
 		get_tree().call_deferred("change_scene_to_file",RoomChangeGlobal.scene_return)
+
+
+func _play_sound() -> void:
+	%AudioStreamPlayerUI.pitch_scale = randf_range(0.9, 1.1)
+	%AudioStreamPlayerUI.play()
