@@ -1,7 +1,7 @@
 class_name GameCard extends Resource
 enum S { SPADES, CLUBS, HEARTS, DIAMONDS, JOKER, OTHER }
 enum Move { STAY, EQUIP, TRASH, RFG }
-enum Able { NONE, ATK, BLOCK}
+enum Able { NONE, ATK, BLOCK }
 #meant to be constant, do not store game state info inside
 var atk: Vector2i
 var suit: S
@@ -14,44 +14,42 @@ var text: String = ""
 var prio = {"dmg_in":5,"dmg_out":5,"block":5,"other":5}
 
 
-static func create(suit: S, id: int, can_atk: Able, atk_dmg: Vector2i = Vector2i(0,0), cardname:String = "", cardcost:int = 1, img_texture:Texture2D = null, text:String = "") -> GameCard:
-	var card = GameCard.new()
-	card.suit = suit
-	card.id = id
-	card.able = can_atk
-	card.atk = atk_dmg
-	card.name = cardname
-	card.cost = cardcost
-	card.img = img_texture
-	card.text = text
-	return card
+func _init(suit: S, id: int, can_atk: Able, atk_dmg: Vector2i = Vector2i(0,0), cardname:String = "", cardcost:int = 1, img_texture:Texture2D = null, text:String = ""):
+	self.suit = suit
+	self.id = id
+	self.able = can_atk
+	self.atk = atk_dmg
+	self.name = cardname
+	self.cost = cardcost
+	self.img = img_texture
+	self.text = text
 
-var play: Callable = func play(_ctl:PlayerCtl, _enemy_ctl: PlayerCtl) -> Array:
+var play := func play(_ctl:PlayerCtl, _enemy_ctl: PlayerCtl) -> Array:
 	return [Move.TRASH]
 
-var when_equipped: Callable = func when_equipped(_ctl:PlayerCtl, _enemy_ctl: PlayerCtl) -> void: #doesn't need priority so no _null
+var when_equipped := func when_equipped(_ctl:PlayerCtl, _enemy_ctl: PlayerCtl) -> void: #doesn't need priority so no _null
 	pass
 
  #_null arguments make for easier call() with known number of args
-var mod_dmg_in: Callable = func mod_dmg_in(dmg:Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:
+var mod_dmg_in := func mod_dmg_in(dmg:Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:
 	return dmg
-var mod_dmg_out: Callable = func mod_dmg_out(dmg:Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:	
+var mod_dmg_out := func mod_dmg_out(dmg:Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:	
 	return dmg
 func weapon_atk(_null, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:
 	return atk
-var mod_trash_choice: Callable = func mod_trash_choice(_null, _ctl:PlayerCtl, _null2) -> int:
+var mod_trash_choice := func mod_trash_choice(_null, _ctl:PlayerCtl, _null2) -> int:
 	return -1
-var mod_discard_event: Callable = func mod_discard_event(_choice: Vector2i, _ctl: PlayerCtl, _null2) -> void:
+var mod_discard_event := func mod_discard_event(_choice: Vector2i, _ctl: PlayerCtl, _null2) -> void:
 	pass
-var next_turn_effect: Callable = func next_turn_effect(_null,_ctl: PlayerCtl,_null2) -> void:
+var next_turn_effect := func next_turn_effect(_null,_ctl: PlayerCtl,_null2) -> void:
 	pass
-var mod_block: Callable = func mod_block(block: Vector2i, _ctl: PlayerCtl,_enemy_ctl: PlayerCtl) -> Vector2i:
+var mod_block := func mod_block(block: Vector2i, _ctl: PlayerCtl,_enemy_ctl: PlayerCtl) -> Vector2i:
 	return block
-var mod_any_equipped: Callable = func mod_any_equipped(side_card_index: Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> void:
+var mod_any_equipped := func mod_any_equipped(_side_card_index: Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> void:
 	pass
-var mod_any_trashed: Callable = func mod_any_trashed(side_card_index: Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> void:
+var mod_any_trashed := func mod_any_trashed(_side_card_index: Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> void:
 	pass
-var turn_begin: Callable = func turn_begin(_null,_ctl:PlayerCtl,_enemy_ctl: PlayerCtl) -> void:
+var turn_begin := func turn_begin(_null,_ctl:PlayerCtl,_enemy_ctl: PlayerCtl) -> void:
 	pass
-var turn_end: Callable = func turn_end(_null,_ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> void:
+var turn_end := func turn_end(_null,_ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> void:
 	pass

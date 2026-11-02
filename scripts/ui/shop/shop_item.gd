@@ -36,7 +36,7 @@ func save_state() -> Dictionary:
 
 
 func apply_state(state: Dictionary) -> void:
-	suit = int(state.get("suit", suit))
+	suit = state.get("suit", suit) as GameCard.S
 	index = int(state.get("index", index))
 	disabled = bool(state.get("disabled", disabled))
 	_refresh_card()

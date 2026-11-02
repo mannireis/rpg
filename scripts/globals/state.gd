@@ -16,9 +16,11 @@ var time_start: int
 var time_now: int
 var playtime: int
 
+var dialoguing := false
+
 func _ready() -> void:
 	if !player_battle_inventory:
-		player_battle_inventory = Signals.BattleInv.create()
+		player_battle_inventory = Signals.BattleInv.new()
 		player_battle_inventory.deck = PlayerCtl.starter_deck()
 
 
@@ -64,7 +66,7 @@ func reset() -> void:
 	battle_running = false
 	player_pos = Vector2(160, 120)
 	speaking_with = &""
-	player_battle_inventory = Signals.BattleInv.create()
+	player_battle_inventory = Signals.BattleInv.new()
 	player_battle_inventory.deck = PlayerCtl.starter_deck()
 	item_inventory = []
 	time_start = 0

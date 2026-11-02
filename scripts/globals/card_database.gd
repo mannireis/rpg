@@ -12,30 +12,30 @@ var common_textures: Array[Texture2D] = [
 
 var db: Array[Array] = [
 [
-	GameCard.create(s.SPADES, 0, n, v0, "Double Trouble", 1, preload("res://assets/cards/double_trouble.png"), "Does 2 basic attacks dealing 6 points of damage"),
-	GameCard.create(s.SPADES,1,n,Vector2i(10,0),"Barbaric Strike",2,preload("res://assets/cards/barbaric_strike.png"), "Deal 10 points of damage, to the enemy"),
-	GameCard.create(s.SPADES,2,n,Vector2i(5,2),"Fireball",4,preload("res://assets/cards/fireball.png"),"Do persistent burning damage. Deals 5 damage for 2 rounds"),
-	GameCard.create(s.SPADES,3,n,Vector2i(3,3),"Sprangler's tooth",4,preload("res://assets/cards/spranglers_tooth.png"),"Deals 4 damage when played, then 2 damage for 2 rounds")
+	GameCard.new(s.SPADES, 0, n, v0, "Double Trouble", 1, preload("res://assets/cards/double_trouble.png"), "Does 2 basic attacks dealing 6 points of damage"),
+	GameCard.new(s.SPADES,1,n,Vector2i(10,0),"Barbaric Strike",2,preload("res://assets/cards/barbaric_strike.png"), "Deal 10 points of damage, to the enemy"),
+	GameCard.new(s.SPADES,2,n,Vector2i(5,2),"Fireball",4,preload("res://assets/cards/fireball.png"),"Do persistent burning damage. Deals 5 damage for 2 rounds"),
+	GameCard.new(s.SPADES,3,n,Vector2i(3,3),"Sprangler's tooth",4,preload("res://assets/cards/spranglers_tooth.png"),"Deals 4 damage when played, then 2 damage for 2 rounds")
 ],
 [
-	GameCard.create(s.CLUBS,0,n,v0,"Good Posture",1,preload("res://assets/cards/good_posture.png"), "Add 6 points to shield")
+	GameCard.new(s.CLUBS,0,n,v0,"Good Posture",1,preload("res://assets/cards/good_posture.png"), "Add 6 points to shield")
 ],
 [
-	GameCard.create(s.HEARTS,0,n,Vector2i(2,0),"Disarm Equipment",2,preload("res://assets/cards/disarm_equipment.png"),"Eat the opponent's cards at a cost"),
-	GameCard.create(s.HEARTS,1,n,Vector2i(4,0),"Healing Splash",1,preload("res://assets/cards/healing_splash.png"),"Extinguish and heal yourself")
+	GameCard.new(s.HEARTS,0,n,Vector2i(2,0),"Disarm Equipment",2,preload("res://assets/cards/disarm_equipment.png"),"Eat the opponent's cards at a cost"),
+	GameCard.new(s.HEARTS,1,n,Vector2i(4,0),"Healing Splash",1,preload("res://assets/cards/healing_splash.png"),"Extinguish and heal yourself")
 ],
 [
-	GameCard.create(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload("res://assets/cards/pirate_saber.png"), "Add +2 damage per round"),
-	GameCard.create(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload("res://assets/cards/sturdy_shield.png"), "Adds +5 shield points per round"),
-	GameCard.create(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload("res://assets/cards/abstract_art.png"), "test"),
-	GameCard.create(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload("res://assets/cards/rebekas_halberd.png"), "Pretty, isn't it? Does 8 damage points")
+	GameCard.new(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload("res://assets/cards/pirate_saber.png"), "Add +2 damage per round"),
+	GameCard.new(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload("res://assets/cards/sturdy_shield.png"), "Adds +5 shield points per round"),
+	GameCard.new(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload("res://assets/cards/abstract_art.png"), "test"),
+	GameCard.new(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload("res://assets/cards/rebekas_halberd.png"), "Pretty, isn't it? Does 8 damage points")
 ],
 [
-	GameCard.create(s.JOKER, 0 , n, Vector2i.ZERO, "Jester", 3, preload("res://assets/cards/jester_joker.png"), "Does 25% more damage per round while equipted")
+	GameCard.new(s.JOKER, 0 , n, Vector2i.ZERO, "Jester", 3, preload("res://assets/cards/jester_joker.png"), "Does 25% more damage per round while equipted")
 ],
 [
-	GameCard.create(s.OTHER,0,GameCard.Able.ATK,Vector2i(3,0),"Punch",0, preload("res://assets/aseprite/cards/1/0.png"), "Basic attack does 3 attack"),
-	GameCard.create(s.OTHER,0,GameCard.Able.BLOCK,Vector2i(-3,0),"Block",0, preload("res://assets/aseprite/cards/1/0.png"), "Basic shield adds +3 shield points")
+	GameCard.new(s.OTHER,0,GameCard.Able.ATK,Vector2i(3,0),"Punch",0, preload("res://assets/aseprite/cards/1/0.png"), "Basic attack does 3 attack"),
+	GameCard.new(s.OTHER,0,GameCard.Able.BLOCK,Vector2i(-3,0),"Block",0, preload("res://assets/aseprite/cards/1/0.png"), "Basic shield adds +3 shield points")
 ]]
 
 
@@ -145,9 +145,9 @@ func _ready() -> void:
 			ctl.exec_atk(Vector2i(db[3][3].atk[0],1))
 			return [GameCard.Move.TRASH]
 	
-	db[4][0].play = func(ctl:PlayerCtl, _enemy_ctl:PlayerCtl):
+	db[4][0].play = func(_ctl: PlayerCtl, _enemy_ctl:PlayerCtl):
 		return [GameCard.Move.EQUIP]
 	db[4][0].turn_end = func(_null, ctl:PlayerCtl, _enemy_ctl:PlayerCtl):
-		var amount = ctl.turn_dmg_dealt * 0.25
+		var amount := ctl.turn_dmg_dealt * 0.25
 		
-		ctl.exec_atk(Vector2i(amount,0))
+		ctl.exec_atk(Vector2i(int(amount), 0))

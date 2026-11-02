@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://dwikxcvj1cl3o"]
 
 [ext_resource type="Script" uid="uid://kmu12h0vnox3" path="res://scripts/npcs/john.gd" id="1_eub7a"]
+[ext_resource type="PackedScene" uid="uid://dawu0fejcu53i" path="res://scenes/npcs/npc.tscn" id="1_qrja6"]
 [ext_resource type="Texture2D" uid="uid://dbvmqaav63qbf" path="res://assets/characters/john.png" id="1_vpdsa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sk6c"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0fct"]
+size = Vector2(16, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5civ2"]
 atlas = ExtResource("1_vpdsa")
@@ -29,7 +36,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_qvove")
 }],
 "loop": 1,
-"name": &"Idle",
+"name": &"idle",
 "speed": 3.0
 }, {
 "frames": [{
@@ -40,40 +47,67 @@ animations = [{
 "texture": SubResource("AtlasTexture_6pw12")
 }],
 "loop": 1,
-"name": &"Thinking",
+"name": &"thinking",
 "speed": 4.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1yr0"]
-size = Vector2(16, 8)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivh6b"]
-size = Vector2(48, 48)
-
-[node name="John" type="CharacterBody2D" unique_id=392461232 node_paths=PackedStringArray("area2d")]
+[node name="John" unique_id=882744793 instance=ExtResource("1_qrja6")]
 script = ExtResource("1_eub7a")
-dialogue_file = "res://assets/dialogue/john.txt"
+dialogue = "=== meet_john
+	$player: uhh hi?
+	* Ask about bunny -> bunny
+	* Where am I? -> where
+	* Who are you? -> who
+	* Bye -> bye
+===
+
+=== bunny
+	$player: Have you seen a white bunny with a black top hat and a monocle around here?
+	John: I saw him.
+	$player: Where was he headed?
+	John: To the land where the snow doesen't melt, 2 feet, 4 paws.
+	$player: What?
+	John: ...
+	>> meet_john
+===
+
+=== john
+	John: Hey. How are you doing?
+	$player: haiii.
+	>> bye
+===
+
+=== where
+	John: You are in [wave amp=10 freq=5]The Crypt[/wave]
+	$player: [wave amp=10 freq=5]The Crypt?[/wave]
+	John: [wave amp=10 freq=5]You'll find out more when you have advanced more...[/wave]
+	>> meet_john
+===
+
+=== who
+	John: I'm the one who walks north, comes back, still here.
+	$player: I just wanted to know your name.
+	John: I'm John what about you?
+	$player: I'm $player.
+	>> meet_john
+===
+
+=== bye
+	$player: Goodbye!
+	John: Farewell.
+==="
 id = &"meet_john"
 met_id = &"john"
-area2d = NodePath("Area2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=727085948]
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(896990980) index="0" unique_id=1537684596]
+shape = SubResource("RectangleShape2D_8sk6c")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=795626822]
+shape = SubResource("RectangleShape2D_l0fct")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=727085948]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_ib3ld")
-animation = &"Idle"
-autoplay = "Idle"
-frame_progress = 0.26722488
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=972199641]
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_l1yr0")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=896990980]
-position = Vector2(0, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1537684596]
-shape = SubResource("RectangleShape2D_ivh6b")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+animation = &"thinking"
+autoplay = "idle"

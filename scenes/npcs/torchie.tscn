@@ -53,7 +53,406 @@ height = 20.0
 
 [node name="Torchie" type="CharacterBody2D" unique_id=1932718674 node_paths=PackedStringArray("area2d")]
 script = ExtResource("1_f6s5w")
-dialogue_file = "res://assets/dialogue/torchie.txt"
+dialogue = "=== start
+    Torchie: HALT!
+    $player: What's going on? I need to go there...
+    Torchie: Look, this is too dangerous for you.
+    Torchie: I'm sure you have heard of Flicker already. It is far too powerful for you to handle right now.
+    $player: I can handle it if that helps me find my bunny!
+    Torchie: It would literally reduce you to ashes. There is a way to protect yourself, however...
+    >>met
+===
+
+=== met
+    Torchie: Go back and look around carefully. You might get something that will help you in a fight.
+    >>end
+===
+
+=== happy
+    Torchie: I see you've received a gift. I believe you can continue onwards now.
+    Torchie: Good luck with your search!
+    >>poof
+===
+
+=== poof
+    $player: Thank you!
+    >>end
+===
+=== start
+    Torchie: HALT!
+    $player: What's going on? I need to go there...
+    Torchie: Look, this is too dangerous for you.
+    Torchie: I'm sure you have heard of Flicker already. It is far too powerful for you to handle right now.
+    $player: I can handle it if that helps me find my bunny!
+    Torchie: It would literally reduce you to ashes. There is a way to protect yourself, however...
+    >>met
+===
+
+=== met
+    Torchie: Go back and look around carefully. You might get something that will help you in a fight.
+    >>end
+===
+
+=== happy
+    Torchie: I see you've received a gift. I believe you can continue onwards now.
+    Torchie: Good luck with your search!
+    >>poof
+===
+
+=== poof
+    $player: Thank you!
+    >>end
+===
+=== start
+    Torchie: HALT!
+    $player: What's going on? I need to go there...
+    Torchie: Look, this is too dangerous for you.
+    Torchie: I'm sure you have heard of Flicker already. It is far too powerful for you to handle right now.
+    $player: I can handle it if that helps me find my bunny!
+    Torchie: It would literally reduce you to ashes. There is a way to protect yourself, however...
+    >>met
+===
+
+=== met
+    Torchie: Go back and look around carefully. You might get something that will help you in a fight.
+    >>end
+===
+
+=== happy
+    Torchie: I see you've received a gift. I believe you can continue onwards now.
+    Torchie: Good luck with your search!
+    >>poof
+===
+
+=== poof
+    $player: Thank you!
+    >>end
+===
+=== start
+    Torchie: HALT!
+    $player: What's going on? I need to go there...
+    Torchie: Look, this is too dangerous for you.
+    Torchie: I'm sure you have heard of Flicker already. It is far too powerful for you to handle right now.
+    $player: I can handle it if that helps me find my bunny!
+    Torchie: It would literally reduce you to ashes. There is a way to protect yourself, however...
+    >>met
+===
+
+=== met
+    Torchie: Go back and look around carefully. You might get something that will help you in a fight.
+    >>end
+===
+
+=== happy
+    Torchie: I see you've received a gift. I believe you can continue onwards now.
+    Torchie: Good luck with your search!
+    >>poof
+===
+
+=== poof
+    $player: Thank you!
+    >>end
+===
+=== start
+    Torchie: HALT!
+    $player: What's going on? I need to go there...
+    Torchie: Look, this is too dangerous for you.
+    Torchie: I'm sure you have heard of Flicker already. It is far too powerful for you to handle right now.
+    $player: I can handle it if that helps me find my bunny!
+    Torchie: It would literally reduce you to ashes. There is a way to protect yourself, however...
+    >>met
+===
+
+=== met
+    Torchie: Go back and look around carefully. You might get something that will help you in a fight.
+    >>end
+===
+
+=== happy
+    Torchie: I see you've received a gift. I believe you can continue onwards now.
+    Torchie: Good luck with your search!
+    >>poof
+===
+
+=== poof
+    $player: Thank you!
+    >>end
+===
+=== start
+    Torchie: HALT!
+    $player: What's going on? I need to go there...
+    Torchie: Look, this is too dangerous for you.
+    Torchie: I'm sure you have heard of Flicker already. It is far too powerful for you to handle right now.
+    $player: I can handle it if that helps me find my bunny!
+    Torchie: It would literally reduce you to ashes. There is a way to protect yourself, however...
+    >>met
+===
+
+=== met
+    Torchie: Go back and look around carefully. You might get something that will help you in a fight.
+    >>end
+===
+
+=== happy
+    Torchie: I see you've received a gift. I believe you can continue onwards now.
+    Torchie: Good luck with your search!
+    >>poof
+===
+
+=== poof
+    $player: Thank you!
+    >>end
+===
+=== start
+    Torchie: HALT!
+    $player: What's going on? I need to go there...
+    Torchie: Look, this is too dangerous for you.
+    Torchie: I'm sure you have heard of Flicker already. It is far too powerful for you to handle right now.
+    $player: I can handle it if that helps me find my bunny!
+    Torchie: It would literally reduce you to ashes. There is a way to protect yourself, however...
+    >>met
+===
+
+=== met
+    Torchie: Go back and look around carefully. You might get something that will help you in a fight.
+    >>end
+===
+
+=== happy
+    Torchie: I see you've received a gift. I believe you can continue onwards now.
+    Torchie: Good luck with your search!
+    >>poof
+===
+
+=== poof
+    $player: Thank you!
+    >>end
+===
+=== start
+    Torchie: HALT!
+    $player: What's going on? I need to go there...
+    Torchie: Look, this is too dangerous for you.
+    Torchie: I'm sure you have heard of Flicker already. It is far too powerful for you to handle right now.
+    $player: I can handle it if that helps me find my bunny!
+    Torchie: It would literally reduce you to ashes. There is a way to protect yourself, however...
+    >>met
+===
+
+=== met
+    Torchie: Go back and look around carefully. You might get something that will help you in a fight.
+    >>end
+===
+
+=== happy
+    Torchie: I see you've received a gift. I believe you can continue onwards now.
+    Torchie: Good luck with your search!
+    >>poof
+===
+
+=== poof
+    $player: Thank you!
+    >>end
+===
+=== start
+    Torchie: HALT!
+    $player: What's going on? I need to go there...
+    Torchie: Look, this is too dangerous for you.
+    Torchie: I'm sure you have heard of Flicker already. It is far too powerful for you to handle right now.
+    $player: I can handle it if that helps me find my bunny!
+    Torchie: It would literally reduce you to ashes. There is a way to protect yourself, however...
+    >>met
+===
+
+=== met
+    Torchie: Go back and look around carefully. You might get something that will help you in a fight.
+    >>end
+===
+
+=== happy
+    Torchie: I see you've received a gift. I believe you can continue onwards now.
+    Torchie: Good luck with your search!
+    >>poof
+===
+
+=== poof
+    $player: Thank you!
+    >>end
+===
+=== start
+    Torchie: HALT!
+    $player: What's going on? I need to go there...
+    Torchie: Look, this is too dangerous for you.
+    Torchie: I'm sure you have heard of Flicker already. It is far too powerful for you to handle right now.
+    $player: I can handle it if that helps me find my bunny!
+    Torchie: It would literally reduce you to ashes. There is a way to protect yourself, however...
+    >>met
+===
+
+=== met
+    Torchie: Go back and look around carefully. You might get something that will help you in a fight.
+    >>end
+===
+
+=== happy
+    Torchie: I see you've received a gift. I believe you can continue onwards now.
+    Torchie: Good luck with your search!
+    >>poof
+===
+
+=== poof
+    $player: Thank you!
+    >>end
+===
+=== start
+    Torchie: HALT!
+    $player: What's going on? I need to go there...
+    Torchie: Look, this is too dangerous for you.
+    Torchie: I'm sure you have heard of Flicker already. It is far too powerful for you to handle right now.
+    $player: I can handle it if that helps me find my bunny!
+    Torchie: It would literally reduce you to ashes. There is a way to protect yourself, however...
+    >>met
+===
+
+=== met
+    Torchie: Go back and look around carefully. You might get something that will help you in a fight.
+    >>end
+===
+
+=== happy
+    Torchie: I see you've received a gift. I believe you can continue onwards now.
+    Torchie: Good luck with your search!
+    >>poof
+===
+
+=== poof
+    $player: Thank you!
+    >>end
+===
+=== start
+    Torchie: HALT!
+    $player: What's going on? I need to go there...
+    Torchie: Look, this is too dangerous for you.
+    Torchie: I'm sure you have heard of Flicker already. It is far too powerful for you to handle right now.
+    $player: I can handle it if that helps me find my bunny!
+    Torchie: It would literally reduce you to ashes. There is a way to protect yourself, however...
+    >>met
+===
+
+=== met
+    Torchie: Go back and look around carefully. You might get something that will help you in a fight.
+    >>end
+===
+
+=== happy
+    Torchie: I see you've received a gift. I believe you can continue onwards now.
+    Torchie: Good luck with your search!
+    >>poof
+===
+
+=== poof
+    $player: Thank you!
+    >>end
+===
+=== start
+    Torchie: HALT!
+    $player: What's going on? I need to go there...
+    Torchie: Look, this is too dangerous for you.
+    Torchie: I'm sure you have heard of Flicker already. It is far too powerful for you to handle right now.
+    $player: I can handle it if that helps me find my bunny!
+    Torchie: It would literally reduce you to ashes. There is a way to protect yourself, however...
+    >>met
+===
+
+=== met
+    Torchie: Go back and look around carefully. You might get something that will help you in a fight.
+    >>end
+===
+
+=== happy
+    Torchie: I see you've received a gift. I believe you can continue onwards now.
+    Torchie: Good luck with your search!
+    >>poof
+===
+
+=== poof
+    $player: Thank you!
+    >>end
+===
+=== start
+    Torchie: HALT!
+    $player: What's going on? I need to go there...
+    Torchie: Look, this is too dangerous for you.
+    Torchie: I'm sure you have heard of Flicker already. It is far too powerful for you to handle right now.
+    $player: I can handle it if that helps me find my bunny!
+    Torchie: It would literally reduce you to ashes. There is a way to protect yourself, however...
+    >>met
+===
+
+=== met
+    Torchie: Go back and look around carefully. You might get something that will help you in a fight.
+    >>end
+===
+
+=== happy
+    Torchie: I see you've received a gift. I believe you can continue onwards now.
+    Torchie: Good luck with your search!
+    >>poof
+===
+
+=== poof
+    $player: Thank you!
+    >>end
+===
+=== start
+    Torchie: HALT!
+    $player: What's going on? I need to go there...
+    Torchie: Look, this is too dangerous for you.
+    Torchie: I'm sure you have heard of Flicker already. It is far too powerful for you to handle right now.
+    $player: I can handle it if that helps me find my bunny!
+    Torchie: It would literally reduce you to ashes. There is a way to protect yourself, however...
+    >>met
+===
+
+=== met
+    Torchie: Go back and look around carefully. You might get something that will help you in a fight.
+    >>end
+===
+
+=== happy
+    Torchie: I see you've received a gift. I believe you can continue onwards now.
+    Torchie: Good luck with your search!
+    >>poof
+===
+
+=== poof
+    $player: Thank you!
+    >>end
+===
+=== start
+    Torchie: HALT!
+    $player: What's going on? I need to go there...
+    Torchie: Look, this is too dangerous for you.
+    Torchie: I'm sure you have heard of Flicker already. It is far too powerful for you to handle right now.
+    $player: I can handle it if that helps me find my bunny!
+    Torchie: It would literally reduce you to ashes. There is a way to protect yourself, however...
+    >>met
+===
+
+=== met
+    Torchie: Go back and look around carefully. You might get something that will help you in a fight.
+    >>end
+===
+
+=== happy
+    Torchie: I see you've received a gift. I believe you can continue onwards now.
+    Torchie: Good luck with your search!
+    >>poof
+===
+
+=== poof
+    $player: Thank you!
+    >>end
+==="
 met_id = &"met"
 area2d = NodePath("Area2D")
 

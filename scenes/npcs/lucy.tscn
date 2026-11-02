@@ -222,7 +222,19 @@ animations = [{
 
 [node name="Lucy" type="CharacterBody2D" unique_id=926653456 node_paths=PackedStringArray("area2d")]
 script = ExtResource("1_khasj")
-dialogue_file = "res://assets/dialogue/lucy.txt"
+dialogue = "=== start
+	$player: Hey, Who are you?
+	Lucy: I'm Lucy I'm the herbalist of this village, what about you?
+	$player: I'm $player and I'm looking for my white bunny have you seen it?
+	Lucy: Hmm I'm not sure but I don't think I've seen one sorry.
+	$player: Thank's anyway.
+===
+
+=== met
+	$player: Hey, how are you doing?
+	Lucy: I'm good. me and my husband are gonna have our hundredth child soon! What about you?
+	$player: I'm fine still a little sad my bunny hasnt been found yet.
+==="
 met_id = &"met"
 area2d = NodePath("Area2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"

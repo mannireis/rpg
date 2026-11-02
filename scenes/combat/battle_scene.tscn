@@ -424,7 +424,6 @@ script = ExtResource("12_mtmyi")
 [node name="AudioStreamPlayerUI" type="AudioStreamPlayer" parent="." unique_id=1954161122]
 unique_name_in_owner = true
 stream = ExtResource("13_wdkwq")
-bus = &"UI"
 
 [connection signal="pressed" from="UI/DefaultAtk" to="Panel/SnapPoints" method="_default_action"]
 [connection signal="pressed" from="UI/DefaultBlock" to="Panel/SnapPoints" method="_default_action" binds= [true]]

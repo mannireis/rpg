@@ -631,7 +631,6 @@ scale = Vector2(1.0000001, 1.0000001)
 [node name="Will" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="7" unique_id=1932718674 instance=ExtResource("7_nxqch")]
 position = Vector2(792, -624)
 npc_name = &"Will"
-dialogue_file = "res://assets/dialogue/will.txt"
 met_id = &"met"
 
 [node name="Flicker" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="8" unique_id=1027138446 instance=ExtResource("11_2br45")]
@@ -656,7 +655,6 @@ position = Vector2(2208, -984)
 
 [node name="LastFlame" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="12" unique_id=922127529 instance=ExtResource("20_c1lyj")]
 position = Vector2(1040, -470)
-dialogue_file = "res://assets/dialogue/lastflame.txt"
 met_id = &"met"
 
 [node name="Torchie" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="13" unique_id=1214935165 instance=ExtResource("21_50tnc")]

@@ -2,19 +2,12 @@
 
 [ext_resource type="Script" uid="uid://cw10mpwn7wl6g" path="res://scripts/chapter.gd" id="1_7sbe3"]
 [ext_resource type="PackedScene" uid="uid://bsufd13kj3255" path="res://scenes/utils/infinite_grid.tscn" id="2_23v15"]
-[ext_resource type="Script" uid="uid://cvvde3tjg4wk5" path="res://scripts/ui/dialogue_panel.gd" id="2_k12pt"]
+[ext_resource type="Script" uid="uid://n61pdo7um1nw" path="res://scripts/ui/dialogue_panel.gd" id="2_k12pt"]
 [ext_resource type="TileSet" uid="uid://ctpxu0oeyokmb" path="res://assets/tile_set.tres" id="2_xh8w3"]
-[ext_resource type="FontFile" uid="uid://cvh0krg1x26b5" path="res://assets/fonts/chicago.png" id="3_23v15"]
 [ext_resource type="PackedScene" uid="uid://dn85my2emfvu8" path="res://scenes/player.tscn" id="3_xh8w3"]
-[ext_resource type="FontFile" uid="uid://jptnllywkipc" path="res://assets/fonts/chicago_bold.png" id="4_teg3p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmkx5"]
 bg_color = Color(0, 0, 0, 0.7490196)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sph6d"]
-bg_color = Color(0.35686275, 0.19215687, 0.21960784, 1)
-expand_margin_top = 1.0
-expand_margin_bottom = 1.0
 
 [sub_resource type="Animation" id="Animation_gbcm8"]
 length = 0.001
@@ -97,80 +90,52 @@ layout_mode = 2
 text = "Save & quit to title"
 
 [node name="DialoguePanel" type="CanvasLayer" parent="ProcessModeReset" unique_id=1908602964]
-visible = false
 script = ExtResource("2_k12pt")
 
-[node name="MarginContainer" type="MarginContainer" parent="ProcessModeReset/DialoguePanel" unique_id=1185220883]
-anchors_preset = 12
-anchor_top = 1.0
+[node name="ScrollContainer" type="ScrollContainer" parent="ProcessModeReset/DialoguePanel" unique_id=720033466]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -69.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer" unique_id=1112610150]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer" unique_id=1730092513]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer" unique_id=926781399]
-custom_minimum_size = Vector2(204, 0)
+[node name="MarginContainer" type="MarginContainer" parent="ProcessModeReset/DialoguePanel/ScrollContainer" unique_id=2062133330]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-theme_override_constants/separation = 0
+size_flags_vertical = 10
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="Speaker" type="Label" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=821447798]
+[node name="VBoxContainer" type="VBoxContainer" parent="ProcessModeReset/DialoguePanel/ScrollContainer/MarginContainer" unique_id=1111889380]
+layout_mode = 2
+
+[node name="NPCLabel" type="Label" parent="ProcessModeReset/DialoguePanel/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1435093142]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "banana bread"
+text = "NPC #1"
 
-[node name="HSeparator" type="HSeparator" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=1027053736]
+[node name="ChatContainer" type="VBoxContainer" parent="ProcessModeReset/DialoguePanel/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1375682774]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 2
-theme_override_styles/separator = SubResource("StyleBoxFlat_sph6d")
 
-[node name="Content" type="RichTextLabel" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=689160767]
+[node name="Label2" type="Label" parent="ProcessModeReset/DialoguePanel/ScrollContainer/MarginContainer/VBoxContainer/ChatContainer" unique_id=384723427]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_23v15")
-theme_override_fonts/bold_font = ExtResource("4_teg3p")
-theme_override_fonts/bold_italics_font = ExtResource("3_23v15")
-theme_override_fonts/italics_font = ExtResource("3_23v15")
-theme_override_fonts/mono_font = ExtResource("3_23v15")
-bbcode_enabled = true
-text = "[color=green][b]bold[/b] non bold[/color] 6+5"
+size_flags_horizontal = 8
+text = "Hi!"
+
+[node name="Label3" type="Label" parent="ProcessModeReset/DialoguePanel/ScrollContainer/MarginContainer/VBoxContainer/ChatContainer" unique_id=1596182310]
+layout_mode = 2
+text = "What's up?"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ProcessModeReset/DialoguePanel/ScrollContainer/MarginContainer/VBoxContainer/ChatContainer" unique_id=1630992162]
+layout_mode = 2
+size_flags_horizontal = 8
+text = " bla oeansudtaoensutdaoeu"
 fit_content = true
-
-[node name="Choices" type="VBoxContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer" unique_id=1568809243]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 1
-
-[node name="LineEdit" type="LineEdit" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=1307373377]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=532236600]
-layout_mode = 2
-text = "Option 1"
-
-[node name="Button2" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=1005288353]
-layout_mode = 2
-text = "Option 1"
-
-[node name="Button3" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=887819704]
-layout_mode = 2
-text = "Option 1"
-
-[node name="Button4" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=596984324]
-layout_mode = 2
-text = "Option 1"
+autowrap_mode = 0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="ProcessModeReset" unique_id=1252034803]
 tile_set = ExtResource("2_xh8w3")

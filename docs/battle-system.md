@@ -6,7 +6,7 @@ Logical cards are instances of [GameCard](res://scripts/combat/game_card.gd).
 Each implements methods for different actions, and should have at least a `play(ctl: PlayerCtl, _enemy_ctl:PlayerCtl) -> Array` method defined.
 They are addressed by suits (numerically sorted by the `GameCard.S` enum: spades, clubs, hearts, diamonds, jokers and other cards) and ID.
 
-To create a new card, add it to the [CardDatabase](res://scripts/globals/card_database.gd) using the `GameCard.create(suit: S, id: int, can_atk: Able, atk: Vector2i,...)` constructor into the `db[suit][id]` 2D array. 
+To create a new card, add it to the [CardDatabase](res://scripts/globals/card_database.gd) using `GameCard.new(suit: S, id: int, can_atk: Able, atk: Vector2i,...)` into the `db[suit][id]` 2D array.
 Each card should also have an `img` attr set with the `img_texture` parameter.
 Then, in _ready(), set all its relevant methods to callables. For a `can_atk != Able.NONE`, a `weapon_atk() -> Vector2i` should be set, returning a `Vector2i(damage,damage_type)`, by default this just returns the `atk`. Negative damage grants block for that particular damage type.
 The `weapon_atk()` method is only used if the card is equipped. This should usually be diamond cards. To make a card equippable, return `[GameCard.Move.EQUIP]` from its `play()`
@@ -31,7 +31,7 @@ Either side's PlayerCtl can be accessed through the BattleManager node. To deal 
 
 ## Battle inventory
 
-A `Signals.BattleInv` represents all modifications to be done to a side when the battle starts. It's created with a `Signals.BattleInv.create(max_hp: int, input_deck, input_equipped, input_hand, ai_int: int)` call, where all `input_` arguments are an `Array[Vector2i]` of (suit,id). When a BattleInv is passed down to `battle_manager.gd` by being set as the `GameState.player_battle_inventory` or `RoomChangeGlobal.enemy_battle_inventory`, its `.deck` will be loaded as the respective side's deck, the `.starting_equipped` will be automatically equipped and displayed, and the side's hand will always contain cards from `.starting_hand`. An empty `deck` means the deck will be taken from `PlayerCtl.starter_deck()` when the battle starts.
+A `Signals.BattleInv` represents all modifications to be done to a side when the battle starts. It's created with a `Signals.BattleInv.new(max_hp: int, input_deck, input_equipped, input_hand, ai_int: int)` call, where all `input_` arguments are an `Array[Vector2i]` of (suit,id). When a BattleInv is passed down to `battle_manager.gd` by being set as the `GameState.player_battle_inventory` or `RoomChangeGlobal.enemy_battle_inventory`, its `.deck` will be loaded as the respective side's deck, the `.starting_equipped` will be automatically equipped and displayed, and the side's hand will always contain cards from `.starting_hand`. An empty `deck` means the deck will be taken from `PlayerCtl.starter_deck()` when the battle starts.
 
 There are also parameters that only affect the enemy and their AI: `ai_int` is currently unused and affects the decisions the NPC makes when choosing cards. `ai_atk_chance` and `ai_block_chance` are floats from 0 to 1 representing the chance to take a default attack (mini sword) or default block (mini shield in player UI) action. `1-(ai_atk_chance+ai_block_chance)` will then be the chance to actually play a card, therefore lowering these numbers makes the NPC more 'powerful'.
 

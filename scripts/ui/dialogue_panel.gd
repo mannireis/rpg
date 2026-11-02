@@ -1,40 +1,35 @@
 extends CanvasLayer
 
-const LETTER_TIME:float = 0.04
-const PUNCTUATION_TIME:float = 0.3
+const LETTER_TIME = 0.04
+const PUNCTUATION_TIME = 0.3
 
 var tween: Tween
-var dialogue_index: int = 0
+var dialogue_index := 0
 
-var _parsed_dialogue: Dictionary = {}
+var _parsed_dialogue := {}
 var _current_id := ""
 var _current_line := 0
 
-@onready var panel: PanelContainer = $MarginContainer/PanelContainer
-@onready var speaker: Label = $MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/Speaker
-@onready var content: RichTextLabel = $MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/Content
-@onready var choices: VBoxContainer = $MarginContainer/PanelContainer/HBoxContainer/Choices
+var _last_label: RichTextLabel
+var _last_buttons: Array[Button]
+
+@onready var scroll_container: ScrollContainer = $ScrollContainer
+@onready var chat_container: VBoxContainer = %ChatContainer
+@onready var npc_label: Label = %NPCLabel
 
 
 func _ready():
 	Signals.dialogue_started.connect(_on_dialogue_started)
 
 
-func _on_dialogue_started(file: String, at: StringName) -> void:
-	if not FileAccess.file_exists(file):
-		push_error("Dialogue file missing in export (check export_presets include_filter): %s" % file)
-		DialogueManager.active = false
-		_end()
-		return
-	var txt := FileAccess.get_file_as_string(file)
-	if txt.is_empty():
-		push_error("Dialogue file empty or failed to load: %s" % file)
-		DialogueManager.active = false
-		_end()
-		return
-	_parsed_dialogue = _parse(txt)
-	DialogueManager.active = true
-	print("starting dialogue for "+file+" key "+str(at))
+func _on_dialogue_started(dialogue: String, at: StringName) -> void:
+	GameState.dialoguing = true
+	_parsed_dialogue = _parse(dialogue)
+
+	for child in chat_container.get_children():
+		child.queue_free()
+
+	show()
 	_goto(at)
 
 
@@ -46,11 +41,13 @@ func _parse(source: String) -> Dictionary:
 
 	for line in lines:
 		line = line.strip_edges()
+
 		if line.is_empty() or line.begins_with("#"):
 			continue
 
 		if line.begins_with("==="):
-			var block_id := line.trim_prefix("===").strip_edges().to_lower()
+			var block_id := line.trim_prefix("===").strip_edges()
+
 			if block_id == "":
 				if current_id != "":
 					parsed_dialogue[current_id] = current
@@ -73,13 +70,13 @@ func _parse(source: String) -> Dictionary:
 				})
 			elif line.begins_with("*") and line.contains("{") and line.contains("}"):
 				var part := line.split(",", true, 3)
-				
+
 				var correct_answer := part[0].replace("{", "").replace("*", "").strip_edges()
 				var correct := part[1].strip_edges()
 				var wrong := part[2].replace("}", "").strip_edges()
-				
+
 				print(correct_answer + correct + wrong)
-				
+
 				current[-1]["text_box"].append({
 					"correct_answer": correct_answer,
 					"correct": correct,
@@ -98,8 +95,9 @@ func _parse(source: String) -> Dictionary:
 	return parsed_dialogue
 
 
-func _goto(id: String) -> void:
+func _goto(id: StringName) -> void:
 	Signals.dialogue_branched.emit(id)
+
 	if id.begins_with("battle_init"):
 		var parts := id.split("[", true, 1)
 		if parts.size() < 2:
@@ -121,8 +119,10 @@ func _goto(id: String) -> void:
 	_current_line = 0
 	_show_line()
 
+
 func _fill_vars(text: String) -> String:
 	return text.replace("$player", GameState.player_name)
+
 
 func _show_line() -> void:
 	var block: Array = _parsed_dialogue.get(_current_id, [])
@@ -152,35 +152,36 @@ func choose(target: String) -> void:
 
 
 func _end() -> void:
-	DialogueManager.active = false
-	for c in choices.get_children():
-		c.queue_free()
+	GameState.dialoguing = false
 	
+	for child in chat_container.get_children():
+		child.queue_free()
+
 	hide()
 
-
 func _on_line(line: Dictionary) -> void:
-	show()
+	_last_buttons.clear()
 
-	speaker.text = _fill_vars(line["speaker"])
+	say(_fill_vars(line["text"]), line["speaker"] == "$player")
 
-	say(_fill_vars(line["text"]))
-
-	for c in choices.get_children():
-		c.queue_free()
-
-	for c in line["choices"]:
+	for choice in line["choices"]:
 		var b := Button.new()
 		b.mouse_filter = Control.MOUSE_FILTER_STOP
-		b.text = c["text"]
-		b.pressed.connect(choose.bind(c["next"]))
-		choices.add_child(b)
-	
+		b.text = choice["text"]
+		b.pressed.connect(choose.bind(choice["next"]))
+		b.size_flags_horizontal = Control.SIZE_SHRINK_END
+		chat_container.add_child(b)
+		_last_buttons.append(b)
+
 	for t in line["text_box"]:
 		var box := LineEdit.new()
 		box.text_submitted.connect(_on_answer_submitted.bind(t))
-		choices.add_child(box)
+		chat_container.add_child(box)
 		box.grab_focus.call_deferred()
+
+	# TODO
+	await get_tree().process_frame
+	scroll_container.set_deferred("scroll_vertical", scroll_container.get_v_scroll_bar().max_value)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -189,42 +190,56 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if tween and tween.is_running():
 		tween.kill()
-		content.visible_characters = -1
-	elif content.visible and choices.get_child_count() == 0:
+		_last_label.visible_characters = -1
+	elif chat_container.visible:
 		advance()
 		get_viewport().set_input_as_handled()
 
 
-func say(text:String):
+func say(text: String, flip: bool):
 	if tween: tween.kill()
 	tween = create_tween()
+	
+	var label := RichTextLabel.new()
+	label.fit_content = true
+	label.text = text
+	label.visible_characters = 0
+	# TODO
+	label.autowrap_mode = TextServer.AUTOWRAP_OFF
+	
+	if flip:
+		label.fit_content = true
+		label.size_flags_horizontal = Control.SIZE_SHRINK_END
+	
+	chat_container.add_child(label)
+	_last_label = label
 
-	content.text = text
-	content.visible_characters = 0
+	var index := 0
+	var last_punctuation_index := 0
+	var text_length := label.text.length()
 
-	var index:= 0
-	var last_punctuation_index:= 0
-	var text_length := content.text.length()
-
-	for letter in content.text:
-		index+=1
+	for letter in label.text:
+		index += 1
 
 		# only add a PropertyTweener at punctuations or end of string
-		if not(letter in [".", "?", "!", ","] or index == text_length):
+		if letter not in [".", "?", "!", ","] and index != text_length:
 			continue
 
 		# reveal letters between the last punctuation and the current one
-		var duration = (index-last_punctuation_index) * LETTER_TIME
-		tween.tween_property(content, "visible_characters", index, duration)
+		var duration = (index - last_punctuation_index) * LETTER_TIME
+		tween.tween_property(label, "visible_characters", index, duration)
 
 		# wait a bit after commas and punctuation
-		if letter == ",": tween.tween_interval(PUNCTUATION_TIME/2.0)
-		else: tween.tween_interval(PUNCTUATION_TIME)
+		if letter == ",":
+			tween.tween_interval(PUNCTUATION_TIME / 2.0)
+		else:
+			tween.tween_interval(PUNCTUATION_TIME)
 
 		last_punctuation_index = index
 
 func _on_answer_submitted(text: String, data: Dictionary) -> void:
 	var answer := text.strip_edges().to_lower()
+
 	if answer == data["correct_answer"]:
 		choose(data["correct"])
 	else:

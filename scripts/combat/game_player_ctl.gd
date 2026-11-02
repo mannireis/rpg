@@ -43,7 +43,6 @@ var target_display: HBoxContainer
 var rand = RandomNumberGenerator.new()
 var turn_dmg_dealt: int
 
-
 func draw(count: int = 1, gui: bool = false) -> void:
 	var slot_res: Array
 	var vis_card: Control = null

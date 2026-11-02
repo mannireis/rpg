@@ -2,7 +2,7 @@ extends Node
 
 @warning_ignore_start("unused_signal")
 signal transition(door: Door)
-signal dialogue_started(path: String, at: StringName)
+signal dialogue_started(dialogue: String, at: StringName)
 signal dialogue_branched(to: StringName)
 signal star
 signal battle_won
@@ -60,16 +60,13 @@ class BattleInv:
 			res.append(CardDatabase.db[i[0]][i[1]])
 		return res
 
-	static func create(max_hp: int = 26, input_deck: Array[Vector2i] = [], input_equipped: Array[Vector2i] = [], input_hand: Array[Vector2i] = [], ai_int: int = 0) -> BattleInv:
-		var inv = BattleInv.new()
-		inv.input_deck = input_deck
-		inv.input_starting_equipped = input_equipped
-		inv.input_starting_hand = input_hand
-		inv.deck = convert_to_card(input_deck)
-		print(inv.deck)
-		inv.starting_equipped = convert_to_card(input_equipped)
-		inv.starting_hand = convert_to_card(input_hand)
-		inv.max_hp = max_hp
-		inv.hp = max_hp
-		inv.ai_int = ai_int
-		return inv
+	func _init(max_hp: int = 26, input_deck: Array[Vector2i] = [], input_equipped: Array[Vector2i] = [], input_hand: Array[Vector2i] = [], ai_int: int = 0):
+		self.input_deck = input_deck
+		self.input_starting_equipped = input_equipped
+		self.input_starting_hand = input_hand
+		self.deck = convert_to_card(input_deck)
+		self.starting_equipped = convert_to_card(input_equipped)
+		self.starting_hand = convert_to_card(input_hand)
+		self.max_hp = max_hp
+		self.hp = max_hp
+		self.ai_int = ai_int

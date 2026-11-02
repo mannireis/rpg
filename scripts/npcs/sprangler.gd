@@ -23,7 +23,7 @@ func _ready() -> void:
 
 	var starting_hand: Array[Vector2i] = []
 
-	var inv: Signals.BattleInv = Signals.BattleInv.create(
+	var inv: Signals.BattleInv = Signals.BattleInv.new(
 		50,
 		deck,
 		starting_equipped,

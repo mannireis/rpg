@@ -21,25 +21,25 @@ func _ready() -> void:
 		else: Signals.battle_lost.emit()
 
 func _physics_process(delta: float) -> void:
-	if DialogueManager.active:
+	if GameState.dialoguing:
 		return
 
 	var direction : Vector2
-	
+
 	direction = Input.get_vector("Left", "Right", "Up", "Down")
-	
+
 	if direction:
 		velocity = speed * direction.normalized()
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
-	
+
 	intended_velocity = velocity
 	if Input.is_action_just_pressed("Teleport") and OS.has_feature("debug"):
 		global_position = get_tree().get_root().get_node("Chapter01/ProcessModeReset/DevTeleport").global_position
 	if Input.is_action_just_pressed("Teleport2") and OS.has_feature("debug"):
 		global_position = get_tree().get_root().get_node("Chapter01/ProcessModeReset/DevTeleportU").global_position
 	GameState.player_pos = global_position
-	
+
 	play_animations(direction)
 	if move_and_slide():
 		resolve_collisions()

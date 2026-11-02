@@ -34,7 +34,22 @@ size = Vector2(64, 64)
 [node name="Elaine" type="CharacterBody2D" unique_id=234258619 node_paths=PackedStringArray("area2d", "animation")]
 script = ExtResource("1_7fggm")
 npc_name = &"Elaine"
-dialogue_file = "res://assets/dialogue/elaine.txt"
+dialogue = "=== start
+	Elaine: What is humanling like you doing here?
+	$player: I have been looking for my pet bunny for a while now have you seen it anywhere?
+	Elaine: How does it look mayhaps?
+	$player: He has a top hat and a monocle and is a very pretty white color!
+	Elaine: Hmmm sorry but I don't remember :(
+	Elaine: Do you wanna check my shop tho?
+	* Sure! -> shop
+	* No thanks -> End
+===
+
+=== met
+	Elaine: Do you wanna check my shop?
+	* Sure! -> shop
+	* No thanks -> End
+==="
 met_id = &"met"
 area2d = NodePath("Area2D")
 animation = NodePath("AnimatedSprite2D")

@@ -47,7 +47,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_stamm"]
 radius = 4.0
 
-[node name="ThePassersby" type="CharacterBody2D" unique_id=1932718674]
+[node name="Passerby" type="CharacterBody2D" unique_id=1932718674]
 script = ExtResource("1_stamm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1563531611]

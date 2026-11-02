@@ -48,7 +48,25 @@ size = Vector2(48, 24)
 [node name="Dragon" type="CharacterBody2D" unique_id=1871835439 node_paths=PackedStringArray("area2d")]
 script = ExtResource("1_uet4k")
 npc_name = &"Fynn"
-dialogue_file = "res://assets/dialogue/dragon.txt"
+dialogue = "=== start
+	$player: Hey, Who are you? I'm $player.
+	Fynn: I'm Fynn, I'm just a caravan member.
+	$player: What is this caravan for?
+	Fynn: We sell equipment for a lot of shops.
+	$player: hmm intresting where could I buy some of this equipment?
+	Fynn: There is person with a shop if you go a bit more south and take care of the puzzle.
+===
+
+=== met_kira
+	Fynn: I see you have me my boss Kira.
+	$player: I have.
+	Fynn: I would not trust her...
+===
+
+=== met
+	Fynn: Hey there $player!
+	$player: Hey!
+===s"
 met_id = &"met"
 area2d = NodePath("Area2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
