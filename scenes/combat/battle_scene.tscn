@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://vpp6ajthpv20"]
 
 [ext_resource type="Texture2D" uid="uid://bcaac5yyw61ef" path="res://assets/panel_battle.png" id="1_k3fhr"]
+[ext_resource type="Script" uid="uid://c8p2eo4str7pw" path="res://scripts/combat/tutorial.gd" id="1_pkalm"]
 [ext_resource type="Script" uid="uid://l0nipgcb3sev" path="res://scripts/ui/play.gd" id="2_c2mh6"]
 [ext_resource type="Texture2D" uid="uid://boer8slf5lsps" path="res://assets/atk_icon.png" id="3_tk4r7"]
 [ext_resource type="Texture2D" uid="uid://cek6ei6frdk5u" path="res://assets/block_small.png" id="4_k2f2v"]
 [ext_resource type="Texture2D" uid="uid://fnhcpfb1mb2x" path="res://assets/panel.png" id="5_agplw"]
 [ext_resource type="Script" uid="uid://urtllnp62o4p" path="res://scripts/ui/card_tooltip.gd" id="6_jgpvw"]
 [ext_resource type="Texture2D" uid="uid://m3v68wusnow2" path="res://assets/battle_scene.png" id="7_7jovc"]
+[ext_resource type="FontFile" uid="uid://dpo2lqe7v6wen" path="res://assets/fonts/chicago_italic.png" id="7_m68oi"]
 [ext_resource type="PackedScene" uid="uid://cxrd5ke6fiatw" path="res://scenes/combat/health_bar.tscn" id="8_fqis5"]
 [ext_resource type="Script" uid="uid://cqjggxnms6uy0" path="res://scripts/ui/player_health_bar.gd" id="9_5wyof"]
 [ext_resource type="Script" uid="uid://ov2xhwty8yje" path="res://scripts/combat/card_holder.gd" id="10_rlev3"]
@@ -38,6 +40,50 @@ expand_margin_bottom = 1.0
 texture = ExtResource("7_7jovc")
 
 [node name="Battle" type="CanvasLayer" unique_id=1071012836]
+
+[node name="Tutorial" type="Control" parent="." unique_id=2008957492]
+visible = false
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pkalm")
+
+[node name="Label" type="Label" parent="Tutorial" unique_id=2142822485]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 19.0
+offset_right = 104.0
+offset_bottom = 26.0
+text = "<- This is your health bar"
+
+[node name="Label2" type="Label" parent="Tutorial" unique_id=793671951]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 19.0
+offset_right = 303.0
+offset_bottom = 26.0
+text = "Here is your enemies health bar ->"
+
+[node name="Label3" type="Label" parent="Tutorial" unique_id=589889984]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 70.0
+offset_right = 243.0
+offset_bottom = 77.0
+text = "This is where you place your cards to play them"
+
+[node name="Label4" type="Label" parent="Tutorial" unique_id=229594405]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 145.0
+offset_right = 138.0
+offset_bottom = 162.0
+text = "These are the 
+cards you can play ->"
 
 [node name="UI" type="Control" parent="." unique_id=1345722854]
 unique_name_in_owner = true
@@ -211,24 +257,22 @@ offset_right = 13.0
 offset_bottom = 112.0
 texture_normal = ExtResource("4_k2f2v")
 
-[node name="CardTooltip" type="Panel" parent="UI" unique_id=1019244480]
+[node name="CardTooltip" type="PanelContainer" parent="UI" unique_id=1466418672]
 unique_name_in_owner = true
 visible = false
 z_index = 255
 custom_minimum_size = Vector2(66, 50)
 custom_maximum_size = Vector2(66, -1)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 66.0
+offset_bottom = 53.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ou3et")
 script = ExtResource("6_jgpvw")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/CardTooltip" unique_id=1393612080]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 1
 theme_override_constants/margin_top = 1
@@ -259,8 +303,29 @@ custom_minimum_size = Vector2(64, 32)
 layout_mode = 2
 text = "CardDescription
 CardDescription
-CardDescription"
+"
 autowrap_mode = 3
+
+[node name="CardCost" type="Label" parent="UI/CardTooltip/MarginContainer/VBoxContainer" unique_id=1430585707]
+unique_name_in_owner = true
+layout_mode = 2
+vertical_alignment = 2
+
+[node name="ExpensiveLabel" type="RichTextLabel" parent="UI" unique_id=82879091]
+visible = false
+custom_minimum_size = Vector2(108, 0)
+propagate_maximum_size = true
+clip_contents = false
+layout_mode = 0
+offset_left = 106.0
+offset_top = 121.0
+offset_right = 214.0
+offset_bottom = 128.0
+theme_override_fonts/italics_font = ExtResource("7_m68oi")
+bbcode_enabled = true
+text = "Too expensive check card cost"
+fit_content = true
+horizontal_alignment = 1
 
 [node name="Panel" type="Panel" parent="." unique_id=430596268]
 anchors_preset = 15

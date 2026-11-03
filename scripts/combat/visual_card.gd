@@ -95,23 +95,21 @@ func animate_hovering() -> void:
 	var tween = create_tween()
 	
 	if hovering:
+		z_index = 10
+		
 		if !was_hovering:
 			%AudioStreamPlayerUI.pitch_scale = randf_range(0.9, 1.1)
 			%AudioStreamPlayerUI.play()
 			%CardTooltip.visible = true
 			%CardName.text = data.name
 			%CardDescription.text = data.text
+			%CardCost.text = "Cost: " + str(data.cost)
 			remove_labels = true
 		
 		tween.tween_property(self, "scale", Vector2(1.2,1.2), 0.15)
 		tween.parallel().tween_property(self, "rotation_degrees", 15.0, 0.15)
-		
-		if !remove_labels:
-			%CardTooltip.visible = true
-			%CardName.text = data.name
-			%CardDescription.text = data.text
-			remove_labels = true
 	else:
+		z_index = 0
 		tween.tween_property(self, "scale", Vector2(1.0,1.0), 0.1)
 		tween.parallel().tween_property(self, "rotation_degrees", 0.0, 0.15)
 		if remove_labels:

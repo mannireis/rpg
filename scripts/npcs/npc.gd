@@ -126,9 +126,9 @@ func diag_start(body: Node2D) -> void: ## Connect to area2d.body_entered. Force-
 
 func _battle_lost() -> void:
 	print("writing loss for "+str(npc_name))
-	GameState.fought(npc_name,false)
+	GameState.fought(npc_name, false)
 
 
 func _battle_won() -> void:
 	print("writing win for "+str(npc_name))
-	GameState.fought(npc_name,true)
+	GameState.fought(npc_name, true)

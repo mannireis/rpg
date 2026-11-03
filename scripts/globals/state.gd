@@ -39,10 +39,6 @@ func fought(npc_id: StringName, won: bool) -> void:
 	if won: defeated_npcs[npc_id] += 1
 
 
-func has_fought(npc_id: StringName) -> bool:
-	return battled_npcs.has(npc_id)
-
-
 func won(npc_id: StringName) -> bool:
 	return defeated_npcs.get(npc_id) and defeated_npcs[npc_id] > 0
 
