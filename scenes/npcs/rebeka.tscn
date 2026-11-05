@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c2dedt36mj54p"]
 
+[ext_resource type="PackedScene" uid="uid://dawu0fejcu53i" path="res://scenes/npcs/npc.tscn" id="1_qrja6"]
 [ext_resource type="Script" uid="uid://cf71kevbttw0s" path="res://scripts/npcs/rebeka.gd" id="1_ilpv8"]
 [ext_resource type="Texture2D" uid="uid://cvnuv07nvndmc" path="res://assets/characters/rebeka.png" id="2_mxhai"]
 
@@ -220,7 +221,7 @@ size = Vector2(14, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atieb"]
 size = Vector2(48, 48)
 
-[node name="Rebeka" type="CharacterBody2D" unique_id=180817783 node_paths=PackedStringArray("area2d", "animation")]
+[node name="Rebeka" unique_id=180817783 node_paths=PackedStringArray("area2d", "animation") instance=ExtResource("1_qrja6")]
 script = ExtResource("1_ilpv8")
 follow_speed = 30.0
 npc_name = &"rebeka"
@@ -313,18 +314,18 @@ area2d = NodePath("Area2D")
 animation = NodePath("AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1318331409]
+[node name="Area2D" parent="." index="0" unique_id=896990980]
+position = Vector2(0, -6)
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(896990980) index="0" unique_id=1537684596]
+shape = SubResource("RectangleShape2D_atieb")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=795626822]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_5mxnl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=1318331409]
 position = Vector2(0, -23)
 sprite_frames = SubResource("SpriteFrames_yffm8")
 animation = &"idle_down"
 autoplay = "idle_down"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1752276502]
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_5mxnl")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1025306014]
-position = Vector2(0, -6)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1455412215]
-shape = SubResource("RectangleShape2D_atieb")

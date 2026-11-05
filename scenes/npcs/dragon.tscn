@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cafiofuoiw86j"]
 
+[ext_resource type="PackedScene" uid="uid://dawu0fejcu53i" path="res://scenes/npcs/npc.tscn" id="1_qrja6"]
 [ext_resource type="Script" uid="uid://cp02op5sbi7sn" path="res://scripts/npcs/dragon.gd" id="1_uet4k"]
 [ext_resource type="Texture2D" uid="uid://dd74pifskd14n" path="res://assets/characters/dragon.png" id="2_uet4k"]
 
@@ -45,7 +46,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ib3ld"]
 size = Vector2(48, 24)
 
-[node name="Dragon" type="CharacterBody2D" unique_id=1871835439 node_paths=PackedStringArray("area2d")]
+[node name="Dragon" unique_id=1871835439 node_paths=PackedStringArray("area2d") instance=ExtResource("1_qrja6")]
 script = ExtResource("1_uet4k")
 npc_name = &"Fynn"
 dialogue = "=== start
@@ -71,18 +72,16 @@ met_id = &"met"
 area2d = NodePath("Area2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1547191639]
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(896990980) index="0" unique_id=1537684596]
+position = Vector2(19, -12)
+shape = SubResource("RectangleShape2D_ib3ld")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=795626822]
 position = Vector2(1, -2)
 shape = SubResource("RectangleShape2D_uet4k")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=449960363]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=449960363]
 sprite_frames = SubResource("SpriteFrames_almn2")
 autoplay = "default"
 frame_progress = 0.7141253
 offset = Vector2(0, -16)
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1735562348]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1233820784]
-position = Vector2(19, -12)
-shape = SubResource("RectangleShape2D_ib3ld")

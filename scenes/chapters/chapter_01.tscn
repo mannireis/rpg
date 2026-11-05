@@ -250,9 +250,6 @@ offset_transform_enabled = true
 [node name="DialoguePanel" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="1" unique_id=1908602964]
 visible = false
 
-[node name="RichTextLabel" parent="ProcessModeReset/DialoguePanel/ScrollContainer/MarginContainer/VBoxContainer/ChatContainer" parent_id_path=PackedInt32Array(1375682774) index="2" unique_id=1630992162]
-bbcode_enabled = true
-
 [node name="PreasurePlates" type="Node" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="2" unique_id=1164926083]
 
 [node name="PressurePlate" parent="ProcessModeReset/PreasurePlates" index="0" unique_id=293633059 node_paths=PackedStringArray("other_preasure_plates") instance=ExtResource("14_nb3ya")]

@@ -2,6 +2,7 @@ extends CanvasLayer
 
 const LETTER_TIME = 0.04
 const PUNCTUATION_TIME = 0.3
+const BubbleButton = preload("res://scenes/ui/bubble_button.tscn")
 
 var tween: Tween
 var dialogue_index := 0
@@ -10,12 +11,10 @@ var _parsed_dialogue := {}
 var _current_id := ""
 var _current_line := 0
 
-var _last_label: RichTextLabel
-var _last_buttons: Array[Button]
-
-@onready var scroll_container: ScrollContainer = $ScrollContainer
-@onready var chat_container: VBoxContainer = %ChatContainer
-@onready var npc_label: Label = %NPCLabel
+@onready var speaker_label: Label = %SpeakerLabel
+@onready var dialogue_label: RichTextLabel = %DialogueLabel
+@onready var choices_container: VBoxContainer = %ChoicesContainer
+@onready var line_edit: LineEdit = %LineEdit
 
 
 func _ready():
@@ -25,10 +24,6 @@ func _ready():
 func _on_dialogue_started(dialogue: String, at: StringName) -> void:
 	GameState.dialoguing = true
 	_parsed_dialogue = _parse(dialogue)
-
-	for child in chat_container.get_children():
-		child.queue_free()
-
 	show()
 	_goto(at)
 
@@ -153,35 +148,42 @@ func choose(target: String) -> void:
 
 func _end() -> void:
 	GameState.dialoguing = false
-	
-	for child in chat_container.get_children():
-		child.queue_free()
 
 	hide()
 
 func _on_line(line: Dictionary) -> void:
-	_last_buttons.clear()
+	dialogue_label.hide()
+	choices_container.hide()
+	line_edit.hide()
+	
+	for child in choices_container.get_children():
+		child.queue_free()
 
-	say(_fill_vars(line["text"]), line["speaker"] == "$player")
+	speaker_label.text = _fill_vars(line["speaker"])
 
+	# If text
+	if (line["text"]):
+		dialogue_label.show()
+
+	say(_fill_vars(line["text"]))
+
+	# If multiple-choice
 	for choice in line["choices"]:
-		var b := Button.new()
+		choices_container.show()
+		var b: Button = BubbleButton.instantiate()
 		b.mouse_filter = Control.MOUSE_FILTER_STOP
 		b.text = choice["text"]
 		b.pressed.connect(choose.bind(choice["next"]))
 		b.size_flags_horizontal = Control.SIZE_SHRINK_END
-		chat_container.add_child(b)
-		_last_buttons.append(b)
+		choices_container.add_child(b)
 
+	# If freeform
 	for t in line["text_box"]:
-		var box := LineEdit.new()
-		box.text_submitted.connect(_on_answer_submitted.bind(t))
-		chat_container.add_child(box)
-		box.grab_focus.call_deferred()
-
-	# TODO
-	await get_tree().process_frame
-	scroll_container.set_deferred("scroll_vertical", scroll_container.get_v_scroll_bar().max_value)
+		line_edit.show()
+		var previous_conn: Callable = line_edit.text_submitted.get_connections()[0].callable
+		line_edit.text_submitted.disconnect(previous_conn)
+		line_edit.text_submitted.connect(_on_answer_submitted.bind(t))
+		line_edit.grab_focus.call_deferred()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -190,35 +192,24 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if tween and tween.is_running():
 		tween.kill()
-		_last_label.visible_characters = -1
-	elif chat_container.visible:
+		dialogue_label.visible_characters = -1
+	elif dialogue_label.visible:
 		advance()
 		get_viewport().set_input_as_handled()
 
 
-func say(text: String, flip: bool):
+func say(text: String):
 	if tween: tween.kill()
 	tween = create_tween()
 	
-	var label := RichTextLabel.new()
-	label.fit_content = true
-	label.text = text
-	label.visible_characters = 0
-	# TODO
-	label.autowrap_mode = TextServer.AUTOWRAP_OFF
-	
-	if flip:
-		label.fit_content = true
-		label.size_flags_horizontal = Control.SIZE_SHRINK_END
-	
-	chat_container.add_child(label)
-	_last_label = label
+	dialogue_label.text = text
+	dialogue_label.visible_characters = 0
 
 	var index := 0
 	var last_punctuation_index := 0
-	var text_length := label.text.length()
+	var text_length := dialogue_label.text.length()
 
-	for letter in label.text:
+	for letter in dialogue_label.text:
 		index += 1
 
 		# only add a PropertyTweener at punctuations or end of string
@@ -227,7 +218,7 @@ func say(text: String, flip: bool):
 
 		# reveal letters between the last punctuation and the current one
 		var duration = (index - last_punctuation_index) * LETTER_TIME
-		tween.tween_property(label, "visible_characters", index, duration)
+		tween.tween_property(dialogue_label, "visible_characters", index, duration)
 
 		# wait a bit after commas and punctuation
 		if letter == ",":
@@ -236,6 +227,7 @@ func say(text: String, flip: bool):
 			tween.tween_interval(PUNCTUATION_TIME)
 
 		last_punctuation_index = index
+
 
 func _on_answer_submitted(text: String, data: Dictionary) -> void:
 	var answer := text.strip_edges().to_lower()

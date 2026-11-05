@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b5lh4mgg1by26"]
 
+[ext_resource type="PackedScene" uid="uid://dawu0fejcu53i" path="res://scenes/npcs/npc.tscn" id="1_qrja6"]
 [ext_resource type="Script" uid="uid://ds4dedeeqjdmw" path="res://scripts/npcs/last_flame.gd" id="1_nm6hn"]
 [ext_resource type="Texture2D" uid="uid://baksexvbb71fg" path="res://assets/last_flame_projection.png" id="2_nm6hn"]
 
@@ -31,7 +32,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nm6hn"]
 size = Vector2(16, 30)
 
-[node name="LastFlame" type="CharacterBody2D" unique_id=1932718674 node_paths=PackedStringArray("area2d")]
+[node name="LastFlame" unique_id=1932718674 node_paths=PackedStringArray("area2d") instance=ExtResource("1_qrja6")]
 script = ExtResource("1_nm6hn")
 dialogue = "=== start
 	Purple flame: Hello traveller.
@@ -90,18 +91,13 @@ dialogue = "=== start
 ==="
 area2d = NodePath("Area2D")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=896990980]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1537684596]
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(896990980) index="0" unique_id=1537684596]
 shape = SubResource("RectangleShape2D_ivh6b")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=14790895]
-sprite_frames = SubResource("SpriteFrames_j37jm")
-autoplay = "default"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1212689323]
+[node name="CollisionShape2D" parent="." index="1" unique_id=795626822]
 position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_nm6hn")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=14790895]
+sprite_frames = SubResource("SpriteFrames_j37jm")
+autoplay = "default"
