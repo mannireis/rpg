@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://cvkbq4dsmvujn"]
 
-[ext_resource type="PackedScene" uid="uid://dawu0fejcu53i" path="res://scenes/npcs/npc.tscn" id="1_qrja6"]
 [ext_resource type="Script" uid="uid://br5yjydvxtap3" path="res://scripts/npcs/sprangler.gd" id="1_p76rt"]
+[ext_resource type="PackedScene" uid="uid://dawu0fejcu53i" path="res://scenes/npcs/npc.tscn" id="1_qrja6"]
 [ext_resource type="Texture2D" uid="uid://bta0m34wpibh7" path="res://assets/characters/sprangler.png" id="2_p76rt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aomwt"]
+size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p76rt"]
 size = Vector2(32, 106)
@@ -132,9 +135,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aomwt"]
-size = Vector2(32, 32)
-
 [node name="Sprangler" unique_id=1040220559 node_paths=PackedStringArray("area2d") instance=ExtResource("1_qrja6")]
 script = ExtResource("1_p76rt")
 npc_name = &"The Sprangler"
@@ -191,7 +191,7 @@ metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 [node name="Area2D" parent="." index="0" unique_id=896990980]
 position = Vector2(0, -69)
 
-[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(896990980) index="0" unique_id=1537684596]
+[node name="CollisionShape2D" parent="Area2D" index="0" unique_id=1537684596]
 shape = SubResource("RectangleShape2D_aomwt")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=795626822]

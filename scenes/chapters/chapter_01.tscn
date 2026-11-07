@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cafiofuoiw86j" path="res://scenes/npcs/dragon.tscn" id="20_t8ort"]
 [ext_resource type="PackedScene" uid="uid://cij458hgw3wn8" path="res://scenes/npcs/torchie.tscn" id="21_50tnc"]
 [ext_resource type="PackedScene" uid="uid://cvkbq4dsmvujn" path="res://scenes/npcs/sprangler.tscn" id="22_3dk3t"]
+[ext_resource type="PackedScene" uid="uid://ba4p6rb6wgjk0" path="res://scenes/npcs/spider.tscn" id="22_hy0ca"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8mqf"]
 atlas = ExtResource("4_h8mqf")
@@ -719,7 +720,10 @@ met_id = &"met"
 [node name="Torchie" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="13" unique_id=1214935165 instance=ExtResource("21_50tnc")]
 position = Vector2(1408, -808)
 
-[node name="Caravan" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="7" unique_id=1391059496]
+[node name="spider" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="5" unique_id=1704005591 instance=ExtResource("22_hy0ca")]
+position = Vector2(581, -806)
+
+[node name="Caravan" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="8" unique_id=1391059496]
 position = Vector2(-53, -664)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProcessModeReset/YSort/Caravan" index="0" unique_id=802618380]
@@ -729,7 +733,7 @@ shape = SubResource("RectangleShape2D_ib3ld")
 texture = ExtResource("19_cqq4f")
 offset = Vector2(0, -30)
 
-[node name="Caravan2" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="8" unique_id=487939752]
+[node name="Caravan2" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="9" unique_id=487939752]
 position = Vector2(1976, -1168)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProcessModeReset/YSort/Caravan2" index="0" unique_id=2143752886]
@@ -739,7 +743,7 @@ shape = SubResource("RectangleShape2D_ib3ld")
 texture = ExtResource("19_cqq4f")
 offset = Vector2(0, -30)
 
-[node name="Campfire" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="9" unique_id=1003647821]
+[node name="Campfire" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="10" unique_id=1003647821]
 position = Vector2(-160, -656)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ProcessModeReset/YSort/Campfire" index="0" unique_id=1819208327]
@@ -750,7 +754,7 @@ offset = Vector2(0, -12)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProcessModeReset/YSort/Campfire" index="1" unique_id=1597917484]
 shape = SubResource("RectangleShape2D_s3vlm")
 
-[node name="Tent" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="10" unique_id=1982072699]
+[node name="Tent" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="11" unique_id=1982072699]
 y_sort_enabled = true
 
 [node name="Tent" type="Sprite2D" parent="ProcessModeReset/YSort/Tent" index="0" unique_id=1267871247]
@@ -760,10 +764,10 @@ texture = ExtResource("17_4jiuh")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ProcessModeReset/YSort/Tent" index="1" unique_id=1885983145]
 polygon = PackedVector2Array(926, -43, 926, -44, 928, -44, 928, -45, 930, -45, 930, -46, 931, -46, 931, -47, 933, -47, 933, -48, 935, -48, 935, -49, 937, -49, 937, -50, 938, -50, 938, -52, 939, -52, 939, -54, 940, -54, 940, -55, 942, -55, 942, -56, 944, -56, 944, -57, 942, -57, 942, -58, 940, -58, 940, -60, 939, -60, 939, -64, 810, -64, 810, -63, 809, -63, 809, -60, 808, -60, 808, -59, 805, -59, 805, -58, 802, -58, 802, -57, 800, -57, 800, -56, 803, -56, 803, -55, 805, -55, 805, -54, 807, -54, 807, -53, 808, -53, 808, -52, 810, -52, 810, -51, 811, -51, 811, -50, 813, -50, 813, -49, 816, -49, 816, -48, 818, -48, 818, -47, 820, -47, 820, -46, 822, -46, 822, -45, 825, -45, 825, -44, 829, -44, 829, -43, 831, -43, 831, -42, 834, -42, 834, -41, 837, -41, 837, -40, 850, -40, 850, -41, 863, -54, 885, -54, 885, -53, 886, -53, 886, -48, 887, -48, 887, -44, 888, -44, 888, -41, 888, -40, 913, -40, 913, -41, 917, -41, 917, -42, 923, -42, 923, -43)
 
-[node name="TICKETCHALLANGELOCATION" type="Node2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="11" unique_id=1808576591]
+[node name="TICKETCHALLANGELOCATION" type="Node2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="12" unique_id=1808576591]
 position = Vector2(2432, -808)
 
-[node name="COOLTRAINSTATION" type="Node2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="12" unique_id=1365405572]
+[node name="COOLTRAINSTATION" type="Node2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="13" unique_id=1365405572]
 position = Vector2(1760, -489)
 
 [connection signal="correct_password" from="ProcessModeReset/PreasurePlates/PressurePlate4" to="ProcessModeReset/GiveCard" method="_on_pressure_plate_4_correct_password"]
