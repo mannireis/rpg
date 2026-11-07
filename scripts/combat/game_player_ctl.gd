@@ -175,7 +175,7 @@ func receive_dmg(dmg:Vector2i) -> void:
 	else:
 		print("dmg of type "+str(dmg[1])+" lacks block, dealing "+str(dmg[0]))
 		if dmg[1] not in persist_dmg_type: hp -= dmg[0]
-		else: persistent_dmg[dmg[1]] = Vector2i(dmg[0]+persistent_dmg[dmg[1]][0],dmg[0])
+		else: persistent_dmg[dmg[1]] = Vector2i(dmg[0]+persistent_dmg[dmg[1]][0],dmg[0]+persistent_dmg[dmg[1]][1])
 		hp_bar.target_health = clampi(roundi(hp / float(max_hp) * 32.0), 0, 32)
 		#hp_display.text = str(hp)+" HP"
 	pass

@@ -28,7 +28,8 @@ var db: Array[Array] = [
 	GameCard.create(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload("res://assets/cards/pirate_saber.png"), "Add +2 damage per round"),
 	GameCard.create(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload("res://assets/cards/sturdy_shield.png"), "Adds +5 shield points per round"),
 	GameCard.create(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload("res://assets/cards/abstract_art.png"), "test"),
-	GameCard.create(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload("res://assets/cards/rebekas_halberd.png"), "Pretty, isn't it? Does 8 damage points")
+	GameCard.create(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload("res://assets/cards/rebekas_halberd.png"), "Pretty, isn't it? Does 8 damage points"),
+	GameCard.create(s.DIAMONDS,4,n,Vector2i(3,2),"Firewall",3,preload("res://assets/cards/firewall.png"),"Flicker wanted 'something that kills attacks that connect'. The Last Flame is a literalist.")
 ],
 [
 	GameCard.create(s.JOKER, 0 , n, Vector2i.ZERO, "Jester", 3, preload("res://assets/cards/jester_joker.png"), "Does 25% more damage per round while equipted")
@@ -144,6 +145,13 @@ func _ready() -> void:
 		else:
 			ctl.exec_atk(Vector2i(db[3][3].atk[0],1))
 			return [GameCard.Move.TRASH]
+	
+	db[3][4].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
+		if db[3][4] not in ctl.equipped_cards: return [GameCard.Move.EQUIP]
+		else: return [GameCard.Move.TRASH]
+	db[3][4].mod_dmg_in = func(dmg: Vector2i,_ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Vector2i:
+		if dmg[1] == 0: _ctl.exec_atk(db[3][4].atk)
+		return dmg #doesn't reduce it, just hits the opponent with a fire damage counterattack
 	
 	db[4][0].play = func(ctl:PlayerCtl, _enemy_ctl:PlayerCtl):
 		return [GameCard.Move.EQUIP]
