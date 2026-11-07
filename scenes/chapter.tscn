@@ -1,20 +1,14 @@
 [gd_scene format=3 uid="uid://dgit23mgouwda"]
 
 [ext_resource type="Script" uid="uid://cw10mpwn7wl6g" path="res://scripts/chapter.gd" id="1_7sbe3"]
-[ext_resource type="PackedScene" uid="uid://bsufd13kj3255" path="res://scenes/infinite_grid.tscn" id="2_23v15"]
-[ext_resource type="Script" uid="uid://cvvde3tjg4wk5" path="res://scripts/dialogue_panel.gd" id="2_k12pt"]
+[ext_resource type="PackedScene" uid="uid://bsufd13kj3255" path="res://scenes/utils/infinite_grid.tscn" id="2_23v15"]
+[ext_resource type="Script" uid="uid://n61pdo7um1nw" path="res://scripts/ui/dialogue_panel.gd" id="2_k12pt"]
 [ext_resource type="TileSet" uid="uid://ctpxu0oeyokmb" path="res://assets/tile_set.tres" id="2_xh8w3"]
-[ext_resource type="FontFile" uid="uid://cvh0krg1x26b5" path="res://assets/fonts/chicago.png" id="3_23v15"]
-[ext_resource type="PackedScene" uid="uid://dn85my2emfvu8" path="res://scenes/player/player.tscn" id="3_xh8w3"]
-[ext_resource type="FontFile" uid="uid://jptnllywkipc" path="res://assets/fonts/chicago_bold.png" id="4_teg3p"]
+[ext_resource type="StyleBox" uid="uid://c7ps0vm1ulcwh" path="res://assets/dialogue_panel.tres" id="3_23v15"]
+[ext_resource type="PackedScene" uid="uid://dn85my2emfvu8" path="res://scenes/player.tscn" id="3_xh8w3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmkx5"]
 bg_color = Color(0, 0, 0, 0.7490196)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sph6d"]
-bg_color = Color(0.35686275, 0.19215687, 0.21960784, 1)
-expand_margin_top = 1.0
-expand_margin_bottom = 1.0
 
 [sub_resource type="Animation" id="Animation_gbcm8"]
 length = 0.001
@@ -100,77 +94,54 @@ text = "Save & quit to title"
 visible = false
 script = ExtResource("2_k12pt")
 
-[node name="MarginContainer" type="MarginContainer" parent="ProcessModeReset/DialoguePanel" unique_id=1185220883]
-anchors_preset = 12
-anchor_top = 1.0
+[node name="MarginContainer" type="MarginContainer" parent="ProcessModeReset/DialoguePanel" unique_id=1015287609]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -69.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer" unique_id=1112610150]
+[node name="PanelContainer" type="PanelContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer" unique_id=1128962937]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = ExtResource("3_23v15")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer" unique_id=1730092513]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer" unique_id=926781399]
-custom_minimum_size = Vector2(204, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-theme_override_constants/separation = 0
-
-[node name="Speaker" type="Label" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=821447798]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "banana bread"
-
-[node name="HSeparator" type="HSeparator" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=1027053736]
+[node name="VBoxContainer" type="VBoxContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer" unique_id=2011744428]
 layout_mode = 2
 theme_override_constants/separation = 2
-theme_override_styles/separator = SubResource("StyleBoxFlat_sph6d")
 
-[node name="Content" type="RichTextLabel" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=689160767]
+[node name="MarginContainer" type="MarginContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/VBoxContainer" unique_id=513814718]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_23v15")
-theme_override_fonts/bold_font = ExtResource("4_teg3p")
-theme_override_fonts/bold_italics_font = ExtResource("3_23v15")
-theme_override_fonts/italics_font = ExtResource("3_23v15")
-theme_override_fonts/mono_font = ExtResource("3_23v15")
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = -6
+
+[node name="SpeakerLabel" type="Label" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/VBoxContainer/MarginContainer" unique_id=431714220]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+offset_transform_position = Vector2(0, -5.08)
+theme_override_colors/font_color = Color(0.25882354, 0.22352941, 0.20392157, 1)
+theme_override_styles/normal = ExtResource("3_23v15")
+text = "Someone"
+
+[node name="DialogueLabel" type="RichTextLabel" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/VBoxContainer" unique_id=1838226451]
+unique_name_in_owner = true
+layout_mode = 2
 bbcode_enabled = true
-text = "[color=green][b]bold[/b] non bold[/color] 6+5"
 fit_content = true
 
-[node name="Choices" type="VBoxContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer" unique_id=1568809243]
+[node name="ChoicesContainer" type="VBoxContainer" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/VBoxContainer" unique_id=781679465]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_constants/separation = 1
 
-[node name="LineEdit" type="LineEdit" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=1307373377]
+[node name="LineEdit" type="LineEdit" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/VBoxContainer" unique_id=491836579]
+unique_name_in_owner = true
 layout_mode = 2
-
-[node name="Button" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=532236600]
-layout_mode = 2
-text = "Option 1"
-
-[node name="Button2" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=1005288353]
-layout_mode = 2
-text = "Option 1"
-
-[node name="Button3" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=887819704]
-layout_mode = 2
-text = "Option 1"
-
-[node name="Button4" type="Button" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/HBoxContainer/Choices" unique_id=596984324]
-layout_mode = 2
-text = "Option 1"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="ProcessModeReset" unique_id=1252034803]
 tile_set = ExtResource("2_xh8w3")
@@ -189,13 +160,6 @@ y_sort_enabled = true
 [node name="NPCs" type="Node2D" parent="ProcessModeReset/YSort" unique_id=1218614627]
 y_sort_enabled = true
 
-[node name="CanvasModulate" type="CanvasModulate" parent="ProcessModeReset/YSort" unique_id=1775480778]
-unique_name_in_owner = true
-metadata/_edit_lock_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ProcessModeReset/YSort/CanvasModulate" unique_id=1001195419]
-libraries/ = SubResource("AnimationLibrary_pkj1h")
-
 [node name="Camera2D" type="Camera2D" parent="ProcessModeReset/YSort" unique_id=1490290502]
 unique_name_in_owner = true
 anchor_mode = 0
@@ -204,6 +168,13 @@ position_smoothing_enabled = true
 [node name="Player" parent="ProcessModeReset/YSort" unique_id=1648858471 instance=ExtResource("3_xh8w3")]
 unique_name_in_owner = true
 position = Vector2(160, 120)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="ProcessModeReset" unique_id=1775480778]
+unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ProcessModeReset/CanvasModulate" unique_id=1001195419]
+libraries/ = SubResource("AnimationLibrary_pkj1h")
 
 [node name="InfiniteGrid" parent="ProcessModeReset" unique_id=1400324603 instance=ExtResource("2_23v15")]
 

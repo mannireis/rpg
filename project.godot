@@ -13,13 +13,11 @@ config_version=5
 config/name="rpg"
 run/main_scene="uid://cvo7w7v04f75t"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [autoload]
 
 RoomChangeGlobal="*uid://cah66quctdohc"
 CardDatabase="*uid://dleuvaavpujwe"
-DialogueManager="*uid://cr8cjnj4ydumv"
 GameState="*uid://cgvvxg1upvrf4"
 PlayerUi="*uid://b431ig3lsl8cg"
 Signals="*uid://ckqpy1428lv42"

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c2dedt36mj54p"]
 
+[ext_resource type="PackedScene" uid="uid://dawu0fejcu53i" path="res://scenes/npcs/npc.tscn" id="1_qrja6"]
 [ext_resource type="Script" uid="uid://cf71kevbttw0s" path="res://scripts/npcs/rebeka.gd" id="1_ilpv8"]
 [ext_resource type="Texture2D" uid="uid://cvnuv07nvndmc" path="res://assets/characters/rebeka.png" id="2_mxhai"]
 
@@ -220,28 +221,111 @@ size = Vector2(14, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atieb"]
 size = Vector2(48, 48)
 
-[node name="Rebeka" type="CharacterBody2D" unique_id=180817783 node_paths=PackedStringArray("area2d", "animation")]
+[node name="Rebeka" unique_id=180817783 node_paths=PackedStringArray("area2d", "animation") instance=ExtResource("1_qrja6")]
 script = ExtResource("1_ilpv8")
 follow_speed = 30.0
 npc_name = &"rebeka"
-dialogue_file = "res://assets/dialogue/rebeka.txt"
+dialogue = "=== start
+	Rebeka: RHGRHHR It's prohibited to pass here.
+	$player: Why?
+	Rebeka: It's too dangerous for weaklings like you.
+	Rebeka: Win me in a battle to prove you are strong enough.
+	* Battle -> battle_init[0]
+	* Flirt -> flirt
+	* Run -> run
+===
+
+=== ran
+	Rebeka: GHRH you again really? What do you want now.
+	* Battle -> battle_talk
+	* Run -> run_again
+===
+
+=== battle_talk
+	$player: I wanna battle!
+	* Battle -> battle_init[0]
+===
+
+=== run_again
+	$player: Sorry for bothering you!
+	Rebeka: Coward!!
+	>> run
+===
+
+=== battle_won
+	Rebeka: RHG you have won my respect do you want to come with me?
+	* Yes -> follow
+	* No -> dont_follow
+===
+
+=== follow
+	$player: yesyesyes!
+	Rebeka: GRHH don't be too enthusiastic.
+	>> end
+===
+
+=== dont_follow
+	$player: No thank you!
+	>> end
+===
+
+=== frens
+	$player: so cool we are friends now.
+	Rabeka: We are not friends.
+	>> goodbye
+===
+
+=== run
+	>> end
+===
+
+=== flirt
+	$player: That bandana you have on is pretty :3
+	Rebeka: Thanks.
+	* Compliment hair -> hair
+	* Compliment axe -> axe
+	* Goodbyes -> goodbye
+===
+
+=== hair
+	$player: Y'know your hair is really pretty as well.
+	Rebeka: Your sweet words don't show me your strength.
+	>> end
+===
+
+=== axe
+	$player: woa that axe you have there is really cool!
+	Rebeka: That's not an axe, silly. It's a halberd. Thank you though.
+	$player: Oh, sorry, I didn't know. You can always learn tho!
+	Rebeka: I guess.
+	$player: Can I go thru now ?
+	Rebeka: Fiiinee.
+	Rebeka: Do you want to come with me?
+	* Follow -> follow
+	* Don't follow -> dont_follow
+===
+
+=== goodbye
+	$player: Baii :3
+	Rebeka: Goodbye.
+==="
 met_id = &"ran"
 area2d = NodePath("Area2D")
 animation = NodePath("AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1318331409]
+[node name="Area2D" parent="." index="0" unique_id=896990980]
+position = Vector2(0, -6)
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(896990980) index="0" unique_id=1537684596]
+shape = SubResource("RectangleShape2D_atieb")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=795626822]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_5mxnl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=1318331409]
 position = Vector2(0, -23)
 sprite_frames = SubResource("SpriteFrames_yffm8")
 animation = &"idle_down"
 autoplay = "idle_down"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1752276502]
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_5mxnl")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1025306014]
-position = Vector2(0, -6)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1455412215]
-shape = SubResource("RectangleShape2D_atieb")

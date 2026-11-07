@@ -15,12 +15,12 @@ func _ready() -> void:
 	room_door = doors.get_node("Door43")
 
 	deck.append_array([v(1,0),v(1,0),v(0,1),v(0,1),v(0,1)])
-	var inv = Signals.BattleInv.create(30,deck,[],[v(1,0),v(0,3)])
+	var inv = Signals.BattleInv.new(30,deck,[],[v(1,0),v(0,2)])
 	inv.ai_atk_chance = 0.25
 	inv.ai_block_chance = 0.15
 	
-	deck2.append_array([v(0,0),v(0,0),v(3,1),v(3,1),v(0,3)])
-	var inv2 = Signals.BattleInv.create(32,deck2,[],[v(0,3),v(0,3)]) ## "smarter" Flicker
+	deck2.append_array([v(0,0),v(0,0),v(3,1),v(3,1),v(0,2)])
+	var inv2 = Signals.BattleInv.new(32,deck2,[],[v(0,2),v(0,2)]) ## "smarter" Flicker
 	inv2.ai_atk_chance = 0.2
 	inv2.ai_block_chance = 0.1
 

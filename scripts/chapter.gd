@@ -40,16 +40,16 @@ func _on_transition(door: Door) -> void:
 			move_player(door)
 
 		Door.Transition.FADE_CANVAS:
+			camera.position_smoothing_enabled = false
 			var player_process_mode := player.process_mode
 			player.process_mode = Node.PROCESS_MODE_DISABLED
 			animation_player.play("fade_canvas")
 			await animation_player.animation_finished
-			camera.position_smoothing_enabled = false
 			move_player(door)
 			camera.force_update_scroll()
-			camera.position_smoothing_enabled = true
 			player.process_mode = player_process_mode
 			animation_player.play_backwards("fade_canvas")
+			camera.position_smoothing_enabled = true
 
 
 func move_player(door: Door) -> void:
@@ -62,4 +62,4 @@ func _on_main_menu_button_pressed() -> void:
 	
 	SaveManager.save_game(GameState.current_slot)
 	
-	tree.change_scene_to_file("res://scenes/main_menu.tscn")
+	tree.change_scene_to_file("res://scenes/ui/main_menu.tscn")

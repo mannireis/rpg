@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c8uktlilwm8ft"]
 
+[ext_resource type="PackedScene" uid="uid://dawu0fejcu53i" path="res://scenes/npcs/npc.tscn" id="1_qrja6"]
 [ext_resource type="Script" uid="uid://be487um858p2g" path="res://scripts/npcs/elaine.gd" id="1_7fggm"]
 [ext_resource type="Texture2D" uid="uid://bqt8l3jahxs2l" path="res://assets/characters/elaine.png" id="2_7fggm"]
 
@@ -31,26 +32,39 @@ size = Vector2(16, 2)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fggm"]
 size = Vector2(64, 64)
 
-[node name="Elaine" type="CharacterBody2D" unique_id=234258619 node_paths=PackedStringArray("area2d", "animation")]
+[node name="Elaine" unique_id=234258619 node_paths=PackedStringArray("area2d", "animation") instance=ExtResource("1_qrja6")]
 script = ExtResource("1_7fggm")
 npc_name = &"Elaine"
-dialogue_file = "res://assets/dialogue/elaine.txt"
+dialogue = "=== start
+	Elaine: What is humanling like you doing here?
+	$player: I have been looking for my pet bunny for a while now have you seen it anywhere?
+	Elaine: How does it look mayhaps?
+	$player: He has a top hat and a monocle and is a very pretty white color!
+	Elaine: Hmmm sorry but I don't remember :(
+	Elaine: Do you wanna check my shop tho?
+	* Sure! -> shop
+	* No thanks -> End
+===
+
+=== met
+	Elaine: Do you wanna check my shop?
+	* Sure! -> shop
+	* No thanks -> End
+==="
 met_id = &"met"
 area2d = NodePath("Area2D")
 animation = NodePath("AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=151356349]
-sprite_frames = SubResource("SpriteFrames_ib3ld")
-animation = &"idle_down"
-frame_progress = 0.931102
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(896990980) index="0" unique_id=1537684596]
+position = Vector2(0, 19)
+shape = SubResource("RectangleShape2D_7fggm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2137660336]
+[node name="CollisionShape2D" parent="." index="1" unique_id=795626822]
 position = Vector2(-2, 22)
 shape = SubResource("RectangleShape2D_ib3ld")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=944402809]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1690127275]
-position = Vector2(0, 19)
-shape = SubResource("RectangleShape2D_7fggm")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=151356349]
+sprite_frames = SubResource("SpriteFrames_ib3ld")
+animation = &"idle_down"
+frame_progress = 0.931102

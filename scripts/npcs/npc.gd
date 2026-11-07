@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export_category("Dialogue")
 @export var npc_name: StringName
-@export_file("*.txt") var dialogue_file: String
+@export_multiline() var dialogue := ""
 @export var id: StringName = &"start"
 @export var met_id: StringName = &"start"
 @export var area2d: Area2D
@@ -21,7 +21,7 @@ extends CharacterBody2D
 var last_dir := Vector2.DOWN
 var starting_pos: Vector2
 var target_pos: Vector2
-var in_range := false
+var player_in_range := false
 var pressed := false
 var autostart_dialogue := false ## Do not set directly from your NPC's code!
 var diag_start_primed := false ## Unset every time diag_start fires succesfully
@@ -49,9 +49,6 @@ func _ready() -> void:
 		target_pos = starting_pos
 		_choose_pos()
 
-	area2d.body_entered.connect(_on_area_2d_body_entered)
-	area2d.body_exited.connect(_on_area_2d_body_exited)
-
 
 func _choose_pos() -> void:
 	var angle = randf() * TAU
@@ -62,7 +59,7 @@ func _choose_pos() -> void:
 	get_tree().create_timer(wait_time).timeout.connect(_choose_pos)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if wander:
 		var to_target = target_pos - global_position
 		var direction := Vector2.ZERO
@@ -92,34 +89,31 @@ func play_animations(direction: Vector2):
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		in_range = true
-		PlayerUi.unhide_label()
+	if body is Player:
+		player_in_range = true
+		PlayerUi.label.show()
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("player"):
+	if body is Player:
 		GameState.speaking_with = &""
 
-		in_range = false
+		player_in_range = false
 		pressed = false
-		PlayerUi.hide_label()
+		PlayerUi.label.hide()
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if autostart_dialogue or (event.is_action_pressed(&"Interact") and in_range and not pressed):
+	if autostart_dialogue or (event.is_action_pressed(&"Interact") and player_in_range and not pressed):
 		pressed = true
 		autostart_dialogue = false
 		GameState.speaking_with = npc_name
 		GameState.spoke_before_battle = npc_name
 		if GameState.has_met(npc_name):
-			Signals.dialogue_started.emit(dialogue_file, met_id)
-			#DialogueManager.start(dialogue_file, met_id)
+			Signals.dialogue_started.emit(dialogue, met_id)
 		else:
-			Signals.dialogue_started.emit(dialogue_file, id)
-			#DialogueManager.start(dialogue_file, id)
+			Signals.dialogue_started.emit(dialogue, id)
 			GameState.meet(npc_name)
-
 
 
 func diag_start(body: Node2D) -> void: ## Connect to area2d.body_entered. Force-starts dialogue when the player walks in range and diag_start_primed is set
@@ -128,10 +122,13 @@ func diag_start(body: Node2D) -> void: ## Connect to area2d.body_entered. Force-
 		print("trying autostart")
 		diag_start_primed = false
 		_unhandled_input(null)
-		
+
+
 func _battle_lost() -> void:
 	print("writing loss for "+str(npc_name))
-	GameState.fought(npc_name,false)
+	GameState.fought(npc_name, false)
+
+
 func _battle_won() -> void:
 	print("writing win for "+str(npc_name))
-	GameState.fought(npc_name,true)
+	GameState.fought(npc_name, true)

@@ -1,6 +1,6 @@
 extends Node
 
-@onready var battle_manager = get_tree().get_root().get_node("BattleRoom").get_node("BattleManager")
+@onready var battle_manager = get_tree().get_root().get_node("Battle").get_node("BattleManager")
 
 @export var play_button: Button
 @export var snap_points: Array[Control] = []
@@ -92,7 +92,10 @@ func play_cards() -> void:
 		sum_cost += a[3]
 	if sum_cost > battle_manager.player.energy:
 		print("sum cost "+str(sum_cost)+" exceeds "+str(battle_manager.player.energy))
+		$"../../UI/ExpensiveLabel".show()
 		return
+	else:
+		$"../../UI/ExpensiveLabel".hide()
 	for a in selected_cards:
 		index_in_deck = a[0]
 		res = await battle_manager.player.play_card(index_in_deck)

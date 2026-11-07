@@ -1,4 +1,6 @@
-extends Panel
+extends PanelContainer
 
 func _process(delta: float) -> void:
-	position = get_global_mouse_position()
+	var view = get_viewport_rect().size
+	var target = get_global_mouse_position()
+	global_position = target.clamp(Vector2.ZERO, view - size)

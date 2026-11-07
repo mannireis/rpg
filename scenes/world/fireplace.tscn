@@ -41,15 +41,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ib3ld"]
 size = Vector2(40, 10)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=413125763]
+[node name="Fireplace" type="StaticBody2D" unique_id=1285142576]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=413125763]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_ib3ld")
 autoplay = "default"
 frame = 3
 frame_progress = 0.6258102
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1285142576]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=691266729]
-position = Vector2(0, 11)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=691266729]
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_ib3ld")

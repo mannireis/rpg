@@ -1,0 +1,70 @@
+extends Node
+
+var current_slot: int
+var chapter_name: String
+var player_name: String = "Emily"
+var met_npcs: Dictionary = {}
+var battled_npcs: Dictionary = {}
+var defeated_npcs: Dictionary[StringName,int] = {}
+var battle_running: bool = false
+var player_pos: Vector2 = Vector2(160, 120)
+var speaking_with: StringName
+var spoke_before_battle: StringName
+var player_battle_inventory: Signals.BattleInv ## Initialised once, modify only its attributes
+var item_inventory: Array[Item] = []
+var time_start: int
+var time_now: int
+var playtime: int
+
+var dialoguing := false
+
+func _ready() -> void:
+	if !player_battle_inventory:
+		player_battle_inventory = Signals.BattleInv.new()
+		player_battle_inventory.deck = PlayerCtl.starter_deck()
+
+
+func meet(npc_id: StringName) -> void:
+	met_npcs[npc_id] = true
+
+
+func has_met(npc_id: StringName) -> bool:
+	return met_npcs.has(npc_id)
+
+
+func fought(npc_id: StringName, won: bool) -> void:
+	if !battled_npcs.has(npc_id): battled_npcs[npc_id] = 0
+	battled_npcs[npc_id] += 1
+	if !defeated_npcs.has(npc_id): defeated_npcs[npc_id] = 0
+	if won: defeated_npcs[npc_id] += 1
+
+
+func won(npc_id: StringName) -> bool:
+	return defeated_npcs.get(npc_id) and defeated_npcs[npc_id] > 0
+
+
+func add_card(card: GameCard) -> void:
+	player_battle_inventory.deck.append(card)
+
+
+func add_item(item: Item) -> void:
+	item_inventory.append(item)
+
+
+func remove_item(item: Item) -> void:
+	item_inventory.erase(item)
+
+func reset() -> void:
+	chapter_name = "Chapter 1"
+	met_npcs = {}
+	battled_npcs = {}
+	defeated_npcs = {}
+	battle_running = false
+	player_pos = Vector2(160, 120)
+	speaking_with = &""
+	player_battle_inventory = Signals.BattleInv.new()
+	player_battle_inventory.deck = PlayerCtl.starter_deck()
+	item_inventory = []
+	time_start = 0
+	time_now = 0
+	playtime = 0

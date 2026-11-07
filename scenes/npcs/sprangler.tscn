@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cvkbq4dsmvujn"]
 
+[ext_resource type="PackedScene" uid="uid://dawu0fejcu53i" path="res://scenes/npcs/npc.tscn" id="1_qrja6"]
 [ext_resource type="Script" uid="uid://br5yjydvxtap3" path="res://scripts/npcs/sprangler.gd" id="1_p76rt"]
 [ext_resource type="Texture2D" uid="uid://bta0m34wpibh7" path="res://assets/characters/sprangler.png" id="2_p76rt"]
 
@@ -134,22 +135,68 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aomwt"]
 size = Vector2(32, 32)
 
-[node name="Sprangler" type="CharacterBody2D" unique_id=1040220559 node_paths=PackedStringArray("area2d")]
+[node name="Sprangler" unique_id=1040220559 node_paths=PackedStringArray("area2d") instance=ExtResource("1_qrja6")]
 script = ExtResource("1_p76rt")
 npc_name = &"The Sprangler"
-dialogue_file = "res://assets/dialogue/sprangler.txt"
+dialogue = "=== start
+	$player: Hey! Would it be possible for me to pass through?
+	Sprangler: Why should I let you pass?
+	* You are very cute! -> cute
+	* Looking for bunny. -> bunny
+	* You just should! -> just
+===
+
+=== cute
+	Spangler: Hmmm I might let you pass if you solve my riddle what is
+	Spangler: [wave amp=50.0 freq=5.0 connected=1][rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]Voiceless it cries, wingless flutters, toothless bites, mouthless mutters.[/rainbow][/wave]
+	* {wind, correct, wrong}
+===
+
+=== bunny
+	Spangler: You must first solve my riddle.
+	$player: What riddle?
+	Spangler OMG! Have patience.
+	$player: Sorry.
+	Spangler: So the riddle goes.
+	Spangler: [wave amp=50.0 freq=5.0 connected=1][rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]What jumps around that is not wet.[/rainbow][/wave]
+	* {bunny, correct, wrong}
+===
+
+=== just
+	Sprangler: Grhh I'm not letting you just pass.
+	$player: Pleaseee.
+	Sprangler: Let's battle.
+	>> battle_init[0]
+===
+
+=== wrong
+	Sprangler: You lost by failing the riddle.
+	Sprangler: I'm making you battle me!
+	$player: nooo :<
+	>> battle_init[0]
+===
+
+=== met
+	Sprangler: You may pass through for now..
+	$player: Thank you.
+===
+
+=== correct
+	Sprangler: hmm looks like you got the correct one.
+	Sprangler: I'll let you pass thru...
+==="
 area2d = NodePath("Area2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=632702777]
-shape = SubResource("RectangleShape2D_p76rt")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1483368523]
-sprite_frames = SubResource("SpriteFrames_ib3ld")
-autoplay = "default"
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1163510274]
+[node name="Area2D" parent="." index="0" unique_id=896990980]
 position = Vector2(0, -69)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=3099083]
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(896990980) index="0" unique_id=1537684596]
 shape = SubResource("RectangleShape2D_aomwt")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=795626822]
+shape = SubResource("RectangleShape2D_p76rt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=1483368523]
+sprite_frames = SubResource("SpriteFrames_ib3ld")
+autoplay = "default"

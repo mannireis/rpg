@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://2xirio43hska"]
+
+[ext_resource type="Texture2D" uid="uid://ci7pdu6b6wm64" path="res://assets/bubble.png" id="1_lrbg2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmkx5"]
+content_margin_left = 3.0
+content_margin_top = 2.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+
+[node name="BubbleButton" type="Button" unique_id=799716893]
+z_index = 1
+offset_right = 38.0
+offset_bottom = 7.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mmkx5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mmkx5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mmkx5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mmkx5")
+text = "Example text"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1254227303]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lrbg2")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 3
+patch_margin_bottom = 3

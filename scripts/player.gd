@@ -1,0 +1,65 @@
+class_name Player
+extends CharacterBody2D
+
+@onready var animation: AnimatedSprite2D = $AnimatedSprite2D
+
+@export var speed : float = 70.0
+@export var friction : float = 1000.0
+
+var last_dir := Vector2.DOWN
+var intended_velocity := Vector2.ZERO
+
+func _ready() -> void:
+	add_to_group("player")
+	global_position = GameState.player_pos
+	if RoomChangeGlobal.activate:
+		global_position = RoomChangeGlobal.player_pos
+		RoomChangeGlobal.activate = false
+	if RoomChangeGlobal.emit_battle:
+		RoomChangeGlobal.emit_battle = false
+		if RoomChangeGlobal.last_battle_result: Signals.battle_won.emit()
+		else: Signals.battle_lost.emit()
+
+func _physics_process(delta: float) -> void:
+	if GameState.dialoguing:
+		return
+
+	var direction : Vector2
+
+	direction = Input.get_vector("Left", "Right", "Up", "Down")
+
+	if direction:
+		velocity = speed * direction.normalized()
+	else:
+		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+
+	intended_velocity = velocity
+	if Input.is_action_just_pressed("Teleport") and OS.has_feature("debug"):
+		global_position = get_tree().get_root().get_node("Chapter01/ProcessModeReset/DevTeleport").global_position
+	if Input.is_action_just_pressed("Teleport2") and OS.has_feature("debug"):
+		global_position = get_tree().get_root().get_node("Chapter01/ProcessModeReset/DevTeleportU").global_position
+	GameState.player_pos = global_position
+
+	play_animations(direction)
+	if move_and_slide():
+		resolve_collisions()
+
+func play_animations(direction: Vector2):
+	if direction != Vector2.ZERO:
+		last_dir = direction
+		if abs(direction.x) > abs(direction.y):
+			animation.play("walk_right" if direction.x > 0 else "walk_left")
+		else:
+			animation.play("walk_down" if direction.y > 0 else "walk_up")
+	else:
+		if abs(last_dir.x) > abs(last_dir.y):
+			animation.play("idle_right" if last_dir.x > 0 else "idle_left")
+		else:
+			animation.play("idle_down" if last_dir.y > 0 else "idle_up")
+
+func resolve_collisions() -> void:
+	for i in get_slide_collision_count():
+		var collision := get_slide_collision(i)
+		var body := collision.get_collider() as PushableBlock2D
+		if body:
+			body.apply_impact(intended_velocity)
