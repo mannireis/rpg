@@ -25,18 +25,12 @@ var db: Array[Array] = [
 	GameCard.new(s.HEARTS,1,n,Vector2i(4,0),"Healing Splash",1,preload("res://assets/cards/healing_splash.png"),"Extinguish and heal yourself")
 ],
 [
-<<<<<<< HEAD
-	GameCard.create(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload("res://assets/cards/pirate_saber.png"), "Add +2 damage per round"),
-	GameCard.create(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload("res://assets/cards/sturdy_shield.png"), "Adds +5 shield points per round"),
-	GameCard.create(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload("res://assets/cards/abstract_art.png"), "test"),
-	GameCard.create(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload("res://assets/cards/rebekas_halberd.png"), "Pretty, isn't it? Does 8 damage points"),
-	GameCard.create(s.DIAMONDS,4,n,Vector2i(3,2),"Firewall",3,preload("res://assets/cards/firewall.png"),"Flicker wanted 'something that kills attacks that connect'. The Last Flame is a literalist.")
-=======
 	GameCard.new(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload("res://assets/cards/pirate_saber.png"), "Add +2 damage per round"),
 	GameCard.new(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload("res://assets/cards/sturdy_shield.png"), "Adds +5 shield points per round"),
 	GameCard.new(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload("res://assets/cards/abstract_art.png"), "test"),
-	GameCard.new(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload("res://assets/cards/rebekas_halberd.png"), "Pretty, isn't it? Does 8 damage points")
->>>>>>> 3558f4643778b2b5111b9757feb5caf66355bd00
+	GameCard.new(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload("res://assets/cards/rebekas_halberd.png"), "Pretty, isn't it? Does 8 damage points"),
+	GameCard.new(s.DIAMONDS,4,n,Vector2i(3,2),"Firewall",3,preload("res://assets/cards/firewall.png"),"Flicker wanted 'something that kills attacks that connect'. The Last Flame is a literalist.")
+
 ],
 [
 	GameCard.new(s.JOKER, 0 , n, Vector2i.ZERO, "Jester", 3, preload("res://assets/cards/jester_joker.png"), "Does 25% more damage per round while equipted")
