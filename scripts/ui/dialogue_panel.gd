@@ -11,6 +11,7 @@ var _parsed_dialogue := {}
 var _current_id := ""
 var _current_line := 0
 
+@onready var dialogue_panel: CanvasLayer = %DialoguePanel
 @onready var speaker_label: Label = %SpeakerLabel
 @onready var dialogue_label: RichTextLabel = %DialogueLabel
 @onready var choices_container: VBoxContainer = %ChoicesContainer
@@ -193,7 +194,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if tween and tween.is_running():
 		tween.kill()
 		dialogue_label.visible_characters = -1
-	elif dialogue_label.visible:
+	elif dialogue_panel.visible:
 		advance()
 		get_viewport().set_input_as_handled()
 
