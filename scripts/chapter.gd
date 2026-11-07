@@ -8,6 +8,8 @@ extends Node2D
 
 @export var chapter_name: String
 
+var transitioning := false ## NOT TRANSING MY GENDER
+
 func _ready():
 	GameState.time_start = Time.get_unix_time_from_system()
 	Signals.transition.connect(_on_transition)
@@ -37,9 +39,14 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_transition(door: Door) -> void:
 	match door.transition:
 		Door.Transition.NORMAL:
+			transitioning = true
 			move_player(door)
+			transitioning = false
 
 		Door.Transition.FADE_CANVAS:
+			if transitioning:
+				return
+			transitioning = true
 			camera.position_smoothing_enabled = false
 			var player_process_mode := player.process_mode
 			player.process_mode = Node.PROCESS_MODE_DISABLED
@@ -49,7 +56,9 @@ func _on_transition(door: Door) -> void:
 			camera.force_update_scroll()
 			player.process_mode = player_process_mode
 			animation_player.play_backwards("fade_canvas")
+			await animation_player.animation_finished
 			camera.position_smoothing_enabled = true
+			transitioning = false
 
 
 func move_player(door: Door) -> void:
