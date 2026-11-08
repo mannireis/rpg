@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dvk8f3c0tnttd" path="res://assets/tilesets/sewer.png" id="10_5rnye"]
 [ext_resource type="Texture2D" uid="uid://5ppysggqt844" path="res://assets/tilesets/cave.png" id="10_p73ri"]
 [ext_resource type="Texture2D" uid="uid://dholu8nt2w5b3" path="res://assets/tilesets/orange.png" id="11_fvwhe"]
+[ext_resource type="Texture2D" uid="uid://dousi7icnb5lw" path="res://assets/tilesets/well.png" id="11_hwptt"]
 [ext_resource type="Texture2D" uid="uid://bt64ku81lh8eb" path="res://assets/bunny_sightings.png" id="12_5e0im"]
 [ext_resource type="Texture2D" uid="uid://j2ahi5i8d1v8" path="res://assets/tilesets/pressure_plates.png" id="13_6i0mp"]
 [ext_resource type="Texture2D" uid="uid://bi27dfk7n53gu" path="res://assets/houses/lucy_and_greg.png" id="13_hwptt"]
@@ -412,6 +413,14 @@ texture = ExtResource("10_5rnye")
 14:2/0 = 0
 14:1/0 = 0
 14:0/0 = 0
+12:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vl7vb"]
+texture = ExtResource("11_hwptt")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -11, -14, -11, -14, -10, -13, -10, -13, -9, -12, -9, -12, -8, -10, -8, -10, -7, -8, -7, -8, -6, -4, -6, -4, -5, 4, -5, 4, -6, 8, -6, 8, -7, 10, -7, 10, -8, 12, -8, 12, -9, 13, -9, 13, -10, 14, -10, 14, -11, 16, -11, 16, 1, 15, 1, 15, 3, 14, 3, 14, 4, 13, 4, 13, 5, 11, 5, 11, 6, 9, 6, 9, 7, 5, 7, 5, 8, -5, 8, -5, 7, -9, 7, -9, 6, -11, 6, -11, 5, -13, 5, -13, 4, -14, 4, -14, 3, -15, 3, -15, 2, -15, 1, -16, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g1a73"]
 texture = ExtResource("5_3vqt5")
@@ -788,3 +797,4 @@ sources/14 = SubResource("TileSetAtlasSource_fvwhe")
 sources/15 = SubResource("TileSetAtlasSource_gik80")
 sources/16 = SubResource("TileSetAtlasSource_5rnye")
 sources/17 = SubResource("TileSetAtlasSource_hwptt")
+sources/18 = SubResource("TileSetAtlasSource_vl7vb")

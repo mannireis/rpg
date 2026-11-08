@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://yfhm75wnhupp"]
+
+[ext_resource type="Texture2D" uid="uid://p6bb6t55c7h4" path="res://assets/items/coin.png" id="1_154de"]
+[ext_resource type="Script" uid="uid://bi3fytgnuy1ks" path="res://scripts/resources/item.gd" id="1_h8khi"]
+
+[resource]
+script = ExtResource("1_h8khi")
+icon = ExtResource("1_154de")
+name = "A coin"
+description = "Use this to wish in the wishing well"
+metadata/_custom_type_script = "uid://bi3fytgnuy1ks"
