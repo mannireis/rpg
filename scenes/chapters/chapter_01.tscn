@@ -285,7 +285,7 @@ tile_map_data = PackedByteArray("AADs/97/AAAGAAMAAADs/+n/BgAAAAMAAADt/97/AAAGAAM
 position = Vector2(700, -237)
 
 [node name="DevTeleportU" type="Node2D" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="5" unique_id=968542665]
-position = Vector2(1080, -624)
+position = Vector2(1510, -804)
 
 [node name="GiveCard" type="Node2D" parent="ProcessModeReset" parent_id_path=PackedInt32Array(1846203273) index="6" unique_id=1939478653]
 position = Vector2(-160, 128)
