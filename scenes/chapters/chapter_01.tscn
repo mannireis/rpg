@@ -670,7 +670,7 @@ position = Vector2(2288, -840)
 position = Vector2(1144, -112)
 
 [node name="MothGirl" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="1" unique_id=1818552278 instance=ExtResource("8_4jiuh")]
-position = Vector2(-160, -687)
+position = Vector2(-160, -679)
 
 [node name="Elaine" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="2" unique_id=234258619 instance=ExtResource("10_t4sx4")]
 position = Vector2(-208, -144)
@@ -746,7 +746,7 @@ vel = Vector2i(3, 2)
 vel_scale = 8.0
 
 [node name="Dragon" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="10" unique_id=1871835439 instance=ExtResource("20_t8ort")]
-position = Vector2(-205, -651)
+position = Vector2(-205, -643)
 
 [node name="Sprangler" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="11" unique_id=1040220559 instance=ExtResource("22_3dk3t")]
 position = Vector2(2208, -984)
@@ -761,7 +761,10 @@ position = Vector2(1408, -808)
 [node name="Well" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="14" unique_id=844208701 instance=ExtResource("27_upk58")]
 position = Vector2(2424, -802)
 
-[node name="spider" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="8" unique_id=1704005591 instance=ExtResource("22_hy0ca")]
+[node name="Marker2D" type="Marker2D" parent="ProcessModeReset/YSort/NPCs/Well" index="1" unique_id=1092288025]
+position = Vector2(-448, 554)
+
+[node name="Spider" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="8" unique_id=1704005591 instance=ExtResource("22_hy0ca")]
 position = Vector2(581, -806)
 
 [node name="Caravan" type="StaticBody2D" parent="ProcessModeReset/YSort" parent_id_path=PackedInt32Array(814699326) index="11" unique_id=1391059496]
@@ -788,6 +791,7 @@ offset = Vector2(0, -30)
 position = Vector2(-160, -656)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ProcessModeReset/YSort/Campfire" index="0" unique_id=1819208327]
+position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_4jiuh")
 autoplay = "default"
 offset = Vector2(0, -12)

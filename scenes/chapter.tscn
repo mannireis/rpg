@@ -55,42 +55,6 @@ script = ExtResource("1_7sbe3")
 [node name="ProcessModeReset" type="Node2D" parent="." unique_id=1846203273]
 process_mode = 1
 
-[node name="PauseMenu" type="CanvasLayer" parent="ProcessModeReset" unique_id=92497863]
-unique_name_in_owner = true
-process_mode = 2
-visible = false
-
-[node name="PanelContainer" type="PanelContainer" parent="ProcessModeReset/PauseMenu" unique_id=1557545236]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mmkx5")
-
-[node name="CenterContainer" type="CenterContainer" parent="ProcessModeReset/PauseMenu/PanelContainer" unique_id=2012409161]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer" unique_id=896090556]
-layout_mode = 2
-
-[node name="TitleLabel" type="Label" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer" unique_id=188246897]
-layout_mode = 2
-text = "RPG"
-horizontal_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer" unique_id=1770161624]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer" unique_id=2125420729]
-layout_mode = 2
-text = "Game paused, press ESC to resume"
-
-[node name="MainMenuButton" type="Button" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer" unique_id=1697325138]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Save & quit to title"
-
 [node name="DialoguePanel" type="CanvasLayer" parent="ProcessModeReset" unique_id=1908602964]
 unique_name_in_owner = true
 visible = false
@@ -144,6 +108,42 @@ theme_override_constants/separation = 1
 [node name="LineEdit" type="LineEdit" parent="ProcessModeReset/DialoguePanel/MarginContainer/PanelContainer/VBoxContainer" unique_id=491836579]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="PauseMenu" type="CanvasLayer" parent="ProcessModeReset" unique_id=92497863]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="ProcessModeReset/PauseMenu" unique_id=1557545236]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mmkx5")
+
+[node name="CenterContainer" type="CenterContainer" parent="ProcessModeReset/PauseMenu/PanelContainer" unique_id=2012409161]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer" unique_id=896090556]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer" unique_id=188246897]
+layout_mode = 2
+text = "RPG"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer" unique_id=1770161624]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer" unique_id=2125420729]
+layout_mode = 2
+text = "Game paused, press ESC to resume"
+
+[node name="MainMenuButton" type="Button" parent="ProcessModeReset/PauseMenu/PanelContainer/CenterContainer/VBoxContainer" unique_id=1697325138]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Save & quit to title"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="ProcessModeReset" unique_id=1252034803]
 tile_set = ExtResource("2_xh8w3")

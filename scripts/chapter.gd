@@ -37,38 +37,38 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_transition(door: Door) -> void:
+	var marker: Marker2D = door.other.get_node(^"Marker2D")
+	
 	match door.transition:
 		Door.Transition.NORMAL:
 			transitioning = true
-			move_player(door)
+			player.position = marker.global_position
 			transitioning = false
 
 		Door.Transition.FADE_CANVAS:
-			if transitioning:
-				return
-			transitioning = true
-			camera.position_smoothing_enabled = false
-			var player_process_mode := player.process_mode
-			player.process_mode = Node.PROCESS_MODE_DISABLED
-			animation_player.play("fade_canvas")
-			await animation_player.animation_finished
-			move_player(door)
-			camera.force_update_scroll()
-			player.process_mode = player_process_mode
-			animation_player.play_backwards("fade_canvas")
-			await animation_player.animation_finished
-			camera.position_smoothing_enabled = true
-			transitioning = false
+			fade_canvas(marker.global_position)
 
 
-func move_player(door: Door) -> void:
-	player.position = door.other.get_node(^"Marker2D").global_position
+func fade_canvas(to: Vector2):
+	if transitioning:
+		return
+	transitioning = true
+	camera.position_smoothing_enabled = false
+	var player_process_mode := player.process_mode
+	player.process_mode = Node.PROCESS_MODE_DISABLED
+	animation_player.play("fade_canvas")
+	await animation_player.animation_finished
+	player.position = to
+	camera.force_update_scroll()
+	player.process_mode = player_process_mode
+	animation_player.play_backwards("fade_canvas")
+	await animation_player.animation_finished
+	camera.position_smoothing_enabled = true
+	transitioning = false
 
 
 func _on_main_menu_button_pressed() -> void:
 	var tree := get_tree()
 	tree.paused = false
-	
 	SaveManager.save_game(GameState.current_slot)
-	
 	tree.change_scene_to_file("res://scenes/ui/main_menu.tscn")
