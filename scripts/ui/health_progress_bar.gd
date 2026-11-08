@@ -12,6 +12,8 @@ signal damaged(amount: float)
 @export_range(0, 32, 1) var shield_value: float = 0
 @export_range(0,31,1) var fire_value: float = 0
 
+var last_health: float = 32.0
+var bottom_pos: float = 32.0
 var target_health := 32.0:
 	set(value):
 		if value == target_health: return
@@ -31,26 +33,33 @@ var target_fire := 0.0:
 	set(value):
 		if value == target_fire: return
 		target_fire = value
+		
+func roundto(x: float, to: int) -> float: return round(x*pow(10,to))/pow(10,to)
 func _ready() -> void:
 	for bar in [_shield_progress_bar, _health_progress_bar,_fire_progress_bar]:
 		bar.value = bar.max_value
 		bar.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 		bar.add_theme_stylebox_override("background", StyleBoxEmpty.new())
+	bottom_pos = _health_progress_bar.position.y
 
 
 func _process(delta: float) -> void:
 	var t := 1.0 - exp(-10.0 * delta)
 	
-	health_value = lerpf(health_value, target_health, t)
-	shield_value = lerpf(shield_value, target_shield, t)
-	fire_value = lerpf(fire_value, target_fire, t)
+	health_value = roundto(lerpf(health_value, target_health, t),1)
+	shield_value = roundto(lerpf(shield_value, target_shield, t),1)
+	fire_value = roundto(lerpf(fire_value, target_fire, t),1)
 	
 	_shield_progress_bar.custom_minimum_size.y = shield_value
 	_health_progress_bar.custom_minimum_size.y = health_value
 	_fire_progress_bar.custom_minimum_size.y = fire_value
 	#if fire_value > 0 and _fire_progress_bar.custom_minimum_size.y >2: print("fire min size "+str(_fire_progress_bar.custom_minimum_size))
 	var _firepos = _fire_progress_bar.position
-	_firepos = Vector2(_firepos.x,_health_progress_bar.position.y-health_value+fire_value)
+	var health_y = _health_progress_bar.position.y
+	_fire_progress_bar.position = Vector2(_firepos.x,bottom_pos-health_value+fire_value)
+	if health_value != last_health:
+		last_health = health_value
+		print("y "+str(_fire_progress_bar.position.y)+" hpbar y "+str(_health_progress_bar.position.y)+" mistaken y "+str(health_y-health_value+fire_value)+" health off "+str(-health_value))
 
 
 func _play_damage_sound(is_damage: bool) -> void:

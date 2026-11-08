@@ -155,6 +155,7 @@ func run_equipped(method: String, vec: Vector2i = Vector2i(0,0),prio_type: Strin
 
 func update_bars() -> void: ##Only updates target_fire for now
 	hp_bar.target_fire = clampi(roundi(persistent_dmg[2][0]), 0, hp)
+	hp_bar._process(0.1)
 
 func receive_dmg(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_dmg_in",dmg,"dmg_in",true)
