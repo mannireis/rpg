@@ -78,7 +78,7 @@ func _ready() -> void:
 			ctl.sp.sel_autosubmit = true
 			print(ctl.sp.sel_cards)
 			ctl.sp.sel_cards = []
-			Input.set_custom_mouse_cursor(preload(p+"../../select_cursor.png"))
+			Input.set_custom_mouse_cursor(preload("res://assets/ui/select_cursor.png"))
 			await ctl.sp.cards_selected
 			var vcsel = ctl.sp.sel_cards
 			var datasel = []

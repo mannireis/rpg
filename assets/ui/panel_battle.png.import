@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci7pdu6b6wm64"
-path="res://.godot/imported/bubble.png-dd17930a71c5ad345ddb3eb8ec316790.ctex"
+uid="uid://bcaac5yyw61ef"
+path="res://.godot/imported/panel_battle.png-9e39fa2abd677220990530b4023161ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bubble.png"
-dest_files=["res://.godot/imported/bubble.png-dd17930a71c5ad345ddb3eb8ec316790.ctex"]
+source_file="res://assets/ui/panel_battle.png"
+dest_files=["res://.godot/imported/panel_battle.png-9e39fa2abd677220990530b4023161ce.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceoqft8hbs5no"
-path="res://.godot/imported/bubble-dotted.png-12b29817ffca7f132053f67a59eece8d.ctex"
+uid="uid://ds77auri0ikae"
+path="res://.godot/imported/save_menu.png-c4126a8660e7cdf7540cfc01658c8774.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bubble-dotted.png"
-dest_files=["res://.godot/imported/bubble-dotted.png-12b29817ffca7f132053f67a59eece8d.ctex"]
+source_file="res://assets/ui/save_menu.png"
+dest_files=["res://.godot/imported/save_menu.png-c4126a8660e7cdf7540cfc01658c8774.ctex"]
 
 [params]
 

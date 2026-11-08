@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba6trqk5ffiga"
-path="res://.godot/imported/bubble-flipped.png-383607bd16e2fefef11c5164d37c490f.ctex"
+uid="uid://s7wsefwbxl6n"
+path="res://.godot/imported/bubble-sheet.png-788428bd619e57d92db90773e2a325c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bubble-flipped.png"
-dest_files=["res://.godot/imported/bubble-flipped.png-383607bd16e2fefef11c5164d37c490f.ctex"]
+source_file="res://assets/ui/bubble-sheet.png"
+dest_files=["res://.godot/imported/bubble-sheet.png-788428bd619e57d92db90773e2a325c4.ctex"]
 
 [params]
 
