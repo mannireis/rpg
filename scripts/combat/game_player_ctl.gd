@@ -153,6 +153,8 @@ func run_equipped(method: String, vec: Vector2i = Vector2i(0,0),prio_type: Strin
 		prio += 1
 	return vec
 
+func update_bars() -> void: ##Only updates target_fire for now
+	hp_bar.target_fire = clampi(roundi(persistent_dmg[2][0]), 0, hp)
 
 func receive_dmg(dmg:Vector2i) -> void:
 	dmg = run_equipped("mod_dmg_in",dmg,"dmg_in",true)
@@ -174,7 +176,9 @@ func receive_dmg(dmg:Vector2i) -> void:
 	else:
 		print("dmg of type "+str(dmg[1])+" lacks block, dealing "+str(dmg[0]))
 		if dmg[1] not in persist_dmg_type: hp -= dmg[0]
-		else: persistent_dmg[dmg[1]] = Vector2i(dmg[0]+persistent_dmg[dmg[1]][0],dmg[0]+persistent_dmg[dmg[1]][1])
+		else:
+			persistent_dmg[dmg[1]] = Vector2i(dmg[0]+persistent_dmg[dmg[1]][0],dmg[0]+persistent_dmg[dmg[1]][1])
+			update_bars()
 		hp_bar.target_health = clampi(roundi(hp / float(max_hp) * 32.0), 0, 32)
 		#hp_display.text = str(hp)+" HP"
 	pass
@@ -216,7 +220,7 @@ func turn_begin() -> void:
 	var v := v0
 	
 	turn_dmg_dealt = 0
-	
+	print("starting turn for enemy? "+str(is_enemy)+" with persistent_dmg "+str(persistent_dmg))
 	while i < len(persistent_dmg):
 		v = persistent_dmg[i]
 		if v[1] == -1:
@@ -231,6 +235,8 @@ func turn_begin() -> void:
 				print("pers "+str(i)+" decreased to "+str(persistent_dmg[i]))
 		i += 1
 	hp_bar.target_health = clampi(roundi(hp / float(max_hp) * 32.0), 0, 32)
+	update_bars()
+	print("solved persistent_dmg: "+str(persistent_dmg))
 	await battle_manager.get_tree().create_timer(0.2).timeout
 	if lose_next_turn:
 		print("enemy "+str(is_enemy)+", lose_next_turn set")

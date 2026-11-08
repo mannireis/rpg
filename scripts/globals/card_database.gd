@@ -24,7 +24,7 @@ var db: Array[Array] = [
 	GameCard.new(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload("res://assets/cards/sturdy_shield.png"), "Adds +5 shield points per round"),
 	GameCard.new(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload("res://assets/cards/abstract_art.png"), "test"),
 	GameCard.new(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload("res://assets/cards/rebekas_halberd.png"), "Pretty, isn't it? Does 8 damage points"),
-	GameCard.new(s.DIAMONDS,4,n,Vector2i(3,2),"Firewall",3,preload("res://assets/cards/firewall.png"),"Flicker wanted 'something that kills attacks that connect'. The Last Flame is a literalist.")
+	GameCard.new(s.DIAMONDS,4,n,Vector2i(2,2),"Firewall",3,preload("res://assets/cards/firewall.png"),"Flicker wanted 'something that kills attacks that connect'. The Last Flame is a literalist.")
 
 ],
 [
@@ -50,7 +50,7 @@ func _ready() -> void:
 			_enemy_ctl.exec_atk(Vector2i(4,0))
 		return [GameCard.Move.TRASH]
 	db[0][2].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
-		ctl.exec_atk(db[0][3].atk)
+		ctl.exec_atk(db[0][2].atk)
 		return [GameCard.Move.TRASH]
 	db[0][3].play = func(ctl: PlayerCtl, enemy_ctl: PlayerCtl) -> Array:
 		ctl.exec_atk(Vector2i(4, 0))

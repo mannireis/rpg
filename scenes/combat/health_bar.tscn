@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bsabdxee8jisf" path="res://scripts/ui/health_progress_bar.gd" id="2_x4hh8"]
 [ext_resource type="Texture2D" uid="uid://c5ydhltj1rta3" path="res://assets/combat/shield_progress_bar.png" id="3_sr7kk"]
 [ext_resource type="Texture2D" uid="uid://baawqx5k3utvj" path="res://assets/combat/health_progress_bar.png" id="4_eu2ep"]
+[ext_resource type="Texture2D" uid="uid://bsumy1ybvf2r3" path="res://assets/fire_progress_bar.png" id="5_2xb84"]
 [ext_resource type="AudioStream" uid="uid://j7s8huhevcd5" path="res://assets/audio/damage.wav" id="5_x4hh8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_62e2m"]
@@ -26,6 +27,11 @@ axis_stretch_vertical = 1
 texture = ExtResource("4_eu2ep")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2xb84"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aouid"]
+texture = ExtResource("5_2xb84")
 
 [node name="HealthBar" type="Panel" unique_id=1680376864]
 custom_minimum_size = Vector2(10, 66)
@@ -75,7 +81,17 @@ step = 1.0
 fill_mode = 3
 show_percentage = false
 
+[node name="FireProgressBar" type="ProgressBar" parent="MarginContainer" unique_id=90586593]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 32)
+theme_override_styles/background = SubResource("StyleBoxEmpty_2xb84")
+theme_override_styles/fill = SubResource("StyleBoxTexture_aouid")
+fill_mode = 2
+show_percentage = false
+
 [node name="AudioStreamPlayerSFX" type="AudioStreamPlayer" parent="." unique_id=492928686]
 unique_name_in_owner = true
 stream = ExtResource("5_x4hh8")
-bus = &"SFX"
