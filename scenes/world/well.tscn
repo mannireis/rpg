@@ -7,22 +7,22 @@ size = Vector2(64, 64)
 
 [node name="Well" type="Area2D" unique_id=844208701]
 script = ExtResource("1_gli41")
-dialogue = "=== yes
+dialogue = "=== has_coin_true
 Well: Throw a coin for a wish?
-* Yes -> throw
+* Yes -> throw_coin
 * No -> end
 ===
 
-=== no
+=== has_coin_false
 Well: Get a coin to throw in the well.
->> end
 ===
 
-=== throw
-Emily: [i]Threw a coin to the well[/i]
-Well: You have one wish choose wisely.
+=== throw_coin
+Emily: [i]Threw a coin to the well.[/i]
+Well: You have one wish, choose wisely.
 Emily: I wish my bunny was near me.
 Well: I see...
+>> grant_wish
 ==="
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=465064724]

@@ -1,31 +1,38 @@
 extends Area2D
 
-var _bodies_in := 0
-
 @export_multiline() var dialogue := ""
 
+var _player_in_range := false
+
+
 func _ready() -> void:
-	Signals.dialogue_branched.connect(_current_id)
+	Signals.dialogue_branched.connect(_on_dialogue_branched)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Interact") and _bodies_in > 0:
+	if event.is_action_pressed(&"Interact") and _player_in_range:
 		if GameState.item_inventory.has(preload("res://assets/items/resources/coin.tres")):
-			Signals.dialogue_started.emit(dialogue, "yes")
+			Signals.dialogue_started.emit(dialogue, &"has_coin_true")
 		else:
-			Signals.dialogue_started.emit(dialogue, "no")
+			Signals.dialogue_started.emit(dialogue, &"has_coin_false")
 
 
-func _on_body_entered(body: Player) -> void:
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		_player_in_range = true
 		PlayerUi.label.show()
-		_bodies_in += 1
 
 
-func _on_body_exited(body: Player) -> void:
-	_bodies_in -= 1
-	if _bodies_in <= 0:
+func _on_body_exited(body: Node2D) -> void:
+	if body is Player:
+		_player_in_range = false
 		PlayerUi.label.hide()
 
-func _current_id(id: String) -> void:
-	if id == "throw":
-		GameState.remove_item(preload("res://assets/items/resources/coin.tres"))
+
+func _on_dialogue_branched(to: StringName) -> void:
+	match to:
+		&"throw_coin":
+			GameState.remove_item(preload("res://assets/items/resources/coin.tres"))
+
+		&"grant_wish":
+			get_tree().current_scene.fade_canvas($Marker2D.global_position)
