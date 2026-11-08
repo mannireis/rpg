@@ -198,7 +198,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		tween.kill()
 		dialogue_label.visible_characters = -1
 	elif dialogue_panel.visible:
-		advance()
+		if event.is_action_pressed("Interact") and len(choices_container.get_children()) > 1: print("trying to skip choices")
+		else: advance()
 		get_viewport().set_input_as_handled()
 
 
