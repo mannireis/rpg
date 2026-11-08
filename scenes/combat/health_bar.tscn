@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bcaac5yyw61ef" path="res://assets/ui/panel_battle.png" id="1_8ymem"]
 [ext_resource type="Script" uid="uid://bsabdxee8jisf" path="res://scripts/ui/health_progress_bar.gd" id="2_x4hh8"]
-[ext_resource type="Texture2D" uid="uid://c5ydhltj1rta3" path="res://assets/shield_progress_bar.png" id="3_sr7kk"]
-[ext_resource type="Texture2D" uid="uid://baawqx5k3utvj" path="res://assets/health_progress_bar.png" id="4_eu2ep"]
+[ext_resource type="Texture2D" uid="uid://c5ydhltj1rta3" path="res://assets/combat/shield_progress_bar.png" id="3_sr7kk"]
+[ext_resource type="Texture2D" uid="uid://baawqx5k3utvj" path="res://assets/combat/health_progress_bar.png" id="4_eu2ep"]
 [ext_resource type="Texture2D" uid="uid://bsumy1ybvf2r3" path="res://assets/fire_progress_bar.png" id="5_2xb84"]
 [ext_resource type="AudioStream" uid="uid://j7s8huhevcd5" path="res://assets/audio/damage.wav" id="5_x4hh8"]
 
