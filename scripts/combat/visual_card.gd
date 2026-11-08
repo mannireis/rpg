@@ -22,7 +22,7 @@ func _ready() -> void:
 		card_texture.texture = data.img
 	else:
 		print("initialising "+str(self)+", hidden because of index -1")
-		card_texture.texture = CardDatabase.common_textures[-1]
+		card_texture.texture = preload("res://assets/combat/bad_card.png")
 	pivot_offset = size / 2
 
 
