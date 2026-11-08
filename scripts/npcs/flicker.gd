@@ -8,19 +8,19 @@ func v(a: int, b: int = 0) -> Vector2i:
 
 
 func _ready() -> void:
-	var base: Array[Vector2i] = [v(0,2),v(0,2),v(0,2),v(0,2),v(0,2),v(0,2),v(0,2),v(0,2),v(1,0),v(1,0),v(1,0),v(0,0),v(0,0)]
+	var base: Array[Vector2i] = [v(0,2),v(0,2),v(0,2),v(0,2),v(0,2),v(0,2),v(0,2),v(0,2),v(3,4),v(1,0),v(1,0),v(0,0),v(0,0)]
 	var deck := base
 	var deck2 := base
 	var doors = get_tree().get_root().get_node("Chapter01/ProcessModeReset/YSort/Doors")
 	room_door = doors.get_node("Door43")
 
-	deck.append_array([v(1,0),v(1,0),v(0,1),v(0,1),v(0,1)])
+	deck.append_array([v(1,0),v(1,0),v(0,1),v(0,1),v(0,1),v(3,4)])
 	var inv = Signals.BattleInv.new(30,deck,[],[v(1,0),v(0,2)])
 	inv.ai_atk_chance = 0.25
 	inv.ai_block_chance = 0.15
 	
 	deck2.append_array([v(0,0),v(0,0),v(3,1),v(3,1),v(0,2)])
-	var inv2 = Signals.BattleInv.new(32,deck2,[],[v(0,2),v(0,2)]) ## "smarter" Flicker
+	var inv2 = Signals.BattleInv.new(32,deck2,[],[v(0,2),v(0,2),v(3,4)]) ## "smarter" Flicker
 	inv2.ai_atk_chance = 0.2
 	inv2.ai_block_chance = 0.1
 
