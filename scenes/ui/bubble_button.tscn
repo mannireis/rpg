@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://2xirio43hska"]
 
-[ext_resource type="Texture2D" uid="uid://ci7pdu6b6wm64" path="res://assets/bubble.png" id="1_lrbg2"]
+[ext_resource type="Texture2D" uid="uid://ci7pdu6b6wm64" path="res://assets/ui/bubble.png" id="1_lrbg2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmkx5"]
 content_margin_left = 3.0

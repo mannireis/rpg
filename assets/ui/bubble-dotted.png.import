@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdymwdlquuoai"
-path="res://.godot/imported/dialogue_concept.png-63ccf68e2ffc68f9c6f077479eb58aa5.ctex"
+uid="uid://ceoqft8hbs5no"
+path="res://.godot/imported/bubble-dotted.png-ce9d6c269213f50a5ed47108fd8fc868.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dialogue_concept.png"
-dest_files=["res://.godot/imported/dialogue_concept.png-63ccf68e2ffc68f9c6f077479eb58aa5.ctex"]
+source_file="res://assets/ui/bubble-dotted.png"
+dest_files=["res://.godot/imported/bubble-dotted.png-ce9d6c269213f50a5ed47108fd8fc868.ctex"]
 
 [params]
 

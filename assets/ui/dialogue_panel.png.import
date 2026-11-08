@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hd5cdehbl041"
-path="res://.godot/imported/basic_attack.png-a64c1efb0fb13c82474e1d888126db9f.ctex"
+uid="uid://b7jk1wi7mgqcq"
+path="res://.godot/imported/dialogue_panel.png-7d62bf7da14c554459d84b150c20e215.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/basic_attack.png"
-dest_files=["res://.godot/imported/basic_attack.png-a64c1efb0fb13c82474e1d888126db9f.ctex"]
+source_file="res://assets/ui/dialogue_panel.png"
+dest_files=["res://.godot/imported/dialogue_panel.png-7d62bf7da14c554459d84b150c20e215.ctex"]
 
 [params]
 

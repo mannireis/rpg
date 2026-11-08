@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhfgx887ouh2t"
-path="res://.godot/imported/main_menu_concept.png-6ff91342b2798afb66ec7e3472faa93f.ctex"
+uid="uid://b81kjpi46g6jp"
+path="res://.godot/imported/card_shadow.png-66cb10c08cc99f57558efd336f49cd47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/main_menu_concept.png"
-dest_files=["res://.godot/imported/main_menu_concept.png-6ff91342b2798afb66ec7e3472faa93f.ctex"]
+source_file="res://assets/combat/card_shadow.png"
+dest_files=["res://.godot/imported/card_shadow.png-66cb10c08cc99f57558efd336f49cd47.ctex"]
 
 [params]
 

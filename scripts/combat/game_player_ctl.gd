@@ -379,11 +379,11 @@ func ai_turn() -> void:
 	var node: TextureRect = UI_node.get_node("EnemyCard")
 	if r < ai_default_atk_chance:
 		player_attack()
-		node.texture = preload("res://assets/basic_attack.png")
+		node.texture = preload("res://assets/combat/basic_attack.png")
 		node.visible = true
 	elif r < ai_default_atk_chance+ai_default_block_chance:
 		player_attack(true)
-		node.texture = preload("res://assets/basic_block.png")
+		node.texture = preload("res://assets/combat/basic_block.png")
 		node.visible = true
 	else:
 		match ai_diff:

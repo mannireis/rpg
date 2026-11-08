@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxrd5ke6fiatw"]
 
-[ext_resource type="Texture2D" uid="uid://bcaac5yyw61ef" path="res://assets/panel_battle.png" id="1_8ymem"]
+[ext_resource type="Texture2D" uid="uid://bcaac5yyw61ef" path="res://assets/ui/panel_battle.png" id="1_8ymem"]
 [ext_resource type="Script" uid="uid://bsabdxee8jisf" path="res://scripts/ui/health_progress_bar.gd" id="2_x4hh8"]
 [ext_resource type="Texture2D" uid="uid://c5ydhltj1rta3" path="res://assets/shield_progress_bar.png" id="3_sr7kk"]
 [ext_resource type="Texture2D" uid="uid://baawqx5k3utvj" path="res://assets/health_progress_bar.png" id="4_eu2ep"]

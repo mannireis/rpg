@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bptr8c0oisjcs"
-path="res://.godot/imported/mockup_shop.png-5747cca47dee790bcdf77dbcfceea7b1.ctex"
+uid="uid://dkowyj0c4hyut"
+path="res://.godot/imported/basic_block.png-de7940717bb071a9e96a5654bbe64245.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mockup_shop.png"
-dest_files=["res://.godot/imported/mockup_shop.png-5747cca47dee790bcdf77dbcfceea7b1.ctex"]
+source_file="res://assets/combat/basic_block.png"
+dest_files=["res://.godot/imported/basic_block.png-de7940717bb071a9e96a5654bbe64245.ctex"]
 
 [params]
 
