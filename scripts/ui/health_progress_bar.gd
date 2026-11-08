@@ -38,6 +38,8 @@ var target_fire := 0.0:
 	set(value):
 		if value == target_fire: return
 		target_fire = value
+		if not target_fire: _fire_progress_bar.visible = false
+		else: _fire_progress_bar.visible = true
 		
 func roundto(x: float, to: int) -> float: return round(x*pow(10,to))/pow(10,to)
 func _ready() -> void:
@@ -53,12 +55,11 @@ func _process(delta: float) -> void:
 	health_value = roundto(lerpf(health_value, target_health, t),1)
 	shield_value = roundto(lerpf(shield_value, target_shield, t),1)
 	fire_value = roundto(lerpf(fire_value, target_fire, t),1)
-	
+	if not target_fire: _fire_progress_bar.visible = false
+	else: _fire_progress_bar.visible = true
 	
 	_shield_progress_bar.custom_minimum_size.y = shield_value
 	_health_progress_bar.custom_minimum_size.y = health_value
-	if not target_fire: _fire_progress_bar.visible = false
-	else: _fire_progress_bar.visible = true
 	_fire_progress_bar.custom_minimum_size.y = min(fire_value,health_value)
 	#if fire_value > 0 and _fire_progress_bar.custom_minimum_size.y >2: print("fire min size "+str(_fire_progress_bar.custom_minimum_size))
 	var _firepos = _fire_progress_bar.position
