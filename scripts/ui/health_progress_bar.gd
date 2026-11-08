@@ -13,14 +13,19 @@ signal damaged(amount: float)
 @export_range(0,31,1) var fire_value: float = 0
 
 var last_health: float = 32.0
-var bottom_pos: float = 32.0
+var bottom_pos: float = 0.0
 var target_health := 32.0:
 	set(value):
 		if value == target_health: return
+		var d = target_health-value
 		var lost := value < target_health
 		if lost:
 			damaged.emit(target_health - value)
 		target_health = value
+		_fire_progress_bar.position.y += d
+		var prev_fire := target_fire
+		target_fire = min(target_fire,target_health)
+		print("health setter, target fire "+str(prev_fire)+" -> "+str(target_fire))
 		_play_damage_sound(lost)
 
 var target_shield := 0.0:
@@ -40,24 +45,25 @@ func _ready() -> void:
 		bar.value = bar.max_value
 		bar.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 		bar.add_theme_stylebox_override("background", StyleBoxEmpty.new())
-	bottom_pos = _health_progress_bar.position.y
 
 
 func _process(delta: float) -> void:
 	var t := 1.0 - exp(-10.0 * delta)
-	
+	target_fire = min(target_fire,target_health)
 	health_value = roundto(lerpf(health_value, target_health, t),1)
 	shield_value = roundto(lerpf(shield_value, target_shield, t),1)
 	fire_value = roundto(lerpf(fire_value, target_fire, t),1)
 	
+	
 	_shield_progress_bar.custom_minimum_size.y = shield_value
 	_health_progress_bar.custom_minimum_size.y = health_value
-	_fire_progress_bar.custom_minimum_size.y = fire_value
+	if not target_fire: _fire_progress_bar.visible = false
+	else: _fire_progress_bar.visible = true
+	_fire_progress_bar.custom_minimum_size.y = min(fire_value,health_value)
 	#if fire_value > 0 and _fire_progress_bar.custom_minimum_size.y >2: print("fire min size "+str(_fire_progress_bar.custom_minimum_size))
 	var _firepos = _fire_progress_bar.position
 	var health_y = _health_progress_bar.position.y
-	_fire_progress_bar.position = Vector2(_firepos.x,bottom_pos-health_value+fire_value)
-	if health_value != last_health:
+	if false and health_value != last_health:
 		last_health = health_value
 		print("y "+str(_fire_progress_bar.position.y)+" hpbar y "+str(_health_progress_bar.position.y)+" mistaken y "+str(health_y-health_value+fire_value)+" health off "+str(-health_value))
 

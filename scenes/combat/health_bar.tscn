@@ -81,17 +81,20 @@ step = 1.0
 fill_mode = 3
 show_percentage = false
 
-[node name="FireProgressBar" type="ProgressBar" parent="MarginContainer" unique_id=90586593]
+[node name="AudioStreamPlayerSFX" type="AudioStreamPlayer" parent="." unique_id=492928686]
+unique_name_in_owner = true
+stream = ExtResource("5_x4hh8")
+
+[node name="FireProgressBar" type="ProgressBar" parent="." unique_id=90586593]
 unique_name_in_owner = true
 z_index = 1
-layout_mode = 2
+layout_mode = 0
+offset_left = 1.0
+offset_top = 32.0
+offset_right = 9.0
+offset_bottom = 33.0
 offset_transform_enabled = true
-offset_transform_position = Vector2(0, 32)
 theme_override_styles/background = SubResource("StyleBoxEmpty_2xb84")
 theme_override_styles/fill = SubResource("StyleBoxTexture_aouid")
 fill_mode = 2
 show_percentage = false
-
-[node name="AudioStreamPlayerSFX" type="AudioStreamPlayer" parent="." unique_id=492928686]
-unique_name_in_owner = true
-stream = ExtResource("5_x4hh8")
