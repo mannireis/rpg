@@ -11,7 +11,7 @@ func _ready() -> void:
 	var base: Array[Vector2i] = [v(0,2),v(0,2),v(0,2),v(0,2),v(0,2),v(0,2),v(0,2),v(0,2),v(3,4),v(1,0),v(1,0),v(0,0),v(0,0)]
 	var deck := base
 	var deck2 := base
-	var doors = get_tree().get_root().get_node("Chapter01/ProcessModeReset/YSort/Doors")
+	var doors = get_tree().get_root().get_node("Chapter01/Doors")
 	room_door = doors.get_node("Door43")
 
 	deck.append_array([v(1,0),v(1,0),v(0,1),v(0,1),v(0,1),v(3,4)])

@@ -35,9 +35,9 @@ func _physics_process(delta: float) -> void:
 
 	intended_velocity = velocity
 	if Input.is_action_just_pressed("Teleport") and OS.has_feature("debug"):
-		global_position = get_tree().get_root().get_node("Chapter01/ProcessModeReset/DevTeleport").global_position
+		global_position = get_tree().get_root().get_node("Chapter01/DevTeleport").global_position
 	if Input.is_action_just_pressed("Teleport2") and OS.has_feature("debug"):
-		global_position = get_tree().get_root().get_node("Chapter01/ProcessModeReset/DevTeleportU").global_position
+		global_position = get_tree().get_root().get_node("Chapter01/DevTeleportU").global_position
 	GameState.player_pos = global_position
 
 	play_animations(direction)
