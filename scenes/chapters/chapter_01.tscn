@@ -693,6 +693,33 @@ met_id = &"met"
 
 [node name="Flicker" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="8" unique_id=1027138446 instance=ExtResource("11_2br45")]
 position = Vector2(1783, -804)
+dialogue = "=== start
+	$player: Hello, are you Flicker?
+	Flicker: That would be me, yes. What do you want from me, strange child?
+	$player: I'm looking for Sir Hearts, my pet bunny. Have you seen a bunny around here?
+	Flicker: I've seen one cross into my lands with something else beside it, I was just preparing to go on a hunt to catch them!
+	Flicker: Be warned though, I am not good with sharing, and I do not wish to be interrupted.
+	Flicker: Perhaps you should go back where you came from...
+	* Stop Flicker -> battle_init[0]
+	* Convince -> convince
+===
+
+=== convince
+	$player: B-but it's Sir Hearts! You can't just catch him or something!!
+	Flicker: I do not want to miss out on this opportunity.
+	Flicker: Few things excite me as much as hunting a magical creature.
+	Flicker: A battle with a skilled opponent, maybe...
+	>> battle_init[1]
+===
+
+=== battle_lost
+	Flicker: Back for round two? I must say I find your dedication admirable. A good huntswoman should not give up on her target, anyway.
+	>> battle_init[1]
+===
+
+=== battle_won
+	Flicker: Very well then. You have bested me! I will not go after a creature guarded by someone this skilled.
+==="
 met_id = &"start"
 
 [node name="FireballBullet" parent="ProcessModeReset/YSort/NPCs/Flicker" index="3" unique_id=117924838 node_paths=PackedStringArray("target") instance=ExtResource("13_nb3ya")]
