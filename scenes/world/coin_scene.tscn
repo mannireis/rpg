@@ -1,3 +1,22 @@
 [gd_scene format=3 uid="uid://bdpc5cncq6rup"]
 
+[ext_resource type="Texture2D" uid="uid://p6bb6t55c7h4" path="res://assets/items/coin.png" id="1_m4nbc"]
+[ext_resource type="Script" uid="uid://dg752w6n0po2q" path="res://scripts/world/coin_scene.gd" id="1_w0raj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w0raj"]
+size = Vector2(8, 8)
+
 [node name="Coin" type="Area2D" unique_id=140773022]
+script = ExtResource("1_w0raj")
+dialogue = "=== start
+Inventory: You got 1x coin added to inventory
+==="
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=714892602]
+shape = SubResource("RectangleShape2D_w0raj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1431570348]
+texture = ExtResource("1_m4nbc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
