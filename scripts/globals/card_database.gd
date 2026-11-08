@@ -20,11 +20,12 @@ var db: Array[Array] = [
 	GameCard.new(s.HEARTS,1,n,Vector2i(4,0),"Healing Splash",1,preload("res://assets/cards/healing_splash.png"),"Extinguish and heal yourself")
 ],
 [
-	GameCard.new(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Pirate Saber",2,preload("res://assets/cards/pirate_saber.png"), "Add +2 damage per round"),
+	GameCard.new(s.DIAMONDS,0,GameCard.Able.ATK,Vector2i(5,0),"Slick Sword",2,preload("res://assets/cards/slick_sword.png"), "Add +2 damage per round"),
 	GameCard.new(s.DIAMONDS,1,GameCard.Able.BLOCK,Vector2i(-5,0),"Sturdy Shield",2,preload("res://assets/cards/sturdy_shield.png"), "Adds +5 shield points per round"),
 	GameCard.new(s.DIAMONDS,2,n,Vector2i(2,0),"Abstract Art",2,preload("res://assets/cards/abstract_art.png"), "test"),
 	GameCard.new(s.DIAMONDS,3,GameCard.Able.ATK,Vector2i(8,0),"Rebeka's Halberd",3,preload("res://assets/cards/rebekas_halberd.png"), "Pretty, isn't it? Does 8 damage points"),
-	GameCard.new(s.DIAMONDS,4,n,Vector2i(2,2),"Firewall",3,preload("res://assets/cards/firewall.png"),"Flicker wanted 'something that kills attacks that connect'. The Last Flame is a literalist.")
+	GameCard.new(s.DIAMONDS,4,n,Vector2i(2,2),"Firewall",3,preload("res://assets/cards/firewall.png"),"Flicker wanted 'something that kills attacks that connect'. The Last Flame is a literalist."),
+	GameCard.new(s.DIAMONDS,5,GameCard.Able.ATK,Vector2i(3,2),"Flaming Sabre",2,preload("res://assets/cards/pirate_saber.png"),"Lights your enemies ablaze with each attack. Useful for barbecue as well.")
 
 ],
 [
@@ -148,6 +149,13 @@ func _ready() -> void:
 	db[3][4].mod_dmg_in = func(dmg: Vector2i,_ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Vector2i:
 		if dmg[1] == 0: _ctl.exec_atk(db[3][4].atk)
 		return dmg #doesn't reduce it, just hits the opponent with a fire damage counterattack
+	
+	db[3][5].play = func(ctl:PlayerCtl,_enemy_ctl:PlayerCtl) -> Array:
+		if db[3][5] not in ctl.equipped_cards: return [GameCard.Move.EQUIP]
+		else: return [GameCard.Move.TRASH]
+	db[3][5].weapon_atk = func(_null,_ctl,_enemy_ctl) -> Vector2i:
+		_ctl.exec_atk(db[3][5].atk)
+		return Vector2i(2,0)
 	
 
 	db[4][0].play = func(_ctl: PlayerCtl, _enemy_ctl:PlayerCtl):

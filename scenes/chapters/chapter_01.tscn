@@ -741,6 +741,7 @@ vel_scale = 44.0
 target = NodePath("../../ThePassersby")
 
 [node name="ThePassersby" parent="ProcessModeReset/YSort/NPCs" parent_id_path=PackedInt32Array(1218614627) index="9" unique_id=945158310 instance=ExtResource("13_nb3ya")]
+visible = false
 position = Vector2(1664, -832)
 vel = Vector2i(3, 2)
 vel_scale = 8.0

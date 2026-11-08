@@ -5,6 +5,7 @@ func _current_id(id:String) -> void:
 	if id == "correct_all":
 		print("last flame giving healing splash")
 		for i in range(5):
+			#GameState.add_card(CardDatabase.db[3][5])
 			GameState.add_card(CardDatabase.db[2][1])
 		Signals.bcast.emit("torchie_happy")
 # Called when the node enters the scene tree for the first time.

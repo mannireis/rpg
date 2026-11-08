@@ -35,7 +35,7 @@ var mod_dmg_in := func mod_dmg_in(dmg:Vector2i, _ctl: PlayerCtl, _enemy_ctl: Pla
 	return dmg
 var mod_dmg_out := func mod_dmg_out(dmg:Vector2i, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:	
 	return dmg
-func weapon_atk(_null, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:
+var weapon_atk := func weapon_atk(_null, _ctl: PlayerCtl, _enemy_ctl: PlayerCtl) -> Vector2i:
 	return atk
 var mod_trash_choice := func mod_trash_choice(_null, _ctl:PlayerCtl, _null2) -> int:
 	return -1

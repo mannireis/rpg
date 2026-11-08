@@ -268,9 +268,9 @@ func player_attack(block:bool=false,choice: bool = false) -> void:
 		if res_card:
 			if battle_debug: print("auto chose "+str(res_card.name))
 			if block:
-				exec_block(res_card.weapon_atk(v0,self,battle_manager.get_oppo(is_enemy)))
+				exec_block(res_card.weapon_atk.call(v0,self,battle_manager.get_oppo(is_enemy)))
 			else:
-				exec_atk(res_card.weapon_atk(v0,self,battle_manager.get_oppo(is_enemy)))
+				exec_atk(res_card.weapon_atk.call(v0,self,battle_manager.get_oppo(is_enemy)))
 		else:
 			print("no suitable card found in "+str(equipped))
 	else:
