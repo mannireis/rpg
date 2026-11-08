@@ -6,18 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://b61uvy3l4nwtx" path="res://assets/tilesets/fire_puzzle.png" id="3_uic34"]
 [ext_resource type="PackedScene" uid="uid://cqx6p753r2s1r" path="res://scenes/world/fireplace.tscn" id="4_qvmtg"]
 [ext_resource type="Texture2D" uid="uid://dxayar305gha7" path="res://assets/tilesets/house.png" id="5_3vqt5"]
-[ext_resource type="Texture2D" uid="uid://bi27dfk7n53gu" path="res://assets/houses/lucyandgreghouse.png" id="5_6dy5u"]
 [ext_resource type="Texture2D" uid="uid://2m007g770mo" path="res://assets/tilesets/battle_flame.png" id="5_6i0mp"]
 [ext_resource type="Texture2D" uid="uid://54aeg1xrqrf0" path="res://assets/tilesets/furniture.png" id="5_lmoxx"]
 [ext_resource type="PackedScene" uid="uid://qhgxrqrnr2wx" path="res://scenes/world/crate.tscn" id="5_qvmtg"]
-[ext_resource type="Texture2D" uid="uid://b4w36pjc4l0l4" path="res://assets/rebekas_house.png" id="6_3vqt5"]
+[ext_resource type="Texture2D" uid="uid://b4w36pjc4l0l4" path="res://assets/houses/rebeka.png" id="6_gik80"]
 [ext_resource type="Texture2D" uid="uid://55le2p82bsyg" path="res://assets/tilesets/rails.png" id="7_p73ri"]
-[ext_resource type="Texture2D" uid="uid://ci460dh5a104h" path="res://assets/houses/house_3.png" id="8_fvwhe"]
+[ext_resource type="Texture2D" uid="uid://ci460dh5a104h" path="res://assets/houses/03.png" id="8_5rnye"]
 [ext_resource type="Texture2D" uid="uid://dirudtotbkdt" path="res://assets/tilesets/webs.png" id="9_gik80"]
 [ext_resource type="Texture2D" uid="uid://5ppysggqt844" path="res://assets/tilesets/cave.png" id="10_p73ri"]
 [ext_resource type="Texture2D" uid="uid://dholu8nt2w5b3" path="res://assets/tilesets/orange.png" id="11_fvwhe"]
 [ext_resource type="Texture2D" uid="uid://bt64ku81lh8eb" path="res://assets/bunny_sightings.png" id="12_5e0im"]
 [ext_resource type="Texture2D" uid="uid://j2ahi5i8d1v8" path="res://assets/tilesets/pressure_plates.png" id="13_6i0mp"]
+[ext_resource type="Texture2D" uid="uid://bi27dfk7n53gu" path="res://assets/houses/lucy_and_greg.png" id="13_hwptt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lwt3p"]
 texture = ExtResource("1_5e0im")
@@ -240,7 +240,7 @@ texture = ExtResource("5_6i0mp")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.0631065, 3.0373514, 1.9484897, 2.9800427, 2.0305119, 8, -2.03051, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p73ri"]
-texture = ExtResource("6_3vqt5")
+texture = ExtResource("6_gik80")
 0:0/size_in_atlas = Vector2i(5, 5)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 32)
@@ -281,7 +281,7 @@ texture = ExtResource("7_p73ri")
 3:3/0/z_index = -1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gik80"]
-texture = ExtResource("8_fvwhe")
+texture = ExtResource("8_5rnye")
 0:0/size_in_atlas = Vector2i(4, 5)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 32)
@@ -345,7 +345,7 @@ scenes/1/scene = ExtResource("4_qvmtg")
 scenes/2/scene = ExtResource("5_qvmtg")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_did67"]
-texture = ExtResource("5_6dy5u")
+texture = ExtResource("13_hwptt")
 0:1/size_in_atlas = Vector2i(6, 4)
 0:1/0 = 0
 0:1/0/texture_origin = Vector2i(-32, 32)

@@ -181,8 +181,11 @@ func _on_line(line: Dictionary) -> void:
 	# If freeform
 	for t in line["text_box"]:
 		line_edit.show()
-		var previous_conn: Callable = line_edit.text_submitted.get_connections()[0].callable
-		line_edit.text_submitted.disconnect(previous_conn)
+		var previous_conn = line_edit.text_submitted.get_connections().get(0)
+
+		if (previous_conn):
+			line_edit.text_submitted.disconnect(previous_conn.callable)
+
 		line_edit.text_submitted.connect(_on_answer_submitted.bind(t))
 		line_edit.grab_focus.call_deferred()
 
@@ -195,7 +198,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		tween.kill()
 		dialogue_label.visible_characters = -1
 	elif dialogue_panel.visible:
-		advance()
+		if event.is_action_pressed("Interact") and len(choices_container.get_children()) > 1: print("trying to skip choices")
+		else: advance()
 		get_viewport().set_input_as_handled()
 
 

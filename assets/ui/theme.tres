@@ -1,0 +1,51 @@
+[gd_resource type="Theme" format=3 uid="uid://b1t644yqmnxtb"]
+
+[ext_resource type="FontFile" uid="uid://cvh0krg1x26b5" path="res://assets/fonts/chicago.png" id="1_5x3i2"]
+[ext_resource type="Texture2D" uid="uid://fnhcpfb1mb2x" path="res://assets/ui/panel.png" id="2_wl1kw"]
+[ext_resource type="FontFile" uid="uid://jptnllywkipc" path="res://assets/fonts/chicago_bold.png" id="3_wycmq"]
+[ext_resource type="FontFile" uid="uid://dpo2lqe7v6wen" path="res://assets/fonts/chicago_italic.png" id="4_x2pqw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5x3i2"]
+load_path = "res://.godot/imported/panel.png-98abd75f17820992d19abbe4c1e458c7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wl1kw"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = SubResource("CompressedTexture2D_5x3i2")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p76rt"]
+texture = ExtResource("2_wl1kw")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+region_rect = Rect2(0, 0, 3, 3)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23v15"]
+texture = ExtResource("2_wl1kw")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[resource]
+Button/fonts/font = ExtResource("1_5x3i2")
+Button/styles/disabled = SubResource("StyleBoxTexture_wl1kw")
+Button/styles/hover = SubResource("StyleBoxTexture_wl1kw")
+Button/styles/normal = SubResource("StyleBoxTexture_wl1kw")
+Button/styles/pressed = SubResource("StyleBoxTexture_wl1kw")
+Label/fonts/font = ExtResource("1_5x3i2")
+LineEdit/fonts/font = ExtResource("1_5x3i2")
+LineEdit/styles/focus = SubResource("StyleBoxTexture_p76rt")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_p76rt")
+LineEdit/styles/read_only = SubResource("StyleBoxTexture_p76rt")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_23v15")
+RichTextLabel/fonts/bold_font = ExtResource("3_wycmq")
+RichTextLabel/fonts/italics_font = ExtResource("4_x2pqw")
+RichTextLabel/fonts/normal_font = ExtResource("1_5x3i2")

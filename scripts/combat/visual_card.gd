@@ -2,7 +2,7 @@
 extends Control
 
 @onready var card_texture: TextureRect = $CardTexture
-@onready var battle_manager: Node = get_tree().get_root().get_node("Battle").get_node("BattleManager")
+@onready var battle_manager: Node = %BattleManager
 
 var index_in_deck: int = -1
 var color: GameCard.S
@@ -22,7 +22,7 @@ func _ready() -> void:
 		card_texture.texture = data.img
 	else:
 		print("initialising "+str(self)+", hidden because of index -1")
-		card_texture.texture = CardDatabase.common_textures[-1]
+		card_texture.texture = preload("res://assets/combat/bad_card.png")
 	pivot_offset = size / 2
 
 

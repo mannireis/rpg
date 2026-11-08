@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://blcxk6na7csnw"]
 
-[ext_resource type="Texture2D" uid="uid://ds77auri0ikae" path="res://assets/save_menu.png" id="1_84ugx"]
+[ext_resource type="Texture2D" uid="uid://ds77auri0ikae" path="res://assets/ui/save_menu.png" id="1_84ugx"]
 [ext_resource type="Script" uid="uid://caxboqvrv6qti" path="res://scripts/ui/save_load.gd" id="2_yq84k"]
-[ext_resource type="Texture2D" uid="uid://culpppnvxyx4b" path="res://assets/aseprite/back_button1.png" id="3_j3qbj"]
-[ext_resource type="Texture2D" uid="uid://bt74y5iaf7nse" path="res://assets/aseprite/back_button2.png" id="4_jbtgj"]
-[ext_resource type="Texture2D" uid="uid://cvpi1bbiy2k56" path="res://assets/ui_panel.png" id="5_87bdx"]
+[ext_resource type="Texture2D" uid="uid://culpppnvxyx4b" path="res://assets/ui/back_button_normal.png" id="3_j3qbj"]
+[ext_resource type="Texture2D" uid="uid://bt74y5iaf7nse" path="res://assets/ui/back_button_pressed.png" id="4_jbtgj"]
+[ext_resource type="Texture2D" uid="uid://cvpi1bbiy2k56" path="res://assets/ui/save_panel.png" id="5_87bdx"]
 [ext_resource type="Script" uid="uid://70sinhb57xf2" path="res://scripts/ui/load_button.gd" id="6_1c7f8"]
-[ext_resource type="Texture2D" uid="uid://bbgl8j5gspm8w" path="res://assets/empty_banner.png" id="7_qu5hl"]
-[ext_resource type="Texture2D" uid="uid://dynx0pbkwxfbr" path="res://assets/trashbin_icon.png" id="8_ekw5k"]
+[ext_resource type="Texture2D" uid="uid://bbgl8j5gspm8w" path="res://assets/banners/empty.png" id="7_qu5hl"]
+[ext_resource type="Texture2D" uid="uid://dynx0pbkwxfbr" path="res://assets/ui/bin.png" id="8_ekw5k"]
 [ext_resource type="AudioStream" uid="uid://d36j52ps52leg" path="res://assets/audio/ui_hover.wav" id="9_npkpf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_stkin"]
@@ -477,7 +477,6 @@ emoji_menu_enabled = false
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=228061620]
 unique_name_in_owner = true
 stream = ExtResource("9_npkpf")
-bus = &"UI"
 
 [connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="text_submitted" from="SetNameBoxPanel/VBoxContainer/SetNameBox" to="." method="_on_set_name_box_text_submitted"]

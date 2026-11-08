@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bfj0hc2sxlm7r"]
 
 [ext_resource type="PackedScene" uid="uid://dawu0fejcu53i" path="res://scenes/npcs/npc.tscn" id="1_qrja6"]
-[ext_resource type="Texture2D" uid="uid://bfnpu1ps13rfg" path="res://assets/moth_girl.png" id="2_qwvua"]
+[ext_resource type="Texture2D" uid="uid://bfnpu1ps13rfg" path="res://assets/characters/moth_girl.png" id="2_qwvua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hviow"]
 size = Vector2(12, 4)

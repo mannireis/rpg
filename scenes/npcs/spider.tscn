@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://ba4p6rb6wgjk0"]
 
-[ext_resource type="Script" uid="uid://cvq1dc601nuk2" path="res://scripts/npcs/npc.gd" id="1_53ikk"]
+[ext_resource type="PackedScene" uid="uid://dawu0fejcu53i" path="res://scenes/npcs/npc.tscn" id="1_qrja6"]
 [ext_resource type="Texture2D" uid="uid://c0yard7n50vy7" path="res://assets/characters/spider.png" id="2_sthnr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sthnr"]
-size = Vector2(22, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1xvt"]
 size = Vector2(64, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sthnr"]
+size = Vector2(22, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o1xvt"]
 atlas = ExtResource("2_sthnr")
@@ -31,8 +31,7 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="spider" type="CharacterBody2D" unique_id=1704005591 node_paths=PackedStringArray("area2d", "animation")]
-script = ExtResource("1_53ikk")
+[node name="Spider" unique_id=1704005591 node_paths=PackedStringArray("area2d", "animation") instance=ExtResource("1_qrja6")]
 npc_name = &"Necronomos"
 dialogue = "=== start
 Necronomos: Hello smalling what are you doing here? And give me a reason why I should'nt eat you right now?
@@ -46,17 +45,15 @@ area2d = NodePath("Area2D")
 animation = NodePath("AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cvq1dc601nuk2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=926192129]
-position = Vector2(1, -3)
-shape = SubResource("RectangleShape2D_sthnr")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=62933202]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1533745815]
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(896990980) index="0" unique_id=1537684596]
 position = Vector2(-17.5, -9)
 shape = SubResource("RectangleShape2D_o1xvt")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1619943668]
+[node name="CollisionShape2D" parent="." index="1" unique_id=795626822]
+position = Vector2(1, -3)
+shape = SubResource("RectangleShape2D_sthnr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=1619943668]
 sprite_frames = SubResource("SpriteFrames_53ikk")
 animation = &"idle_down"
 autoplay = "idle_down"

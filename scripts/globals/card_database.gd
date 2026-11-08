@@ -4,11 +4,6 @@ extends Node
 const n = GameCard.Able.NONE
 const s = GameCard.S
 const v0 = Vector2i(0,0)
-const p = "res://assets/aseprite/cards/"
-
-var common_textures: Array[Texture2D] = [
-	preload(p+"bad_card.png")
-]
 
 var db: Array[Array] = [
 [
@@ -36,8 +31,8 @@ var db: Array[Array] = [
 	GameCard.new(s.JOKER, 0 , n, Vector2i.ZERO, "Jester", 3, preload("res://assets/cards/jester_joker.png"), "Does 25% more damage per round while equipted")
 ],
 [
-	GameCard.new(s.OTHER,0,GameCard.Able.ATK,Vector2i(3,0),"Punch",0, preload("res://assets/aseprite/cards/1/0.png"), "Basic attack does 3 attack"),
-	GameCard.new(s.OTHER,0,GameCard.Able.BLOCK,Vector2i(-3,0),"Block",0, preload("res://assets/aseprite/cards/1/0.png"), "Basic shield adds +3 shield points")
+	GameCard.new(s.OTHER,0,GameCard.Able.ATK,Vector2i(3,0),"Punch",0, preload("res://assets/combat/0.png"), "Basic attack does 3 attack"),
+	GameCard.new(s.OTHER,0,GameCard.Able.BLOCK,Vector2i(-3,0),"Block",0, preload("res://assets/combat/0.png"), "Basic shield adds +3 shield points")
 ]]
 
 
@@ -78,7 +73,7 @@ func _ready() -> void:
 			ctl.sp.sel_autosubmit = true
 			print(ctl.sp.sel_cards)
 			ctl.sp.sel_cards = []
-			Input.set_custom_mouse_cursor(preload(p+"../../select_cursor.png"))
+			Input.set_custom_mouse_cursor(preload("res://assets/ui/select_cursor.png"))
 			await ctl.sp.cards_selected
 			var vcsel = ctl.sp.sel_cards
 			var datasel = []
