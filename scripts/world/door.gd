@@ -88,17 +88,26 @@ enum Transition {
 @onready var area_2d: Area2D = $Area2D
 @onready var blocker_wide: Sprite2D = $BlockerWide
 @onready var blocker_narrow: Sprite2D = $BlockerNarrow
-
+var is_blocked := false
 
 func _ready() -> void:
 	for button in blocking_buttons:
 		button.toggled.connect(_on_button_toggled)
+	area_2d.monitoring = true
+	add_to_group("doors")
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("knock knock. who's there? "+str(body)+" really? body who? "+str(body.name))
+	if body.is_in_group("fireball"):
+		print("fireball in door")
+		await body.explode()
+		_unblock()
 	if body is not Player:
 		return
-
+	if is_blocked:
+		print("door blocked, ignoring player")
+		return
 	Signals.transition.emit(self)
 
 
@@ -120,8 +129,8 @@ func _set_rotation() -> void:
 
 
 func _block() -> void:
-	area_2d.monitoring = false
-	
+	#area_2d.monitoring = false
+	is_blocked = true
 	if horizontal and other.position.y < position.y:
 		blocker_wide.modulate = Color.WHITE
 		blocker_wide.show()
@@ -132,5 +141,6 @@ func _block() -> void:
 
 func _unblock() -> void:
 	area_2d.monitoring = true
+	is_blocked = false
 	blocker_wide.modulate = Color(1, 1, 1, 0.3)
 	blocker_narrow.modulate = Color(1, 1, 1, 0.3)

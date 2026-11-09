@@ -2,6 +2,7 @@ extends NPC
 
 var first_seen := false
 var room_door: Door
+var exit_door: Door
 
 func v(a: int, b: int = 0) -> Vector2i: 
 	return Vector2i(a,b)
@@ -13,6 +14,7 @@ func _ready() -> void:
 	var deck2 := base
 	var doors = get_tree().get_root().get_node("Chapter01/Doors")
 	room_door = doors.get_node("Door43")
+	exit_door = doors.get_node("Door25")
 
 	deck.append_array([v(1,0),v(1,0),v(0,1),v(0,1),v(0,1),v(3,4)])
 	var inv = Signals.BattleInv.new(24,deck,[],[v(1,0),v(0,2)])
@@ -73,4 +75,13 @@ func _battle_won() -> void:
 	super()
 	print("flicker battle won")
 	met_id = &"battle_won"
+	var f = get_node("FireballBullet")
+	f.scale = Vector2(1,1)
+	f.get_node("AnimatedSprite2D").play("fireball")
+	f.global_position = global_position
+	f.last_aim = Vector2(4,-4)
+	f.last_correction = Vector2(4,-4)
+	f.target = exit_door
+	f.appear()
+	f._on_retarget()
 		

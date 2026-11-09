@@ -785,6 +785,7 @@ met_id = &"met"
 
 [node name="Flicker" parent="NPCs" parent_id_path=PackedInt32Array(1218614627) index="9" unique_id=1027138446 instance=ExtResource("11_2br45")]
 position = Vector2(1783, -804)
+npc_name = &"flicker"
 dialogue = "=== start
 	$player: Hello, are you Flicker?
 	Flicker: That would be me, yes. What do you want from me, strange child?

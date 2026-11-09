@@ -4,6 +4,7 @@ var active := false
 var retarget: SceneTreeTimer
 var last_correction: Vector2 = Vector2(0,0)
 var last_aim := Vector2(-4,4)
+var forced := Vector2(0,0)
 signal passersby_appear
 signal passersby_die
 @export var vel: Vector2i
@@ -33,9 +34,11 @@ func vel_to_target() -> Vector2:
 	else: return velocity
 	
 func _on_retarget() -> void:
-	velocity = vel_to_target()
-	retarget = get_tree().create_timer(0.1)
-	retarget.timeout.connect(_on_retarget)
+	if forced.x > 2: velocity = forced*vel_scale
+	else:
+		velocity = vel_to_target()
+		retarget = get_tree().create_timer(0.1)
+		retarget.timeout.connect(_on_retarget)
 	
 
 func appear() -> void:
@@ -43,6 +46,7 @@ func appear() -> void:
 	visible = true
 	velocity = vel*vel_scale
 	if target: velocity = last_aim
+	if forced.x >= 2: velocity = forced*vel_scale
 	print(str(name)+" appearing")
 	
 func die() -> void:
@@ -70,3 +74,12 @@ func _on_body_entered(node: Node2D) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if active: move_and_slide()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print(area.get_parent())
+	var p = area.get_parent()
+	if area.get_parent().is_in_group("doors"):
+		area.get_parent()._unblock()
+		p.other._unblock()
+		explode()

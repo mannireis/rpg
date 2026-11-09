@@ -38,6 +38,10 @@ func _physics_process(delta: float) -> void:
 		global_position = get_tree().get_root().get_node("Chapter01/DevTeleport").global_position
 	if Input.is_action_just_pressed("Teleport2") and OS.has_feature("debug"):
 		global_position = get_tree().get_root().get_node("Chapter01/DevTeleportU").global_position
+	if Input.is_action_just_pressed("QuickDebug") and OS.has_feature("debug"):
+		print("quick debug")
+		GameState.spoke_before_battle = "flicker"
+		Signals.battle_won.emit()
 	GameState.player_pos = global_position
 
 	play_animations(direction)
