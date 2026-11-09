@@ -98,11 +98,6 @@ func _ready() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("knock knock. who's there? "+str(body)+" really? body who? "+str(body.name))
-	if body.is_in_group("fireball"):
-		print("fireball in door")
-		await body.explode()
-		_unblock()
 	if body is not Player:
 		return
 	if is_blocked:
