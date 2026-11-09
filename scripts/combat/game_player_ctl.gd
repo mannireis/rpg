@@ -13,7 +13,8 @@ var ai_diff = 0
 var ai_default_atk_chance: float = 0.1
 var ai_default_block_chance: float = 0.1
 var sp: Node = null
-var energy: int = 4
+var refill_energy: int = 4
+var energy: int = refill_energy
 var max_hp: int = 26
 var hp: int = max_hp
 var hp_bar: HealthBar2D
@@ -366,7 +367,7 @@ func enemy_display_cards(show: bool = true, cards: Array[int] = []) -> void:
 	var i: int = 0
 	var node: TextureRect = null
 	var card: GameCard
-	for node_name in ["EnemyCard"]:
+	for node_name in ["EnemyCard","EnemyCard2","EnemyCard3"]:
 		node = UI_node.get_node(node_name)
 		if show:
 			if i < len(cards):
@@ -393,14 +394,23 @@ func ai_turn() -> void:
 		node.texture = preload("res://assets/combat/basic_block.png")
 		node.visible = true
 	else:
-		match ai_diff:
-			_:
-				hand.shuffle()
-				if len(hand):
-					var single_tar = hand[0]
-					print("AI playing "+permanent_deck[single_tar].name+" from hand "+str(hand))
-					enemy_display_cards(true, hand)
-					play_card(single_tar)
-				else: printerr("empty hand during AI turn")
-				print("hand after playing "+str(hand))
+		hand.shuffle()
+		if not len(hand): printerr("empty hand during AI turn")
+		else:
+			var multi_target: Array[int] = []
+			match ai_diff:
+				1:
+					multi_target = [hand[0],hand[1]]
+				_:
+					multi_target = [hand[0]]
+					print("AI playing "+permanent_deck[multi_target[0]].name+" from hand "+str(hand))
+			if len(multi_target) > 2 and (permanent_deck[multi_target[0]].cost+permanent_deck[multi_target[1]].cost+permanent_deck[hand[2]].cost) <= energy:
+				pass
+			elif len(multi_target) > 2: multi_target.pop_back()
+			if len(multi_target) > 2 and (permanent_deck[multi_target[0]].cost+permanent_deck[multi_target[1]].cost) <= energy:
+				pass
+			elif len(multi_target) > 1: multi_target.pop_back()
+			enemy_display_cards(true,multi_target)
+			for card in multi_target:
+				play_card(card)
 	turn_end()
