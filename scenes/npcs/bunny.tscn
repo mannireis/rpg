@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c6flwoillv47n"]
+
+[ext_resource type="Texture2D" uid="uid://ci04kpitrifsd" path="res://assets/characters/bunny.png" id="1_gjku8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dpvgx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gjku8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="CharacterBody2D" unique_id=1524374760]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1333546757]
+sprite_frames = SubResource("SpriteFrames_dpvgx")
