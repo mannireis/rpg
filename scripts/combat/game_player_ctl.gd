@@ -222,6 +222,7 @@ func turn_begin() -> void:
 	var v := v0
 	
 	turn_dmg_dealt = 0
+	energy = refill_energy
 	print("starting turn for enemy? "+str(is_enemy)+" with persistent_dmg "+str(persistent_dmg))
 	while i < len(persistent_dmg):
 		v = persistent_dmg[i]
@@ -264,8 +265,10 @@ func player_attack(block:bool=false,choice: bool = false) -> void:
 		else: req = GameCard.Able.ATK
 		for index in equipped:
 			card = permanent_deck[index]
-			if card.able == req and card.weapon_atk:
+			if card.able == req:
 				res_card = card
+			#checking card.weapon_atk directly makes the editor trip up and complain
+			if card.able == req and false and not card.has("weapon_atk"): printerr("card "+card.name+" failed has('weapon_atk')")
 		if res_card:
 			if battle_debug: print("auto chose "+str(res_card.name))
 			if block:
@@ -383,6 +386,7 @@ func enemy_display_cards(show: bool = true, cards: Array[int] = []) -> void:
 func ai_turn() -> void:
 	#print("AI turn at "+str(ai_diff)+" difficulty")
 	await turn_begin()
+	print("AI turn with "+str(energy)+" energy")
 	var r: float = rand.randf()
 	var node: TextureRect = UI_node.get_node("EnemyCard")
 	if r < ai_default_atk_chance:
@@ -399,17 +403,26 @@ func ai_turn() -> void:
 		else:
 			var multi_target: Array[int] = []
 			match ai_diff:
+				2: multi_target = [hand[0],hand[1],hand[2]]
 				1:
 					multi_target = [hand[0],hand[1]]
+					var testcard: GameCard = permanent_deck[multi_target[0]]
+					var testcard2: GameCard = permanent_deck[multi_target[1]]
+					print("AI 1, proposing multi "+str([testcard.name,testcard2.name]))
+					print("first card "+testcard.name)
 				_:
 					multi_target = [hand[0]]
 					print("AI playing "+permanent_deck[multi_target[0]].name+" from hand "+str(hand))
 			if len(multi_target) > 2 and (permanent_deck[multi_target[0]].cost+permanent_deck[multi_target[1]].cost+permanent_deck[hand[2]].cost) <= energy:
 				pass
-			elif len(multi_target) > 2: multi_target.pop_back()
-			if len(multi_target) > 2 and (permanent_deck[multi_target[0]].cost+permanent_deck[multi_target[1]].cost) <= energy:
+			elif len(multi_target) > 2:
+				print("3hand too costly")
+				multi_target.pop_back()
+			if len(multi_target) > 1 and (permanent_deck[multi_target[0]].cost+permanent_deck[multi_target[1]].cost) <= energy:
 				pass
-			elif len(multi_target) > 1: multi_target.pop_back()
+			elif len(multi_target) > 1:
+				print("2hand too costly: first is "+str(permanent_deck[multi_target[0]].cost))
+				multi_target.pop_back()
 			enemy_display_cards(true,multi_target)
 			for card in multi_target:
 				play_card(card)

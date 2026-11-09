@@ -16,13 +16,18 @@ func _ready() -> void:
 
 	deck.append_array([v(1,0),v(1,0),v(0,1),v(0,1),v(0,1),v(3,4)])
 	var inv = Signals.BattleInv.new(30,deck,[],[v(1,0),v(0,2)])
-	inv.ai_atk_chance = 0.25
+	#inv.ai_atk_chance = 0.25
+	inv.ai_atk_chance = 0
 	inv.ai_block_chance = 0.15
+	inv.ai_int = 1
+	inv.energy = 6
 	
 	deck2.append_array([v(0,0),v(0,0),v(3,1),v(3,1),v(0,2)])
 	var inv2 = Signals.BattleInv.new(32,deck2,[],[v(0,2),v(0,2),v(3,4)]) ## "smarter" Flicker
 	inv2.ai_atk_chance = 0.2
 	inv2.ai_block_chance = 0.1
+	inv2.ai_int = 1
+	inv2.energy = 6
 
 	RoomChangeGlobal.enemy_inv_dict[npc_name] = [inv,inv2]
 

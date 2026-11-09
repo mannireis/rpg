@@ -4,7 +4,7 @@ func _current_id(id:String) -> void:
 	if GameState.speaking_with != npc_name: return
 	if id == "correct_all":
 		print("last flame giving healing splash")
-		for i in range(5):
+		for i in range(10):
 			#GameState.add_card(CardDatabase.db[3][5])
 			GameState.add_card(CardDatabase.db[2][1])
 		Signals.bcast.emit("torchie_happy")

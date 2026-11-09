@@ -17,6 +17,8 @@ func _ready() -> void:
 		player = PlayerCtl.create(get_parent(),p_inv.deck)
 		player.max_hp = p_inv.max_hp
 		player.hp = p_inv.hp
+		player.refill_energy = p_inv.energy
+		player.energy = player.refill_energy
 		player.equipped_display = UI.get_node("PlayerEquipped")
 		player.jokers_display = UI.get_node("PlayerJokers")
 
@@ -47,9 +49,10 @@ func _ready() -> void:
 		if e_inv.ai_atk_chance != null: enemy.ai_default_atk_chance = e_inv.ai_atk_chance
 
 		if e_inv.ai_block_chance != null: enemy.ai_default_block_chance = e_inv.ai_block_chance
-
+		if e_inv.ai_int != null: enemy.ai_diff = e_inv.ai_int
 		enemy.max_hp = e_inv.max_hp
 		enemy.hp = e_inv.hp
+		enemy.refill_energy = e_inv.energy
 		enemy.equipped_display = UI.get_node("EnemyEquipped")
 		enemy.jokers_display = UI.get_node("EnemyJokers")
 		for eq in e_inv.starting_equipped:

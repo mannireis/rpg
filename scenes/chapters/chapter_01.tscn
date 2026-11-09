@@ -340,7 +340,7 @@ offset = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_s3vlm")
 
 [node name="DevTeleportU" type="Marker2D" parent="." index="12" unique_id=435554582]
-position = Vector2(64, -416)
+position = Vector2(1496, -808)
 
 [node name="GiveCard" type="Node2D" parent="." index="13" unique_id=1939478653]
 position = Vector2(-160, 128)
@@ -778,9 +778,9 @@ met_id = &"start"
 [node name="FireballBullet" parent="NPCs/Flicker" index="3" unique_id=117924838 node_paths=PackedStringArray("target") instance=ExtResource("13_nb3ya")]
 visible = false
 vel_scale = 44.0
-target = NodePath("../../ThePasserby")
+target = NodePath("../../ThePassersby")
 
-[node name="ThePasserby" parent="NPCs" parent_id_path=PackedInt32Array(1218614627) index="10" unique_id=945158310 instance=ExtResource("13_nb3ya")]
+[node name="ThePassersby" parent="NPCs" parent_id_path=PackedInt32Array(1218614627) index="10" unique_id=945158310 instance=ExtResource("13_nb3ya")]
 position = Vector2(1664, -832)
 vel = Vector2i(3, 2)
 vel_scale = 8.0

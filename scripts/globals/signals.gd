@@ -49,6 +49,7 @@ class BattleInv:
 	var starting_hand: Array[GameCard]
 	var max_hp := 26
 	var hp := max_hp
+	var energy := 4
 	var ai_int := 0
 	var ai_atk_chance: float ## <0;1>, chance to perform the default attack action
 	var ai_block_chance: float ## <0;1>, chance to perform the default block action
@@ -60,7 +61,7 @@ class BattleInv:
 			res.append(CardDatabase.db[i[0]][i[1]])
 		return res
 
-	func _init(max_hp: int = 26, input_deck: Array[Vector2i] = [], input_equipped: Array[Vector2i] = [], input_hand: Array[Vector2i] = [], ai_int: int = 0):
+	func _init(max_hp: int = 26, input_deck: Array[Vector2i] = [], input_equipped: Array[Vector2i] = [], input_hand: Array[Vector2i] = [], ai_int: int = 0, energy: int = 4):
 		self.input_deck = input_deck
 		self.input_starting_equipped = input_equipped
 		self.input_starting_hand = input_hand
@@ -70,3 +71,4 @@ class BattleInv:
 		self.max_hp = max_hp
 		self.hp = max_hp
 		self.ai_int = ai_int
+		self.energy = energy
