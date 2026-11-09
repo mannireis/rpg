@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://cvkbq4dsmvujn" path="res://scenes/npcs/sprangler.tscn" id="22_3dk3t"]
 [ext_resource type="PackedScene" uid="uid://ba4p6rb6wgjk0" path="res://scenes/npcs/spider.tscn" id="22_hy0ca"]
 [ext_resource type="PackedScene" uid="uid://brpie3yuqu8ke" path="res://scenes/world/well.tscn" id="27_upk58"]
+[ext_resource type="PackedScene" uid="uid://c6flwoillv47n" path="res://scenes/npcs/bunny.tscn" id="28_j7dqr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ib3ld"]
 size = Vector2(52, 4)
@@ -242,6 +243,44 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, -92, 0, 0, 0, 0, -104, -158, 0, 0, 0, 0, -192, -158, 0, 0, 0, 0, -199, -147, 0, 0, 0, 0, -196, -129, 0, 0, 0, 0, -191, -145)
 }
 point_count = 7
+
+[sub_resource type="Animation" id="Animation_upk58"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1989, 314)]
+}
+
+[sub_resource type="Animation" id="Animation_j7dqr"]
+resource_name = "jump"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(295, -248), Vector2(700, -248)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fn8lr"]
+_data = {
+&"RESET": SubResource("Animation_upk58"),
+&"jump": SubResource("Animation_j7dqr")
+}
 
 [node name="Chapter01" unique_id=1529227125 instance=ExtResource("1_btfvo")]
 
@@ -803,5 +842,12 @@ position = Vector2(2424, -802)
 
 [node name="Marker2D" type="Marker2D" parent="NPCs/Well" index="1" unique_id=1092288025]
 position = Vector2(-448, 554)
+
+[node name="Bunny" parent="." index="23" unique_id=1524374760 instance=ExtResource("28_j7dqr")]
+position = Vector2(1989, 314)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bunny" index="1" unique_id=229623089]
+libraries/ = SubResource("AnimationLibrary_fn8lr")
+autoplay = &"jump"
 
 [connection signal="correct_password" from="PreasurePlates/PressurePlate4" to="GiveCard" method="_on_pressure_plate_4_correct_password"]
