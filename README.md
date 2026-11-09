@@ -10,6 +10,13 @@ A silly little RPG. Walk around and talk to NPCs, find the shop and crack the co
 
 Doors may be blocked by planks. Interacting won't help; you have to trigger the associated buttons or force them open with a different approach.
 
+## Debug
+
+- `U`,`T` are teleports. Currently, U gets you past Torchie and lets you battle Flicker directly without getting Healing Splash.
+- T gets you to the wishing well room. From there, you can spend a coin to teleport to the sewers.
+- Be careful not to walk through the room above. The Sprangler is still blocking that entrance, so walking "backwards" would trap you.
+- `P` is a quick dev shortcut. Currently, it is programmed to send a false `battle_won` signal to Flicker. If you are in its room and the little Passerby fireball hunting sequence has already happened, pressing `P` will have Flicker politely bust the exit door open for you.
+
 ## Combat
 
 - The cards you play are limited by the energy each card costs and by your playing slots.
