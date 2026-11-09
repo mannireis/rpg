@@ -35,4 +35,4 @@ func _on_dialogue_branched(to: StringName) -> void:
 			GameState.remove_item(preload("res://assets/items/resources/coin.tres"))
 
 		&"grant_wish":
-			get_tree().current_scene.fade_canvas($Marker2D.global_position)
+			%Manager.fade_canvas($Marker2D.global_position)

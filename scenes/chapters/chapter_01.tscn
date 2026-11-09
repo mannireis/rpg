@@ -244,21 +244,6 @@ _data = {
 }
 point_count = 7
 
-[sub_resource type="Animation" id="Animation_upk58"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1989, 314)]
-}
-
 [sub_resource type="Animation" id="Animation_j7dqr"]
 resource_name = "jump"
 length = 10.0
@@ -278,7 +263,6 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fn8lr"]
 _data = {
-&"RESET": SubResource("Animation_upk58"),
 &"jump": SubResource("Animation_j7dqr")
 }
 
@@ -292,6 +276,9 @@ position = Vector2(2514, -765)
 
 [node name="Coin3" parent="." index="2" unique_id=737298710 instance=ExtResource("5_6vdur")]
 position = Vector2(2510, -767)
+
+[node name="Manager" parent="." index="3" unique_id=118075942]
+unique_name_in_owner = true
 
 [node name="Buttons" type="Node2D" parent="." index="5" unique_id=9057371]
 y_sort_enabled = true
@@ -843,10 +830,10 @@ position = Vector2(2424, -802)
 [node name="Marker2D" type="Marker2D" parent="NPCs/Well" index="1" unique_id=1092288025]
 position = Vector2(-448, 554)
 
-[node name="Bunny" parent="." index="23" unique_id=1524374760 instance=ExtResource("28_j7dqr")]
-position = Vector2(1989, 314)
+[node name="Bunny" parent="NPCs" parent_id_path=PackedInt32Array(1218614627) index="16" unique_id=1524374760 instance=ExtResource("28_j7dqr")]
+position = Vector2(295, -248)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bunny" index="1" unique_id=229623089]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NPCs/Bunny" index="1" unique_id=229623089]
 libraries/ = SubResource("AnimationLibrary_fn8lr")
 autoplay = &"jump"
 
