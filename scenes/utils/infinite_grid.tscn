@@ -4,3 +4,4 @@
 
 [node name="InfiniteGrid" type="Node2D" unique_id=1400324603]
 script = ExtResource("1_7342y")
+metadata/_edit_lock_ = true

@@ -10,19 +10,8 @@ a = Vector2(0, -16)
 b = Vector2(0, 16)
 
 [node name="Door" type="Node2D" unique_id=1581805967]
+z_index = 1
 script = ExtResource("1_hpvv5")
-
-[node name="BlockerWide" type="Sprite2D" parent="." unique_id=210988461]
-visible = false
-position = Vector2(-4, 0)
-rotation = 1.5707964
-texture = ExtResource("2_83dcw")
-offset = Vector2(0, -8)
-
-[node name="BlockerNarrow" type="Sprite2D" parent="." unique_id=173344203]
-visible = false
-position = Vector2(2, 0)
-texture = ExtResource("3_la1wf")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2068297697]
 
@@ -37,5 +26,15 @@ position = Vector2(-16, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=642504930]
 position = Vector2(4, 0)
 shape = SubResource("SegmentShape2D_uvdjg")
+
+[node name="BlockerWide" type="Sprite2D" parent="." unique_id=210988461]
+visible = false
+position = Vector2(8, 0)
+texture = ExtResource("2_83dcw")
+
+[node name="BlockerNarrow" type="Sprite2D" parent="." unique_id=173344203]
+visible = false
+position = Vector2(2, 0)
+texture = ExtResource("3_la1wf")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
