@@ -10,7 +10,6 @@ a = Vector2(0, -16)
 b = Vector2(0, 16)
 
 [node name="Door" type="Node2D" unique_id=1581805967]
-z_index = 1
 script = ExtResource("1_hpvv5")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2068297697]
@@ -34,6 +33,7 @@ texture = ExtResource("2_83dcw")
 
 [node name="BlockerNarrow" type="Sprite2D" parent="." unique_id=173344203]
 visible = false
+z_index = 1
 position = Vector2(2, 0)
 texture = ExtResource("3_la1wf")
 
