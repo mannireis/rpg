@@ -832,6 +832,7 @@ position = Vector2(2424, -802)
 position = Vector2(-448, 554)
 
 [node name="Bunny" parent="NPCs" parent_id_path=PackedInt32Array(1218614627) index="16" unique_id=1524374760 instance=ExtResource("28_j7dqr")]
+visible = false
 position = Vector2(295, -248)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NPCs/Bunny" index="1" unique_id=229623089]
