@@ -16,7 +16,7 @@ func _ready() -> void:
 	room_door = doors.get_node("Door43")
 	exit_door = doors.get_node("Door25")
 
-	deck.append_array([v(1,0),v(1,0),v(0,1),v(0,1),v(0,1),v(3,4)])
+	deck.append_array([v(1,0),v(1,0),v(0,1),v(0,1),v(3,5),v(3,4)])
 	var inv = Signals.BattleInv.new(24,deck,[],[v(1,0),v(0,2)])
 	#inv.ai_atk_chance = 0.25
 	inv.ai_atk_chance = 0
@@ -24,8 +24,8 @@ func _ready() -> void:
 	inv.ai_int = 1
 	inv.energy = 6
 	
-	deck2.append_array([v(0,0),v(0,0),v(3,1),v(3,1),v(0,2)])
-	var inv2 = Signals.BattleInv.new(26,deck2,[],[v(0,2),v(0,2),v(3,4)]) ## "smarter" Flicker
+	deck2.append_array([v(0,0),v(0,2),v(3,1),v(3,1),v(0,2)])
+	var inv2 = Signals.BattleInv.new(26,deck2,[],[v(0,2),v(3,5),v(3,4)]) ## "smarter" Flicker
 	inv2.ai_atk_chance = 0.2
 	inv2.ai_block_chance = 0.1
 	inv2.ai_int = 1
@@ -37,6 +37,13 @@ func _ready() -> void:
 	Signals.battle_lost.connect(_battle_lost)
 	Signals.battle_won.connect(_battle_won)
 	#print(room_door.body_entered.get_connections())
+
+func _current_id(id:String) -> void:
+	if GameState.speaking_with != npc_name: return
+	if id == "battle_won":
+		print("Flicker installs firewalls")
+		for i in range(2):
+			GameState.add_card(CardDatabase.db[3][4])
 
 
 func save_state() -> Dictionary:
@@ -75,13 +82,16 @@ func _battle_won() -> void:
 	super()
 	print("flicker battle won")
 	met_id = &"battle_won"
+	await get_tree().create_timer(0.1).timeout
 	var f = get_node("FireballBullet")
 	f.scale = Vector2(1,1)
 	f.get_node("AnimatedSprite2D").play("fireball")
-	f.global_position = global_position
+	f.position = Vector2(0,0)
 	f.last_aim = Vector2(4,-4)
 	f.last_correction = Vector2(4,-4)
 	f.target = exit_door
+	await get_tree().create_timer(0.1).timeout
+	f.position += Vector2(16,0)
 	f.appear()
 	f._on_retarget()
 		
